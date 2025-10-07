@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import logo from '../assets/images/Markenzeichen-Orange.png';
+import Menu from './Menu.astro';
+---
+
+<header 
+  class="w-full bg-white shadow-sm fixed top-0 left-0 z-50"
+  x-data="{ open: false }"
+>
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <!-- Desktop Menu -->
+    <div class="hidden sm:block">
+      <Menu />
+    </div>
+
+    <!-- Hamburger Button -->
+    <button 
+      class="sm:hidden focus:outline-none z-50"
+      @click="open = !open"
+      :aria-expanded="open.toString()"
+      aria-controls="mobile-menu"
+      aria-label="Toggle menu"
+    >
+      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+      </svg>
+    </button>
+
+    <!-- Logo Centered -->
+    <div class="flex-grow flex justify-center">
+      <Image src={logo} alt="Logo" width={40} height={40} class="object-contain" />
+    </div>
+
+    <div class="w-6 sm:w-auto"></div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div
+    id="mobile-menu"
+    x-show="open"
+    x-transition
+    class="sm:hidden bg-white shadow-md"
+  >
+    <Menu isMobile={true} />
+  </div>
+</header>

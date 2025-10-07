@@ -5,6 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 import netlify from '@astrojs/netlify';
 
+import alpinejs from '@astrojs/alpinejs';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -12,7 +14,10 @@ export default defineConfig({
   },
 
   adapter: netlify(),
+
   redirects: {
     '/': '/retreats',
   },
+
+  integrations: [alpinejs()],
 });
