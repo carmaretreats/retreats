@@ -1,1 +1,22 @@
 @import "tailwindcss";
+
+/* Add your custom font */
+@font-face {
+  font-family: 'PPEditorialOld-Italic';
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PPEditorialOld-Italic.woff2') format('woff2'),
+       url('/fonts/PPEditorialOld-Italic.woff') format('woff'),
+       url('/fonts/PPEditorialOld-Italic.ttf') format('truetype'),
+       url('/fonts/PPEditorialOld-Italic.otf') format('opentype');
+}
+
+@theme {
+  --font-editorial: PPEditorialOld-Italic, sans-serif;
+}
+
+/* Optionally apply it globally */
+body {
+ /* font-family: 'PPEditorialOld-Italic', serif; */
+}
