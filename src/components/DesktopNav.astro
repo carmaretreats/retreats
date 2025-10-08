@@ -3,13 +3,13 @@ export interface Props { side?: 'left' | 'right' }
 const { side = 'left' } = Astro.props;
 ---
 { side === 'left' ? (
-  <nav aria-label="Primary left navigation" class="flex items-center space-x-8">
-    <a href="/retreats" class="text-emerald-800 font-medium hover:underline">Retreats</a>
-    <a href="/unterkunft" class="text-emerald-800 font-medium hover:underline">Unterkunft</a>
+  <nav aria-label="Primary left navigation" class="flex items-center space-x-20 text-sm tracking-widest">
+    <a href="/retreats" class="text-black font-medium hover:underline">Retreats</a>
+    <a href="/unterkunft" class="text-black font-medium hover:underline">Unterkunft</a>
   </nav>
 ) : (
-  <nav aria-label="Primary right navigation" class="flex items-center space-x-8">
-    <a href="/tagesablauf" class="text-emerald-800 font-medium hover:underline">Tagesablauf</a>
-    <a href="/uber-uns" class="text-emerald-800 font-medium hover:underline">Über uns</a>
+  <nav aria-label="Primary right navigation" class="flex items-center space-x-20 text-sm tracking-widest">
+    <a href="/tagesablauf" class="text-black font-medium hover:underline">Tagesablauf</a>
+    <a href="/uber-uns" class="text-black font-medium hover:underline">Über uns</a>
   </nav>
 ) }

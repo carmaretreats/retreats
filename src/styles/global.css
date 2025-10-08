@@ -12,8 +12,17 @@
        url('/fonts/PPEditorialOld-Italic.otf') format('opentype');
 }
 
+@font-face {
+  font-family: 'PlusJakartaSans';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
+}
+
 @theme {
   --font-editorial: PPEditorialOld-Italic, sans-serif;
+  --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
 }
 
 /* Optionally apply it globally */
