@@ -33,11 +33,16 @@ body {
 /* ensure Alpine x-cloak hides elements until mounted */
 [x-cloak] { display: none !important; }
 
+/* ensure overlay stays under header */
+.mobile-panel {
+  z-index: 40; /* keep overlay below header (header z-60, logo/button z-70) */
+}
+
 /* mobile overlay panel (slide down/up) */
 .mobile-panel .mobile-panel-inner{
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 480ms cubic-bezier(.22,.9,.29,.98), opacity 480ms cubic-bezier(.22,.9,.29,.98);
+  transition: transform 640ms cubic-bezier(.22,.9,.29,.98), opacity 640ms cubic-bezier(.22,.9,.29,.98);
   pointer-events: none;
 }
 .mobile-panel.menu-open .mobile-panel-inner{
