@@ -1,0 +1,13 @@
+---
+import CTA from '../components/CTA.astro';
+const { isMobile = false } = Astro.props;
+---
+<nav aria-label="Mobile" class="px-4 py-4">
+  <ul class="flex flex-col space-y-3">
+    <li><a href="/retreats" class="block text-emerald-800 font-medium">Retreats</a></li>
+    <li><a href="/unterkunft" class="block text-emerald-800 font-medium">Unterkunft</a></li>
+    <li><a href="/tagesablauf" class="block text-emerald-800 font-medium">Tagesablauf</a></li>
+    <li><a href="/uber-uns" class="block text-emerald-800 font-medium">Über uns</a></li>
+    <li><CTA text="Kontakt" href="#signup" /></li>
+  </ul>
+</nav>

@@ -1,47 +1,58 @@
 ---
 import { Image } from 'astro:assets';
 import logo from '../assets/images/Carma-Braun.png';
-import Menu from './Menu.astro';
+import MobileNav from './MobileNav.astro';
+import DesktopNav from './DesktopNav.astro';
 ---
 
 <header 
   class="w-full bg-white shadow-sm fixed top-0 left-0 z-50"
   x-data="{ open: false }"
 >
-  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-    <!-- Desktop Menu -->
-    <div class="hidden sm:block">
-      <Menu />
+  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center relative">
+    <!-- LEFT: hamburger (mobile) + desktop left nav -->
+    <div class="flex items-center flex-1">
+      <button 
+        class="sm:hidden focus:outline-none z-50 p-2"
+        @click="open = !open"
+        :aria-expanded="open"
+        aria-controls="mobile-menu"
+        aria-label="Toggle menu"
+      >
+        <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+
+      <div class="hidden sm:flex sm:items-center">
+        <DesktopNav side="left" />
+      </div>
     </div>
 
-    <!-- Hamburger Button -->
-    <button 
-      class="sm:hidden focus:outline-none z-50"
-      @click="open = !open"
-      :aria-expanded="open.toString()"
-      aria-controls="mobile-menu"
-      aria-label="Toggle menu"
-    >
-      <svg class="w-6 h-6 text-black" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-    </button>
-
-    <!-- Logo Centered -->
-    <div class="flex-grow flex justify-center">
-      <Image src={logo} alt="Logo" width={40} height={40} class="object-contain" />
+    <!-- CENTER: logo (absolute centered so it's visually centered between left/right) -->
+    <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
+      <a href="/" class="pointer-events-auto" aria-label="Home">
+        <Image src={logo} alt="Carma Braun — Retreats logo" class="h-10 w-auto object-contain" />
+      </a>
     </div>
 
-    <div class="w-6 sm:w-auto"></div>
+    <!-- RIGHT: desktop right nav -->
+    <div class="flex items-center justify-end flex-1">
+      <div class="hidden sm:flex sm:items-center">
+        <DesktopNav side="right" />
+      </div>
+      <div class="w-6 sm:w-auto" aria-hidden="true"></div>
+    </div>
   </div>
 
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
     x-show="open"
+    x-cloak
     x-transition
     class="sm:hidden bg-white shadow-md"
   >
-    <Menu isMobile={true} />
+    <MobileNav isMobile={true} />
   </div>
 </header>
