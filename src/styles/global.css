@@ -29,3 +29,54 @@
 body {
  /* font-family: 'PPEditorialOld-Italic', serif; */
 }
+
+/* ensure Alpine x-cloak hides elements until mounted */
+[x-cloak] { display: none !important; }
+
+/* mobile overlay panel (slide down/up) */
+.mobile-panel .mobile-panel-inner{
+  transform: translateY(-100%);
+  opacity: 0;
+  transition: transform 480ms cubic-bezier(.22,.9,.29,.98), opacity 480ms cubic-bezier(.22,.9,.29,.98);
+  pointer-events: none;
+}
+.mobile-panel.menu-open .mobile-panel-inner{
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Mobile nav links: centered, uppercase, Plus Jakarta Sans, relaxed spacing */
+.mobile-links {
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap: 2.25rem;
+  min-height: calc(100vh - 4rem);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.mobile-links a{
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: .36em;
+  text-transform: uppercase;
+  font-size: 1.125rem;
+  color: #000;
+  text-decoration: none;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 420ms cubic-bezier(.22,.9,.29,.98), transform 420ms cubic-bezier(.22,.9,.29,.98);
+  will-change: opacity, transform;
+}
+
+/* Stagger reveal when panel is open */
+.mobile-panel.menu-open .mobile-links li:nth-child(1) a { transition-delay: 140ms; opacity:1; transform: translateY(0); }
+.mobile-panel.menu-open .mobile-links li:nth-child(2) a { transition-delay: 260ms; opacity:1; transform: translateY(0); }
+.mobile-panel.menu-open .mobile-links li:nth-child(3) a { transition-delay: 380ms; opacity:1; transform: translateY(0); }
+.mobile-panel.menu-open .mobile-links li:nth-child(4) a { transition-delay: 500ms; opacity:1; transform: translateY(0); }
+
+/* keep toggle button visible when menu open */
+.mobile-panel.menu-open button[aria-label="Toggle menu"] { position: relative; z-index: 60; }

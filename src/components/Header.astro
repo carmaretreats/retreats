@@ -7,14 +7,16 @@ import DesktopNav from './DesktopNav.astro';
 
 <header 
   class="w-full bg-white shadow-sm fixed top-0 left-0 z-50"
-  x-data="{ open: false }"
+  x-data="{ open: false, busy: false }"
+  x-init="$watch('open', v => document.body.classList.toggle('overflow-hidden', v))"
 >
   <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">
     <!-- LEFT: hamburger (mobile) + desktop left nav -->
     <div class="flex items-center flex-1 justify-start">
+      <!-- Mobile animated hamburger -->
       <button
-        class="sm:hidden text-gray-500 w-10 h-10 relative focus:outline-none bg-white flex items-center justify-center z-50"
-        @click="open = !open"
+        class="sm:hidden text-black w-10 h-10 relative focus:outline-none bg-white flex items-center justify-center z-50"
+        @click.prevent="if(!busy){ open = !open }"
         :aria-expanded="open"
         aria-controls="mobile-menu"
         aria-label="Toggle menu"
@@ -22,17 +24,17 @@ import DesktopNav from './DesktopNav.astro';
         <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
           <span
             class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{'rotate-45': open, '-translate-y-1.5': !open }"
+            :class="{ 'rotate-45': open, '-translate-y-1.5': !open }"
             aria-hidden="true"
           ></span>
           <span
             class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{'opacity-0': open }"
+            :class="{ 'opacity-0': open }"
             aria-hidden="true"
           ></span>
           <span
             class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{'-rotate-45': open, 'translate-y-1.5': !open }"
+            :class="{ '-rotate-45': open, 'translate-y-1.5': !open }"
             aria-hidden="true"
           ></span>
         </div>
@@ -43,7 +45,7 @@ import DesktopNav from './DesktopNav.astro';
       </div>
     </div>
 
-    <!-- CENTER: logo (absolute centered so it's visually centered between left/right) -->
+    <!-- CENTER: logo (absolute centered) -->
     <div class="absolute left-1/2 transform -translate-x-1/2 pointer-events-none">
       <a href="/" class="pointer-events-auto" aria-label="Home">
         <Image src={logo} alt="Carma Braun — Retreats logo" class="h-16 w-auto object-contain" />
@@ -59,14 +61,85 @@ import DesktopNav from './DesktopNav.astro';
     </div>
   </div>
 
-  <!-- Mobile Menu -->
+  <!-- Mobile full-screen overlay (slides down/up). clicking background closes -->
   <div
     id="mobile-menu"
-    x-show="open"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="mobile-menu-title"
     x-cloak
-    x-transition
-    class="sm:hidden bg-white shadow-md"
+    :class="{ 'menu-open': open }"
+    @click.self="if(!busy) open = false"
+    x-on:enter="busy = true"
+    x-on:after-enter="setTimeout(()=> busy=false, 20)"
+    x-on:leave="busy = true"
+    x-on:after-leave="setTimeout(()=> busy=false, 20)"
+    class="mobile-panel fixed inset-0 z-40 pointer-events-none"
   >
-    <MobileNav isMobile={true} />
+    <div class="mobile-panel-inner w-full h-full bg-white flex items-center justify-center p-6">
+      <div class="max-w-screen-md w-full">
+        <h2 id="mobile-menu-title" class="sr-only">Main menu</h2>
+        <MobileNav />
+      </div>
+    </div>
   </div>
+
+  <style>
+    /* ensure hidden until Alpine mounts */
+    [x-cloak] { display:none !important; }
+
+    /* panel base (hidden above viewport) */
+    .mobile-panel .mobile-panel-inner{
+      transform: translateY(-100%);
+      opacity: 0;
+      transition: transform 480ms cubic-bezier(.22,.9,.29,.98), opacity 480ms cubic-bezier(.22,.9,.29,.98);
+      pointer-events: none;
+    }
+    /* when open: slide down and allow interaction */
+    .mobile-panel.menu-open .mobile-panel-inner{
+      transform: translateY(0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+
+    /* While transition active, prevent accidental interactions */
+    .mobile-panel .mobile-links a { pointer-events: auto; } /* links are interactive when panel allows pointer-events */
+
+    /* Mobile nav links container: center vertically, spaced, uppercase, plus-jakarta */
+    .mobile-links {
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      justify-content:center;
+      gap: 2.25rem; /* relaxed spacing */
+      min-height: calc(100vh - 4rem);
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    .mobile-links a{
+      font-family: var(--font-sans);
+      font-weight: 500;
+      letter-spacing: .36em;
+      text-transform: uppercase;
+      font-size: 1.125rem;
+      color: #000;
+      text-decoration: none;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 420ms cubic-bezier(.22,.9,.29,.98), transform 420ms cubic-bezier(.22,.9,.29,.98);
+      will-change: opacity, transform;
+    }
+
+    /* Staggered reveal when menu-open */
+    .mobile-panel.menu-open .mobile-links li:nth-child(1) a { transition-delay: 140ms; opacity:1; transform: translateY(0); }
+    .mobile-panel.menu-open .mobile-links li:nth-child(2) a { transition-delay: 260ms; opacity:1; transform: translateY(0); }
+    .mobile-panel.menu-open .mobile-links li:nth-child(3) a { transition-delay: 380ms; opacity:1; transform: translateY(0); }
+    .mobile-panel.menu-open .mobile-links li:nth-child(4) a { transition-delay: 500ms; opacity:1; transform: translateY(0); }
+
+    /* On close: fade out quickly (transitions above handle reverse) */
+
+    /* keep X icon visible in top-left when open */
+    .mobile-panel.menu-open button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
+  </style>
 </header>
