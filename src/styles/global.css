@@ -20,9 +20,26 @@
   src: url('/fonts/PlusJakartaSans-Regular.ttf') format('truetype');
 }
 
+@font-face {
+  font-family: 'EBGaramondEditorial';
+  src: url('/fonts/EBGaramond-Italic.ttf') format('truetype');
+  font-style: italic;
+  font-weight: 400;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'SoraSans';
+  src: url('/fonts/Sora-Regular.ttf') format('truetype');
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
 @theme {
   --font-editorial: PPEditorialOld-Italic, sans-serif;
+  --font-garamond: 'EBGaramondEditorial', serif;
   --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-sora: 'SoraSans', sans-serif;
 }
 
 /* Optionally apply it globally */
@@ -82,12 +99,14 @@ body {
 .mobile-panel.menu-open .mobile-links li:nth-child(2) a { transition-delay: 260ms; opacity:1; transform: translateY(0); }
 .mobile-panel.menu-open .mobile-links li:nth-child(3) a { transition-delay: 380ms; opacity:1; transform: translateY(0); }
 .mobile-panel.menu-open .mobile-links li:nth-child(4) a { transition-delay: 500ms; opacity:1; transform: translateY(0); }
+.mobile-panel.menu-open .mobile-links li:nth-child(5) a { transition-delay: 760ms; opacity:1; transform: translateY(0); }
 
 /* Closing: reverse / fade out before panel slides up */
-.mobile-panel.menu-closing .mobile-links li:nth-child(1) a { transition-delay: 0ms; opacity:0; transform: translateY(12px); }
-.mobile-panel.menu-closing .mobile-links li:nth-child(2) a { transition-delay: 80ms; opacity:0; transform: translateY(12px); }
-.mobile-panel.menu-closing .mobile-links li:nth-child(3) a { transition-delay: 160ms; opacity:0; transform: translateY(12px); }
-.mobile-panel.menu-closing .mobile-links li:nth-child(4) a { transition-delay: 240ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(5) a { transition-delay: 0ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(4) a { transition-delay: 60ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(3) a { transition-delay: 120ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(2) a { transition-delay: 180ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(1) a { transition-delay: 240ms; opacity:0; transform: translateY(12px); }
 
 /* keep toggle button visible when menu open */
 .mobile-panel.menu-open button[aria-label="Toggle menu"],

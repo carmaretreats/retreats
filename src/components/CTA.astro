@@ -1,7 +1,11 @@
 ---
-const { text = "Join Now", href = "/signup" } = Astro.props;
+export interface Props { href?: string; label?: string }
+const { href = '#kontakt', label = 'Mehr erfahren' } = Astro.props;
 ---
-
-<a href={href} class="inline-block px-4 py-2 bg-emerald-600 text-white rounded-lg hover:bg-emerald-700 transition text-sm font-semibold">
-  {text}
+<a
+  href={href}
+  class="inline-block bg-white text-black px-8 py-3 rounded-full shadow-lg text-base md:text-lg"
+  style="font-family: var(--font-sans); letter-spacing: .04em;"
+>
+  {label}
 </a>

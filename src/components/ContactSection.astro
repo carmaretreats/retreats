@@ -1,7 +1,12 @@
 ---
+import bg from '../assets/images/Terra-Rossa-Papier.png';
 --- 
-<section id="kontakt" class="w-full bg-[#8b3b30] text-white py-20 px-6 sm:px-12">
-  <div class="max-w-3xl mx-auto">
+<section
+  id="kontakt"
+  class="w-full text-white relative py-20 px-6 sm:px-12"
+  style={`background-color:#8b3b30; background-image: url('${bg}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+>
+  <div class="max-w-3xl mx-auto relative z-10">
     <header class="mb-10">
       <h2 class="text-4xl sm:text-5xl leading-tight mb-4" style="font-family: var(--font-editorial);">
         Kontakt und Buchung
@@ -62,4 +67,7 @@
       </div>
     </form>
   </div>
+
+  <!-- subtle overlay to ensure text contrast -->
+  <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
 </section>

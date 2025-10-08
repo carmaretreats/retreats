@@ -1,0 +1,49 @@
+---
+import { Image } from 'astro:assets';
+import Cta from '../components/Cta.astro';
+import leftImg from '../assets/images/naomi-pal-dupe.jpeg';
+import rightImg from '../assets/images/zahra-nehme-dupe.jpeg';
+import spiral from '../assets/images/Markenzeichen-Weis.png';
+---
+<section class="relative w-full h-screen overflow-hidden">
+  <!-- split images side-by-side -->
+  <div class="absolute inset-0 grid grid-cols-2">
+    <div class="w-full h-full">
+      <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
+    </div>
+    <div class="w-full h-full">
+      <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
+    </div>
+  </div>
+
+  <!-- subtle overlay for contrast -->
+  <div class="absolute inset-0 bg-black/20"></div>
+
+  <!-- spiral mark top center -->
+  <div class="absolute left-1/2 top-40 transform -translate-x-1/2 z-30 pointer-events-none">
+    <Image src={spiral} alt="Markenzeichen" class="h-12 w-auto object-contain" />
+  </div>
+
+  <!-- centered content -->
+  <div class="relative z-40 flex items-end justify-center h-full">
+    <div class="text-center max-w-4xl px-6 pb-8 md:pb-12 lg:pb-16">
+      <h1
+        class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2"
+        style="font-family: var(--font-editorial);"
+      >
+        Ankommen und Aufatmen.
+      </h1>
+
+      <p
+        class="text-white/90 uppercase tracking-widest text-sm md:text-base mb-6"
+        style="font-family: var(--font-sans);"
+      >
+        Yoga retreats, die nachhaltig bewegen
+      </p>
+
+      <div class="flex justify-center">
+        <Cta />
+      </div>
+    </div>
+  </div>
+</section>
