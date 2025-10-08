@@ -38,11 +38,11 @@ body {
   z-index: 40; /* keep overlay below header (header z-60, logo/button z-70) */
 }
 
-/* mobile overlay panel (slide down/up) */
+/* panel base (hidden above viewport) */
 .mobile-panel .mobile-panel-inner{
   transform: translateY(-100%);
   opacity: 0;
-  transition: transform 640ms cubic-bezier(.22,.9,.29,.98), opacity 640ms cubic-bezier(.22,.9,.29,.98);
+  transition: transform 480ms cubic-bezier(.22,.9,.29,.98), opacity 480ms cubic-bezier(.22,.9,.29,.98);
   pointer-events: none;
 }
 .mobile-panel.menu-open .mobile-panel-inner{
@@ -83,5 +83,12 @@ body {
 .mobile-panel.menu-open .mobile-links li:nth-child(3) a { transition-delay: 380ms; opacity:1; transform: translateY(0); }
 .mobile-panel.menu-open .mobile-links li:nth-child(4) a { transition-delay: 500ms; opacity:1; transform: translateY(0); }
 
+/* Closing: reverse / fade out before panel slides up */
+.mobile-panel.menu-closing .mobile-links li:nth-child(1) a { transition-delay: 0ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(2) a { transition-delay: 80ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(3) a { transition-delay: 160ms; opacity:0; transform: translateY(12px); }
+.mobile-panel.menu-closing .mobile-links li:nth-child(4) a { transition-delay: 240ms; opacity:0; transform: translateY(12px); }
+
 /* keep toggle button visible when menu open */
-.mobile-panel.menu-open button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
+.mobile-panel.menu-open button[aria-label="Toggle menu"],
+.mobile-panel.menu-closing button[aria-label="Toggle menu"] { position: relative; z-index: 60; }

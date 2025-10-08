@@ -7,16 +7,33 @@ import DesktopNav from './DesktopNav.astro';
 
 <header 
   class="w-full bg-white shadow-sm fixed top-0 left-0 z-60"
-  x-data="{ open: false, busy: false }"
+  x-data="{
+    open: false,
+    busy: false,
+    closeMenu() {
+      if (this.busy) return;
+      this.busy = true;
+      const el = this.$refs.panel;
+      // add closing class to trigger link fade-out
+      el.classList.add('menu-closing');
+      // wait for links to fade (match CSS delays) then actually close panel (remove menu-open)
+      setTimeout(() => {
+        this.open = false;
+        // remove closing helper class after allowing panel slide animation to run
+        el.classList.remove('menu-closing');
+        // small timeout to allow panel to finish cleanup
+        setTimeout(()=> { this.busy = false }, 60);
+      }, 420); // matches links fade duration / stagger timing
+    }
+  }"
   x-init="$watch('open', v => document.body.classList.toggle('overflow-hidden', v))"
 >
   <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">
-    <!-- LEFT: hamburger (mobile) + desktop left nav -->
     <div class="flex items-center flex-1 justify-start">
       <!-- Mobile animated hamburger -->
       <button
         class="sm:hidden text-black w-10 h-10 relative focus:outline-none bg-white flex items-center justify-center z-70"
-        @click.prevent="if(!busy){ open = !open }"
+        @click.prevent="if(!busy){ if(!open){ open = true } else { closeMenu() } }"
         :aria-expanded="open"
         aria-controls="mobile-menu"
         aria-label="Toggle menu"
@@ -45,14 +62,14 @@ import DesktopNav from './DesktopNav.astro';
       </div>
     </div>
 
-    <!-- CENTER: logo (absolute centered) -->
+    <!-- CENTER: logo -->
     <div class="absolute left-1/2 transform -translate-x-1/2 z-70">
       <a href="/" class="pointer-events-auto" aria-label="Home">
         <Image src={logo} alt="Carma Braun — Retreats logo" class="h-16 w-auto object-contain" />
       </a>
     </div>
 
-    <!-- RIGHT: desktop right nav -->
+    <!-- RIGHT -->
     <div class="flex items-center justify-end flex-1">
       <div class="hidden sm:flex sm:items-center">
         <DesktopNav side="right" />
@@ -61,19 +78,16 @@ import DesktopNav from './DesktopNav.astro';
     </div>
   </div>
 
-  <!-- Mobile full-screen overlay (slides down/up). clicking background closes -->
+  <!-- Mobile overlay -->
   <div
     id="mobile-menu"
+    x-ref="panel"
     role="dialog"
     aria-modal="true"
     aria-labelledby="mobile-menu-title"
     x-cloak
     :class="{ 'menu-open': open }"
-    @click.self="if(!busy) open = false"
-    x-on:enter="busy = true"
-    x-on:after-enter="setTimeout(()=> busy=false, 20)"
-    x-on:leave="busy = true"
-    x-on:after-leave="setTimeout(()=> busy=false, 20)"
+    @click.self="if(!busy) closeMenu()"
     class="mobile-panel fixed inset-0 z-40 pointer-events-none"
   >
     <div class="mobile-panel-inner w-full h-full bg-white flex items-center justify-center p-6">
@@ -83,63 +97,4 @@ import DesktopNav from './DesktopNav.astro';
       </div>
     </div>
   </div>
-
-  <style>
-    /* ensure hidden until Alpine mounts */
-    [x-cloak] { display:none !important; }
-
-    /* panel base (hidden above viewport) */
-    .mobile-panel .mobile-panel-inner{
-      transform: translateY(-100%);
-      opacity: 0;
-      transition: transform 480ms cubic-bezier(.22,.9,.29,.98), opacity 480ms cubic-bezier(.22,.9,.29,.98);
-      pointer-events: none;
-    }
-    /* when open: slide down and allow interaction */
-    .mobile-panel.menu-open .mobile-panel-inner{
-      transform: translateY(0);
-      opacity: 1;
-      pointer-events: auto;
-    }
-
-    /* While transition active, prevent accidental interactions */
-    .mobile-panel .mobile-links a { pointer-events: auto; } /* links are interactive when panel allows pointer-events */
-
-    /* Mobile nav links container: center vertically, spaced, uppercase, plus-jakarta */
-    .mobile-links {
-      display:flex;
-      flex-direction:column;
-      align-items:center;
-      justify-content:center;
-      gap: 2.25rem; /* relaxed spacing */
-      min-height: calc(100vh - 4rem);
-      margin:0;
-      padding:0;
-      list-style:none;
-    }
-    .mobile-links a{
-      font-family: var(--font-sans);
-      font-weight: 500;
-      letter-spacing: .36em;
-      text-transform: uppercase;
-      font-size: 1.125rem;
-      color: #000;
-      text-decoration: none;
-      opacity: 0;
-      transform: translateY(12px);
-      transition: opacity 420ms cubic-bezier(.22,.9,.29,.98), transform 420ms cubic-bezier(.22,.9,.29,.98);
-      will-change: opacity, transform;
-    }
-
-    /* Staggered reveal when menu-open */
-    .mobile-panel.menu-open .mobile-links li:nth-child(1) a { transition-delay: 140ms; opacity:1; transform: translateY(0); }
-    .mobile-panel.menu-open .mobile-links li:nth-child(2) a { transition-delay: 260ms; opacity:1; transform: translateY(0); }
-    .mobile-panel.menu-open .mobile-links li:nth-child(3) a { transition-delay: 380ms; opacity:1; transform: translateY(0); }
-    .mobile-panel.menu-open .mobile-links li:nth-child(4) a { transition-delay: 500ms; opacity:1; transform: translateY(0); }
-
-    /* On close: fade out quickly (transitions above handle reverse) */
-
-    /* keep X icon visible in top-left when open */
-    .mobile-panel.menu-open button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
-  </style>
 </header>
