@@ -5,22 +5,21 @@ import leftImg from '../assets/images/naomi-pal-dupe.jpeg';
 import rightImg from '../assets/images/zahra-nehme-dupe.jpeg';
 import spiral from '../assets/images/Markenzeichen-Weis.png';
 ---
-<section class="relative w-full h-screen overflow-hidden">
+<section class="relative w-full h-[75vh] overflow-hidden bg-cream-bg">
   <!-- split images side-by-side -->
-  <div class="absolute inset-0 grid grid-cols-2">
-    <div class="w-full h-full">
-      <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
-    </div>
-    <div class="w-full h-full">
-      <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
+  <div class="absolute inset-x-0 top-0 bottom-8 box-border">
+    <div class="w-full h-full px-8 grid grid-cols-2">
+        <div>
+        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
+        </div>
+        <div>
+        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
+        </div>
     </div>
   </div>
 
-  <!-- subtle overlay for contrast -->
-  <div class="absolute inset-0 bg-black/20"></div>
-
   <!-- spiral mark top center -->
-  <div class="absolute left-1/2 top-40 transform -translate-x-1/2 z-30 pointer-events-none">
+  <div class="absolute left-1/2 top-8 transform -translate-x-1/2 z-30 pointer-events-none">
     <Image src={spiral} alt="Markenzeichen" class="h-12 w-auto object-contain" />
   </div>
 

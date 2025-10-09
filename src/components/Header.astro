@@ -6,7 +6,7 @@ import DesktopNav from './DesktopNav.astro';
 ---
 
 <header 
-  class="w-full bg-white shadow-sm fixed top-0 left-0 z-60"
+  class="w-full bg-cream-bg top-0 left-0 z-60"
   x-data="{
     open: false,
     busy: false,
@@ -32,7 +32,7 @@ import DesktopNav from './DesktopNav.astro';
     <div class="flex items-center flex-1 justify-start">
       <!-- Mobile animated hamburger -->
       <button
-        class="sm:hidden text-black w-10 h-10 relative focus:outline-none bg-white flex items-center justify-center z-70"
+        class="sm:hidden text-black w-10 h-10 relative focus:outline-none bg-cream-bg flex items-center justify-center z-70"
         @click.prevent="if(!busy){ if(!open){ open = true } else { closeMenu() } }"
         :aria-expanded="open"
         aria-controls="mobile-menu"

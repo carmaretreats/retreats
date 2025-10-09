@@ -40,6 +40,12 @@
   --font-garamond: 'EBGaramondEditorial', serif;
   --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
   --font-sora: 'SoraSans', sans-serif;
+  --color-cream-bg: #FFF8EE;
+  --color-paper-brown: #9A4736;
+  --color-white: #FFFFFF;
+  --color-dark-brown: #352A1F;
+  --color-accent-orange: #E05830;
+  --color-accent-green-hover: #6D8B73;
 }
 
 /* Optionally apply it globally */
