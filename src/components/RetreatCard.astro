@@ -2,6 +2,7 @@
 // Uses your Alpine.js components
 import Carousel from './Carousel.astro';
 import RoomAccordion from './RoomAccordion.astro';
+import Cta from './Cta.astro';
 ---
 
 <section class="bg-cream-bg text-dark-brown font-sans w-full px-4 py-16">
@@ -36,10 +37,8 @@ import RoomAccordion from './RoomAccordion.astro';
       </div>
 
       <!-- CTA BUTTON -->
-      <div class="pt-4">
-        <a href="#kontakt" class="inline-block border-b-2 border-accent-orange text-dark-brown font-semibold text-sm tracking-wide uppercase hover:text-accent-orange transition-all duration-200">
-          Jetzt Anfragen
-        </a>
+      <div class="flex justify-center pt-6">
+        <Cta />
       </div>
 
     </div>
