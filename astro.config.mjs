@@ -19,5 +19,7 @@ export default defineConfig({
     '/': '/retreats',
   },
 
-  integrations: [alpinejs()],
+  integrations: [alpinejs({
+      entrypoint: '/src/scripts/alpine.ts'
+    })],
 });

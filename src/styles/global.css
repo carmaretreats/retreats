@@ -29,7 +29,7 @@
 }
 @font-face {
   font-family: 'SoraSans';
-  src: url('/fonts/Sora-Regular.ttf') format('truetype');
+  src: url('/fonts/Sora-Regular.otf') format('truetype');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
