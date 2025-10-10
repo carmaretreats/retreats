@@ -1,16 +1,28 @@
 ---
-export interface Props { href?: string; label?: string }
-const { href = '#kontakt', label = 'Mehr erfahren' } = Astro.props;
+const {
+  href = '#kontakt',
+  label = 'Jetz Buchen',
+  color = 'orange',
+} = Astro.props;
+
+const base =
+  'inline-block rounded-full uppercase font-sora text-white tracking-widest text-base md:text-lg px-10 py-4 shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-bg';
+
+const colors = {
+  brown: 'bg-[var(--color-paper-brown)] hover:bg-[#6f2f23] focus:ring-[var(--color-paper-brown)]',
+  orange: 'bg-[var(--color-accent-orange)] hover:bg-[#bb421d] focus:ring-[var(--color-accent-orange)]',
+  green: 'bg-[var(--color-accent-green-hover)] hover:bg-[#4d6f56] focus:ring-[var(--color-accent-green-hover)]',
+};
+
+const buttonClass = `${base} ${colors[color]}`;
 ---
+
 <a
-  href="#kontakt"
+  href={href}
   @click.prevent="
-    closeMenu();
-    setTimeout(() => {
-      document.querySelector('#kontakt')?.scrollIntoView({ behavior: 'smooth' });
-    }, 500)
+    document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   "
-  class="..."
+  class={buttonClass}
 >
-  Mehr erfahren
+  {label}
 </a>

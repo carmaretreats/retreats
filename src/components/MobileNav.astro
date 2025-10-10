@@ -1,13 +1,11 @@
 ---
-const { isMobile = false } = Astro.props;
-import Cta from './Cta.astro';
 ---
 <nav aria-label="Mobile navigation">
   <ul class="mobile-links">
     <li><a href="/retreats" @click.prevent="closeMenu(); location.href='/retreats'">Retreats</a></li>
-    <li><a href="/unterkunft" @click.prevent="closeMenu(); location.href='/unterkunft'">Unterkunft</a></li>
+    <li><a href="/unterkunft" @click.prevent="closeMenu(); location.href='/unterkunft'">Unterkunft/Preise</a></li>
     <li><a href="/tagesablauf" @click.prevent="closeMenu(); location.href='/tagesablauf'">Tagesablauf</a></li>
     <li><a href="/uber-uns" @click.prevent="closeMenu(); location.href='/uber-uns'">Über uns</a></li>
-    <li><Cta /></li>
+    <li><a href="#kontakt" @click.prevent="closeMenu(); location.href='#kontakt'">Kontakt</a></li>
   </ul>
 </nav>
