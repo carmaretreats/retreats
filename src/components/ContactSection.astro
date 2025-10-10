@@ -1,73 +1,77 @@
----
-import bg from '../assets/images/Terra-Rossa-Papier.png';
---- 
 <section
   id="kontakt"
-  class="w-full text-white relative py-20 px-6 sm:px-12"
-  style={`background-color:#8b3b30; background-image: url('${bg}'); background-size: cover; background-position: center; background-repeat: no-repeat;`}
+  class="relative w-full py-20 px-6 sm:px-12 bg-cream-bg text-dark-brown font-sans"
 >
-  <div class="max-w-3xl mx-auto relative z-10">
-    <header class="mb-10">
-      <h2 class="text-4xl sm:text-5xl leading-tight mb-4" style="font-family: var(--font-editorial);">
+  <div class="max-w-4xl mx-auto relative z-10 flex flex-col gap-16">
+
+    <!-- Top Heading -->
+    <header class="max-w-3xl">
+      <p class="uppercase text-sm tracking-wide">Retreat-Infos</p>
+      <h2 class="text-2xl md:text-4xl font-editorial italic leading-snug mb-6">
         Kontakt und Buchung
       </h2>
-      <p class="text-lg sm:text-xl text-white/90" style="font-family: var(--font-editorial);">
-        Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen. Du hast noch weitere Fragen? Gerne beantworten wir dir diese — füll dazu einfach das Formular aus.
+      <p class="text-base md:text-lg leading-relaxed text-dark-brown">
+        Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.<br />
+        Du hast noch weitere Fragen? Gerne beantworten wir dir diese — füll dazu einfach das Formular aus.
       </p>
     </header>
 
-    <div class="mb-10">
-      <h3 class="text-lg mb-1" style="font-family: var(--font-editorial); color: rgba(0,0,0,0.9);">
-        E‑Mail
-      </h3>
-      <p class="mb-6 text-white/90" style="font-family: var(--font-sans);">
-        kontakt@mayogi-yoga.de
-      </p>
+    <!-- Email Info -->
+    <div>
+      <h3 class="text-base font-editorial text-dark-brown mb-1">E‑Mail</h3>
+      <p class="text-base text-dark-brown font-sans">kontakt@mayogi-yoga.de</p>
     </div>
 
+    <!-- Contact Form -->
     <form class="space-y-8" novalidate>
+
+      <!-- Name -->
       <div>
-        <label class="block mb-2 text-sm" style="font-family: var(--font-editorial); color:#0b0b0b;">Ihr Name</label>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihr Name
+        </label>
         <input
           type="text"
           placeholder="Geben Sie Ihren Namen ein"
-          class="w-full bg-white text-gray-700 placeholder-gray-400 rounded-2xl py-4 px-6 shadow-md border border-white/60"
-          style="font-family: var(--font-sans);"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
         />
       </div>
 
+      <!-- Email -->
       <div>
-        <label class="block mb-2 text-sm" style="font-family: var(--font-editorial); color:#0b0b0b;">Ihre E‑Mail*</label>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihre E‑Mail*
+        </label>
         <input
           type="email"
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
-          class="w-full bg-white text-gray-700 placeholder-gray-400 rounded-2xl py-4 px-6 shadow-md border border-white/60"
-          style="font-family: var(--font-sans);"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
         />
       </div>
 
+      <!-- Message -->
       <div>
-        <label class="block mb-2 text-sm" style="font-family: var(--font-editorial); color:#0b0b0b;">Ihre Nachricht*</label>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihre Nachricht*
+        </label>
         <textarea
-          rows="6"
+          rows="5"
           placeholder="Teilen Sie uns Ihre Fragen mit"
-          class="w-full bg-white text-gray-700 placeholder-gray-400 rounded-2xl py-4 px-6 shadow-md border border-white/60 resize-none"
-          style="font-family: var(--font-sans);"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
         ></textarea>
       </div>
 
+      <!-- Submit Button -->
       <div>
         <button
-          type="button"
-          class="inline-block bg-blue-600 hover:bg-blue-700 text-white py-4 px-10 rounded-full shadow-lg"
-          style="font-family: var(--font-editorial);"
+          type="submit"
+          class="uppercase text-sm font-semibold tracking-wide border-b-2 border-accent-orange text-dark-brown hover:text-accent-orange transition-colors duration-200 font-sans"
         >
-          Nachricht senden
+          Deine Frage schicken
         </button>
       </div>
-    </form>
-  </div>
 
-  <!-- subtle overlay to ensure text contrast -->
-  <div class="absolute inset-0 bg-black/10 pointer-events-none"></div>
+    </form>
+
+  </div>
 </section>

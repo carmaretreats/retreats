@@ -1,0 +1,47 @@
+---
+// Uses your Alpine.js components
+import Carousel from './Carousel.astro';
+import RoomAccordion from './RoomAccordion.astro';
+---
+
+<section class="bg-cream-bg text-dark-brown font-sans w-full px-4 py-16">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+
+    <!-- Left: Carousel Image -->
+    <div class="w-full h-full flex items-stretch">
+      <Carousel />
+    </div>
+
+    <!-- Right: Date, Text, Accordion, CTA -->
+    <div class="flex flex-col gap-6 justify-between">
+      
+      <!-- DATE -->
+      <h2 class="font-editorial italic text-xl md:text-2xl text-dark-brown">
+        12.–18. Januar 2026 in Sri Lanka
+      </h2>
+
+      <!-- PARAGRAPHS -->
+      <div class="space-y-4 text-base leading-relaxed text-dark-brown">
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+        </p>
+        <p>
+          Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+        </p>
+      </div>
+
+      <!-- ACCORDION -->
+      <div class="pt-4">
+        <RoomAccordion />
+      </div>
+
+      <!-- CTA BUTTON -->
+      <div class="pt-4">
+        <a href="#kontakt" class="inline-block border-b-2 border-accent-orange text-dark-brown font-semibold text-sm tracking-wide uppercase hover:text-accent-orange transition-all duration-200">
+          Jetzt Anfragen
+        </a>
+      </div>
+
+    </div>
+  </div>
+</section>

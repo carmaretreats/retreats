@@ -1,0 +1,95 @@
+<div class="font-inter w-full max-w-2xl">
+
+  <div class="divide-y divide-slate-200">
+    <!-- Accordion item 1 -->
+    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+      <h2>
+        <button
+          id="room-title-01"
+          type="button"
+          class="flex items-center justify-between w-full text-left font-semibold py-2 text-black"
+          @click="expanded = !expanded"
+          :aria-expanded="expanded"
+          aria-controls="room-text-01"
+        >
+          <span><em>Was kostet es?</em></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+        </button>
+      </h2>
+      <div
+        id="room-text-01"
+        role="region"
+        aria-labelledby="room-title-01"
+        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+      >
+        <div class="overflow-hidden">
+          <p class="pb-3">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque efficitur, purus ac blandit pretium.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion item 2 -->
+    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+      <h2>
+        <button
+          id="room-title-02"
+          type="button"
+          class="flex items-center justify-between w-full text-left font-semibold py-2 text-black"
+          @click="expanded = !expanded"
+          :aria-expanded="expanded"
+          aria-controls="room-text-02"
+        >
+          <span><em>Was ist inkludiert?</em></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+        </button>
+      </h2>
+      <div
+        id="room-text-02"
+        role="region"
+        aria-labelledby="room-title-02"
+        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+      >
+        <div class="overflow-hidden">
+          <p class="pb-3">
+            All meals, yoga classes, workshops, and beach access are included in the price.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accordion item 3 -->
+    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+      <h2>
+        <button
+          id="room-title-03"
+          type="button"
+          class="flex items-center justify-between w-full text-left font-semibold py-2 text-black"
+          @click="expanded = !expanded"
+          :aria-expanded="expanded"
+          aria-controls="room-text-03"
+        >
+          <span><em>Wo ist es?</em></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+        </button>
+      </h2>
+      <div
+        id="room-text-03"
+        role="region"
+        aria-labelledby="room-title-03"
+        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+      >
+        <div class="overflow-hidden">
+          <p class="pb-3">
+            In einem abgelegenen Küstendorf in Sri Lanka – mit Palmen, Hängematten und atemberaubendem Meerblick.
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
