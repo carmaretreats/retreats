@@ -1,15 +1,53 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
+
 import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import RetreatLeft from '../../components/RetreatLeft.astro';
 import Footer from '../../components/Footer.astro';
+
+// Get all sections from the content collection
+const allSections = await getCollection('sections');
+
+
+// Sort sections (Decap CMS saves them as individual files, so we need a sorting mechanism)
+// OPTION 1: Sort by filename (alphabetical) - simple but less flexible
+// const sortedSections = allSections.sort((a, b) => a.slug.localeCompare(b.slug));
+
+// OPTION 2 (RECOMMENDED): Add a 'weight' or 'order' field in config.yml and sort by it
+// Let's assume you'll add 'weight: { label: "Order", name: "weight", widget: "number", default: 10, min: 0 }'
+// to the root fields of your 'page_sections' collection in config.yml.
+const sortedSections = allSections
+  .filter(section => section.data.is_visible) // Filter out hidden sections
+  .sort((a, b) => (a.data.weight || 0) - (b.data.weight || 0)); // Sort by 'weight' field
+
+// Mapping of section_type to Astro component
+const sectionComponents = {
+  Hero,
+  RetreatLeft,
+  ContactSection,
+};
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
-    <Hero />
-    <RetreatLeft />
-    <ContactSection />
+        {sortedSections.map((section) => {
+      // Get the correct component based on section_type
+      const Component = sectionComponents[section.data.section_type];
+
+      // Pass the specific data for this section type to the component
+      const componentData = section.data.data[`${section.data.section_type.toLowerCase()}_content`];
+
+      // Check if component and its data exist before rendering
+      return Component && componentData ? (
+        <Component {...componentData} />
+      ) : (
+        // Optional: Render a fallback or warning for missing component/data
+        <div class="p-4 text-red-500 text-center">
+          Warning: Could not render section '{section.data.title}' of type '{section.data.section_type}'.
+        </div>
+      );
+    })}
     <Footer />
   </main>
 </Layout>

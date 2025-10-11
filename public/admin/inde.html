@@ -1,0 +1,29 @@
+---
+// src/pages/admin.astro
+// This Astro page will serve the Decap CMS admin interface.
+// It will be purely client-side to load the CMS bundle.
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Content Manager</title>
+  <!-- Decap CMS needs to know where to find its config.yml -->
+  <meta name="decap-cms-config-path" content="/admin/config.yml" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+</head>
+<body>
+  <!-- The Decap CMS script will find this div and mount itself here -->
+  <div id="nc-root"></div>
+
+  <!-- Decap CMS Script: Load from CDN -->
+  <!-- Include the script that builds the page and powers Decap CMS -->
+  <script src="https://unpkg.com/decap-cms@^3.1.2/dist/decap-cms.js"></script>
+</body>
+
+  <!-- Netlify Identity (for authentication). Only needed if you use Netlify Identity. -->
+  <!-- Make sure this loads AFTER Decap CMS. -->
+  <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+</body>
+</html>

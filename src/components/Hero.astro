@@ -1,23 +1,54 @@
 ---
+// src/components/Hero.astro
 import { Image } from 'astro:assets';
 import Cta from '../components/Cta.astro';
-import leftImg from '../assets/images/naomi-pal-dupe.jpeg';
-import rightImg from '../assets/images/zahra-nehme-dupe.jpeg';
-import spiral from '../assets/images/Markenzeichen-Weis.png';
+import spiral from '../assets/images/Markenzeichen-Weis.png'; // Spiral mark is still static
+
+// Define expected props
+interface Props {
+  heading: string;
+  subheading: string;
+  left_image?: string; // Optional image path from CMS
+  right_image?: string; // Optional image path from CMS
+  cta_text?: string;
+  cta_link?: string;
+}
+
+const {
+  heading = "Ankommen und Aufatmen.", // Default values if not provided by CMS
+  subheading = "Yoga retreats, die nachhaltig bewegen",
+  left_image,
+  right_image,
+  cta_text = "Jetzt Buchen",
+  cta_link = "/#kontakt"
+} = Astro.props;
 ---
 <section class="relative w-full bg-cream-bg pb-8 px-8">
+  <div class="h-[75vh] overflow-hidden">
     <!-- Image for mobile (always visible) -->
     <div class="block md:hidden">
-      <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover" />
+      {left_image ? (
+        <Image src={left_image} alt={heading} class="w-full h-full object-cover" />
+      ) : (
+        <div class="w-full h-full bg-gray-200 flex items-center justify-center">No Mobile Image Set</div>
+      )}
     </div>
 
     <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
     <div class="hidden md:grid md:grid-cols-2 w-full h-full">
       <div>
-        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
+        {left_image ? (
+          <Image src={left_image} alt="Left hero image" class="w-full h-full object-cover" />
+        ) : (
+          <div class="w-full h-full bg-gray-200 flex items-center justify-center">No Left Image Set</div>
+        )}
       </div>
       <div>
-        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
+        {right_image ? (
+          <Image src={right_image} alt="Right hero image" class="w-full h-full object-cover" />
+        ) : (
+          <div class="w-full h-full bg-gray-300 flex items-center justify-center">No Right Image Set</div>
+        )}
       </div>
     </div>
   </div>
@@ -34,18 +65,19 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
         class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2"
         style="font-family: var(--font-editorial);"
       >
-        Ankommen und Aufatmen.
+        {heading}
       </h1>
 
       <p
         class="text-white/90 uppercase tracking-widest text-sm md:text-base mb-6"
         style="font-family: var(--font-sans);"
       >
-        Yoga retreats, die nachhaltig bewegen
+        {subheading}
       </p>
 
       <div class="flex justify-center">
-        <Cta />
+        <!-- Pass CTA text and link from props -->
+        <Cta buttonText={cta_text} href={cta_link} />
       </div>
     </div>
   </div>

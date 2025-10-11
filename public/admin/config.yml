@@ -1,0 +1,122 @@
+# public/admin/config.yml
+
+backend:
+  name: git-gateway # Use git-gateway for Netlify Identity
+  branch: DecapIntegration # Branch to publish to. Change if your primary branch is different (e.g., 'master').
+
+publish_mode: editorial_workflow # Recommended: Allows draft/review workflow
+media_folder: "public/uploads" # Where images/files uploaded through CMS will go
+public_folder: "/uploads" # The public path to the media folder
+display_url: "http://localhost:4321" # IMPORTANT: Replace with your actual live site URL (e.g., https://your-retreats.netlify.app)
+show_preview_links: true # Show preview links in the CMS
+
+collections:
+  # Global Site Settings
+  - name: "settings"
+    label: "Global Settings"
+    files:
+      - label: "Site Settings" # Label for this specific file in the CMS UI
+        name: "settings"
+        file: "src/data/settings.json" # The actual path to the JSON file
+        fields:
+          - { label: "Site Title", name: "site_title", widget: "string", default: "Carma Braun Retreats" }
+          - { label: "Site Description", name: "site_description", widget: "text", required: false }
+          - { label: "Contact Email", name: "contact_email", widget: "string", required: false }
+          - { label: "Contact Phone", name: "contact_phone", widget: "string", required: false }
+          - { label: "CTA Button Text (Global)", name: "global_cta_text", widget: "string", default: "Jetzt Buchen" }
+          # Add more global settings as needed
+
+  # Dynamic Page Sections (This is the core of your modular layout!)
+  - name: "page_sections"
+    label: "Page Sections"
+    folder: "src/content/sections" # Astro Content Collections will read from here
+    create: true
+    slug: "{{id}}" # Use a unique ID for each section file
+    identifier_field: title # Use the title for easier identification in the CMS
+    fields:
+      - { label: "Section Title (for CMS reference)", name: "title", widget: "string", hint: "Internal name for this section in the CMS." }
+      - { label: "Is visible?", name: "is_visible", widget: "boolean", default: true, hint: "Toggle this section's visibility on the live site." }
+      - { label: "Section Type", name: "section_type", widget: "select", options: ["Hero", "RetreatLeft", "ContactSection", "RoomAccordion", "Carousel"], default: "Hero", hint: "Choose which component this section represents." }
+      - label: "Section Data"
+        name: "data"
+        widget: "object"
+        # The fields below will change based on `section_type`.
+        # We'll use conditional fields for each component's unique data.
+        fields:
+          # --- CTA Button Fields ---
+          - name: "cta"
+            label: "CTA Button"
+            file: "src/data/cta.json"
+            fields:
+              - { label: "CTA Label", name: "label", widget: "string", default: "Jetzt Buchen" }
+          # --- HERO Section Fields ---
+          - label: "Hero Content"
+            name: "hero_content"
+            widget: "object"
+            required: false # This object is optional, only shown if section_type is Hero
+            fields:
+              - { label: "Main Heading", name: "heading", widget: "string", default: "Ankommen und Aufatmen." }
+              - { label: "Subheading", name: "subheading", widget: "string", default: "Yoga retreats, die nachhaltig bewegen" }
+              - { label: "Left Hero Image", name: "left_image", widget: "image", required: false }
+              - { label: "Right Hero Image", name: "right_image", widget: "image", required: false }
+              - { label: "CTA Button Text", name: "cta_text", widget: "string", default: "Jetzt Buchen" }
+              - { label: "CTA Link", name: "cta_link", widget: "string", default: "/#kontakt" }
+            # Make this group conditional: only show if section_type is Hero
+            condition: { field: "section_type", value: "Hero" }
+
+          # --- RETREAT LEFT Section Fields ---
+          - label: "Retreat Left Content"
+            name: "retreat_left_content"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string", default: "Unser Yoga-Retreat" }
+              - { label: "Description", name: "description", widget: "markdown", default: "Ein Rückzugsort, um Körper, Geist und Seele in Einklang zu bringen." }
+              - { label: "Image", name: "image", widget: "image", required: false }
+            condition: { field: "section_type", value: "RetreatLeft" }
+
+          # --- CONTACT Section Fields ---
+          - label: "Contact Section Content"
+            name: "contact_section_content"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Main Text", name: "main_text", widget: "markdown", default: "Ready to book your retreat?" }
+              - { label: "Contact Email", name: "email", widget: "string", default: "info@carmabraun.com" }
+              - { label: "Contact Phone", name: "phone", widget: "string", required: false }
+              - { label: "CTA Button Text", name: "cta_text", widget: "string", default: "Jetzt Kontakt aufnehmen" }
+              - { label: "CTA Link", name: "cta_link", widget: "string", default: "/#kontakt" }
+            condition: { field: "section_type", value: "ContactSection" }
+
+          # You will continue adding conditional fields for each of your other components:
+          # RoomAccordion, Carousel, etc.
+          # Example for RoomAccordion:
+          - label: "Room Accordion Content"
+            name: "room_accordion_content"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Accordion Title", name: "title", widget: "string", default: "Accommodation Options" }
+              - label: "Accordion Items"
+                name: "items"
+                widget: "list"
+                fields:
+                  - { label: "Item Heading", name: "heading", widget: "string" }
+                  - { label: "Item Content", name: "content", widget: "markdown" }
+                  - { label: "Item Image", name: "image", widget: "image", required: false }
+            condition: { field: "section_type", value: "RoomAccordion" }
+
+          # Example for Carousel:
+          - label: "Carousel Content"
+            name: "carousel_content"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Carousel Title", name: "title", widget: "string", required: false }
+              - label: "Carousel Images"
+                name: "images"
+                widget: "list"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Caption", name: "caption", widget: "string", required: false }
+            condition: { field: "section_type", value: "Carousel" }
