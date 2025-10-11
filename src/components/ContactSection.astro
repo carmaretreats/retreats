@@ -16,52 +16,10 @@
       </p>
     </header>
 
-    <!-- Email Info -->
-    <div>
-      <h3 class="text-base font-editorial text-dark-brown mb-1">E‑Mail</h3>
-      <p class="text-base text-dark-brown font-sans">kontakt@mayogi-yoga.de</p>
-    </div>
-
     <!-- ✅ Contact Form with retreatForm Alpine data -->
     <form x-data="retreatForm()" class="space-y-8" novalidate>
 
-      <!-- Name -->
-      <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
-          Ihr Name
-        </label>
-        <input
-          type="text"
-          placeholder="Geben Sie Ihren Namen ein"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
-        />
-      </div>
-
-      <!-- Email -->
-      <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
-          Ihre E‑Mail*
-        </label>
-        <input
-          type="email"
-          placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
-        />
-      </div>
-
-      <!-- Message -->
-      <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
-          Ihre Nachricht*
-        </label>
-        <textarea
-          rows="5"
-          placeholder="Teilen Sie uns Ihre Fragen mit"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
-        ></textarea>
-      </div>
-
-      <!-- Retreat Selection -->
+        <!-- Retreat Selection -->
       <div class="space-y-6">
         <div>
           <label class="block mb-2 text-base font-editorial text-dark-brown">Retreat auswählen*</label>
@@ -105,6 +63,45 @@
           </template>
         </div>
       </div>
+
+
+      <!-- Name -->
+      <div>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihr Name
+        </label>
+        <input
+          type="text"
+          placeholder="Geben Sie Ihren Namen ein"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+        />
+      </div>
+
+      <!-- Email -->
+      <div>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihre E‑Mail*
+        </label>
+        <input
+          type="email"
+          placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+        />
+      </div>
+
+      <!-- Message -->
+      <div>
+        <label class="block mb-2 text-base font-editorial text-dark-brown">
+          Ihre Nachricht*
+        </label>
+        <textarea
+          rows="5"
+          placeholder="Teilen Sie uns Ihre Fragen mit"
+          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
+        ></textarea>
+      </div>
+
+      
 
       <!-- Submit Button -->
       <div class="flex justify-center pt-4">

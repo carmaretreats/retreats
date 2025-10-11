@@ -20,7 +20,4 @@ Alpine.data('retreatForm', () => ({
   }
 }))
 
-export default () => {
-  window.Alpine = Alpine
-  Alpine.start()
-}
+export default () => {}
