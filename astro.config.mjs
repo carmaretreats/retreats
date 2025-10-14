@@ -13,6 +13,8 @@ export default defineConfig({
     plugins: [tailwindcss()]
   },
 
+  output: 'server',
+
   adapter: netlify(),
 
   redirects: {

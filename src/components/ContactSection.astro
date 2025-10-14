@@ -17,7 +17,7 @@
     </header>
 
     <!-- ✅ Contact Form with retreatForm Alpine data -->
-    <form x-data="retreatForm()" class="space-y-8" novalidate>
+    <form x-data="retreatForm()" class="space-y-8" action="api/send/" novalidate>
 
         <!-- Retreat Selection -->
       <div class="space-y-6">
@@ -27,10 +27,11 @@
             <label class="flex items-center gap-3 text-base text-dark-brown font-sans">
               <input
                 type="radio"
-                name="retreat"
+                name="retreat-january"
                 value="january"
                 x-model="selectedRetreat"
                 class="accent-[var(--color-accent-orange)]"
+                id="send-email__retreat-january"
               />
               Hikkaduwa im Januar
             </label>
@@ -41,6 +42,7 @@
                 value="february"
                 x-model="selectedRetreat"
                 class="accent-[var(--color-accent-orange)]"
+                id="send-email__retreat-february"
               />
               Ahangama im Februar
             </label>
@@ -57,6 +59,7 @@
                 name="accommodation"
                 :value="option"
                 class="accent-[var(--color-accent-orange)]"
+                id="send-email__retreat-accommodation"
               />
               <span x-text="option"></span>
             </label>
@@ -72,6 +75,8 @@
         </label>
         <input
           type="text"
+          name="name"
+          id="send-email__name"
           placeholder="Geben Sie Ihren Namen ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
         />
@@ -84,6 +89,8 @@
         </label>
         <input
           type="email"
+          name="email"
+          id="send-email__email"
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
         />
@@ -97,6 +104,8 @@
         <textarea
           rows="5"
           placeholder="Teilen Sie uns Ihre Fragen mit"
+          name="message"
+          id="send-email__message"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
         ></textarea>
       </div>
