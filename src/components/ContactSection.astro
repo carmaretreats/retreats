@@ -1,9 +1,13 @@
 ---
 import { isInputError } from "astro:actions";
 import { actions } from "astro:actions";
-const result = Astro.getActionResult(actions.send);
-const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+// const result = Astro.getActionResult(actions);
+// console.log(result);
 
+// if (result?) {
+//   return Astro.redirect("/thanks");
+// }
+// const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 ---
 <section
   id="kontakt"
@@ -24,7 +28,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     </header>
 
     <!-- ✅ Contact Form with retreatForm Alpine data -->
-    <form x-data="retreatForm()" class="space-y-8" action={actions.send} method="post" novalidate>
+    <form action={actions.send} x-data="retreatForm()" class="space-y-8" method="post" novalidate>
 
         <!-- Retreat Selection -->
       <div class="space-y-6">
@@ -87,12 +91,12 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
           placeholder="Geben Sie Ihren Namen ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
           required
-          aria-describedby={inputErrors.name ? "name-error" : undefined}
-        />
-        {
-          inputErrors.name && (
-            <p id="name-error" class="text-accent-orange">Bitte gib deinen Namen ein.</p>
-          )
+          />
+          {
+            // aria-describedby={inputErrors.name ? "name-error" : undefined}
+            // inputErrors.name && (
+          //   <p id="name-error" class="text-accent-orange">Bitte gib deinen Namen ein.</p>
+          // )
         }
       </div>
 
@@ -108,12 +112,12 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
           required
-          aria-describedby={inputErrors.email ? "email-error" : undefined}
-        />
-        {
-          inputErrors.email && (
-            <p id="email-error" class="text-accent-orange">Bitte gib eine gültige E‑Mail-Adresse ein.</p>
-          )
+          />
+          {
+          // aria-describedby={inputErrors.email ? "email-error" : undefined}
+          // inputErrors.email && (
+          //   <p id="email-error" class="text-accent-orange">Bitte gib eine gültige E‑Mail-Adresse ein.</p>
+          // )
         }
       </div>
 
@@ -129,12 +133,12 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
           id="send-email__message"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
           required
-          aria-describedby={inputErrors.lead_message ? "lead_message-error" : undefined}
-        ></textarea>
-        {
-          inputErrors.lead_message && (
-            <p id="lead_message-error" class="text-accent-orange">Bitte schreibe eine Nachricht mit mindestens 5 Zeichen.</p>
-          )
+          ></textarea>
+          {
+          // aria-describedby={inputErrors.lead_message ? "lead_message-error" : undefined}
+          // inputErrors.lead_message && (
+          //   <p id="lead_message-error" class="text-accent-orange">Bitte schreibe eine Nachricht mit mindestens 5 Zeichen.</p>
+          // )
         }
       </div>
 
