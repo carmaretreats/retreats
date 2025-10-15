@@ -25,6 +25,7 @@ export const server = {
         plainText: true,
       });
 
+    
       // send an email
     //   const { data, error } = await resend.emails.send({
     //     from: "Carma Retreats Lead <retreats@carma-retreats.com>",
@@ -34,10 +35,11 @@ export const server = {
     //     text,
     //   });
 
-      if (error) {
-        throw error;
-      }
-    // return data;
+    //   if (error) {
+    //     throw error;
+    //   }
+     return name;
+   
     },
   }),
 };

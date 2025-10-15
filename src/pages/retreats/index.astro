@@ -3,6 +3,11 @@ import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import RetreatLeft from '../../components/RetreatLeft.astro';
+import { actions } from "astro:actions";
+const result = Astro.getActionResult(actions.send);
+if (result?.data) {
+  return Astro.redirect("/thanks");
+}
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
