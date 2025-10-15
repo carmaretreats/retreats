@@ -1,3 +1,10 @@
+---
+import { isInputError } from "astro:actions";
+import { actions } from "astro:actions";
+const result = Astro.getActionResult(actions.send);
+const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+
+---
 <section
   id="kontakt"
   class="relative w-full py-20 px-6 sm:px-12 bg-cream-bg text-dark-brown font-sans"
@@ -17,7 +24,7 @@
     </header>
 
     <!-- ✅ Contact Form with retreatForm Alpine data -->
-    <form x-data="retreatForm()" class="space-y-8" action="api/send/" novalidate>
+    <form x-data="retreatForm()" class="space-y-8" action={actions.send} method="post" novalidate>
 
         <!-- Retreat Selection -->
       <div class="space-y-6">
@@ -27,7 +34,7 @@
             <label class="flex items-center gap-3 text-base text-dark-brown font-sans">
               <input
                 type="radio"
-                name="retreat-january"
+                name="retreat"
                 value="january"
                 x-model="selectedRetreat"
                 class="accent-[var(--color-accent-orange)]"
@@ -60,12 +67,12 @@
                 :value="option"
                 class="accent-[var(--color-accent-orange)]"
                 id="send-email__retreat-accommodation"
-              />
+                />
               <span x-text="option"></span>
             </label>
           </template>
+          </div>
         </div>
-      </div>
 
 
       <!-- Name -->
@@ -79,7 +86,14 @@
           id="send-email__name"
           placeholder="Geben Sie Ihren Namen ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+          required
+          aria-describedby={inputErrors.name ? "name-error" : undefined}
         />
+        {
+          inputErrors.name && (
+            <p id="name-error" class="text-accent-orange">Bitte gib deinen Namen ein.</p>
+          )
+        }
       </div>
 
       <!-- Email -->
@@ -93,7 +107,14 @@
           id="send-email__email"
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+          required
+          aria-describedby={inputErrors.email ? "email-error" : undefined}
         />
+        {
+          inputErrors.email && (
+            <p id="email-error" class="text-accent-orange">Bitte gib eine gültige E‑Mail-Adresse ein.</p>
+          )
+        }
       </div>
 
       <!-- Message -->
@@ -104,10 +125,17 @@
         <textarea
           rows="5"
           placeholder="Teilen Sie uns Ihre Fragen mit"
-          name="message"
+          name="lead_message"
           id="send-email__message"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
+          required
+          aria-describedby={inputErrors.lead_message ? "lead_message-error" : undefined}
         ></textarea>
+        {
+          inputErrors.lead_message && (
+            <p id="lead_message-error" class="text-accent-orange">Bitte schreibe eine Nachricht mit mindestens 5 Zeichen.</p>
+          )
+        }
       </div>
 
       

@@ -7,6 +7,8 @@ import netlify from '@astrojs/netlify';
 
 import alpinejs from '@astrojs/alpinejs';
 
+import react from '@astrojs/react';
+
 // https://astro.build/config
 export default defineConfig({
   vite: {
@@ -23,5 +25,5 @@ export default defineConfig({
 
   integrations: [alpinejs({
       entrypoint: '/src/scripts/alpine.ts'
-    })],
+    }), react()],
 });
