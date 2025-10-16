@@ -4,6 +4,8 @@ import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import RetreatLeft from '../../components/RetreatLeft.astro';
 import { actions } from "astro:actions";
+import HeroWelcome from '../../components/HeroWelcome.astro';
+import ImagineSection from '../../components/ImagineSection.astro';
 const result = Astro.getActionResult(actions.send);
 if (result?.data) {
   return Astro.redirect("/thanks");
@@ -12,6 +14,8 @@ if (result?.data) {
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
     <Hero />
+    <HeroWelcome />
+    <ImagineSection />
     <RetreatLeft />
     <ContactSection />
   </main>
