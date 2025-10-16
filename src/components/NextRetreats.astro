@@ -1,0 +1,30 @@
+---
+import RetreatMiniCard from '../components/RetreatMiniCard.astro';
+import januaryImage from '../assets/images/retreat-jan-mini.jpeg';
+import februaryImage from '../assets/images/retreat-feb-mini.jpg';
+---
+
+<section class="bg-[var(--color-cream-bg)] py-16 px-18 md:px-24 lg:px-36">
+  <div class="max-w-6xl mx-auto text-center mb-12">
+    <p class="font-sans uppercase tracking-widest text-[var(--color-dark-brown)] mb-2">Nächste Yoga Retreats</p>
+  </div>
+
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <RetreatMiniCard
+      imageSrc=`${januaryImage.src}`
+      title="Januar in Sri Lanka"
+      date="12.–18. Januar 2026"
+      location="Hikkaduwa, Sri Lanka"
+      buttonLabel="Mehr Infos"
+      buttonHref="#january"
+    />
+    <RetreatMiniCard
+      imageSrc=`${februaryImage.src}`
+      title="Februar in Sri Lanka"
+      date="02.–08. Februar 2026"
+      location="Ahangama, Sri Lanka"
+      buttonLabel="Mehr Infos"
+      buttonHref="#february"
+    />
+  </div>
+</section>

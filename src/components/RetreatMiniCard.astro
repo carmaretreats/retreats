@@ -1,0 +1,46 @@
+---
+import CTA from '../components/CTA.astro';
+
+const {
+  imageSrc,
+  title,
+  date,
+  location,
+  buttonLabel = 'Mehr Infos',
+  buttonHref = '#',
+} = Astro.props;
+---
+
+<article class="flex flex-col bg-[var(--color-cream-bg)] rounded-2xl overflow-hidden">
+  <!-- Imagen destacada -->
+  <div class="w-full aspect-[4/3] overflow-hidden rounded-2xl">
+    <img
+        src={imageSrc}
+        alt={title}
+        class="w-full h-full object-cover object-center"
+        loading="lazy"
+    />
+  </div>
+
+  <!-- Contenido con overlap -->
+<div class="-mt-8 mx-auto max-w-[85%] bg-[var(--color-cream-bg)] p-6 rounded-2xl shadow-sm relative flex flex-col items-center text-center gap-4">
+  <div>
+    <h3 class="font-editorial italic text-2xl md:text-3xl text-[var(--color-dark-brown)] mb-2 leading-tight">
+      {title}
+    </h3>
+    <p class="font-garamond text-lg text-[var(--color-dark-brown)]">
+      {date} {location}
+    </p>
+  </div>
+
+  <div class="pt-2">
+    <CTA
+      label={buttonLabel}
+      href={buttonHref}
+      color="cream"
+      border={true}
+      size="small"
+    />
+  </div>
+</div>
+</article>

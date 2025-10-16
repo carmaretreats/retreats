@@ -1,4 +1,5 @@
 ---
+import CTA from './CTA.astro';
 const buttonLabel = "NÄCHSTE RETREATS"
 const buttonHref = "#retreats" // o cualquier ID/URL que quieras usar
 ---
@@ -12,7 +13,5 @@ const buttonHref = "#retreats" // o cualquier ID/URL que quieras usar
     Unsere Retreats schaffen einen Raum, in dem du ankommst – bei dir, in Verbindung mit anderen und im Hier und Jetzt.
   </p>
 
-  <a href={buttonHref} class="inline-block border border-dark-brown rounded-full px-6 py-3 text-sm md:text-base tracking-[0.25em] uppercase font-[SoraSans] hover:bg-dark-brown hover:text-white transition">
-    {buttonLabel}
-  </a>
+  <CTA label={buttonLabel} color="cream" border={true} href={buttonHref} />
 </section>

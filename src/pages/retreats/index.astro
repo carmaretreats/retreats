@@ -6,6 +6,7 @@ import RetreatLeft from '../../components/RetreatLeft.astro';
 import { actions } from "astro:actions";
 import HeroWelcome from '../../components/HeroWelcome.astro';
 import ImagineSection from '../../components/ImagineSection.astro';
+import NextRetreats from '../../components/NextRetreats.astro';
 const result = Astro.getActionResult(actions.send);
 if (result?.data) {
   return Astro.redirect("/thanks");
@@ -16,6 +17,7 @@ if (result?.data) {
     <Hero />
     <HeroWelcome />
     <ImagineSection />
+    <NextRetreats />
     <RetreatLeft />
     <ContactSection />
   </main>

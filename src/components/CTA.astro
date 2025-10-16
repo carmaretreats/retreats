@@ -2,19 +2,35 @@
 const {
   href = '#kontakt',
   label = 'Jetz Buchen',
-  color = 'orange',
+  color = 'orange', // 'orange' | 'cream'
+  border = false,   // true | false
+  size = 'medium',  // 'small' | 'medium' | 'large'
 } = Astro.props;
 
-const base =
-  'inline-block w-[240px] text-center rounded-full uppercase font-sora text-white tracking-widest text-base md:text-lg px-10 py-4 shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-bg';
-
-const colors = {
-  brown: 'bg-[var(--color-paper-brown)] hover:bg-[#6f2f23] focus:ring-[var(--color-paper-brown)]',
-  orange: 'bg-[var(--color-accent-orange)] hover:bg-[#bb421d] focus:ring-[var(--color-accent-orange)]',
-  green: 'bg-[var(--color-accent-green-hover)] hover:bg-[#4d6f56] focus:ring-[var(--color-accent-green-hover)]',
+// Tamaños
+const sizes = {
+  small: 'px-6 py-2 text-sm md:text-base',
+  medium: 'px-10 py-4 text-base md:text-lg', // default
+  large: 'px-14 py-5 text-lg md:text-xl',
 };
 
-const buttonClass = `${base} ${colors[color]}`;
+// Colores de fondo
+const colors = {
+  orange: 'bg-[var(--color-accent-orange)] text-white hover:bg-[#bb421d] focus:ring-[var(--color-accent-orange)]',
+  cream: 'bg-[var(--color-cream-bg)] text-[var(--color-dark-brown)] hover:bg-[#f3e9d8] focus:ring-[var(--color-cream-bg)]',
+};
+
+// Borde opcional
+const borderClass = border
+  ? 'border border-[var(--color-dark-brown)]'
+  : 'border-none';
+
+// Base común
+const base =
+  'inline-block text-center rounded-full uppercase font-sora tracking-widest shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-bg';
+
+// Composición final
+const buttonClass = `${base} ${colors[color]} ${sizes[size]} ${borderClass}`;
 ---
 
 <a
