@@ -4,20 +4,26 @@ const { images = [] } = Astro.props;
 
 <div class="w-full flex flex-col justify-start items-center">
   <div 
-    class="max-w-4xl mx-auto relative"
     x-data={`{ activeSlide: 0, slides: ${JSON.stringify(images)} }`}
+x-init="console.log(slides)"
+class="max-w-4xl mx-auto relative"
+:style="`min-height: 400px`"
   >
     <!-- Slides -->
-    <template x-for="(slide, index) in slides" :key="slide">
+    <template x-for="(slide, index) in slides" :key="slide.src">
       <div
         x-show="activeSlide === index"
-        class="h-full w-full overflow-hidden aspect-square"
+        class="relative h-full w-full overflow-hidden aspect-square"
       >
         <img 
-          :src="slide"
-          alt="Slide image"
+          :src="slide.src"
+          :alt="slide.label"
           class="w-full h-full object-cover"
         />
+        <div
+          class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans"
+          x-text="slide.label"
+        ></div>
       </div>
     </template>
     
