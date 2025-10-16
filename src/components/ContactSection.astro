@@ -127,14 +127,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
           name="lead_message"
           id="send-email__message"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
-          required
-          aria-describedby={inputErrors.lead_message ? "lead_message-error" : undefined}
           ></textarea>
-          {
-          inputErrors.lead_message && (
-            <p id="lead_message-error" class="text-accent-orange">Bitte schreibe eine Nachricht mit mindestens 5 Zeichen.</p>
-          )
-        }
       </div>
 
       
@@ -152,3 +145,8 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
     </form>
   </div>
 </section>
+{Object.keys(inputErrors).length > 0 && (
+  <script>
+    window.location.hash = "#kontakt";
+  </script>
+)}

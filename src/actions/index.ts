@@ -12,7 +12,7 @@ export const server = {
     input: z.object({
         name: z.string().min(1, { message: "Bitte gib deinen Namen ein." }),
         email: z.string().email({ message: "Bitte gib eine gültige E‑Mail-Adresse ein." }),
-        lead_message: z.string().min(5, { message: "Bitte schreibe eine Nachricht mit mindestens 5 Zeichen." }),
+        lead_message: z.string().optional(),
         retreat: z.string().optional(),
         accommodation: z.string().optional(),
     }),
@@ -35,10 +35,13 @@ export const server = {
       });
 
       if (error) {
-        throw error;
+        throw {
+            message: "Error sending email",
+            issues: [], // si querés agregar validaciones personalizadas
+            fields: { name, email, lead_message, retreat, accommodation }
+        };
       }
-     return data;
-   
+    return data;   
     },
   }),
 };
