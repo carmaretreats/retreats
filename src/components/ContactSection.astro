@@ -3,6 +3,17 @@ import { isInputError } from "astro:actions";
 import { actions } from "astro:actions";
 const result = Astro.getActionResult(actions.send);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
+
+let previousValues = {};
+
+if (Astro.request.method === "POST") {
+  try {
+    const formData = await Astro.request.formData();
+    previousValues = Object.fromEntries(formData.entries());
+  } catch (err) {
+    console.error("Could not read form data:", err);
+  }
+}
 ---
 <section
   id="kontakt"
@@ -82,6 +93,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
         <input
           type="text"
           name="name"
+          value={previousValues.name || ""}
           id="send-email__name"
           placeholder="Geben Sie Ihren Namen ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
@@ -103,6 +115,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
         <input
           type="email"
           name="email"
+          value={previousValues.email || ""}
           id="send-email__email"
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
@@ -127,7 +140,7 @@ const inputErrors = isInputError(result?.error) ? result.error.fields : {};
           name="lead_message"
           id="send-email__message"
           class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
-          ></textarea>
+          >{previousValues.lead_message || ""}</textarea>
       </div>
 
       
