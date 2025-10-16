@@ -6,3 +6,8 @@
   for = "/*"
   [headers.values]
     Basic-Auth = "fran:launch2025"
+
+[[redirects]]
+  from = "/"
+  to = "/retreats"
+  status = 301

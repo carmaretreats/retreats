@@ -1,29 +1,17 @@
-// @ts-check
 import { defineConfig } from 'astro/config';
-
+import netlify from '@astrojs/netlify';
+import alpinejs from '@astrojs/alpinejs';
+import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-import netlify from '@astrojs/netlify';
-
-import alpinejs from '@astrojs/alpinejs';
-
-import react from '@astrojs/react';
-
-// https://astro.build/config
 export default defineConfig({
-  vite: {
+  output: 'server',
+  adapter: netlify(),
+  integrations: [
+    alpinejs({ entrypoint: '/src/scripts/alpine.ts' }),
+    react(),
+  ],
+    vite: {
     plugins: [tailwindcss()]
   },
-
-  output: 'server',
-
-  adapter: netlify(),
-
-  redirects: {
-    '/': '/retreats',
-  },
-
-  integrations: [alpinejs({
-      entrypoint: '/src/scripts/alpine.ts'
-    }), react()],
 });
