@@ -2,11 +2,12 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
-import RetreatLeft from '../../components/RetreatLeft.astro';
+import Retreats from '../../components/Retreats.astro';
 import { actions } from "astro:actions";
 import HeroWelcome from '../../components/HeroWelcome.astro';
 import ImagineSection from '../../components/ImagineSection.astro';
 import NextRetreats from '../../components/NextRetreats.astro';
+import RetreatHighlights from '../../components/RetreatHighlights.astro';
 const result = Astro.getActionResult(actions.send);
 if (result?.data) {
   return Astro.redirect("/thanks");
@@ -18,7 +19,8 @@ if (result?.data) {
     <HeroWelcome />
     <ImagineSection />
     <NextRetreats />
-    <RetreatLeft />
+    <RetreatHighlights />
+    <Retreats />
     <ContactSection />
   </main>
 </Layout>
