@@ -1,6 +1,14 @@
-<div class="font-inter w-full max-w-2xl">
+---
+const {
+  priceContent = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.',
+  includedContent = 'All meals, yoga classes, workshops, and beach access are included in the price.',
+  locationContent = 'In einem abgelegenen Küstendorf in Sri Lanka – mit Palmen, Hängematten und atemberaubendem Meerblick.'
+} = Astro.props;
+---
 
+<div class="font-inter w-full max-w-2xl">
   <div class="divide-y divide-slate-200">
+
     <!-- Accordion item 1 -->
     <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
       <h2>
@@ -20,13 +28,11 @@
         id="room-text-01"
         role="region"
         aria-labelledby="room-title-01"
-        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-dark-brown overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         <div class="overflow-hidden">
-          <p class="pb-3">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque efficitur, purus ac blandit pretium.
-          </p>
+          <p class="pb-3">{priceContent}</p>
         </div>
       </div>
     </div>
@@ -50,13 +56,11 @@
         id="room-text-02"
         role="region"
         aria-labelledby="room-title-02"
-        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-dark-brown overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         <div class="overflow-hidden">
-          <p class="pb-3">
-            All meals, yoga classes, workshops, and beach access are included in the price.
-          </p>
+          <p class="pb-3">{includedContent}</p>
         </div>
       </div>
     </div>
@@ -80,13 +84,11 @@
         id="room-text-03"
         role="region"
         aria-labelledby="room-title-03"
-        class="grid text-sm text-slate-600 overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-dark-brown overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         <div class="overflow-hidden">
-          <p class="pb-3">
-            In einem abgelegenen Küstendorf in Sri Lanka – mit Palmen, Hängematten und atemberaubendem Meerblick.
-          </p>
+          <p class="pb-3">{locationContent}</p>
         </div>
       </div>
     </div>
