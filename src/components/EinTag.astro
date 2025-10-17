@@ -1,0 +1,53 @@
+---
+import { Image } from 'astro:assets';
+import bgImage from '../assets/images/Terra-Rossa-Papier.png';
+import dayImage from '../assets/images/juanca-paulino.jpg';
+---
+
+<section
+  class="w-full bg-cover bg-center bg-no-repeat py-16 px-6 text-white"
+  style={`background-image: url(${bgImage.src});`}
+>
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:items-center">
+    <!-- Texto e Imagen en misma columna mobile -->
+    <div class="w-full md:w-1/2 order-1 md:order-1">
+      <h2
+        class="font-editorial italic text-3xl md:text-5xl mb-6"
+      >
+        Ein Tag bei Carma Retreats
+      </h2>
+
+      <!-- Imagen visible debajo del título en mobile -->
+      <div class="flex justify-center md:hidden mb-6">
+        <Image
+          src={dayImage}
+          alt="Carma Retreats Day"
+          class="max-w-[280px] w-auto h-auto rounded-lg shadow-lg object-cover"
+        />
+      </div>
+
+      <div class="space-y-4 font-sans text-base leading-relaxed">
+        <p><strong>7.30 Uhr</strong><br/>Meditation / Pranayama</p>
+        <p><strong>8.00 Uhr</strong><br/>Tee und evtl. kleiner Snack wie gesunde Kekse oder Datteln oder Bananen</p>
+        <p><strong>8.30 Uhr</strong><br/>Morgen-Asana-Praxis</p>
+        <p><strong>10.30 Uhr</strong><br/>Brunch</p>
+        <p><em>Nachmittags Zeit zur freien Verfügung</em></p>
+        <p><strong>15.00 Uhr</strong><br/>Fruchtplatte / Snack</p>
+        <p>*2× pro Woche 16.00 Uhr Ausflug: Töpferkurs / Kochkurs / Ausflug zum Tempel / Bootstour</p>
+        <p><strong>17.00 Uhr</strong><br/>Abendpraxis</p>
+        <p><strong>19.00 Uhr</strong><br/>Abendessen</p>
+        <p><strong>20.30–21.00 Uhr</strong><br/>gemeinsamer Ausklang / Meditation</p>
+        <p><strong>22.00 Uhr</strong><br/>Nachtruhe</p>
+      </div>
+    </div>
+
+    <!-- Imagen para desktop -->
+    <div class="hidden md:flex w-full md:w-1/2 items-center order-2">
+      <Image
+        src={dayImage}
+        alt="Carma Retreats Day"
+        class="max-w-md rounded-lg shadow-lg object-cover"
+      />
+    </div>
+  </div>
+</section>
