@@ -1,0 +1,44 @@
+---
+import { Image } from 'astro:assets';
+import CTA from '../components/CTA.astro';
+import hostsImg from '../assets/images/hosts-carmen-mareen.jpg'; 
+---
+
+<section class="w-full bg-cream-bg text-dark-brown py-16 px-6">
+  <div class="max-w-5xl mx-auto flex flex-col items-center text-center">
+    <!-- Label -->
+    <p class="uppercase tracking-wide text-sm mb-2 font-sans">
+      DEINE HOSTS
+    </p>
+
+    <!-- Imagen -->
+    <div class="w-full flex justify-center mb-8">
+      <Image
+        src={hostsImg}
+        alt="Carmen und Mareen"
+        class="rounded-2xl shadow-lg max-w-full md:max-w-3xl object-cover"
+      />
+    </div>
+
+    <!-- Título -->
+    <h2
+      class="font-editorial italic text-3xl md:text-5xl mb-6"
+    >
+      Hi, wir sind Carmen und Mareen.
+    </h2>
+
+    <!-- Texto -->
+    <div class="font-sans text-base md:text-lg leading-relaxed max-w-3xl space-y-4 mb-8">
+      <p>...und gemeinsam sind wir CARMA Retreats.</p>
+      <p>
+        Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, 
+        an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. 
+        Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.
+        Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.
+      </p>
+    </div>
+
+    <!-- CTA -->
+    <CTA label="Mehr über uns" color="cream" href="#about" border={true} />
+  </div>
+</section>
