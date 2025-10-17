@@ -117,3 +117,11 @@ body {
 /* keep toggle button visible when menu open */
 .mobile-panel.menu-open button[aria-label="Toggle menu"],
 .mobile-panel.menu-closing button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
+
+.reveal-section {
+  @apply opacity-0 translate-y-8 transition-all duration-700 ease-out;
+}
+
+.reveal-section.show {
+  @apply opacity-100 translate-y-0;
+}

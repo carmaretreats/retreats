@@ -5,31 +5,41 @@ import leftImg from '../assets/images/naomi-pal-dupe.jpeg';
 import rightImg from '../assets/images/zahra-nehme-dupe.jpeg';
 import spiral from '../assets/images/Markenzeichen-Weis.png';
 ---
-<section class="relative w-full bg-cream-bg pb-8 px-8">
-    <!-- Image for mobile (always visible) -->
-    <div class="block md:hidden">
-      <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover" />
-    </div>
 
-    <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
-    <div class="hidden md:grid md:grid-cols-2 w-full h-full">
-      <div>
-        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
-      </div>
-      <div>
-        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
-      </div>
+<section class="relative w-full bg-cream-bg pb-8 px-8">
+  <!-- Image for mobile (always visible) -->
+  <div class="block md:hidden">
+    <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover" />
+  </div>
+
+  <!-- Images for tablet/desktop -->
+  <div class="hidden md:grid md:grid-cols-2 w-full h-full">
+    <div>
+      <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
+    </div>
+    <div>
+      <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
     </div>
   </div>
 
   <!-- Spiral mark -->
-  <div class="absolute left-1/2 top-8 transform -translate-x-1/2 pointer-events-none">
+  <div 
+    x-data="{ show: false }" 
+    x-intersect.once="show = true"
+    class="absolute left-1/2 top-8 transform -translate-x-1/2 pointer-events-none reveal-section"
+    :class="{ 'show': show }"
+  >
     <Image src={spiral} alt="Markenzeichen" class="h-12 w-auto object-contain" />
   </div>
 
   <!-- Text + CTA -->
   <div class="relative flex items-end justify-center h-[75vh] mt-[-75vh]">
-    <div class="text-center max-w-4xl px-6 pb-8 md:pb-12 lg:pb-16">
+    <div 
+      x-data="{ show: false }"
+      x-intersect.once="show = true"
+      class="text-center max-w-4xl px-6 pb-8 md:pb-12 lg:pb-16 reveal-section"
+      :class="{ 'show': show }"
+    >
       <h1
         class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2"
         style="font-family: var(--font-editorial);"
