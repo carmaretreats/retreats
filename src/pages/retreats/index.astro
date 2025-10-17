@@ -8,6 +8,7 @@ import HeroWelcome from '../../components/HeroWelcome.astro';
 import ImagineSection from '../../components/ImagineSection.astro';
 import NextRetreats from '../../components/NextRetreats.astro';
 import RetreatHighlights from '../../components/RetreatHighlights.astro';
+import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
 const result = Astro.getActionResult(actions.send);
 if (result?.data) {
   return Astro.redirect("/thanks");
@@ -21,6 +22,7 @@ if (result?.data) {
     <NextRetreats />
     <RetreatHighlights />
     <Retreats />
+    <UnterkunftPreise />
     <ContactSection />
   </main>
 </Layout>
