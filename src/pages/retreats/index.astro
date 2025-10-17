@@ -1,5 +1,9 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+const result = Astro.getActionResult(actions.send);
+if (result?.data) {
+  return Astro.redirect("/thanks");
+}
 import Hero from '../../components/Hero.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import Retreats from '../../components/Retreats.astro';
@@ -12,10 +16,19 @@ import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
 import EinTag from '../../components/EinTag.astro';
 import HostsSection from '../../components/HostsSection.astro';
 import GallerySection from '../../components/GallerySection.astro';
-const result = Astro.getActionResult(actions.send);
-if (result?.data) {
-  return Astro.redirect("/thanks");
-}
+import AboutSection from '../../components/AboutSection.astro';
+import imgCarmen from '../../assets/images/hosts-carmen.jpg';
+
+const carmenText = `
+Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei *Stephen Thomas* absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit. 
+Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.
+
+Ein großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. 
+Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.
+
+Heute nennt Carmen die Insel ihr zweites Zuhause. 
+Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.
+`;
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
@@ -29,6 +42,13 @@ if (result?.data) {
     <EinTag />
     <HostsSection />
     <GallerySection />
+    <AboutSection
+      subtitle="Mehr über uns"
+      title="Über Carmen"
+      text={carmenText}
+      image={imgCarmen}
+      imageAlt="Carmen Portrait"
+    />
     <ContactSection />
   </main>
 </Layout>
