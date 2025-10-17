@@ -11,6 +11,7 @@ import RetreatHighlights from '../../components/RetreatHighlights.astro';
 import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
 import EinTag from '../../components/EinTag.astro';
 import HostsSection from '../../components/HostsSection.astro';
+import GallerySection from '../../components/GallerySection.astro';
 const result = Astro.getActionResult(actions.send);
 if (result?.data) {
   return Astro.redirect("/thanks");
@@ -27,6 +28,7 @@ if (result?.data) {
     <UnterkunftPreise />
     <EinTag />
     <HostsSection />
+    <GallerySection />
     <ContactSection />
   </main>
 </Layout>
