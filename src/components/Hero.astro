@@ -7,16 +7,16 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
 ---
 <section class="relative w-full bg-cream-bg pb-8 px-8">
     <!-- Image for mobile (always visible) -->
-    <div class="block md:hidden">
-      <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover" />
+    <div class="block md:hidden aspect-square overflow-hidden">
+      <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover object-bottom" />
     </div>
 
     <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
     <div class="hidden md:grid md:grid-cols-2 w-full h-full">
-      <div>
+      <div class="aspect-square overflow-hidden">
         <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover" />
       </div>
-      <div>
+      <div class="aspect-square overflow-hidden">
         <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
       </div>
     </div>
@@ -29,7 +29,7 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
 
   <!-- Text + CTA -->
   <div class="relative flex items-end justify-center h-[75vh] mt-[-75vh]">
-    <div class="text-center max-w-4xl px-6 pb-8 md:pb-12 lg:pb-16">
+    <div class="text-center max-w-4xl px-6 pb-8 md:pb-8 lg:pb-12">
       <h1
         class="text-white text-4xl sm:text-5xl md:text-6xl lg:text-7xl leading-tight mb-2"
         style="font-family: var(--font-editorial);"
@@ -38,7 +38,7 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
       </h1>
 
       <p
-        class="text-white/90 uppercase tracking-widest text-sm md:text-base mb-6"
+        class="text-white uppercase tracking-widest text-sm md:text-[1.125rem] mb-6 font-semibold"
         style="font-family: var(--font-sans);"
       >
         Yoga retreats, die nachhaltig bewegen
