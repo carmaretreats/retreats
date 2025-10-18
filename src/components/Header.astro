@@ -1,6 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import logo from '../assets/images/Carma-Braun.png';
+import logo from '../assets/images/logos/Carma-Schwarz.png';
 import MobileNav from './MobileNav.astro';
 import DesktopNav from './DesktopNav.astro';
 ---
@@ -28,11 +28,11 @@ import DesktopNav from './DesktopNav.astro';
   }"
   x-init="$watch('open', v => document.body.classList.toggle('overflow-hidden', v))"
 >
-  <div class="max-w-screen-xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">
+  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">
     <div class="flex items-center flex-1 justify-start">
       <!-- Mobile animated hamburger -->
       <button
-        class="sm:hidden text-black w-10 h-10 relative focus:outline-none bg-cream-bg flex items-center justify-center z-70"
+        class="sm:hidden text-black w-10 h-10 relative focus:outline-none flex items-center justify-center z-70"
         @click.prevent="if(!busy){ if(!open){ open = true } else { closeMenu() } }"
         :aria-expanded="open"
         aria-controls="mobile-menu"
