@@ -1,47 +1,53 @@
 ---
-const { images = [] } = Astro.props;
+import type { ImageMetadata } from 'astro';
+
+const {
+  images = [],
+}: {
+  images: { src: ImageMetadata; label: string }[];
+} = Astro.props;
 ---
 
 <div class="w-full flex flex-col justify-start items-center">
   <div 
-    x-data={`{ activeSlide: 0, slides: ${JSON.stringify(images)} }`}
-    class="max-w-4xl mx-auto relative"
+    x-data={`{ activeSlide: 0, totalSlides: ${images.length} }`}    class="max-w-4xl mx-auto relative"
     :style="`min-height: 400px`"
-      >
-    <!-- Slides -->
-    <template x-for="(slide, index) in slides" :key="slide.src">
+  >
+
+    <!-- Slides renderizados por Astro -->
+    {images.map((slide, index) => (
       <div
-        x-show="activeSlide === index"
         class="relative h-full w-full overflow-hidden aspect-square"
+        x-show={`activeSlide === ${index}`}
       >
         <img 
-          :src="slide.src"
-          :alt="slide.label"
+          src={slide.src.src}
+          alt={slide.label || ''}
           class="w-full h-full object-cover"
-          :loading="activeSlide === 0 ? 'eager' : 'lazy'"
+          loading="lazy"
           decoding="async"
         />
-        <div
-           x-show="slide.label"
-          class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans"
-          x-text="slide.label"
-        ></div>
+        {slide.label && (
+          <div class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans">
+            {slide.label}
+          </div>
+        )}
       </div>
-    </template>
-    
+    ))}
+
     <!-- Prev/Next Arrows -->
     <div class="absolute inset-0 flex">
       <div class="flex items-center justify-start w-1/2">
         <button 
           class="bg-[rgba(255,255,255,0.7)] text-dark-brown hover:bg-accent-orange hover:text-white font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
-          x-on:click="activeSlide = activeSlide === 0 ? slides.length - 1 : activeSlide - 1">
+          x-on:click="activeSlide = activeSlide === 0 ? totalSlides - 1 : activeSlide - 1">
           &#8592;
         </button>
       </div>
       <div class="flex items-center justify-end w-1/2">
         <button 
           class="bg-[rgba(255,255,255,0.7)] text-dark-brown hover:bg-accent-orange hover:text-white font-bold rounded-full w-10 h-10 flex items-center justify-center shadow-md transition"
-          x-on:click="activeSlide = activeSlide === slides.length - 1 ? 0 : activeSlide + 1">
+          x-on:click="activeSlide = activeSlide === totalSlides - 1 ? 0 : activeSlide + 1">
           &#8594;
         </button>
       </div>        
@@ -49,16 +55,14 @@ const { images = [] } = Astro.props;
 
     <!-- Dots -->
     <div class="absolute bottom-4 w-full flex items-center justify-center px-4">
-      <template x-for="(slide, index) in slides" :key="index">
+      {images.map((_, index) => (
         <button
           class="w-3 h-3 mx-1 rounded-full transition-colors duration-200 ease-out"
-          :class="{
-            'bg-[var(--color-accent-orange)]': activeSlide === index,
-            'bg-[var(--color-dark-brown)]': activeSlide !== index 
-          }" 
-          x-on:click="activeSlide = index"
+          :class={`activeSlide === ${index} ? 'bg-[var(--color-accent-orange)]' : 'bg-[var(--color-dark-brown)]'`}
+          x-on:click={`activeSlide = ${index}`}
         ></button>
-      </template>
+      ))}
     </div>
+
   </div>
 </div>

@@ -1,5 +1,74 @@
 ---
 import RetreatCard from './RetreatCard.astro'; // Adjust the path as needed
+import imgjan1 from '../assets/images/january/Hikkaduwa.jpg';
+import imgjan2 from '../assets/images/january/Hikkaduwa2.jpg';
+import imgjan3 from '../assets/images/january/Hikkaduwa3.jpg';
+import imgjan4 from '../assets/images/january/HikkaduwaYogashala1.jpg';
+import imgjan5 from '../assets/images/january/HikkaduwaYogashala2.jpg';
+import imgjan6 from '../assets/images/january/HikkaduwaYogashala3.jpg';
+import imgjan7 from '../assets/images/january/Hikkaduwayogashala4.jpg';
+import imgjan8 from '../assets/images/january/HikkaduwaYogashala5.jpg';
+
+export const januaryImages = [
+  { src: imgjan1, label: '' },
+  { src: imgjan2, label: '' },
+  { src: imgjan3, label: '' },
+  { src: imgjan4, label: '' },
+  { src: imgjan5, label: '' },
+  { src: imgjan6, label: '' },
+  { src: imgjan7, label: '' },
+  { src: imgjan8, label: '' },
+];
+
+import img1 from '../assets/images/february/Ahangamadesk.jpg';
+import img2 from '../assets/images/february/ahangamasingleroom.jpg';
+import img3 from '../assets/images/february/ahangamasittingandroomview.jpg';
+import img4 from '../assets/images/february/AhangamaSittingarea.jpg';
+import img5 from '../assets/images/february/ahangamasittingtables.jpg';
+import img6 from '../assets/images/february/bathroom.jpg';
+import img7 from '../assets/images/february/bathroom2.jpg';
+import img8 from '../assets/images/february/Unrushed1.jpg';
+import img9 from '../assets/images/february/Unrushed2.jpg';
+import img10 from '../assets/images/february/Unrushed3.jpg';
+import img11 from '../assets/images/february/Unrushed4.jpg';
+import img12 from '../assets/images/february/unrushed5.jpg';
+import img13 from '../assets/images/february/Unrushed6.jpg';
+import img14 from '../assets/images/february/unrushed7.jpg';
+import img15 from '../assets/images/february/Unrushed8.jpg';
+import img16 from '../assets/images/february/unrushed9.jpg';
+import img17 from '../assets/images/february/unrushed10.jpg';
+import img18 from '../assets/images/february/unrushed11.jpg';
+import img19 from '../assets/images/february/unrushed12.jpg';
+import img20 from '../assets/images/february/Unrushedabove.jpg';
+import img21 from '../assets/images/february/unrushedgardenview.jpg';
+import img22 from '../assets/images/february/unrushedtriplebed.jpg';
+import img23 from '../assets/images/february/Unrushedtriplebed2.jpg';
+
+export const februaryImages = [
+  { src: img1, label: '' },
+  { src: img2, label: '' },
+  { src: img3, label: '' },
+  { src: img4, label: '' },
+  { src: img5, label: '' },
+  { src: img6, label: '' },
+  { src: img7, label: '' },
+  { src: img8, label: '' },
+  { src: img9, label: '' },
+  { src: img10, label: '' },
+  { src: img11, label: '' },
+  { src: img12, label: '' },
+  { src: img13, label: '' },
+  { src: img14, label: '' },
+  { src: img15, label: '' },
+  { src: img16, label: '' },
+  { src: img17, label: '' },
+  { src: img18, label: '' },
+  { src: img19, label: '' },
+  { src: img20, label: '' },
+  { src: img21, label: '' },
+  { src: img22, label: '' },
+  { src: img23, label: '' },
+];
 ---
 
 <section id="retreats" class="bg-cream-bg text-black font-sans px-4 py-16 md:py-24">
@@ -45,16 +114,7 @@ Für eine Auszeit in der Ferne, die nachhaltig bewegt.
       locationContent={["Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.Bekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.",
       "Tagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt. Ein Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit."
       ]}
-      carouselImages={[
-        { src: '/images/january/Hikkaduwa.jpg', label: '' },
-        { src: '/images/january/Hikkaduwa2.jpg', label: '' },
-        { src: '/images/january/Hikkaduwa3.jpg', label: '' },
-        { src: '/images/january/HikkaduwaYogashala1.jpg', label: '' },
-        { src: '/images/january/HikkaduwaYogashala2.jpg', label: '' },
-        { src: '/images/january/HikkaduwaYogashala3.jpg', label: '' },
-        { src: '/images/january/Hikkaduwayogashala4.jpg', label: '' },
-        { src: '/images/january/HikkaduwaYogashala5.jpg', label: '' }
-      ]}
+      carouselImages={januaryImages}
       ctaLabel="Jetzt buchen"
       ctaHref="#kontakt"
     />
@@ -74,31 +134,7 @@ Für eine Auszeit in der Ferne, die nachhaltig bewegt.
       locationContent={["Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest – Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.",
         "Ein Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst."
       ]}
-      carouselImages={[
-        { src: '/images/february/Ahangamadesk.jpg', label: '' },
-        { src: '/images/february/ahangamasingleroom.jpg', label: '' },
-        { src: '/images/february/ahangamasittingandroomview.jpg', label: '' },
-        { src: '/images/february/AhangamaSittingarea.jpg', label: '' },
-        { src: '/images/february/ahangamasittingtables.jpg', label: '' },
-        { src: '/images/february/bathroom.jpg', label: '' },
-        { src: '/images/february/bathroom2.jpg', label: '' },
-        { src: '/images/february/Unrushed1.jpg', label: '' },
-        { src: '/images/february/Unrushed2.jpg', label: '' },
-        { src: '/images/february/Unrushed3.jpg', label: '' },
-        { src: '/images/february/Unrushed4.jpg', label: '' },
-        { src: '/images/february/unrushed5.jpg', label: '' },
-        { src: '/images/february/Unrushed6.jpg', label: '' },
-        { src: '/images/february/unrushed7.jpg', label: '' },
-        { src: '/images/february/Unrushed8.jpg', label: '' },
-        { src: '/images/february/unrushed9.jpg', label: '' },
-        { src: '/images/february/unrushed10.jpg', label: '' },
-        { src: '/images/february/unrushed11.jpg', label: '' },
-        { src: '/images/february/unrushed12.jpg', label: '' },
-        { src: '/images/february/Unrushedabove.jpg', label: '' },
-        { src: '/images/february/unrushedgardenview.jpg', label: '' },
-        { src: '/images/february/unrushedtriplebed.jpg', label: '' },
-        { src: '/images/february/Unrushedtriplebed2.jpg', label: '' }
-      ]}
+      carouselImages={februaryImages}
       ctaLabel="Jetzt buchen"
       ctaHref="#kontakt"
     />
