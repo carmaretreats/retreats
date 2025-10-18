@@ -35,25 +35,28 @@ const highlights = [
 ---
 
 <section
-  id="retreats-highlights" class="w-full bg-cover bg-center bg-no-repeat py-24 px-6 text-white"
+  id="retreats-highlights" class="w-full bg-cover bg-center bg-no-repeat py-24 px-4 md:px-24 lg:px-36 text-white"
   style={`background-image: url(${bgImage.src});`}
 >
-  <div class="max-w-4xl mx-auto">
-    <!-- Heading -->
-    <h3 class="uppercase tracking-wide text-base font-sans mb-6">
-      Culture, Community, Connection
-    </h3>
+  <div class="max-w-4xl">
+    <!-- Label -->
+    <p class="uppercase tracking-widest text-sm mb-2" style="font-family: var(--font-sans);">
+    Culture, Community, Connection
+  </p>
 
-    <h2 class="text-2xl md:text-3xl font-editorial italic mb-10">
-      Was dich erwartet:
-    </h2>
+    <!-- Section Title -->
+  <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+      style="font-family: var(--font-editorial);">
+    Was dich erwartet:
+  </h2>
 
     <!-- Highlights list -->
-    <ul class="space-y-8 text-base leading-relaxed font-sans">
+    <ul class="space-y-8 text-base leading-relaxed max-w-3xl"
+      style="font-family: var(--font-sans);">
       {highlights.map((item) => (
         <li>
-          <p class="font-garamond italic text-lg mb-1">{item.title}</p>
-          <p class="text-white/90">{item.text}</p>
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">{item.title}</h3>
+          <p class="block w-full text-left">{item.text}</p>
         </li>
       ))}
     </ul>
