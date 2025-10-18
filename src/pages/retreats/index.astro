@@ -18,6 +18,7 @@ import HostsSection from '../../components/HostsSection.astro';
 import GallerySection from '../../components/GallerySection.astro';
 import AboutSection from '../../components/AboutSection.astro';
 import imgCarmen from '../../assets/images/hosts-carmen.jpg';
+import TestimonialSlider from '../../components/TestimonialSlider.astro'; 
 
 const carmenText = `
 Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei *Stephen Thomas* absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit. 
@@ -29,6 +30,24 @@ Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in d
 Heute nennt Carmen die Insel ihr zweites Zuhause. 
 Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.
 `;
+
+const testimonials = [
+  {
+    image: '/images/testimonials/elena.jpg',
+    text: 'Mein bestes Retreat bisher in Sri Lanka! Top organisiert und perfekter Ablauf...',
+    name: 'Elena'
+  },
+  {
+    image: '/images/testimonials/mona.jpg',
+    text: 'Yoga & Me-time pur...',
+    name: 'Mona'
+  },
+  {
+    image: '/images/testimonials/heike.jpg',
+    text: 'Höchstes Niveau! ...',
+    name: 'Heike'
+  }
+];
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
@@ -49,6 +68,7 @@ Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Sch�
       image={imgCarmen}
       imageAlt="Carmen Portrait"
     />
+    <!-- <TestimonialSlider /> -->
     <ContactSection />
   </main>
 </Layout>

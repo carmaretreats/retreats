@@ -36,10 +36,12 @@
 }
 
 @theme {
+  /* Fonts */
   --font-editorial: PPEditorialOld-Italic, sans-serif;
   --font-garamond: 'EBGaramondEditorial', serif;
   --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
   --font-sora: 'SoraSans', sans-serif;
+  /* Colors */
   --color-cream-bg: #FFF8EE;
   --color-paper-brown: #9A4736;
   --color-white: #FFFFFF;
@@ -117,3 +119,265 @@ body {
 /* keep toggle button visible when menu open */
 .mobile-panel.menu-open button[aria-label="Toggle menu"],
 .mobile-panel.menu-closing button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
+
+
+/* -------------------------------
+   Testimonial Slider Styles 
+------------------------------- */
+
+/* -----------------------------------------------------------
+   FONT + RESET
+----------------------------------------------------------- */
+
+/* Accesibilidad - ocultar título visualmente */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* -----------------------------------------------------------
+   TESTIM SECTION
+----------------------------------------------------------- */
+.testim {
+  width: 100%;
+  position: relative;
+  /* top: 50%; */
+  /* transform: translateY(-50%); */
+}
+
+#testim {
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease;
+}
+
+.testim .wrap {
+  position: relative;
+  width: 100%;
+  max-width: 1020px;
+  padding: 40px 20px;
+  margin: auto;
+}
+
+/* -----------------------------------------------------------
+   ARROWS
+----------------------------------------------------------- */
+.testim .arrow {
+  display: block;
+  position: absolute;
+  color: #000;
+  cursor: pointer;
+  font-size: 2em;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: color 0.3s ease-in-out;
+  padding: 5px;
+  z-index: 2;
+}
+
+.testim .arrow:hover {
+  color: #555;
+}
+
+.testim .arrow.left {
+  left: 10px;
+}
+
+.testim .arrow.right {
+  right: 10px;
+}
+
+/* -----------------------------------------------------------
+   DOTS
+----------------------------------------------------------- */
+.testim .dots {
+  text-align: center;
+  position: absolute;
+  width: 100%;
+  bottom: 60px;
+  left: 0;
+  display: block;
+  z-index: 3;
+  height: 12px;
+}
+
+.testim .dots .dot {
+  list-style-type: none;
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  margin: 0 10px;
+  cursor: pointer;
+  transition: all 0.5s ease-in-out;
+}
+
+.testim .dots .dot.active,
+.testim .dots .dot:hover {
+  background: #000;
+  border-color: #000;
+}
+
+.testim .dots .dot.active {
+  animation: testim-scale 0.5s ease-in-out forwards;
+}
+
+/* -----------------------------------------------------------
+   SLIDER CONTENT
+----------------------------------------------------------- */
+.testim .cont {
+  position: relative;
+  overflow: hidden;
+}
+
+.testim .cont > div {
+  text-align: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 0 0 70px 0;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.testim .cont > div.active {
+  position: relative;
+  opacity: 1;
+}
+
+.testim .cont div .img img {
+  display: block;
+  width: 120px;
+  height: 120px;
+  margin: auto;
+  border-radius: 50%;
+  background-color: transparent;
+}
+
+.testim .cont div h2 {
+  color: #000;
+  font-size: 1em;
+  margin: 15px 0;
+}
+
+.testim .cont div p {
+  font-size: 1.15em;
+  color: #000;
+  width: 80%;
+  margin: auto;
+}
+
+/* -----------------------------------------------------------
+   ANIMACIONES DE ENTRADA
+----------------------------------------------------------- */
+.testim .cont div.active .img img {
+  animation: testim-show 0.5s ease-in-out forwards;
+}
+
+.testim .cont div.active h2 {
+  animation: testim-content-in 0.4s ease-in-out forwards;
+}
+
+.testim .cont div.active p {
+  animation: testim-content-in 0.5s ease-in-out forwards;
+}
+
+/* -----------------------------------------------------------
+   ANIMACIONES DE SALIDA
+----------------------------------------------------------- */
+.testim .cont > div.inactive {
+  opacity: 1; /* mantiene visible durante la animación */
+}
+
+.testim .cont div.inactive .img img {
+  animation: testim-hide 0.5s ease-in-out forwards;
+}
+
+.testim .cont div.inactive h2 {
+  animation: testim-content-out 0.4s ease-in-out forwards;
+}
+
+.testim .cont div.inactive p {
+  animation: testim-content-out 0.5s ease-in-out forwards;
+}
+
+/* -----------------------------------------------------------
+   KEYFRAMES
+----------------------------------------------------------- */
+@keyframes testim-scale {
+  0% { box-shadow: 0px 0px 0px 0px #000; }
+  35% { box-shadow: 0px 0px 10px 5px #000; }
+  70% { box-shadow: 0px 0px 10px 5px #000; }
+  100% { box-shadow: 0px 0px 0px 0px #000; }
+}
+
+@keyframes testim-content-in {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes testim-content-out {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+}
+
+@keyframes testim-show {
+  from {
+    opacity: 0;
+    transform: scale(0);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes testim-hide {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+/* -----------------------------------------------------------
+   RESPONSIVE
+----------------------------------------------------------- */
+@media (max-width: 300px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 500px) {
+  .testim .arrow {
+    font-size: 1.5em;
+  }
+
+  .testim .cont div p {
+    line-height: 25px;
+  }
+}

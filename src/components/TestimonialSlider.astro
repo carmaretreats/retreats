@@ -1,0 +1,45 @@
+---
+---
+<section
+  id="testim"
+  class="testim bg-cream-bg text-dark-brown font-sans"
+  aria-labelledby="testim-title"
+>
+  <div class="wrap">
+    <h2 id="testim-title" class="sr-only">What people say</h2>
+
+    <!-- Flechas -->
+    <span
+      id="right-arrow"
+      class="arrow right fa fa-chevron-right"
+      role="button"
+      aria-label="Next testimonial"
+      tabindex="0"
+    ></span>
+    <span
+      id="left-arrow"
+      class="arrow left fa fa-chevron-left"
+      role="button"
+      aria-label="Previous testimonial"
+      tabindex="0"
+    ></span>
+
+    <!-- Dots y Slides se generan dinámicamente -->
+    <ul
+      id="testim-dots"
+      class="dots"
+      role="tablist"
+      aria-label="Testimonial navigation"
+    ></ul>
+
+    <div
+      id="testim-content"
+      class="cont"
+      role="region"
+      aria-live="polite"
+    ></div>
+  </div>
+</section>
+
+<script src="/scripts/slider.data.js" defer></script>
+<script src="/scripts/slider.js" defer></script>
