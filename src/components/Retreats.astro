@@ -2,17 +2,25 @@
 import RetreatCard from './RetreatCard.astro'; // Adjust the path as needed
 ---
 
-<section id="retreats" class="bg-cream-bg text-dark-brown font-sans px-4 py-16 md:py-24">
+<section id="retreats" class="bg-cream-bg text-black font-sans px-4 py-16 md:py-24">
   <div class="max-w-6xl mx-auto flex flex-col gap-16">
 
     <!-- Top Heading and Description -->
     <div class="max-w-4xl">
-      <p class="uppercase text-sm tracking-wide text-dark-brown mb-2">Retreat-Infos</p>
-      <h2 class="font-editorial italic text-2xl md:text-4xl text-dark-brown leading-snug mb-6">
+      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
+        style="font-family: var(--font-sora);">Retreat-Infos</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+      style="font-family: var(--font-editorial);">
         Willkommen an einem Ort, an dem die Zeit langsamer wird.
       </h2>
-      <p class="text-base md:text-lg leading-relaxed text-dark-brown">
-        Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor.
+      <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">
+        Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - im Januar in Hikkaduwa oder im Feburar in Ahangama.
+        In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.
+      </p>
+      <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">
+        Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein.
+Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen.
+Für eine Auszeit in der Ferne, die nachhaltig bewegt.
       </p>
     </div>
 
@@ -26,15 +34,26 @@ import RetreatCard from './RetreatCard.astro'; // Adjust the path as needed
         "In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.",
         "Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen."
       ]}
-      priceContent="Pro Teilnehmer 900 Euro"
-      includedContent="All meals, yoga classes, workshops, and beach access are included in the price."
-      locationContent="In einem abgelegenen Küstendorf in Sri Lanka – mit Palmen, Hängematten und atemberaubendem Meerblick."
+      priceContent={[
+        "Die Retreatgebühr für Yogaklassen und Rahmenprogramm  beträgt pro Person 900 Euro. Zusätzlich buchst du Zimmer	+ Mahlzeiten ( Brunch& Dinner)  direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.",
+        "Hier die Zimmerkategorien mit Preisen:",
+        "Einzelzimmer 500 Euro",
+        "Doppelbett im Dreibettzimmer 350 Euro",
+        "Stockbett im Dreibettzimmer 200 Euro"
+        ]}
+      includedContent={["Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel. "]}
+      locationContent={["Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.Bekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.",
+      "Tagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt. Ein Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit."
+      ]}
       carouselImages={[
-        { src: '/images/home_january/bathroom.jpg', label: 'Außenbereich mit Badewanne' },
-        { src: '/images/home_january/bathroom2.jpg', label: 'Gemütlicher Yogaraum' },
-        { src: '/images/home_january/Unrushedabove.jpg', label: 'Blick auf das Retreat' },
-        { src: '/images/home_january/Unrushed1.jpg', label: 'Yoga am Morgen' },
-        { src: '/images/home_january/Unrushed2.jpg', label: 'Poolbereich unter Palmen' }
+        { src: '/images/january/Hikkaduwa.jpg', label: '' },
+        { src: '/images/january/Hikkaduwa2.jpg', label: '' },
+        { src: '/images/january/Hikkaduwa3.jpg', label: '' },
+        { src: '/images/january/HikkaduwaYogashala1.jpg', label: '' },
+        { src: '/images/january/HikkaduwaYogashala2.jpg', label: '' },
+        { src: '/images/january/HikkaduwaYogashala3.jpg', label: '' },
+        { src: '/images/january/Hikkaduwayogashala4.jpg', label: '' },
+        { src: '/images/january/HikkaduwaYogashala5.jpg', label: '' }
       ]}
       ctaLabel="Jetzt buchen"
       ctaHref="#kontakt"
@@ -50,15 +69,35 @@ import RetreatCard from './RetreatCard.astro'; // Adjust the path as needed
         "Nur wenige Gehminuten vom Strand entfernt, lädt die Mittagspause zum Baden und Sonne tanken ein.",
         "Hier darfst du ankommen – fern von allem, nah bei dir."
       ]}
-      priceContent="Pro Teilnehmer 900 Euro"
-      includedContent="All meals, yoga classes, workshops, and beach access are included in the price."
-      locationContent="In einem abgelegenen Küstendorf in Sri Lanka – mit Palmen, Hängematten und atemberaubendem Meerblick."
+      priceContent={["Die Retreatgebühr für Yogaklassen und Rahmenprogramm  beträgt pro Person 970 Euro. Zusätzlich buchst du Zimmer	+ Mahlzeiten ( Brunch& Dinner)  direkt bei der Unterkunft, dem wunderschönen Boutique-Hotel Unrushed in Ahangama."]}
+      includedContent={["Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und traditionelles Töpfern in einem traditionellen singahelischen Handwerksbetrieb)."]}
+      locationContent={["Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest – Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.",
+        "Ein Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst."
+      ]}
       carouselImages={[
-        { src: '/images/home_january/bathroom.jpg', label: 'Außenbereich mit Badewanne' },
-        { src: '/images/home_january/bathroom2.jpg', label: 'Gemütlicher Yogaraum' },
-        { src: '/images/home_january/Unrushedabove.jpg', label: 'Blick auf das Retreat' },
-        { src: '/images/home_january/Unrushed1.jpg', label: 'Yoga am Morgen' },
-        { src: '/images/home_january/Unrushed2.jpg', label: 'Poolbereich unter Palmen' }
+        { src: '/images/february/Ahangamadesk.jpg', label: '' },
+        { src: '/images/february/ahangamasingleroom.jpg', label: '' },
+        { src: '/images/february/ahangamasittingandroomview.jpg', label: '' },
+        { src: '/images/february/AhangamaSittingarea.jpg', label: '' },
+        { src: '/images/february/ahangamasittingtables.jpg', label: '' },
+        { src: '/images/february/bathroom.jpg', label: '' },
+        { src: '/images/february/bathroom2.jpg', label: '' },
+        { src: '/images/february/Unrushed1.jpg', label: '' },
+        { src: '/images/february/Unrushed2.jpg', label: '' },
+        { src: '/images/february/Unrushed3.jpg', label: '' },
+        { src: '/images/february/Unrushed4.jpg', label: '' },
+        { src: '/images/february/unrushed5.jpg', label: '' },
+        { src: '/images/february/Unrushed6.jpg', label: '' },
+        { src: '/images/february/unrushed7.jpg', label: '' },
+        { src: '/images/february/Unrushed8.jpg', label: '' },
+        { src: '/images/february/unrushed9.jpg', label: '' },
+        { src: '/images/february/unrushed10.jpg', label: '' },
+        { src: '/images/february/unrushed11.jpg', label: '' },
+        { src: '/images/february/unrushed12.jpg', label: '' },
+        { src: '/images/february/Unrushedabove.jpg', label: '' },
+        { src: '/images/february/unrushedgardenview.jpg', label: '' },
+        { src: '/images/february/unrushedtriplebed.jpg', label: '' },
+        { src: '/images/february/Unrushedtriplebed2.jpg', label: '' }
       ]}
       ctaLabel="Jetzt buchen"
       ctaHref="#kontakt"

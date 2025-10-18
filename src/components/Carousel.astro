@@ -18,8 +18,11 @@ const { images = [] } = Astro.props;
           :src="slide.src"
           :alt="slide.label"
           class="w-full h-full object-cover"
+          :loading="activeSlide === 0 ? 'eager' : 'lazy'"
+          decoding="async"
         />
         <div
+           x-show="slide.label"
           class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans"
           x-text="slide.label"
         ></div>
