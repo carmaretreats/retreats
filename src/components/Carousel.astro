@@ -5,10 +5,9 @@ const { images = [] } = Astro.props;
 <div class="w-full flex flex-col justify-start items-center">
   <div 
     x-data={`{ activeSlide: 0, slides: ${JSON.stringify(images)} }`}
-x-init="console.log(slides)"
-class="max-w-4xl mx-auto relative"
-:style="`min-height: 400px`"
-  >
+    class="max-w-4xl mx-auto relative"
+    :style="`min-height: 400px`"
+      >
     <!-- Slides -->
     <template x-for="(slide, index) in slides" :key="slide.src">
       <div
