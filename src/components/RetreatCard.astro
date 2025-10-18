@@ -4,6 +4,7 @@ import RoomAccordion from './RoomAccordion.astro';
 import Cta from './CTA.astro';
 
 const {
+  retreatId = '',
   layout = 'left',
   date = '',
   introParagraphs = [],
@@ -19,7 +20,7 @@ const carouselOrder = layout === 'left' ? 'md:order-1' : 'md:order-2';
 const contentOrder = layout === 'left' ? 'md:order-2' : 'md:order-1';
 ---
 <!-- RetreatCard Section -->
-<section class="bg-cream-bg text-dark-brown font-sans w-full py-16">
+<section id={retreatId} class="bg-cream-bg text-dark-brown font-sans w-full py-16">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
     
     <!-- Carousel -->
