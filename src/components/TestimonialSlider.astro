@@ -1,45 +1,69 @@
----
----
-<section
-  id="testim"
-  class="testim bg-cream-bg text-dark-brown font-sans"
-  aria-labelledby="testim-title"
+<div
+  x-data="{            
+    autoplayIntervalTime: 4000,
+    slides: [                
+        {
+            imgSrc: '/assets/images/testimonials/mona.jpeg',
+            name: 'Mona',
+            description: 'Yoga & Me-time pur. Ich kenne Mareen schon aus Berlin und wusste, worauf ich mich freuen kann: Ausgewogene Balance aus Yoga, Meditation und „wild und frei“ sein in einer absolut unglaublichen Umgebung. Leute: Sri Lanka ist sooo schön!',
+            stars: 5
+        },
+        {
+            imgSrc: '/assets/images/testimonials/heike.jpeg',
+            name: 'Heike',
+            description: 'Ein Ort, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat!',
+            stars: 5
+        },
+        {
+            imgSrc: '/assets/images/testimonials/elena.jpeg',
+            name: 'Elena',
+            description: 'Die perfekte Mischung aus Yoga, Sonne, Meer und Leichtigkeit. Ich komme definitiv wieder!',
+            stars: 5
+        },
+    ],            
+    currentSlideIndex: 1,
+    isPaused: false,
+    autoplayInterval: null,
+    previous() {                
+        this.currentSlideIndex = this.currentSlideIndex > 1
+            ? this.currentSlideIndex - 1
+            : this.slides.length;
+    },            
+    next() {                
+        this.currentSlideIndex = this.currentSlideIndex < this.slides.length
+            ? this.currentSlideIndex + 1
+            : 1;
+    },    
+    autoplay() {
+        this.autoplayInterval = setInterval(() => {
+            if (! this.isPaused) this.next()
+        }, this.autoplayIntervalTime)
+    },
+  }"
+  x-init="autoplay"
+  class="relative w-full overflow-hidden bg-cream-bg py-12"
 >
-  <div class="wrap">
-    <h2 id="testim-title" class="sr-only">What people say</h2>
-
-    <!-- Flechas -->
-    <span
-      id="right-arrow"
-      class="arrow right fa fa-chevron-right"
-      role="button"
-      aria-label="Next testimonial"
-      tabindex="0"
-    ></span>
-    <span
-      id="left-arrow"
-      class="arrow left fa fa-chevron-left"
-      role="button"
-      aria-label="Previous testimonial"
-      tabindex="0"
-    ></span>
-
-    <!-- Dots y Slides se generan dinámicamente -->
-    <ul
-      id="testim-dots"
-      class="dots"
-      role="tablist"
-      aria-label="Testimonial navigation"
-    ></ul>
-
-    <div
-      id="testim-content"
-      class="cont"
-      role="region"
-      aria-live="polite"
-    ></div>
+  <!-- slides -->
+  <div class="relative w-full min-h-[340px] max-w-xl mx-auto">
+    <template x-for="(slide, index) in slides" :key="index">
+      <div x-cloak x-show="currentSlideIndex === index + 1" class="absolute inset-0 flex flex-col items-center justify-start text-center p-6 transition-opacity duration-1000" x-transition.opacity>
+        <!-- Imagen redonda -->
+        <img
+          :src="slide.imgSrc"
+          :alt="slide.name"
+          class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-gray-300 shadow-sm"
+        />
+        <!-- Estrellas -->
+        <div class="flex justify-center mb-4 text-dark-brown text-xl">
+          <template x-for="star in slide.stars" :key="star">
+            <span>★</span>
+          </template>
+        </div>
+        <!-- Testimonio -->
+        <p class="text-sm text-dark-brown leading-relaxed font-[PlusJakartaSans]" x-text="slide.description"></p>
+        <!-- Nombre -->
+        <p class="mt-4 text-sm font-semibold text-dark-brown" x-text="slide.name"></p>
+      </div>
+    </template>
   </div>
-</section>
-
-<script src="/scripts/slider.data.js" defer></script>
-<script src="/scripts/slider.js" defer></script>
+</div>
