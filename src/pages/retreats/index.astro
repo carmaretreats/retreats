@@ -21,6 +21,11 @@ import imgCarmen from '../../assets/images/hosts-carmen.jpg';
 import imgMareen from '../../assets/images/hosts-mareen.jpg';
 import TestimonialSlider from '../../components/TestimonialSlider.astro'; 
 
+import mona from '../../assets/images/testimonials/mona.jpeg';
+import elena from '../../assets/images/testimonials/elena.jpeg';
+import heike from '../../assets/images/testimonials/heike.jpeg';
+
+
 const carmenText = `
 Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.
 Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.
@@ -38,48 +43,26 @@ In ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegun
 
 `;
 
-const testimonials = [
+export const testimonialsImages = [
   {
-    image: '/images/testimonials/elena.jpg',
-    text: 'Mein bestes Retreat bisher in Sri Lanka! Top organisiert und perfekter Ablauf...',
-    name: 'Elena'
+    src: mona,
+    name: 'Mona',
+    description: 'Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat, ich freu mich schon aufs nächste Mal!',
+    stars: 5
   },
   {
-    image: '/images/testimonials/mona.jpg',
-    text: 'Yoga & Me-time pur...',
-    name: 'Mona'
+    src: elena,
+    name: 'Elena',
+    description: 'Die perfekte Mischung aus Yoga, Sonne, Meer und Leichtigkeit...',
+    stars: 5
   },
   {
-    image: '/images/testimonials/heike.jpg',
-    text: 'Höchstes Niveau! ...',
-    name: 'Heike'
-  }
+    src: heike,
+    name: 'Heike',
+    description: 'Ein Ort, an dem man wirklich abschalten kann...',
+    stars: 5
+  },
 ];
-
-// import mona from '../assets/images/testimonials/mona.jpeg';
-// import elena from '../assets/images/testimonials/elena.jpeg';
-// import heike from '../assets/images/testimonials/heike.jpeg';
-
-// export const testimonialsImages = [
-//   {
-//     src: mona,
-//     name: 'Mona',
-//     description: 'Yoga & Me-time pur. Ich kenne Mareen schon aus Berlin ...',
-//     stars: 5
-//   },
-//   {
-//     src: elena,
-//     name: 'Elena',
-//     description: 'Die perfekte Mischung aus Yoga, Sonne, Meer und Leichtigkeit...',
-//     stars: 5
-//   },
-//   {
-//     src: heike,
-//     name: 'Heike',
-//     description: 'Ein Ort, an dem man wirklich abschalten kann...',
-//     stars: 5
-//   },
-// ];
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
@@ -108,7 +91,7 @@ const testimonials = [
       imageAlt="Mareen Portrait"
       reverse={true}
     />
-    <TestimonialSlider />
+    <TestimonialSlider testimonials={testimonialsImages} />
     <ContactSection />
   </main>
 </Layout>

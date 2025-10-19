@@ -1,69 +1,75 @@
-<div
-  x-data="{            
-    autoplayIntervalTime: 4000,
-    slides: [                
-        {
-            imgSrc: '/assets/images/testimonials/mona.jpeg',
-            name: 'Mona',
-            description: 'Yoga & Me-time pur. Ich kenne Mareen schon aus Berlin und wusste, worauf ich mich freuen kann: Ausgewogene Balance aus Yoga, Meditation und „wild und frei“ sein in einer absolut unglaublichen Umgebung. Leute: Sri Lanka ist sooo schön!',
-            stars: 5
-        },
-        {
-            imgSrc: '/assets/images/testimonials/heike.jpeg',
-            name: 'Heike',
-            description: 'Ein Ort, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat!',
-            stars: 5
-        },
-        {
-            imgSrc: '/assets/images/testimonials/elena.jpeg',
-            name: 'Elena',
-            description: 'Die perfekte Mischung aus Yoga, Sonne, Meer und Leichtigkeit. Ich komme definitiv wieder!',
-            stars: 5
-        },
-    ],            
-    currentSlideIndex: 1,
-    isPaused: false,
-    autoplayInterval: null,
-    previous() {                
+---
+import type { ImageMetadata } from 'astro';
+import bgImage from '../assets/images/Terra-Rossa-Papier.png';
+
+const { testimonials = [] }: {
+  testimonials: {
+    src: ImageMetadata;
+    name: string;
+    description: string;
+    stars: number;
+  }[];
+} = Astro.props;
+---
+<section
+class="w-full bg-cover bg-center bg-no-repeat py-16 px-6"
+  style={`background-image: url(${bgImage.src});`}>
+  <div
+    x-data=`{
+      slides: ${JSON.stringify(
+        testimonials.map((t) => ({
+          imgSrc: t.src.src,
+          name: t.name,
+          description: t.description,
+          stars: t.stars,
+        }))
+      )},
+      currentSlideIndex: 1,
+      autoplayIntervalTime: 4000,
+      isPaused: false,
+      autoplayInterval: null,
+      previous() {
         this.currentSlideIndex = this.currentSlideIndex > 1
-            ? this.currentSlideIndex - 1
-            : this.slides.length;
-    },            
-    next() {                
+          ? this.currentSlideIndex - 1
+          : this.slides.length
+      },
+      next() {
         this.currentSlideIndex = this.currentSlideIndex < this.slides.length
-            ? this.currentSlideIndex + 1
-            : 1;
-    },    
-    autoplay() {
+          ? this.currentSlideIndex + 1
+          : 1
+      },
+      autoplay() {
         this.autoplayInterval = setInterval(() => {
-            if (! this.isPaused) this.next()
+          if (! this.isPaused) this.next()
         }, this.autoplayIntervalTime)
-    },
-  }"
-  x-init="autoplay"
-  class="relative w-full overflow-hidden bg-cream-bg py-12"
->
-  <!-- slides -->
-  <div class="relative w-full min-h-[340px] max-w-xl mx-auto">
-    <template x-for="(slide, index) in slides" :key="index">
-      <div x-cloak x-show="currentSlideIndex === index + 1" class="absolute inset-0 flex flex-col items-center justify-start text-center p-6 transition-opacity duration-1000" x-transition.opacity>
-        <!-- Imagen redonda -->
-        <img
-          :src="slide.imgSrc"
-          :alt="slide.name"
-          class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-gray-300 shadow-sm"
-        />
-        <!-- Estrellas -->
-        <div class="flex justify-center mb-4 text-dark-brown text-xl">
-          <template x-for="star in slide.stars" :key="star">
-            <span>★</span>
-          </template>
+      }
+    }`
+    x-init="autoplay"
+    class="relative w-full overflow-hidden py-12"
+  >
+    <!-- slides -->
+    <div class="relative w-full min-h-[400px] max-w-[90vw] sm:max-w-2xl lg:max-w-3xl mx-auto bg-cream-bg rounded-xl px-4 sm:px-8 md:px-12 py-8 md:py-14 overflow-hidden">
+      <template x-for="(slide, index) in slides" :key="index">
+        <div x-cloak x-show="currentSlideIndex === index + 1" class="absolute inset-0 flex flex-col items-center justify-start text-center p-6 transition-opacity duration-1000" x-transition.opacity>
+          <!-- Imagen redonda -->
+          <img
+            :src="slide.imgSrc"
+            :alt="slide.name"
+            class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-gray-300 shadow-sm"
+          />
+          <!-- Estrellas -->
+          <div class="flex justify-center mb-4 text-dark-brown text-xl">
+            <template x-for="star in slide.stars" :key="star">
+              <span>★</span>
+            </template>
+          </div>
+          <!-- Testimonio -->
+          <p class="prose prose-lg max-w-none text-base md:text-lg leading-relaxed text-black line-clamp-4" style="font-family: var(--font-sans)"
+            x-text="slide.description"></p>
+          <!-- Nombre -->
+          <p class="mt-4 text-sm font-semibold text-dark-brown" x-text="slide.name"></p>
         </div>
-        <!-- Testimonio -->
-        <p class="text-sm text-dark-brown leading-relaxed font-[PlusJakartaSans]" x-text="slide.description"></p>
-        <!-- Nombre -->
-        <p class="mt-4 text-sm font-semibold text-dark-brown" x-text="slide.name"></p>
-      </div>
-    </template>
+      </template>
+    </div>
   </div>
-</div>
+</section>
