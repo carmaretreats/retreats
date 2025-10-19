@@ -7,25 +7,7 @@ import DesktopNav from './DesktopNav.astro';
 
 <header 
   class="w-full bg-cream-bg top-0 left-0 z-60"
-  x-data="{
-    open: false,
-    busy: false,
-    closeMenu() {
-      if (this.busy) return;
-      this.busy = true;
-      const el = this.$refs.panel;
-      // add closing class to trigger link fade-out
-      el.classList.add('menu-closing');
-      // wait for links to fade (match CSS delays) then actually close panel (remove menu-open)
-      setTimeout(() => {
-        this.open = false;
-        // remove closing helper class after allowing panel slide animation to run
-        el.classList.remove('menu-closing');
-        // small timeout to allow panel to finish cleanup
-        setTimeout(()=> { this.busy = false }, 60);
-      }, 420); // matches links fade duration / stagger timing
-    }
-  }"
+  x-data="{ open: false, busy: false, closeMenu() { if (this.busy) return; this.busy = true; const el = this.$refs.panel; el.classList.add('menu-closing'); setTimeout(() => {this.open = false; el.classList.remove('menu-closing'); setTimeout(()=> { this.busy = false }, 60);}, 420);}}"
   x-init="$watch('open', v => document.body.classList.toggle('overflow-hidden', v))"
 >
   <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">

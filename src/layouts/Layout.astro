@@ -1,31 +1,42 @@
 ---
+import { SEO } from "astro-seo";
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 ---
 <!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="sitemap" href="/sitemap-index.xml" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+
+    <SEO
+      title="Carma Retreats"
+      titleTemplate="%s | Carma Retreats"
+      description="Yoga Retreats, die nachhaltig bewegen. Eine Einladung, durchzuatmen, aufzutanken und dich mit der Natur zu verbinden."
+      canonical="https://www.carma-retreats.com"
+      noindex={false}
+      nofollow={false}
+      extend={{
+        link: [{ rel: "icon", href: "/favicon.ico" }],
+        meta: [{ name: "theme-color", content: "#2d241d" }],
+      }}
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   </head>
-		<title>Astro Basics</title>
-	</head>
-	<body>
-        <Header />
-		<slot />
-		<Footer />
-	</body>
+  <body>
+    <Header />
+    <slot />
+    <Footer />
+  </body>
 </html>
 
 <style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
 </style>
