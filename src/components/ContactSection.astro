@@ -16,18 +16,21 @@ if (Astro.request.method === "POST") {
 }
 ---
 <section
-  id="kontakt"
-  class="relative w-full py-20 px-6 sm:px-12 bg-cream-bg text-dark-brown font-sans"
->
-  <div class="max-w-4xl mx-auto relative z-10 flex flex-col gap-16">
+    id="kontakt"
+    class="relative w-full py-20 px-6 sm:px-12 bg-cream-bg text-black font-sans"
+  >
+  <div class="w-full relative z-10 flex flex-col gap-16">
 
     <!-- Top Heading -->
     <header class="max-w-3xl">
-      <p class="uppercase text-sm tracking-wide">Retreat-Infos</p>
-      <h2 class="text-2xl md:text-4xl font-editorial italic leading-snug mb-6">
+      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
+        style="font-family: var(--font-sora);">
+        Retreat-Infos</p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+      style="font-family: var(--font-editorial);">
         Kontakt und Buchung
       </h2>
-      <p class="text-base md:text-lg leading-relaxed text-dark-brown">
+      <p class="prose prose-lg max-w-none text-base md:text-lg mb-8 leading-relaxed text-black" style="font-family: var(--font-sans)">
         Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.<br />
         Du hast noch weitere Fragen? Gerne beantworten wir dir diese — füll dazu einfach das Formular aus.
       </p>
@@ -39,9 +42,9 @@ if (Astro.request.method === "POST") {
         <!-- Retreat Selection -->
       <div class="space-y-6">
         <div>
-          <label class="block mb-2 text-base font-editorial text-dark-brown">Retreat auswählen*</label>
+          <label class="block mb-2 text-base font-editorial text-black">Retreat auswählen*</label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 text-base text-dark-brown font-sans">
+            <label class="flex items-center gap-3 text-base text-black font-sans">
               <input
                 type="radio"
                 name="retreat"
@@ -52,7 +55,7 @@ if (Astro.request.method === "POST") {
               />
               Hikkaduwa im Januar
             </label>
-            <label class="flex items-center gap-3 text-base text-dark-brown font-sans">
+            <label class="flex items-center gap-3 text-black font-sans">
               <input
                 type="radio"
                 name="retreat"
@@ -68,9 +71,9 @@ if (Astro.request.method === "POST") {
 
         <!-- Accommodation Selection -->
         <div x-show="selectedRetreat" x-cloak>
-          <label class="block mb-2 text-base font-editorial text-dark-brown">Unterkunft auswählen*</label>
+          <label class="block mb-2 text-base font-editorial text-black">Unterkunft auswählen*</label>
           <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
-            <label class="flex items-center gap-3 text-base text-dark-brown font-sans">
+            <label class="flex items-center gap-3 text-base text-black font-sans">
               <input
                 type="radio"
                 name="accommodation"
@@ -87,7 +90,8 @@ if (Astro.request.method === "POST") {
 
       <!-- Name -->
       <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
+        <label class="block mb-2 font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
+        style="font-family: var(--font-editorial);">
           Ihr Name
         </label>
         <input
@@ -96,7 +100,8 @@ if (Astro.request.method === "POST") {
           value={previousValues.name || ""}
           id="send-email__name"
           placeholder="Geben Sie Ihren Namen ein"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-black font-sans"
+          style="font-family: var(--font-editorial);"
           required
           aria-describedby={inputErrors.name ? "name-error" : undefined}
           />
@@ -109,7 +114,8 @@ if (Astro.request.method === "POST") {
 
       <!-- Email -->
       <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
+        <label class="block mb-2 font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
+        style="font-family: var(--font-editorial);">
           Ihre E‑Mail*
         </label>
         <input
@@ -118,7 +124,8 @@ if (Astro.request.method === "POST") {
           value={previousValues.email || ""}
           id="send-email__email"
           placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-dark-brown font-sans"
+          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-black font-sans"
+          style="font-family: var(--font-editorial);"
           required
           aria-describedby={inputErrors.email ? "email-error" : undefined}
           />
@@ -131,7 +138,8 @@ if (Astro.request.method === "POST") {
 
       <!-- Message -->
       <div>
-        <label class="block mb-2 text-base font-editorial text-dark-brown">
+        <label class="block mb-2 text-base font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
+        style="font-family: var(--font-editorial);">
           Ihre Nachricht*
         </label>
         <textarea
@@ -139,7 +147,8 @@ if (Astro.request.method === "POST") {
           placeholder="Teilen Sie uns Ihre Fragen mit"
           name="lead_message"
           id="send-email__message"
-          class="w-full text-dark-brown placeholder-dark-brown/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-dark-brown font-sans"
+          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-black font-sans"
+          style="font-family: var(--font-editorial);"
           >{previousValues.lead_message || ""}</textarea>
       </div>
 

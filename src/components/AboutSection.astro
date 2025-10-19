@@ -7,30 +7,37 @@ interface Props {
   text: string;
   image: ImageMetadata;
   imageAlt?: string;
+  reverse?: boolean;
 }
 
 const {
-  subtitle = "Mehr über uns",
+  subtitle,
   title = "Über uns",
   text,
   image,
   imageAlt = "Portrait",
+  reverse = false,
 } = Astro.props;
+
+const textOrder = reverse ? 'order-2 md:order-1' : 'order-1';
+const imageOrder = reverse ? 'order-1 md:order-2 justify-start' : 'justify-end';
 ---
 
-<section class="bg-cream-bg text-dark-brown py-16 px-6 font-sans">
+<section id="mehr-uber-uns" class="bg-cream-bg text-dark-brown py-16 px-6 font-sans">
   <div class="max-w-6xl mx-auto flex flex-col md:flex-row md:items-start gap-8">
 
     <!-- 📝 Texto -->
-    <div class="w-full md:w-2/3 space-y-4 relative">
+    <div class={`w-full md:w-2/3 space-y-4 relative ${textOrder}`}>
       {subtitle && (
-        <p class="uppercase text-sm tracking-wide mb-2">
+        <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
+        style="font-family: var(--font-sora);">
           {subtitle}
         </p>
       )}
 
       {title && (
-        <h2 class="font-editorial italic text-3xl md:text-4xl mb-4">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+      style="font-family: var(--font-editorial);">
           {title}
         </h2>
       )}
@@ -40,7 +47,7 @@ const {
         <Image src={image} alt={imageAlt} class="w-full h-full object-cover" />
       </div>
 
-      <div class="prose prose-lg max-w-none">
+      <div class="prose prose-lg max-w-none text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans)">
         {text.split('\n').map((paragraph) => (
           paragraph.trim() && <p>{paragraph}</p>
         ))}
@@ -48,7 +55,7 @@ const {
     </div>
 
     <!-- 🖼️ Imagen grande en desktop -->
-    <div class="hidden md:flex w-full md:w-1/3 justify-end">
+    <div class={`hidden md:flex w-full md:w-1/3 ${imageOrder}`}>
       <div class="max-w-sm overflow-hidden rounded-2xl">
         <Image src={image} alt={imageAlt} class="w-full h-auto object-cover" />
       </div>
