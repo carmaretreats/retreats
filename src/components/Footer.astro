@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 import CarmaLogo from '../assets/images/Carma-Weiß.png';
 import SpiralIcon from '../assets/images/Markenzeichen-Weis.png';
 ---
@@ -7,7 +8,14 @@ import SpiralIcon from '../assets/images/Markenzeichen-Weis.png';
   <div class="max-w-5xl mx-auto flex flex-col items-center gap-6">
 
     <!-- Logo -->
-    <img src={CarmaLogo.src} alt="Carma Retreats Logo" class="h-16 sm:h-20" />
+    <Image
+      src={CarmaLogo}
+      alt="Carma Retreats Logo"
+      widths={[200, 400, 600]} 
+      sizes="(max-width: 640px) 150px, 300px"
+      class="h-16 sm:h-20 w-auto mx-auto"    
+      loading="eager"
+    />
 
     <!-- Subtitle: Retreats -->
     <p class="font-editorial italic text-lg sm:text-xl mt-2">
@@ -15,7 +23,14 @@ import SpiralIcon from '../assets/images/Markenzeichen-Weis.png';
     </p>
 
     <!-- Spiral Icon -->
-    <img src={SpiralIcon.src} alt="Carma Spiral" class="h-6 sm:h-8 mt-2" />
+    <Image
+      src={SpiralIcon}
+      alt="Carma Spiral"
+      widths={[50, 100, 150]}
+      sizes="(max-width: 640px) 50px, 100px"
+      class="h-6 sm:h-8 w-auto mx-auto mt-2"
+      loading="lazy"
+    />
 
     <!-- Placeholder links -->
     <p class="text-sm text-white/80 mt-6">

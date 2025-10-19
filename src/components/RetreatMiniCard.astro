@@ -1,5 +1,6 @@
 ---
 import CTA from '../components/CTA.astro';
+import { Image } from 'astro:assets';
 
 const {
   imageSrc,
@@ -14,12 +15,15 @@ const {
 <article class="flex flex-col bg-[var(--color-cream-bg)] overflow-hidden">
   <!-- Imagen destacada -->
   <div class="w-full aspect-[4/3] overflow-hidden aspect-square">
-    <img
+    <Image
         src={imageSrc}
         alt={title}
+        widths={[400, 800, 1200]}
+        formats={['avif', 'webp', 'jpeg']}
         class="w-full h-full object-cover object-center"
         loading="lazy"
-    />
+        decoding="async"
+      />
   </div>
 
   <!-- Contenido con overlap -->

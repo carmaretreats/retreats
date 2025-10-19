@@ -1,5 +1,6 @@
 ---
 import type { ImageMetadata } from 'astro';
+import { Image } from 'astro:assets';
 
 const {
   images = [],
@@ -20,9 +21,11 @@ const {
         class="relative h-full w-full overflow-hidden aspect-square"
         x-show={`activeSlide === ${index}`}
       >
-        <img 
-          src={slide.src.src}
+        <Image
+          src={slide.src}
           alt={slide.label || ''}
+          widths={[400, 800, 1200]}
+          formats={['avif', 'webp', 'jpeg']}
           class="w-full h-full object-cover"
           loading="lazy"
           decoding="async"
