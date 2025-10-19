@@ -55,6 +55,10 @@ body {
  /* font-family: 'PPEditorialOld-Italic', serif; */
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 /* ensure Alpine x-cloak hides elements until mounted */
 [x-cloak] { display: none !important; }
 

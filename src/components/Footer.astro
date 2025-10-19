@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
-import CarmaLogo from '../assets/images/Carma-Weiß.png';
-import SpiralIcon from '../assets/images/Markenzeichen-Weis.png';
+import CarmaFullLogo from '../assets/images/logos/CarnaRetreats-Full-Weiß.png';
 ---
 
 <footer class="bg-dark-brown text-white w-full px-6 py-16 text-center font-sans">
@@ -9,32 +8,24 @@ import SpiralIcon from '../assets/images/Markenzeichen-Weis.png';
 
     <!-- Logo -->
     <Image
-      src={CarmaLogo}
-      alt="Carma Retreats Logo"
-      widths={[200, 400, 600]} 
-      sizes="(max-width: 640px) 150px, 300px"
-      class="h-16 sm:h-20 w-auto mx-auto"    
-      loading="eager"
-    />
+  src={CarmaFullLogo}
+  alt="Carma Retreats Logo"
+  widths={[200, 400, 600]} 
+  sizes="(max-width: 640px) 150px, 300px"
+  class="h-auto max-w-[200px] sm:max-w-[150px] lg:max-w-[300px] w-auto mx-auto"
+  loading="eager"
+/>
 
-    <!-- Subtitle: Retreats -->
-    <p class="font-editorial italic text-lg sm:text-xl mt-2">
-      Retreats
-    </p>
+    <!-- Legal Links -->
+    <div class="flex flex-wrap justify-center gap-6 text-sm text-white/80 mt-8">
+      <a href="/impressum" class="hover:underline">Impressum</a>
+      <a href="/datenschutz" class="hover:underline">Datenschutzerklärung</a>
+      <a href="#cmpbox" class="hover:underline">Cookie-Einstellungen</a>
+    </div>
 
-    <!-- Spiral Icon -->
-    <Image
-      src={SpiralIcon}
-      alt="Carma Spiral"
-      widths={[50, 100, 150]}
-      sizes="(max-width: 640px) 50px, 100px"
-      class="h-6 sm:h-8 w-auto mx-auto mt-2"
-      loading="lazy"
-    />
-
-    <!-- Placeholder links -->
-    <p class="text-sm text-white/80 mt-6">
-      (the respective / corresponding links)
+    <!-- Optional bottom note -->
+    <p class="text-xs text-white/60 mt-6">
+      © {new Date().getFullYear()} Carma Retreats · Alle Rechte vorbehalten
     </p>
 
   </div>
