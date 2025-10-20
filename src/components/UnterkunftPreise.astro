@@ -73,62 +73,64 @@ export const februaryImages = [
 ---
 
 <!-- UnterkunftPreise Section -->
-<section id="unterkunft-preise" class="bg-cream-bg text-black w-full py-16 px-4">
-  <!-- Section Title -->
-  <div class="max-w-6xl mx-auto text-left mb-12">
-    <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-        style="font-family: var(--font-sora);">
-      Die Infos
-    </p>
-    <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-      style="font-family: var(--font-editorial);">
-      Unterkunft & Preise
-    </h2>
-  </div>
-
-  <!-- Retreat 1 - Hikkaduwa -->
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 mb-16 items-start">
-    <!-- Text -->
-    <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
-      <h3 class="mb-4 text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-          style="font-family: var(--font-editorial);">
-        Hikkaduwa Januar
-      </h3>
-      <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer<span class="float-right">500 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett im Dreibettzimmer <span class="float-right">350 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Stockbetten im Dreibettzimmer <span class="float-right">200 €</span></p>
-      <hr class="my-3 border-accent-orange" />
-      <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
+<section id="unterkunft-preise" class="section bg-cream-bg text-black">
+  <div class="section-inner">
+    <!-- Section Title -->
+    <div class="max-w-6xl mx-auto text-left mb-12">
+      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
+          style="font-family: var(--font-sora);">
+        Die Infos
+      </p>
+      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+        style="font-family: var(--font-editorial);">
+        Unterkunft & Preise
+      </h2>
     </div>
-
-    <!-- Carousel -->
-    <div class="w-full md:w-1/2 order-1 md:order-2">
-      <Carousel images={januaryImages} />
+  
+    <!-- Retreat 1 - Hikkaduwa -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 mb-16 items-start">
+      <!-- Text -->
+      <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
+        <h3 class="mb-4 text-left text-lg md:text-xl italic font-semibold py-2 text-black"
+            style="font-family: var(--font-editorial);">
+          Hikkaduwa Januar
+        </h3>
+        <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer<span class="float-right">500 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett im Dreibettzimmer <span class="float-right">350 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Stockbetten im Dreibettzimmer <span class="float-right">200 €</span></p>
+        <hr class="my-3 border-accent-orange" />
+        <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
+      </div>
+  
+      <!-- Carousel -->
+      <div class="w-full md:w-1/2 order-1 md:order-2">
+        <Carousel images={januaryImages} />
+      </div>
     </div>
-  </div>
-
-  <!-- Retreat 2 - Ahangama -->
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
-    <!-- Text -->
-    <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
-      <h3 class="mb-4 text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-          style="font-family: var(--font-editorial);">
-        Ahangama Februar
-      </h3>
-      <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer alleine <span class="float-right">520 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett geteilt <span class="float-right">340 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett alleine <span class="float-right">440 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett geteilt <span class="float-right">290 €</span></p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer kleines Bett <span class="float-right">380 €</span></p>
-      <hr class="my-3 border-accent-orange" />
-      <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
-      <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
-    </div>
-
-    <!-- Carousel -->
-    <div class="w-full md:w-1/2 order-1 md:order-2">
-      <Carousel images={februaryImages} />
+  
+    <!-- Retreat 2 - Ahangama -->
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start">
+      <!-- Text -->
+      <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
+        <h3 class="mb-4 text-left text-lg md:text-xl italic font-semibold py-2 text-black"
+            style="font-family: var(--font-editorial);">
+          Ahangama Februar
+        </h3>
+        <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer alleine <span class="float-right">520 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett geteilt <span class="float-right">340 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett alleine <span class="float-right">440 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett geteilt <span class="float-right">290 €</span></p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer kleines Bett <span class="float-right">380 €</span></p>
+        <hr class="my-3 border-accent-orange" />
+        <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
+        <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
+      </div>
+  
+      <!-- Carousel -->
+      <div class="w-full md:w-1/2 order-1 md:order-2">
+        <Carousel images={februaryImages} />
+      </div>
     </div>
   </div>
 </section>

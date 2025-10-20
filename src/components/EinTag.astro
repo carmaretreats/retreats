@@ -7,75 +7,77 @@ import CTA from './CTA.astro';
 
 <section
   id="tagesablauf"
-  class="w-full bg-cover bg-center bg-no-repeat py-16 px-6 text-white"
+  class="section bg-cover bg-center bg-no-repeat text-white"
   style={`background-image: url(${bgImage.src});`}
 >
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:items-center">
-    <!-- Texto e Imagen en misma columna mobile -->
-    <div class="w-full md:w-1/2 order-1 md:order-1">
-      <h2
-        class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-      style="font-family: var(--font-editorial);"
-      >
-        Ein Tag bei Carma Retreats
-      </h2>
-
-      <!-- Imagen visible debajo del título en mobile -->
-      <div class="flex justify-center md:hidden mb-6">
+  <div class="section-inner">
+    <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 md:items-center">
+      <!-- Texto e Imagen en misma columna mobile -->
+      <div class="w-full md:w-1/2 order-1 md:order-1">
+        <h2
+          class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+        style="font-family: var(--font-editorial);"
+        >
+          Ein Tag bei Carma Retreats
+        </h2>
+  
+        <!-- Imagen visible debajo del título en mobile -->
+        <div class="flex justify-center md:hidden mb-6">
+          <Image
+            src={dayImage}
+            alt="Carma Retreats Day"
+            class="max-w-[280px] w-auto h-auto rounded-lg shadow-lg object-cover"
+          />
+        </div>
+  
+        <div class="space-y-4 font-sans text-base leading-relaxed">
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">7.30 Uhr</h3>
+          <p>Meditation / Pranayama</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">8.00 Uhr</h3>
+          <p>Tee und evtl. kleiner Snack wie gesunde Kekse oder Datteln oder Bananen</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">8.30 Uhr</h3>
+          <p>Morgen-Asana-Praxis</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">10.30 Uhr</h3>
+          <p>Brunch</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);"></h3>
+          <p><em>Nachmittags Zeit zur freien Verfügung</em></p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">15.00 Uhr</h3>
+          <p>Fruchtplatte / Snack</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">*2× pro Woche 16.00 Uhr Ausflug:</h3>
+          <p>Töpferkurs / Kochkurs / Ausflug zum Tempel / Bootstour</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">17.00 Uhr</h3>
+          <p>Abendpraxis</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">19.00 Uhr</h3>
+          <p>Abendessen</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">20.30–21.00 Uhr</h3>
+          <p>gemeinsamer Ausklang / Meditation</p>
+  
+          <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">22.00 Uhr</h3>
+          <p>Nachtruhe</p>
+        </div>
+      </div>
+  
+      <!-- Imagen para desktop -->
+      <div class="hidden md:flex w-full md:w-1/2 items-center order-2">
         <Image
           src={dayImage}
           alt="Carma Retreats Day"
-          class="max-w-[280px] w-auto h-auto rounded-lg shadow-lg object-cover"
+          class="w-full max-w-[320px] lg:max-w-md rounded-lg shadow-lg object-cover"
         />
       </div>
-
-      <div class="space-y-4 font-sans text-base leading-relaxed">
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">7.30 Uhr</h3>
-        <p>Meditation / Pranayama</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">8.00 Uhr</h3>
-        <p>Tee und evtl. kleiner Snack wie gesunde Kekse oder Datteln oder Bananen</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">8.30 Uhr</h3>
-        <p>Morgen-Asana-Praxis</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">10.30 Uhr</h3>
-        <p>Brunch</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);"></h3>
-        <p><em>Nachmittags Zeit zur freien Verfügung</em></p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">15.00 Uhr</h3>
-        <p>Fruchtplatte / Snack</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">*2× pro Woche 16.00 Uhr Ausflug:</h3>
-        <p>Töpferkurs / Kochkurs / Ausflug zum Tempel / Bootstour</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">17.00 Uhr</h3>
-        <p>Abendpraxis</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">19.00 Uhr</h3>
-        <p>Abendessen</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">20.30–21.00 Uhr</h3>
-        <p>gemeinsamer Ausklang / Meditation</p>
-
-        <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">22.00 Uhr</h3>
-        <p>Nachtruhe</p>
-      </div>
     </div>
-
-    <!-- Imagen para desktop -->
-    <div class="hidden md:flex w-full md:w-1/2 items-center order-2">
-      <Image
-        src={dayImage}
-        alt="Carma Retreats Day"
-        class="w-full max-w-[320px] lg:max-w-md rounded-lg shadow-lg object-cover"
-      />
+    <!-- CTA -->
+    <div class="pt-16 flex justify-start">
+      <CTA color="cream" border={true} size="medium" />
     </div>
-  </div>
-  <!-- CTA -->
-  <div class="pt-16 flex justify-start">
-    <CTA color="cream" border={true} size="medium" />
   </div>
 </section>

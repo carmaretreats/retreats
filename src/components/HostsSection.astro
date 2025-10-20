@@ -4,38 +4,40 @@ import CTA from '../components/CTA.astro';
 import hostsImg from '../assets/images/hosts-carmen-mareen.jpg'; 
 ---
 
-<section id="deine-hosts" class="w-full bg-cream-bg text-dark-brown">
-  <!-- Imagen de ancho completo con recorte central -->
-  <div class="w-screen h-[60vh] overflow-hidden">
-    <Image 
-      src={hostsImg}
-      alt="Carmen und Mareen"
-      class="w-full h-full object-cover object-center"
-    />
-  </div>
-
-  <!-- Contenido textual debajo -->
-  <div class="max-w-4xl mx-auto px-6 py-16 text-left">
-    <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-        style="font-family: var(--font-sora);">
-      DEINE HOSTS
-    </p>
-
-    <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-      style="font-family: var(--font-editorial);">
-      Hi, wir sind Carmen und Mareen.
-    </h2>
-
-    <div class="font-sans text-base md:text-lg leading-relaxed max-w-3xl space-y-4 mb-8">
-      <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">...und gemeinsam sind wir CARMA Retreats.</p>
-      <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">
-        Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, 
-        an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. 
-        Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.
-        Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.
-      </p>
+<section id="deine-hosts" class="section bg-cream-bg text-dark-brown">
+  <div class="section-inner">
+    <!-- Imagen de ancho completo con recorte central -->
+    <div class="w-screen h-[60vh] overflow-hidden">
+      <Image 
+        src={hostsImg}
+        alt="Carmen und Mareen"
+        class="w-full h-full object-cover object-center"
+      />
     </div>
-
-    <CTA label="Mehr über uns" color="cream" href="#mehr-uber-uns" border={true} />
+  
+    <!-- Contenido textual debajo -->
+    <div class="max-w-4xl mx-auto px-6 py-16 text-left">
+      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
+          style="font-family: var(--font-sora);">
+        DEINE HOSTS
+      </p>
+  
+      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
+        style="font-family: var(--font-editorial);">
+        Hi, wir sind Carmen und Mareen.
+      </h2>
+  
+      <div class="font-sans text-base md:text-lg leading-relaxed max-w-3xl space-y-4 mb-8">
+        <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">...und gemeinsam sind wir CARMA Retreats.</p>
+        <p class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">
+          Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, 
+          an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. 
+          Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.
+          Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.
+        </p>
+      </div>
+  
+      <CTA label="Mehr über uns" color="cream" href="#mehr-uber-uns" border={true} />
+    </div>
   </div>
 </section>

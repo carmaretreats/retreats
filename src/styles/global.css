@@ -59,6 +59,14 @@ html {
   scroll-behavior: smooth;
 }
 
+.section {
+  @apply w-full py-16;
+}
+
+.section-inner {
+  @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-[50px];
+}
+
 /* ensure Alpine x-cloak hides elements until mounted */
 [x-cloak] { display: none !important; }
 
