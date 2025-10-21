@@ -1,11 +1,11 @@
 ---
 import { isInputError } from "astro:actions";
 import { actions } from "astro:actions";
+
 const result = Astro.getActionResult(actions.send);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 
 let previousValues = {};
-
 if (Astro.request.method === "POST") {
   try {
     const formData = await Astro.request.formData();
@@ -15,158 +15,126 @@ if (Astro.request.method === "POST") {
   }
 }
 ---
-<section
-    id="kontakt"
-    class="relative section bg-cream-bg text-black font-sans"
-  >
-  <div class="section-inner relative z-10 flex flex-col gap-16">
 
-    <!-- Top Heading -->
-    <header class="max-w-3xl">
-      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-        style="font-family: var(--font-sora);">
-        Retreat-Infos</p>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-      style="font-family: var(--font-editorial);">
+<section id="kontakt" class="relative section bg-cream-bg text-black font-sans">
+  <div class="section-inner relative z-10">
+
+    <!-- 🏷️ SECTION LABEL + TITLE -->
+    <div class="max-w-3xl mb-8">
+      <p class="uppercase section-label mb-4">Retreat-Infos</p>
+      <h2 class="heading-main mb-6" style="font-family: var(--font-editorial);">
         Kontakt und Buchung
       </h2>
-      <p class="prose prose-lg max-w-none text-base md:text-lg mb-8 leading-relaxed text-black" style="font-family: var(--font-sans)">
-        Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen. <br />
-        Du hast noch weitere Fragen?  Gerne beantworten wir dir diese - füll dazu einfach das Formular aus. Wir freuen uns, von Dir zu hören.
-      </p>
-    </header>
+    </div>
 
-    <!-- ✅ Contact Form with retreatForm Alpine data -->
-    <form action={actions.send} x-data="retreatForm()" class="space-y-8" method="post" novalidate>
+    <!-- 🧭 GRID: Paragraph left / Form right -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-20 items-start">
+      
+      <!-- 📝 LEFT COLUMN — Paragraph -->
+      <div class="max-w-lg">
+        <p class="body-text text-black">
+          Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.<br />
+          Du hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.
+          Wir freuen uns, von Dir zu hören.
+        </p>
+      </div>
 
+      <!-- 📨 RIGHT COLUMN — Form -->
+      <form action={actions.send} x-data="retreatForm()" method="post" novalidate class="space-y-8">
         <!-- Retreat Selection -->
-      <div class="space-y-6">
-        <div>
-          <label class="block mb-2 text-base font-editorial text-black">Retreat auswählen*</label>
+        <div class="space-y-4">
+          <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
+            Retreat auswählen*
+          </label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 text-base text-black font-sans">
+            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
               <input
                 type="radio"
                 name="retreat"
                 value="january"
                 x-model="selectedRetreat"
                 class="accent-[var(--color-accent-orange)]"
-                id="send-email__retreat-january"
               />
               Hikkaduwa im Januar
             </label>
-            <label class="flex items-center gap-3 text-black font-sans">
+            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
               <input
                 type="radio"
                 name="retreat"
                 value="february"
                 x-model="selectedRetreat"
                 class="accent-[var(--color-accent-orange)]"
-                id="send-email__retreat-february"
               />
               Ahangama im Februar
             </label>
           </div>
         </div>
 
-        <!-- Accommodation Selection -->
-        <div x-show="selectedRetreat" x-cloak>
-          <label class="block mb-2 text-base font-editorial text-black">Unterkunft auswählen*</label>
-          <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
-            <label class="flex items-center gap-3 text-base text-black font-sans">
-              <input
-                type="radio"
-                name="accommodation"
-                :value="option"
-                class="accent-[var(--color-accent-orange)]"
-                id="send-email__retreat-accommodation"
-                />
-              <span x-text="option"></span>
-            </label>
-          </template>
-          </div>
+        <!-- Name -->
+        <div>
+          <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
+            Dein Name
+          </label>
+          <input
+            type="text"
+            name="name"
+            value={previousValues.name || ""}
+            placeholder="Gib hier deinen Namen an"
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            aria-describedby={inputErrors.name ? "name-error" : undefined}
+            required
+          />
+          {inputErrors.name && (
+            <p id="name-error" class="text-accent-orange mt-1 text-sm">Bitte gib deinen Namen ein.</p>
+          )}
         </div>
 
-
-      <!-- Name -->
-      <div>
-        <label class="block mb-2 font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
-        style="font-family: var(--font-editorial);">
-          Deine Name
-        </label>
-        <input
-          type="text"
-          name="name"
-          value={previousValues.name || ""}
-          id="send-email__name"
-          placeholder="Geben Sie Ihren Namen ein"
-          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-black font-sans"
-          style="font-family: var(--font-editorial);"
-          required
-          aria-describedby={inputErrors.name ? "name-error" : undefined}
+        <!-- Email -->
+        <div>
+          <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
+            Deine E-Mail*
+          </label>
+          <input
+            type="email"
+            name="email"
+            value={previousValues.email || ""}
+            placeholder="Gib hier deine E-Mail-Adresse ein"
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            aria-describedby={inputErrors.email ? "email-error" : undefined}
+            required
           />
-          {
-            inputErrors.name && (
-            <p id="name-error" class="text-accent-orange">Bitte gib deinen Namen ein.</p>
-          )
-        }
-      </div>
+          {inputErrors.email && (
+            <p id="email-error" class="text-accent-orange mt-1 text-sm">Bitte gib eine gültige E-Mail-Adresse ein.</p>
+          )}
+        </div>
 
-      <!-- Email -->
-      <div>
-        <label class="block mb-2 font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
-        style="font-family: var(--font-editorial);">
-          Deine E‑Mail*
-        </label>
-        <input
-          type="email"
-          name="email"
-          value={previousValues.email || ""}
-          id="send-email__email"
-          placeholder="Geben Sie Ihre E‑Mail-Adresse ein"
-          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 focus:outline-none focus:border-black font-sans"
-          style="font-family: var(--font-editorial);"
-          required
-          aria-describedby={inputErrors.email ? "email-error" : undefined}
-          />
-          {
-          inputErrors.email && (
-            <p id="email-error" class="text-accent-orange">Bitte gib eine gültige E‑Mail-Adresse ein.</p>
-          )
-        }
-      </div>
-
-      <!-- Message -->
-      <div>
-        <label class="block mb-2 text-base font-editorial text-black text-left text-lg md:text-xl italic font-semibold"
-        style="font-family: var(--font-editorial);">
-          Deine Nachricht*
-        </label>
-        <textarea
-          rows="5"
-          placeholder="Teilen Sie uns Ihre Fragen mit"
-          name="lead_message"
-          id="send-email__message"
-          class="w-full text-black placeholder-black/50 rounded-none bg-white py-3 px-0 resize-none focus:outline-none focus:border-black font-sans"
-          style="font-family: var(--font-editorial);"
+        <!-- Message -->
+        <div>
+          <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
+            Deine Nachricht*
+          </label>
+          <textarea
+            rows="5"
+            name="lead_message"
+            placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
           >{previousValues.lead_message || ""}</textarea>
-      </div>
+        </div>
 
-      
-
-      <!-- Submit Button -->
-      <div class="flex justify-center pt-4">
-        <button
-          type="submit"
-          class="inline-block w-[380px] text-center rounded-full uppercase font-sora text-white tracking-widest text-base md:text-lg px-10 py-4 shadow-md transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-cream-bg bg-[var(--color-accent-orange)] hover:bg-[#bb421d] focus:ring-[var(--color-accent-orange)]"
-        >
-          Deine Frage schicken
-        </button>
-      </div>
-
-    </form>
+        <!-- Submit Button -->
+        <div>
+          <button
+            type="submit"
+            class="inline-block w-full md:w-auto text-center rounded-full uppercase font-sora text-white tracking-widest text-base md:text-lg px-10 py-4 shadow-md transition-colors duration-300 bg-[var(--color-accent-orange)] hover:bg-[#bb421d] focus:ring-2 focus:ring-[var(--color-accent-orange)] focus:ring-offset-2 focus:ring-offset-cream-bg"
+          >
+            Nachricht senden
+          </button>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
+
 {Object.keys(inputErrors).length > 0 && (
   <script>
     window.location.hash = "#kontakt";
