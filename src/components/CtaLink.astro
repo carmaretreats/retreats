@@ -15,7 +15,10 @@ const textColorClass = color === 'white'
   @click.prevent="
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   "
-  class={`button-text relative inline-block transition-colors duration-300 after:absolute after:left-0 after:-bottom-1 after:h-[3px] after:w-full after:bg-[var(--color-accent-orange)] after:rounded-full hover:text-[#bb421d] ${textColorClass}`}
+  class="button-text relative inline-block pb-1 transition-colors duration-300
+         after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full
+         after:bg-[var(--color-accent-orange)] after:rounded-full
+         hover:text-[#bb421d]"
 >
   {label}
 </a>

@@ -1,24 +1,26 @@
 ---
 import RetreatMiniCard from '../components/RetreatMiniCard.astro';
 import januaryImage from '../assets/images/retreat-jan-mini.jpeg';
-import februaryImage from '../assets/images/retreat-feb-mini.jpg';
+import februaryImage from '../assets/images/caroline-taborda-dupe.jpeg';
+import comingSoonImage from '../assets/images/comming-soon.jpg';
 ---
 
 <section id="next-retreats" class="bg-[var(--color-cream-bg)] section">
   <div class="section-inner">
-    <div class="max-w-6xl mx-auto text-left mb-12">
-      <h2 class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-      style="font-family: var(--font-sora);">Nächste Yoga Retreats</h2>
+    <div class="text-left mb-12">
+      <h2 class="uppercase section-label text-[var(--color-black)] mb-8">Nächste Yoga Retreats</h2>
     </div>
   
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
       <RetreatMiniCard
         imageSrc=`${januaryImage.src}`
         title="Januar in Sri Lanka"
         date="12.–18. Januar 2026"
         location="Hikkaduwa, Sri Lanka"
         buttonLabel="Mehr Infos"
+        description="Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe"
         buttonHref="#january"
+        imageShape="square"
       />
       <RetreatMiniCard
         imageSrc=`${februaryImage.src}`
@@ -26,7 +28,18 @@ import februaryImage from '../assets/images/retreat-feb-mini.jpg';
         date="02.–08. Februar 2026"
         location="Ahangama, Sri Lanka"
         buttonLabel="Mehr Infos"
+        description="Nur 7 limitierte Plätze für ein ganz persönliches Retreat -  mit viel Raum für Yoga, Verbindung und Einblicke in die lokale Kultur. Komm an - in der Ferne und in dir."
         buttonHref="#february"
+        imageShape="circle"
+      />
+      <RetreatMiniCard
+        imageSrc=`${comingSoonImage.src}`
+        title="Coming Soon"
+        date="Stay tuned"
+        buttonLabel="IN NEWSLETTER EINTRAGEN"
+        description="Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!"
+        buttonHref="#february"
+        imageShape="square"
       />
     </div>
   </div>
