@@ -2,27 +2,37 @@
 import { Image } from 'astro:assets';
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
 import dayImage from '../assets/images/juanca-paulino.jpg';
+import mandalaImage from '../assets/images/Mandala-1.png';
 import CtaLink from './CtaLink.astro';
 ---
 
 <section
   id="tagesablauf"
-  class="section bg-cover bg-center bg-no-repeat text-white"
+  class="section bg-cover bg-center bg-no-repeat text-white relative"
   style={`background-image: url(${bgImage.src});`}
 >
-  <div class="section-inner">
-    <!-- Título -->
+  <div class="section-inner relative">
+
+    <!-- Imagen decorativa Mandala (arriba a la derecha) -->
+    <div class="absolute top-8 right-8 hidden md:block opacity-80 pointer-events-none select-none">
+      <Image
+        src={mandalaImage}
+        alt="Decorative Mandala"
+        class="w-16 lg:w-20 xl:w-24 h-auto object-contain"
+      />
+    </div>
+
+    <!-- ================= HEADER ================= -->
     <div class="w-full text-left mb-10 md:mb-16">
       <p class="section-label mb-8">Connection, Culture, Community.</p>
-      <h2
-        class="heading-main"
-      >
+      <h2 class="heading-main">
         Ein Tag bei Carma Retreats
       </h2>
     </div>
 
-    <!-- Contenido principal en 3 columnas -->
+    <!-- ================= MAIN CONTENT ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
+      
       <!-- Columna izquierda -->
       <div class="space-y-4 font-sans text-base leading-relaxed">
         <div>
@@ -48,15 +58,14 @@ import CtaLink from './CtaLink.astro';
           <h3 class="heading-sub mb-4">15.00 Uhr</h3>
           <p class="body-text">Fruchtplatte / Snack</p>
         </div>
-
       </div>
 
       <!-- Imagen central -->
-      <div class="flex justify-center items-start w-full max-w-[360px] ">
+      <div class="flex justify-center items-start w-full max-w-[360px] mx-auto">
         <Image
           src={dayImage}
           alt="Carma Retreats Day"
-          class="w-full h-full object-cover"
+          class="w-full aspect-square object-cover rounded-lg shadow-lg"
         />
       </div>
 
@@ -85,9 +94,10 @@ import CtaLink from './CtaLink.astro';
       </div>
     </div>
 
-    <!-- CTA -->
+    <!-- ================= CTA ================= -->
     <div class="pt-16 flex justify-end">
       <CtaLink color="white" href="#kontakt" label="Jetzt buchen" />
     </div>
+
   </div>
 </section>
