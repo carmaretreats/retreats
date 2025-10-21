@@ -1,6 +1,6 @@
 ---
-import CTA from "../components/CTA.astro";
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
+import CtaLink from "./CtaLink.astro";
 
 const highlights = [
   {
@@ -34,38 +34,34 @@ const highlights = [
 ];
 ---
 
-<section
-  id="retreats-highlights" class="section bg-cover bg-center bg-no-repeat text-white"
+<section id="retreats-highlights" 
+  class="section bg-cover bg-center bg-no-repeat text-white text-center"
   style={`background-image: url(${bgImage.src});`}
 >
-  <div class="section-inner">
-    <div class="max-w-4xl">
+  <div class="section-inner text-center">
       <!-- Label -->
-      <p class="uppercase tracking-widest text-sm mb-2" style="font-family: var(--font-sans);">
+      <p class="uppercase section-label mb-8">
       Culture, Community, Connection
     </p>
   
       <!-- Section Title -->
-    <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-        style="font-family: var(--font-editorial);">
+    <h2 class="heading-main mb-6 text-white">
       Was dich erwartet:
     </h2>
   
       <!-- Highlights list -->
-      <ul class="space-y-8 text-base leading-relaxed max-w-3xl"
-        style="font-family: var(--font-sans);">
+      <ul class="w-full">
         {highlights.map((item) => (
-          <li>
-            <h3 class="text-lg mb-1" style="font-family: var(--font-sans);">{item.title}</h3>
-            <p class="block w-full text-left">{item.text}</p>
+          <li class="mb-6">
+            <h3 class="heading-sub mb-4">{item.title}</h3>
+            <p class="w-full body-text">{item.text}</p>
           </li>
         ))}
       </ul>
   
       <!-- CTA -->
-      <div class="pt-16 flex justify-start">
-        <CTA color="cream" border={true} size="medium" />
+      <div class="pt-16 flex justify-center">
+        <CtaLink color="white" label="MEHR ERFAHREN" href="#retreats" />
       </div>
-    </div>
   </div>
 </section>
