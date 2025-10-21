@@ -82,7 +82,7 @@ html {
 }
 
 .heading-main {
-  @apply font-editorial text-3xl sm:text-4xl md:text-5xl lg:text-[50px] 2xl:text-6xl leading-[1.2] mb-2 xs:mb-4 md:mb-6 lg:mb-8;
+  @apply font-editorial text-3xl sm:text-4xl md:text-5xl lg:text-[50px] 2xl:text-6xl leading-[1.2] mb-8 xs:mb-4 md:mb-6 lg:mb-8;
 }
 
 .heading-sub {

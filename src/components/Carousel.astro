@@ -12,7 +12,7 @@ const {
 <div class="w-full flex flex-col justify-start items-center">
   <div 
     x-data={`{ activeSlide: 0, totalSlides: ${images.length} }`}    class="max-w-4xl mx-auto relative"
-    :style="`min-height: 400px`"
+    :style=""
   >
 
     {images.map((slide, index) => (
@@ -25,7 +25,7 @@ const {
           alt={slide.label || ''}
           widths={[400, 800, 1200]}
           formats={['avif', 'webp', 'jpeg']}
-          class="w-full h-full object-cover"
+          class="w-full h-full object-cover object-center"
           loading="lazy"
           decoding="async"
         />

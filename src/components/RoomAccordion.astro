@@ -15,8 +15,7 @@ const {
         <button
           id="room-title-01"
           type="button"
-          class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-          style="font-family: var(--font-editorial);"
+          class="flex items-center w-full justify-between text-left py-2 text-black font-garamond text-xl md:text-2xl leading-[1.2]"
           @click="expanded = !expanded"
           :aria-expanded="expanded"
           aria-controls="room-text-01"
@@ -29,7 +28,7 @@ const {
         id="room-text-01"
         role="region"
         aria-labelledby="room-title-01"
-        class="grid text-base text-black text-base md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         {priceContent.length > 0 && (
@@ -46,8 +45,7 @@ const {
         <button
           id="room-title-02"
           type="button"
-          class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-          style="font-family: var(--font-editorial);"
+          class="flex items-center w-full justify-between text-left py-2 text-black font-garamond text-xl md:text-2xl leading-[1.2]"
           @click="expanded = !expanded"
           :aria-expanded="expanded"
           aria-controls="room-text-02"
@@ -60,7 +58,7 @@ const {
         id="room-text-02"
         role="region"
         aria-labelledby="room-title-02"
-        class="grid text-base text-black text-base md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         {includedContent.length > 0 && (
@@ -77,8 +75,7 @@ const {
         <button
           id="room-title-03"
           type="button"
-          class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-          style="font-family: var(--font-editorial);"
+          class="flex items-center w-full justify-between text-left py-2 text-black font-garamond text-xl md:text-2xl leading-[1.2]"
           @click="expanded = !expanded"
           :aria-expanded="expanded"
           aria-controls="room-text-03"
@@ -91,7 +88,7 @@ const {
         id="room-text-03"
         role="region"
         aria-labelledby="room-title-03"
-        class="grid text-base text-black text-base md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+        class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         {locationContent.length > 0 && (

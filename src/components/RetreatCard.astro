@@ -20,8 +20,8 @@ const carouselOrder = layout === 'left' ? 'md:order-1' : 'md:order-2';
 const contentOrder = layout === 'left' ? 'md:order-2' : 'md:order-1';
 ---
 <!-- RetreatCard Section -->
-<section id={retreatId} class="bg-cream-bg text-black font-sans w-full py-16">
-  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-12 items-start">
+<div id={retreatId} class="bg-cream-bg text-black font-sans w-full">
+  <div class="flex flex-col md:flex-row gap-10 md:gap-16">
     
     <!-- Carousel -->
     <div class={`w-full md:w-1/2 ${carouselOrder}`}>
@@ -29,14 +29,13 @@ const contentOrder = layout === 'left' ? 'md:order-2' : 'md:order-1';
     </div>
 
     <!-- Content -->
-    <div class={`w-full md:w-1/2 flex flex-col gap-6 justify-between ${contentOrder}`}>
+    <div class={`w-full md:w-1/2 flex flex-col justify-between ${contentOrder}`}>
       {date && (
-        <h2 class="text-2xl sm:text-3xl md:text-4xl mb-4 italic"
-          style="font-family: var(--font-editorial);">{date}</h2>
+        <h2 class="font-editorial text-3xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] mb-2 lg:mb-4 text-[var(--color-black)] text-left">{date}</h2>
       )}
 
       {introParagraphs.length > 0 && (
-        <div class="text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans);">
+        <div class="body-text text-black">
           {introParagraphs.map((p) => <p>{p}</p>)}
         </div>
       )}
@@ -54,4 +53,4 @@ const contentOrder = layout === 'left' ? 'md:order-2' : 'md:order-1';
       </div>
     </div>
   </div>
-</section>
+</div>
