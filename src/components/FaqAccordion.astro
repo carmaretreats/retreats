@@ -1,200 +1,180 @@
 ---
-/* Contenido hardcoded */
+/* This version displays FAQs in 2 columns on desktop and 1 column on mobile */
 ---
 
 <section id="faq" class="section bg-cream-bg text-black">
   <div class="section-inner">
-    <!-- Título -->
-    <div class="max-w-6xl mx-auto text-left mb-12">
+    <!-- 📝 Title -->
+    <div class="text-left mb-10 md:mb-16">
+      <p class="uppercase section-label text-[var(--color-black)] mb-4">
+        Retreat-Infos
+      </p>
       <h2
-        class="text-2xl sm:text-3xl md:text-4xl mb-8 italic"
-        style="font-family: var(--font-editorial);"
-      >
-        Häufige Fragen
+        class="heading-main">
+        Antworten auf deine Fragen.
       </h2>
     </div>
-  
-    <!-- FAQ Accordion -->
-    <div class="font-inter w-full max-w-2xl mx-auto">
-      <div class="divide-y divide-slate-200">
-  
-        <!-- Was ist enthalten? -->
-        <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+
+    <!-- 📐 Accordion 2-column layout -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-10 md:gap-20">
+      
+      <!-- ✅ Left Column -->
+      <div class="space-y-4">
+
+        <!-- FAQ 1 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
               id="faq-title-01"
               type="button"
-              class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-              style="font-family: var(--font-editorial);"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
               @click="expanded = !expanded"
               :aria-expanded="expanded"
               aria-controls="faq-text-01"
             >
               <span><em>Was ist enthalten?</em></span>
-              <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
           <div
             id="faq-text-01"
             role="region"
             aria-labelledby="faq-title-01"
-            class="grid text-base text-black md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>
-                2 Yogaklassen pro Tag, Brunch, Dinner und kleine Obstmahlzeiten, Tee, Wasser,
-                Unterkunft in einer wunderschönen Location entweder im Einzel- oder geteilten Zimmer,
-                zwei Ausflüge, um die wunderbare Kultur Sri Lankas kennenzulernen.
-              </p>
+              <p>2 Yogaklassen pro Tag, Brunch, Dinner, Obstsnacks, Tee & Wasser, Unterkunft, Ausflüge.</p>
             </div>
           </div>
         </div>
-  
-        <!-- Wo findet die Retreats statt? -->
-        <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+
+        <!-- FAQ 2 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
               id="faq-title-02"
               type="button"
-              class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-              style="font-family: var(--font-editorial);"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
               @click="expanded = !expanded"
               :aria-expanded="expanded"
               aria-controls="faq-text-02"
             >
               <span><em>Wo findet die Retreats statt?</em></span>
-              <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
           <div
             id="faq-text-02"
             role="region"
             aria-labelledby="faq-title-02"
-            class="grid text-base text-black md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden space-y-4">
-              <p>
-                Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas –
-                umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.
-              </p>
-              <p>
-                Das Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort,
-                der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest
-                du hier den perfekten Mix aus Ruhe, Inspiration und Meer.
-              </p>
+              <p>Januar: Hikkaduwa, Südwestküste Sri Lanka.</p>
+              <p>Februar: Ahangama, Südküste Sri Lanka.</p>
             </div>
           </div>
         </div>
-  
-        <!-- Finden die Retreats auf Deutsch statt? -->
-        <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+
+        <!-- FAQ 3 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
               id="faq-title-03"
               type="button"
-              class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-              style="font-family: var(--font-editorial);"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
               @click="expanded = !expanded"
               :aria-expanded="expanded"
               aria-controls="faq-text-03"
             >
               <span><em>Finden die Retreats auf Deutsch statt?</em></span>
-              <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
           <div
             id="faq-text-03"
             role="region"
             aria-labelledby="faq-title-03"
-            class="grid text-base text-black md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>
-                Ja, wir unterrichten beide auf Deutsch, und im Retreat wird Deutsch gesprochen.
-                Gerne bringen wir dir auch ein paar Wörter auf Singhalesisch bei, damit du den Locals
-                ein freundliches Ayubowan zurufen kannst. Dieses Wort in Sri Lanka sowohl zur Begrüßung
-                als auch Verabschiedung gesagt und heißt so viel wie: „Möchtest du ein langes Leben haben“.
-              </p>
+              <p>Ja, die Retreats werden auf Deutsch geleitet.</p>
             </div>
           </div>
         </div>
-  
-        <!-- Welche Zimmertypen gibt es? -->
-        <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+
+      </div>
+
+      <!-- ✅ Right Column -->
+      <div class="space-y-4">
+
+        <!-- FAQ 4 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
               id="faq-title-04"
               type="button"
-              class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-              style="font-family: var(--font-editorial);"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
               @click="expanded = !expanded"
               :aria-expanded="expanded"
               aria-controls="faq-text-04"
             >
               <span><em>Welche Zimmertypen gibt es?</em></span>
-              <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
           <div
             id="faq-text-04"
             role="region"
             aria-labelledby="faq-title-04"
-            class="grid text-base text-black md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>
-                In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer.
-                Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch
-                das Doppelbett in einem Einzelzimmer teilen. Wenn du mit einer gemeinsam reisenden
-                Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid,
-                dann berücksichtigen wir das bei der Bettenaufteilung.
-              </p>
+              <p>Es gibt Einzel- und Mehrbettzimmer. Wünsche können bei der Buchung berücksichtigt werden.</p>
             </div>
           </div>
         </div>
-  
-        <!-- Gibt es vegetarisches/veganes Essen? -->
-        <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+
+        <!-- FAQ 5 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
               id="faq-title-05"
               type="button"
-              class="flex items-center justify-between w-full text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-              style="font-family: var(--font-editorial);"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
               @click="expanded = !expanded"
               :aria-expanded="expanded"
               aria-controls="faq-text-05"
             >
               <span><em>Gibt es vegetarisches/veganes Essen?</em></span>
-              <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
           <div
             id="faq-text-05"
             role="region"
             aria-labelledby="faq-title-05"
-            class="grid text-base text-black md:text-lg leading-relaxed overflow-hidden transition-all duration-300 ease-in-out"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden space-y-4">
-              <p>
-                Ja, wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip
-                von Gewaltlosigkeit. Manche Gerichte werden Eier und Milchprodukte enthalten. Sag uns gerne Bescheid,
-                wenn du Veganerin bist, dann werden wir den Koch informieren.
-              </p>
-              <p>
-                Dies gilt auch für Nahrungsmittelunverträglichkeiten – wir werden versuchen,
-                diese so gut es geht zu berücksichtigen.
-              </p>
+              <p>Ja, vegetarisch und vegan sind möglich. Bitte Unverträglichkeiten angeben.</p>
             </div>
           </div>
         </div>
-  
+
       </div>
     </div>
-  </section>
+
+    <!-- ✉️ CTA opcional -->
+    <div class="pt-16 text-center">
+      <a href="#kontakt" class="button-text relative inline-block pb-1 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--color-accent-orange)] after:rounded-full hover:text-[#bb421d]">
+        DEINE FRAGE SCHICKEN
+      </a>
+    </div>
   </div>
+</section>
