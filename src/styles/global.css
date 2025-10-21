@@ -1,5 +1,20 @@
 @import "tailwindcss";
 
+/* Optionally apply it globally */
+@layer base {
+  body {
+    @apply bg-cream-bg;
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@theme {
+  --breakpoint-xs: 420px;
+}
+
 /* Add your custom font */
 @font-face {
   font-family: 'PPEditorialOld-Italic';
@@ -37,7 +52,7 @@
 
 @theme {
   /* Fonts */
-  --font-editorial: PPEditorialOld-Italic, sans-serif;
+  --font-editorial: 'PPEditorialOld-Italic', sans-serif;
   --font-garamond: 'EBGaramondEditorial', serif;
   --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
   --font-sora: 'SoraSans', sans-serif;
@@ -50,14 +65,7 @@
   --color-accent-green-hover: #6D8B73;
 }
 
-/* Optionally apply it globally */
-body {
- /* font-family: 'PPEditorialOld-Italic', serif; */
-}
-
-html {
-  scroll-behavior: smooth;
-}
+/* === TYPOGRAPHY CLASSES FOR CARMA RETREATS – Web Version === */
 
 .section {
   @apply w-full py-16;
@@ -65,6 +73,32 @@ html {
 
 .section-inner {
   @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-[50px];
+}
+
+/* === RESPONSIVE TYPOGRAPHY CLASSES FOR CARMA RETREATS (ADAPTED) === */
+
+.section-label {
+  @apply font-sora text-sm sm:text-base md:text-lg tracking-[0.05em] uppercase leading-none;
+}
+
+.heading-main {
+  @apply font-editorial text-3xl sm:text-4xl md:text-5xl 2xl:text-6xl leading-[1.2];
+}
+
+.heading-sub {
+  @apply font-garamond text-xl sm:text-2xl md:text-3xl leading-[1.2];
+}
+
+.body-text {
+  @apply font-sans text-base sm:text-lg md:text-xl leading-[1.4];
+}
+
+.button-text {
+  @apply font-sora text-sm sm:text-base tracking-[0.05em] uppercase leading-none;
+}
+
+.additional-info {
+  @apply font-garamond text-lg sm:text-xl md:text-2xl leading-[1.2];
 }
 
 /* ensure Alpine x-cloak hides elements until mounted */

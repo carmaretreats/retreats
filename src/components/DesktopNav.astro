@@ -3,13 +3,13 @@ export interface Props { side?: 'left' | 'right' }
 const { side = 'left' } = Astro.props;
 ---
 { side === 'left' ? (
-  <nav aria-label="Primary left navigation" class="flex items-center space-x-25 lg:space-x-28 xl:space-x-32 text-sm tracking-widest font-sora uppercase">
-    <a href="/retreats#next-retreats" class="text-black font-medium hover:underline">Retreats</a>
-    <a href="/retreats#unterkunft-preise" class="text-black font-medium hover:underline">Unterkunft</a>
+  <nav aria-label="Primary left navigation" class="flex items-center space-x-10 lg:space-x-28 xl:space-x-32 text-sm tracking-widest font-sora uppercase">
+    <a href="/retreats#next-retreats" class="text-black sm:text-[12px] md:text-[14px] font-normal hover:underline">Retreats</a>
+    <a href="/retreats#unterkunft-preise" class="text-black sm:text-[12px] md:text-[14px] font-normal hover:underline">Unterkunft</a>
   </nav>
 ) : (
-  <nav aria-label="Primary right navigation" class="flex items-center space-x-25 lg:space-x-28 xl:space-x-32 text-sm tracking-widest font-sora uppercase">
-    <a href="/retreats#tagesablauf" class="text-black font-medium hover:underline">Tagesablauf</a>
-    <a href="/retreats#deine-hosts" class="text-black font-medium hover:underline">Über uns</a>
+  <nav aria-label="Primary right navigation" class="flex items-center space-x-10 lg:space-x-28 xl:space-x-32 text-sm tracking-widest font-sora uppercase">
+    <a href="/retreats#tagesablauf" class="text-black sm:text-[12px] md:text-[14px] font-normal hover:underline">Tagesablauf</a>
+    <a href="/retreats#deine-hosts" class="text-black sm:text-[12px] md:text-[14px] font-normal hover:underline">Über uns</a>
   </nav>
 ) }
