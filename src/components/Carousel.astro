@@ -11,9 +11,7 @@ const {
 
 <div class="w-full flex flex-col justify-start items-center">
   <div 
-    x-data={`{ activeSlide: 0, totalSlides: ${images.length} }`}    class="max-w-4xl mx-auto relative"
-    :style=""
-  >
+    x-data={`{ activeSlide: 0, totalSlides: ${images.length} }`} class="max-w-4xl mx-auto relative">
 
     {images.map((slide, index) => (
       <div

@@ -1,5 +1,6 @@
 ---
 import Carousel from '../components/Carousel.astro';
+import Cta from '../components/CTA.astro';
 
 import imgjan1 from '../assets/images/january/Hikkaduwa.jpg';
 import imgjan2 from '../assets/images/january/Hikkaduwa2.jpg';
@@ -77,12 +78,10 @@ export const februaryImages = [
   <div class="section-inner">
     <!-- Section Title -->
     <div class="max-w-6xl mx-auto text-left mb-12">
-      <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-          style="font-family: var(--font-sora);">
+      <p class="uppercase section-label text-[var(--color-black)] mb-8">
         Die Infos
       </p>
-      <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-        style="font-family: var(--font-editorial);">
+      <h2 class="heading-main">
         Unterkunft & Preise
       </h2>
     </div>
@@ -91,16 +90,15 @@ export const februaryImages = [
     <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 mb-16 items-start">
       <!-- Text -->
       <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
-        <h3 class="mb-4 text-left text-lg md:text-xl italic font-semibold py-2 text-black"
-            style="font-family: var(--font-editorial);">
+        <h3 class="heading-sub mb-4 md:mb-6 text-black">
           Hikkaduwa Januar
         </h3>
-        <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer<span class="float-right">500 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett im Dreibettzimmer <span class="float-right">350 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Stockbetten im Dreibettzimmer <span class="float-right">200 €</span></p>
+        <p class="text-black body-text">Einzelzimmer<span class="float-right">500 €</span></p>
+        <p class="text-black body-text">Doppelbett im Dreibettzimmer <span class="float-right">350 €</span></p>
+        <p class="text-black body-text">Stockbetten im Dreibettzimmer <span class="float-right">200 €</span></p>
         <hr class="my-3 border-accent-orange" />
-        <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
+        <p class="text-black body-text italic">plus Retreatgebühr</p>
+        <p class="text-black body-text">Pro Teilnehmer <span class="float-right">900 €</span></p>
       </div>
   
       <!-- Carousel -->
@@ -117,14 +115,14 @@ export const februaryImages = [
             style="font-family: var(--font-editorial);">
           Ahangama Februar
         </h3>
-        <p class="text-black text-base md:text-lg leading-relaxed">Einzelzimmer alleine <span class="float-right">520 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Doppelbett geteilt <span class="float-right">340 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett alleine <span class="float-right">440 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer großes Bett geteilt <span class="float-right">290 €</span></p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Dreierzimmer kleines Bett <span class="float-right">380 €</span></p>
+        <p class="text-black body-text">Einzelzimmer alleine <span class="float-right">520 €</span></p>
+        <p class="text-black body-text">Doppelbett geteilt <span class="float-right">340 €</span></p>
+        <p class="text-black body-text">Dreierzimmer großes Bett alleine <span class="float-right">440 €</span></p>
+        <p class="text-black body-text">Dreierzimmer großes Bett geteilt <span class="float-right">290 €</span></p>
+        <p class="text-black body-text">Dreierzimmer kleines Bett <span class="float-right">380 €</span></p>
         <hr class="my-3 border-accent-orange" />
-        <p class="text-black text-base md:text-lg leading-relaxed italic">plus Retreatgebühr</p>
-        <p class="text-black text-base md:text-lg leading-relaxed">Pro Teilnehmer <span class="float-right">900 €</span></p>
+        <p class="text-black body-text italic">plus Retreatgebühr</p>
+        <p class="text-black body-text">Pro Teilnehmer <span class="float-right">900 €</span></p>
       </div>
   
       <!-- Carousel -->
@@ -132,5 +130,8 @@ export const februaryImages = [
         <Carousel images={februaryImages} />
       </div>
     </div>
+    <div class="flex justify-center md:justify-start pt-6">
+        <Cta label="Jetzt Buchen" href="#kontakt" color="orange" />
+      </div>
   </div>
 </section>

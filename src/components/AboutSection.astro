@@ -23,43 +23,42 @@ const textOrder = reverse ? 'order-2 md:order-1' : 'order-1';
 const imageOrder = reverse ? 'order-1 md:order-2 justify-start' : 'justify-end';
 ---
 
-<section id="mehr-uber-uns" class="section bg-cream-bg text-dark-brown font-sans">
-  <div class="section-inner flex flex-col md:flex-row md:items-start gap-8">
+<section id="mehr-uber-uns" class="w-full bg-cream-bg text-dark-brown font-sans">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-[50px]">
+    <!-- 📝 Título y subtítulo fuera del flex -->
+    {subtitle && (
+      <p class="uppercase section-label text-[var(--color-black)] mb-4">
+        {subtitle}
+      </p>
+    )}
+    {title && (
+      <h2 class="heading-main mb-10">
+        {title}
+      </h2>
+    )}
 
-    <!-- 📝 Texto -->
-    <div class={`w-full md:w-2/3 space-y-4 relative ${textOrder}`}>
-      {subtitle && (
-        <p class="uppercase tracking-widest text-sm md:text-base text-[var(--color-black)] font-semibold mb-8"
-        style="font-family: var(--font-sora);">
-          {subtitle}
-        </p>
-      )}
+    <!-- 📐 Flex con texto e imagen -->
+    <div class="flex flex-col md:flex-row md:items-center gap-8">
+      <!-- Texto -->
+      <div class={`w-full md:w-2/3 space-y-4 relative ${textOrder}`}>
+        <!-- 📸 Imagen flotante solo en mobile -->
+        <div class="md:hidden float-right ml-4 mb-2 w-[120px] h-[120px] overflow-hidden rounded-2xl">
+          <Image src={image} alt={imageAlt} class="w-full h-full object-cover" />
+        </div>
 
-      {title && (
-        <h2 class="text-2xl sm:text-3xl md:text-4xl mb-18 italic"
-      style="font-family: var(--font-editorial);">
-          {title}
-        </h2>
-      )}
-
-      <!-- 📸 Imagen flotante solo en mobile -->
-      <div class="md:hidden float-right ml-4 mb-2 w-[120px] h-[120px] overflow-hidden rounded-2xl">
-        <Image src={image} alt={imageAlt} class="w-full h-full object-cover" />
+        <div class="body-text text-black">
+          {text.split('\n').map((paragraph) => (
+            paragraph.trim() && <p>{paragraph}</p>
+          ))}
+        </div>
       </div>
 
-      <div class="prose prose-lg max-w-none text-base md:text-lg leading-relaxed text-black" style="font-family: var(--font-sans)">
-        {text.split('\n').map((paragraph) => (
-          paragraph.trim() && <p>{paragraph}</p>
-        ))}
+      <!-- Imagen grande desktop -->
+      <div class={`hidden md:flex w-full md:w-1/3 ${imageOrder}`}>
+        <div class="max-w-sm overflow-hidden rounded-2xl">
+          <Image src={image} alt={imageAlt} class="w-full h-auto object-cover" />
+        </div>
       </div>
     </div>
-
-    <!-- 🖼️ Imagen grande en desktop -->
-    <div class={`hidden md:flex w-full md:w-1/3 ${imageOrder}`}>
-      <div class="max-w-sm overflow-hidden rounded-2xl">
-        <Image src={image} alt={imageAlt} class="w-full h-auto object-cover" />
-      </div>
-    </div>
-
   </div>
 </section>
