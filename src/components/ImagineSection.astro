@@ -1,5 +1,9 @@
 ---
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
+import CtaLink from './CtaLink.astro';
+const buttonLabel = "JETZT ANFRAGEN"
+const buttonHref = "#kontakt" 
+const buttonColor = "white" 
 ---
 
 <section id="imagine-section"
@@ -7,12 +11,10 @@ import bgImage from '../assets/images/Terra-Rossa-Papier.png';
   style={`background-image: url(${bgImage.src});`}
 >
   <div class="section-inner">
-      <h2 class="text-xl sm:text-2xl md:text-3xl italic text-white text-center mb-18"
-        style="font-family: var(--font-editorial);">
+      <h2 class="heading-main mb-6 text-white">
         Stell dir vor...
       </h2>
-
-      <div class="text-white text-base md:text-lg leading-relaxed text-center max-w-3xl mx-auto space-y-4"
+      <div class="text-white body-text text-center max-w-3xl mx-auto space-y-4"
           style="font-family: var(--font-sans);">
           <p>
             ...ein sanftes Rascheln von Palmenblättern trägt dich in den Morgen. Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. 
@@ -24,5 +26,6 @@ import bgImage from '../assets/images/Terra-Rossa-Papier.png';
             Willkommen an einem Ort, an dem die Zeit langsamer wird, und dein Körper und Geist ruhig werden. Willkommen bei deiner Auszeit in der Ferne, die nachhaltig bewegt.
           </p>
       </div>
+      <CtaLink label={buttonLabel} href={buttonHref} color={buttonColor} />
   </div>
 </section>

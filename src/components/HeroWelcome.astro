@@ -1,17 +1,17 @@
 ---
-import CTA from './CTA.astro';
+import CtaLink from './CtaLink.astro';
 const buttonLabel = "NÄCHSTE RETREATS"
-const buttonHref = "#next-retreats" // o cualquier ID/URL que quieras usar
+const buttonHref = "#next-retreats" 
 ---
 
 <section id="hero-welcome" class="section bg-cream-bg text-black text-center font-sans">
   <div class="section-inner">
-    <h2 class="text-3xl sm:text-4xl font-semibold mb-6" style="font-family: var(--font-editorial);">
+    <h2 class="heading-main mb-6">
       Willkommen bei Carma Retreats
     </h2>
-    <p class="text-lg md:text-xl leading-relaxed mb-8">
+    <p class="body-text text-center max-w-3xl mx-auto">
       Entdecke transformative Yoga-Retreats, die Körper, Geist und Seele in Einklang bringen. Tauche ein in eine Welt der Achtsamkeit, Bewegung und Erholung – fernab vom Alltag.
     </p>
-    <CTA label={buttonLabel} href={buttonHref} />
+    <CtaLink label={buttonLabel} href={buttonHref} />
   </div>
 </section>
