@@ -40,7 +40,7 @@ if (Astro.request.method === "POST") {
       </div>
 
       <!-- 📨 RIGHT COLUMN — Form -->
-      <form action={actions.send} x-data="retreatForm()" method="post" novalidate class="space-y-8">
+      <form action={actions.send} x-data="retreatForm()" @submit="localStorage.removeItem('selectedRetreat')" method="post" novalidate class="space-y-8">
         <!-- Retreat Selection -->
         <div class="space-y-4">
           <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
@@ -68,6 +68,23 @@ if (Astro.request.method === "POST") {
               Ahangama im Februar
             </label>
           </div>
+        </div>
+
+        <div x-show="selectedRetreat" x-cloak>
+          <label class="block mb-2 font-garamond text-xl md:text-2xl leading-[1.2] text-black">
+            Unterkunft auswählen*
+          </label>
+          <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
+            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
+              <input
+                type="radio"
+                name="accommodation"
+                :value="option"
+                class="accent-[var(--color-accent-orange)]"
+              />
+              <span x-text="option"></span>
+            </label>
+          </template>
         </div>
 
         <!-- Name -->

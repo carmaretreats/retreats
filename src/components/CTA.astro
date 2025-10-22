@@ -5,6 +5,8 @@ const {
   color = 'orange', // 'orange' | 'cream'
   border = false,   // true | false
   size = 'medium',  // 'small' | 'medium' | 'large'
+  // 👉 permite pasar data-retreat opcional
+  dataRetreat = null,
 } = Astro.props;
 
 const sizes = {
@@ -30,7 +32,13 @@ const buttonClass = `${base} ${colors[color]} ${sizes[size]} ${borderClass}`;
 
 <a
   href={href}
+  data-retreat={dataRetreat}
   @click.prevent="
+    const retreat = $el.getAttribute('data-retreat');
+    if (retreat) {
+      localStorage.setItem('selectedRetreat', retreat);
+      console.log('Saved retreat:', retreat);
+    }
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   "
   class={buttonClass}
