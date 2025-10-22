@@ -32,7 +32,7 @@
               :aria-expanded="expanded"
               aria-controls="faq-text-01"
             >
-              <span><em>Was ist enthalten?</em></span>
+              <span><em>Für wen sind die Carma Retreats gedacht?</em></span>
               <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
@@ -44,12 +44,40 @@
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>2 Yogaklassen pro Tag, Brunch, Dinner, Obstsnacks, Tee & Wasser, Unterkunft, Ausflüge.</p>
+              <p class="whitespace-pre-line">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.</p>
             </div>
           </div>
         </div>
 
         <!-- FAQ 2 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-02"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-02"
+            >
+              <span><em>Was ist enthalten?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-02"
+            role="region"
+            aria-labelledby="faq-title-02"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations-&Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch&Dinner, sowie kleine Zwischenmahlzeit)</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
         <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
@@ -72,13 +100,13 @@
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden space-y-4">
-              <p>Januar: Hikkaduwa, Südwestküste Sri Lanka.</p>
-              <p>Februar: Ahangama, Südküste Sri Lanka.</p>
+              <p class="whitespace-pre-line">Das Retreat im Januar findet in Hikkaduwa statt -an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.
+                Das Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer.</p>
             </div>
           </div>
         </div>
 
-        <!-- FAQ 3 -->
+        <!-- FAQ 4 -->
         <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
@@ -101,17 +129,13 @@
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>Ja, die Retreats werden auf Deutsch geleitet.</p>
+              <p class="whitespace-pre-line">Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung.</p>
             </div>
           </div>
         </div>
 
-      </div>
 
-      <!-- ✅ Right Column -->
-      <div class="space-y-4">
-
-        <!-- FAQ 4 -->
+        <!-- FAQ 5 -->
         <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
@@ -134,12 +158,12 @@
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden">
-              <p>Es gibt Einzel- und Mehrbettzimmer. Wünsche können bei der Buchung berücksichtigt werden.</p>
+              <p class="whitespace-pre-line">In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis. Wenn du dir mit einer gemeinsam reisenden Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid, wir informieren dann die Unterkunft.</p>
             </div>
           </div>
         </div>
-
-        <!-- FAQ 5 -->
+  
+        <!-- FAQ 6 -->
         <div x-data="{ expanded: false }" class="border-b border-accent-orange">
           <h3>
             <button
@@ -150,7 +174,7 @@
               :aria-expanded="expanded"
               aria-controls="faq-text-05"
             >
-              <span><em>Gibt es vegetarisches/veganes Essen?</em></span>
+              <span><em>Welche Art von Verpflegung gibt es?</em></span>
               <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
             </button>
           </h3>
@@ -162,10 +186,184 @@
             :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
           >
             <div class="overflow-hidden space-y-4">
-              <p>Ja, vegetarisch und vegan sind möglich. Bitte Unverträglichkeiten angeben.</p>
+              <p class="whitespace-pre-line">Wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip von Gewaltlosigkeit. Manche Gerichte werden Eiter und Milchprodukte enthalten, sag uns gerne vorab Bescheid, wenn du Veganerin bist, dann werden wir den Koch informieren.
+                Dies gilt auch für Nahrungsmittelunverträglichkeiten - wir werden versuchen, diese so gut es geht zu berücksichtigen.
+                In unseren Retreats leben wir zudem Saucha - das yogische Prinzip von Reinheit. Das bedeutet, dass Alkohol, Nikotin und andere Suchtmittel im Rahmen des Retreats nicht erwünscht sind.
+              </p>
             </div>
           </div>
         </div>
+        
+      </div>
+
+      <!-- ✅ Right Column -->
+      <div class="space-y-4">
+
+
+        <!-- FAQ 7 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Welche Yoga-Stile unterrichtet ihr?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen. Jede Einheit ist eine Einladung, tiefer zu spüren, achtsam zu praktizieren und Freude an Bewegung zu finden.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 8 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Ich reise allein – passt das trotzdem für mich?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Schnell entsteht Verbindung – beim Yoga, beim Frühstück oder unter dem Sternenhimmel. Viele gehen mit neuen Freundschaften nachs Hause.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 9 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Wie komme ich am besten nach Sri Lanka?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Der internationale Flughafen Colombo Bandaranaike International Airport (CMB)st dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft – eine wunderschöne Fahrt entlang der Küste, vorbei an Reisfeldern, Palmen und kleinen Dörfern.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 10 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Brauche ich ein Visum für Sri Lanka?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Ja, du kannst dein Touristenvisum ganz einfach online beantragen. 
+                Hier: https://www.eta.gov.lk/slvisa/</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 11 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Muss ich Yoga-Erfahrung mitbringen?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Nein. Unsere Retreats sind offen für jedes Level – vom neugierigen Anfänger bis zur erfahrenen Yogini. Wichtig ist nicht, was du kannst, sondern dass du kommst, wie du bist.</p>
+            </div>
+          </div>
+        </div>
+        <!-- FAQ 12 -->
+        <div x-data="{ expanded: false }" class="border-b border-accent-orange">
+          <h3>
+            <button
+              id="faq-title-05"
+              type="button"
+              class="flex items-center justify-between w-full font-garamond text-xl md:text-2xl leading-[1.2] py-2"
+              @click="expanded = !expanded"
+              :aria-expanded="expanded"
+              aria-controls="faq-text-05"
+            >
+              <span><em>Wie groß sind die Gruppen?</em></span>
+              <span class="ml-4 text-xl transition-transform duration-200" x-text="expanded ? '↑' : '↓'"></span>
+            </button>
+          </h3>
+          <div
+            id="faq-text-05"
+            role="region"
+            aria-labelledby="faq-title-05"
+            class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+            :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+          >
+            <div class="overflow-hidden space-y-4">
+              <p class="whitespace-pre-line">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community.</p>
+            </div>
+          </div>
+        </div>
+
 
       </div>
     </div>

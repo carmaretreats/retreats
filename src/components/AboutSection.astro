@@ -47,9 +47,7 @@ const imageOrder = reverse ? 'order-1 md:order-2 justify-start' : 'justify-end';
         </div>
 
         <div class="body-text text-black">
-          {text.split('\n').map((paragraph) => (
-            paragraph.trim() && <p>{paragraph}</p>
-          ))}
+          <p class="whitespace-pre-line">{text}</p>
         </div>
       </div>
 

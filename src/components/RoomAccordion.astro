@@ -31,11 +31,9 @@ const {
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
-        {priceContent.length > 0 && (
           <div class="overflow-hidden">
-            {priceContent.map((p) => <p>{p}</p>)}
+            <p class="whitespace-pre-line">{priceContent}</p>
           </div>
-        )}
       </div>
     </div>
 
@@ -61,11 +59,9 @@ const {
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
-        {includedContent.length > 0 && (
-          <div class="overflow-hidden">
-            {includedContent.map((p) => <p>{p}</p>)}
-          </div>
-        )}
+        <div class="overflow-hidden">
+            <p class="whitespace-pre-line">{includedContent}</p>
+        </div>
       </div>
     </div>
 
@@ -91,11 +87,9 @@ const {
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
         :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
-        {locationContent.length > 0 && (
-          <div class="overflow-hidden">
-            {locationContent.map((p) => <p>{p}</p>)}
+        <div class="overflow-hidden">
+              <p class="whitespace-pre-line">{locationContent}</p>
           </div>
-        )}
       </div>
     </div>
 
