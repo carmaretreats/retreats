@@ -37,7 +37,6 @@ const buttonClass = `${base} ${colors[color]} ${sizes[size]} ${borderClass}`;
     const retreat = $el.getAttribute('data-retreat');
     if (retreat) {
       localStorage.setItem('selectedRetreat', retreat);
-      console.log('Saved retreat:', retreat);
     }
     document.querySelector(href)?.scrollIntoView({ behavior: 'smooth' });
   "
