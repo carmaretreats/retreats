@@ -22,8 +22,8 @@ export const januaryImages = [
   { src: imgjan8, label: '' },
 ];
 
-import img1 from '../assets/images/february/Ahangamadesk.jpg';
-import img2 from '../assets/images/february/ahangamasingleroom.jpg';
+import img1 from '../assets/images/february/ahangamasingleroom.jpg';
+import img2 from '../assets/images/february/Ahangamadesk.jpg';
 import img3 from '../assets/images/february/ahangamasittingandroomview.jpg';
 import img4 from '../assets/images/february/AhangamaSittingarea.jpg';
 import img5 from '../assets/images/february/ahangamasittingtables.jpg';
@@ -99,7 +99,12 @@ export const februaryImages = [
         <hr class="my-3 border-accent-orange" />
         <p class="text-black body-text italic">plus Retreatgebühr</p>
         <p class="text-black body-text">Pro Teilnehmer <span class="float-right">900 €</span></p>
+
+        <div class="flex justify-start pt-6">
+          <Cta label="Jetzt Buchen" href="#kontakt" color="orange" />
+        </div>
       </div>
+
   
       <!-- Carousel -->
       <div class="w-full md:w-1/2 order-1 md:order-2">
@@ -115,23 +120,23 @@ export const februaryImages = [
             style="font-family: var(--font-editorial);">
           Ahangama Februar
         </h3>
-        <p class="text-black body-text">Einzelzimmer alleine <span class="float-right">520 €</span></p>
-        <p class="text-black body-text">Doppelbett geteilt <span class="float-right">340 €</span></p>
-        <p class="text-black body-text">Dreierzimmer großes Bett alleine <span class="float-right">440 €</span></p>
-        <p class="text-black body-text">Dreierzimmer großes Bett geteilt <span class="float-right">290 €</span></p>
+        <p class="text-black body-text">Einzelzimmer allein/Doppelbett geteilt <span class="float-right">520 / 340 €</span></p>
+        <p class="text-black body-text">Dreier Zimmer: großes Bett alleine/geteilt <span class="float-right">440 / 290 €</span></p>
         <p class="text-black body-text">Dreierzimmer kleines Bett <span class="float-right">380 €</span></p>
         <hr class="my-3 border-accent-orange" />
         <p class="text-black body-text italic">plus Retreatgebühr</p>
-        <p class="text-black body-text">Pro Teilnehmer <span class="float-right">900 €</span></p>
+        <p class="text-black body-text">Pro Teilnehmer <span class="float-right">970 €</span></p>
+
+        <div class="flex justify-start pt-6">
+          <Cta label="Jetzt Buchen" href="#kontakt" color="orange" />
+        </div>
       </div>
+
   
       <!-- Carousel -->
       <div class="w-full md:w-1/2 order-1 md:order-2">
         <Carousel images={februaryImages} />
       </div>
     </div>
-    <div class="flex justify-center md:justify-start pt-6">
-        <Cta label="Jetzt Buchen" href="#kontakt" color="orange" />
-      </div>
   </div>
 </section>

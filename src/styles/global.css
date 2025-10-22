@@ -86,7 +86,7 @@ html {
 }
 
 .heading-sub {
-  @apply font-garamond text-xl sm:text-2xl md:text-3xl leading-[1.2];
+  @apply font-garamond text-xl md:text-2xl leading-[1.2];
 }
 
 .body-text {
