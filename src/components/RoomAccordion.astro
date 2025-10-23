@@ -6,22 +6,22 @@ const {
 } = Astro.props;
 ---
 
-<div class="font-inter w-full max-w-2xl">
+<div class="font-inter w-full max-w-2xl" x-data="{ openRoom: null }">
   <div class="divide-y divide-slate-200">
 
     <!-- Accordion item 1 -->
-    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+    <div class="py-2 border-b border-accent-orange">
       <h3>
         <button
           id="room-title-01"
           type="button"
           class="flex items-center w-full justify-between text-left py-2 text-black font-garamond italic text-xl md:text-2xl leading-[1.2]"
-          @click="expanded = !expanded"
-          :aria-expanded="expanded"
+          @click="openRoom = openRoom === 1 ? null : 1"
+          :aria-expanded="openRoom === 1"
           aria-controls="room-text-01"
         >
           <span><em>Was kostet es?</em></span>
-          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="openRoom === 1 ? '↑' : '↓'"></span>
         </button>
       </h3>
       <div
@@ -29,7 +29,7 @@ const {
         role="region"
         aria-labelledby="room-title-01"
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+        :class="openRoom === 1 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
           <div class="overflow-hidden">
             <p class="whitespace-pre-line">{priceContent}</p>
@@ -38,18 +38,18 @@ const {
     </div>
 
     <!-- Accordion item 2 -->
-    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+    <div class="py-2 border-b border-accent-orange">
       <h3>
         <button
           id="room-title-02"
           type="button"
           class="flex items-center w-full justify-between text-left py-2 text-black font-garamond italic text-xl md:text-2xl leading-[1.2]"
-          @click="expanded = !expanded"
-          :aria-expanded="expanded"
+          @click="openRoom = openRoom === 2 ? null : 2"
+          :aria-expanded="openRoom === 2"
           aria-controls="room-text-02"
         >
           <span><em>Was ist enthalten?</em></span>
-          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="openRoom === 2 ? '↑' : '↓'"></span>
         </button>
       </h3>
       <div
@@ -57,7 +57,7 @@ const {
         role="region"
         aria-labelledby="room-title-02"
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+        :class="openRoom === 2 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         <div class="overflow-hidden">
             <p class="whitespace-pre-line">{includedContent}</p>
@@ -66,18 +66,18 @@ const {
     </div>
 
     <!-- Accordion item 3 -->
-    <div x-data="{ expanded: false }" class="py-2 border-b border-accent-orange">
+    <div class="py-2 border-b border-accent-orange">
       <h3>
         <button
           id="room-title-03"
           type="button"
           class="flex items-center w-full justify-between text-left py-2 text-black font-garamond italic text-xl md:text-2xl leading-[1.2]"
-          @click="expanded = !expanded"
-          :aria-expanded="expanded"
+          @click="openRoom = openRoom === 3 ? null : 3"
+          :aria-expanded="openRoom === 3"
           aria-controls="room-text-03"
         >
           <span><em>Wo ist es?</em></span>
-          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="expanded ? '↑' : '↓'"></span>
+          <span class="ml-4 text-xl transition-transform duration-200 text-black" x-text="openRoom === 3 ? '↑' : '↓'"></span>
         </button>
       </h3>
       <div
@@ -85,7 +85,7 @@ const {
         role="region"
         aria-labelledby="room-title-03"
         class="grid text-base text-black font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-        :class="expanded ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+        :class="openRoom === 3 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
       >
         <div class="overflow-hidden">
               <p class="whitespace-pre-line">{locationContent}</p>
