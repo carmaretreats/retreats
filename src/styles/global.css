@@ -1,14 +1,12 @@
 @import "tailwindcss";
 /* Add your custom font */
 @font-face {
-  font-family: 'PPEditorialOld-Italic';
+  font-family: 'EditorialOld';
+  src: url('/fonts/PPEditorialOld-Italic.woff2') format('woff2'),
+       url('/fonts/PPEditorialOld-Italic.woff') format('woff');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
-  src: url('/fonts/PPEditorialOld-Italic.woff2') format('woff2'),
-       url('/fonts/PPEditorialOld-Italic.woff') format('woff'),
-       url('/fonts/PPEditorialOld-Italic.ttf') format('truetype'),
-       url('/fonts/PPEditorialOld-Italic.otf') format('opentype');
 }
 
 @font-face {
@@ -36,7 +34,7 @@
 
 @theme {
   /* Fonts */
-  --font-editorial: 'PPEditorialOld-Italic', sans-serif;
+  --font-editorial: 'EditorialOld', sans-serif;
   --font-garamond: 'EBGaramondEditorial', serif;
   --font-sans: 'PlusJakartaSans', sans-serif;
   --font-sora: 'SoraSans', sans-serif;
@@ -47,6 +45,59 @@
   --color-dark-brown: #352A1F;
   --color-accent-orange: #E05830;
   --color-accent-green-hover: #6D8B73;
+}
+
+/* Safari Unfriendly Support */
+/* 1. Definición de la fuente */
+:root {
+  --font-editorial: 'EditorialOld', sans-serif;
+}
+
+/* 2. Estilos base */
+.responsive-title {
+  font-family: var(--font-editorial);
+  font-size: 1.875rem;       /* text-3xl = 30px */
+  line-height: 1.2;          /* leading-[1.2] */
+  margin-bottom: 2rem;       /* mb-8 = 32px */
+}
+
+/* 3. Breakpoints equivalentes a Tailwind */
+
+/* xs: ~475px (no oficial en Tailwind pero común en setups personalizados) */
+@media (max-width: 475px) {
+  .responsive-title {
+    margin-bottom: 1rem;     /* xs:mb-4 */
+  }
+}
+
+/* sm: 640px */
+@media (min-width: 640px) {
+  .responsive-title {
+    font-size: 2.25rem;      /* text-4xl = 36px */
+  }
+}
+
+/* md: 768px */
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: 3rem;         /* text-5xl = 48px */
+    margin-bottom: 1.5rem;   /* md:mb-6 = 24px */
+  }
+}
+
+/* lg: 1024px */
+@media (min-width: 1024px) {
+  .responsive-title {
+    font-size: 50px;         /* lg:text-[50px] */
+    margin-bottom: 2rem;     /* lg:mb-8 = 32px */
+  }
+}
+
+/* 2xl: 1536px */
+@media (min-width: 1536px) {
+  .responsive-title {
+    font-size: 3.75rem;      /* 2xl:text-6xl = 60px */
+  }
 }
 
 /* Optionally apply it globally */
@@ -64,6 +115,18 @@ html {
   --breakpoint-xs: 420px;
   --breakpoint-ms: 640px;
   --breakpoint-xl1440: 1057px;
+}
+
+@supports (-webkit-touch-callout: none) {
+  h1 {
+    font-family: 'Editorial', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: white;
+  }
 }
 
 /* === TYPOGRAPHY CLASSES FOR CARMA RETREATS – Web Version === */
@@ -91,7 +154,7 @@ html {
 }
 
 .body-text {
-  @apply font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] mb-2 xs:mb-4 md:mb-6 lg:mb-8;
+  @apply font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] mb-4 xs:mb-6 md:mb-6 lg:mb-8;
 }
 
 .button-text {
