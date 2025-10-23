@@ -20,11 +20,11 @@ const {
       >
         <Image
           src={slide.src}
-          alt={slide.label || `Yoga Retreat Bild ${index + 1}`}
+          alt={slide.label || `Yoga Retreat Bild-${index + 1}`}
           widths={[400, 800, 1200]}
           formats={['avif', 'webp', 'jpeg']}
           class="w-full h-full object-cover object-center"
-          loading="eager"
+          loading="lazy"
         />
         {slide.label && (
           <div class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans">
@@ -55,7 +55,7 @@ const {
     <!-- Dots -->
     <div class="absolute bottom-4 w-full flex items-center justify-center px-4">
       {images.map((_, index) => (
-        <button
+        <button aria-label={`Bild-${index + 1}`}
           class="w-3 h-3 mx-1 rounded-full transition-colors duration-200 ease-out"
           :class={`activeSlide === ${index} ? 'bg-[var(--color-accent-orange)]' : 'bg-[var(--color-dark-brown)]'`}
           x-on:click={`activeSlide = ${index}`}
