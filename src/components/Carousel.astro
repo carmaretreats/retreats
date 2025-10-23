@@ -24,8 +24,7 @@ const {
           widths={[400, 800, 1200]}
           formats={['avif', 'webp', 'jpeg']}
           class="w-full h-full object-cover object-center"
-          loading="lazy"
-          decoding="async"
+          loading="eager"
         />
         {slide.label && (
           <div class="absolute top-0 left-0 w-full bg-[rgba(0,0,0,0.4)] text-white text-center py-2 text-sm font-sans">
