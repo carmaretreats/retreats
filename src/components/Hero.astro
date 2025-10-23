@@ -14,17 +14,17 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
     <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
     <div class="hidden md:grid md:grid-cols-2 w-full h-full">
       <div class="aspect-square overflow-hidden">
-        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover object-bottom" />
+        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover object-bottom" loading="eager"/>
       </div>
       <div class="aspect-square overflow-hidden">
-        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" />
+        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" loading="eager"/>
       </div>
     </div>
   </div>
 
   <!-- Spiral mark -->
   <div class="absolute left-1/2 top-8 transform -translate-x-1/2 pointer-events-none">
-    <Image src={spiral} alt="Markenzeichen" class="h-12 sm:h-14 md:h-16 w-auto object-contain" />
+    <Image src={spiral} alt="Markenzeichen" class="h-12 sm:h-14 md:h-16 w-auto object-contain" loading="eager"/>
   </div>
 
   <!-- Text + CTA -->
