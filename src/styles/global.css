@@ -38,7 +38,7 @@
   /* Fonts */
   --font-editorial: 'PPEditorialOld-Italic', sans-serif;
   --font-garamond: 'EBGaramondEditorial', serif;
-  --font-sans: 'PlusJakartaSans', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-sans: 'PlusJakartaSans', sans-serif;
   --font-sora: 'SoraSans', sans-serif;
   /* Colors */
   --color-cream-bg: #FFF8EE;
@@ -62,6 +62,8 @@ html {
 
 @theme {
   --breakpoint-xs: 420px;
+  --breakpoint-ms: 640px;
+  --breakpoint-xl1440: 1057px;
 }
 
 /* === TYPOGRAPHY CLASSES FOR CARMA RETREATS – Web Version === */
