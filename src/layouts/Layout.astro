@@ -18,13 +18,20 @@ import Footer from '../components/Footer.astro';
       extend={{
         link: [{ rel: "icon", href: "/favicon.ico" },
           { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },
-          { rel: "apple-touch-icon", href: "/apple-touch-icon.png" }
+          { rel: "apple-touch-icon", href: "/apple-touch-icon.png" },
+          { rel: "sitemap", href: "/sitemap-index.xml" }
         ],
-        meta: [{ name: "theme-color", content: "#2d241d" }],
+        meta: [{ name: "theme-color", content: "#2d241d" },
+                { property: "og:type", content: "website" },
+                { property: "og:title", content: "Yoga Retreats Sri Lanka 2026 | Carma Retreats" },
+                { property: "og:description", content: "Ankommen & Aufatmen – Yoga, Kultur & Community unter tropischer Sonne." },
+                { property: "og:url", content: "https://www.carma-retreats.com" },
+                { property: "og:image", content: "https://www.carma-retreats.com/images/og-preview.jpg" },
+                { property: "og:locale", content: "de_DE" },
+        ],
       }}
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="sitemap" href="/sitemap-index.xml" />
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
     <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/9e402988c2ff1.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
   </head>
