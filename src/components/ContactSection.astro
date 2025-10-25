@@ -47,7 +47,7 @@ if (Astro.request.method === "POST") {
             Retreat auswählen
           </label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
+            <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
               <input
                 type="radio"
                 name="retreat"
@@ -57,7 +57,7 @@ if (Astro.request.method === "POST") {
               />
               Hikkaduwa im Januar
             </label>
-            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
+            <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
               <input
                 type="radio"
                 name="retreat"
@@ -75,7 +75,7 @@ if (Astro.request.method === "POST") {
             Unterkunft auswählen*
           </label>
           <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
-            <label class="flex items-center gap-3 font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]">
+            <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
               <input
                 type="radio"
                 name="accommodation"
@@ -97,7 +97,7 @@ if (Astro.request.method === "POST") {
             name="name"
             value={previousValues.name || ""}
             placeholder="Gib hier deinen Namen an"
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
             aria-describedby={inputErrors.name ? "name-error" : undefined}
             required
           />
@@ -116,7 +116,7 @@ if (Astro.request.method === "POST") {
             name="email"
             value={previousValues.email || ""}
             placeholder="Gib hier deine E-Mail-Adresse ein"
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
             aria-describedby={inputErrors.email ? "email-error" : undefined}
             required
           />
@@ -134,7 +134,7 @@ if (Astro.request.method === "POST") {
             rows="5"
             name="lead_message"
             placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
           >{previousValues.lead_message || ""}</textarea>
         </div>
 

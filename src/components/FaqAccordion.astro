@@ -16,9 +16,9 @@
     </div>
 
     <!-- 📐 Accordion 2-column layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 sm:gap-10 md:gap-20">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 text-left">
       <!-- ✅ Left Column -->
-      <div class="space-y-4">
+      <div class="space-y-4 mb-4">
         <!-- FAQ items start -->
         <template x-for="(faq, index) in [
           {
@@ -33,7 +33,7 @@
           },
           {
             id: '03',
-            question: 'Wo findet die Retreats statt?',
+            question: 'Wo finden die Retreats statt?',
             answer: `Das Retreat im Januar findet in Hikkaduwa statt -an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.\nDas Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer.`
           },
           {
@@ -56,7 +56,7 @@
             <h3>
               <button
                 type="button"
-                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2"
+                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
                 @click="openFaq === index ? openFaq = null : openFaq = index"
                 :aria-expanded="openFaq === index"
                 :aria-controls="'faq-text-' + faq.id"
@@ -66,7 +66,7 @@
               </button>
             </h3>
             <div
-              class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+              class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
               :id="'faq-text-' + faq.id"
               role="region"
               :aria-labelledby="'faq-title-' + faq.id"
@@ -118,7 +118,7 @@
             <h3>
               <button
                 type="button"
-                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2"
+                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
                 @click="openFaq === index + 100 ? openFaq = null : openFaq = index + 100"
                 :aria-expanded="openFaq === index + 100"
                 :aria-controls="'faq-text-' + faq.id"
@@ -128,7 +128,7 @@
               </button>
             </h3>
             <div
-              class="grid font-sans text-[12px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
+              class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
               :id="'faq-text-' + faq.id"
               role="region"
               :aria-labelledby="'faq-title-' + faq.id"
