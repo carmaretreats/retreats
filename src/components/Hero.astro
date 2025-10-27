@@ -7,8 +7,9 @@ import spiral from '../assets/images/Markenzeichen-Weis.png';
 ---
 <section id="hero" class="relative w-full bg-cream-bg pb-0 md:mb-8 px-8">
     <!-- Image for mobile (always visible) -->
-    <div class="block md:hidden aspect-square overflow-hidden">
+    <div class="block relative md:hidden aspect-square overflow-hidden">
       <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover object-bottom" />
+      <div class="absolute inset-0 bg-black/15 pointer-events-none z-10"></div>
     </div>
 
     <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
