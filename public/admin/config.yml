@@ -1,0 +1,19 @@
+collections:
+  - name: "retreats" # Used in routes, e.g., /admin/collections/blog
+    label: "Retreats" # Used in the UI
+    folder: "src/content/retreats" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    fields: # The fields for each document, usually in frontmatter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Subtitle", name: "subtitle", widget: "string" }
+      - { label: "Body", name: "body", widget: "string" }
+      - { label: "Publist date", name: "pubDate", widget: "datetime" }
+      - { label: "Image", name: "Image", widget: "string" }
+
+media_folder: "src/assets/images" # Location where files will be stored in the repo
+public_folder: "src/assets/images" # The src attribute for uploaded media
+
+backend:
+  name: github
+  repo: carmaretreats/retreats
+  branch: add-decap-cms

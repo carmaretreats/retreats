@@ -1,4 +1,5 @@
 User-agent: *
+Disallow: /cms-preview
 Allow: /
 
 Sitemap: https://www.carma-retreats.com/sitemap-index.xml

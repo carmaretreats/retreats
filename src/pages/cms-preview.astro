@@ -1,0 +1,50 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Image } from 'astro:assets';
+import placeholder from '../assets/images/placeholder.jpg';
+
+const {
+  title = "CMS Preview Page",
+  subtitle = "Testing Decap CMS Integration",
+  body = "Edit this content via Decap CMS to test updates.",
+  image = placeholder,
+} = Astro.props;
+---
+
+<Layout>
+  <main x-data="{ authorized: false, input: '', password: 'carma2025' }" class="min-h-screen bg-cream-bg text-dark-brown p-8 font-sans flex flex-col items-center justify-center">
+    
+    <!-- PASSWORD SCREEN -->
+    <template x-if="!authorized">
+      <div class="max-w-sm text-center">
+        <h1 class="text-2xl mb-4 font-editorial">Restricted Access</h1>
+        <p class="text-base mb-6">Please enter the access key:</p>
+        <input 
+          type="password" 
+          placeholder="Enter password"
+          x-model="input"
+          @keydown.enter="if(input === password) authorized = true"
+          class="border border-gray-400 rounded-md p-2 w-full mb-4 text-center"
+        />
+        <button 
+          @click="if(input === password) authorized = true"
+          class="bg-dark-brown text-cream-bg px-4 py-2 rounded-md hover:bg-opacity-80 transition"
+        >
+          Enter
+        </button>
+        <p x-show="input && input !== password" class="text-red-600 text-sm mt-2">Incorrect password</p>
+      </div>
+    </template>
+
+    <!-- MAIN CONTENT -->
+    <template x-if="authorized">
+      <div class="max-w-2xl text-center">
+        <h1 class="text-4xl mb-4 font-editorial">{title}</h1>
+        <h2 class="text-xl mb-6">{subtitle}</h2>
+        <img src={image.src} alt="Test image" class="w-80 rounded-xl shadow-md mx-auto mb-6" />
+        <p class="max-w-xl mx-auto">{body}</p>
+      </div>
+    </template>
+
+  </main>
+</Layout>
