@@ -8,7 +8,7 @@ import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
   site: 'https://www.carma-retreats.com/',
-  output: 'server',
+  output: 'static',
   adapter: netlify(),
   integrations: [
     alpinejs({ entrypoint: '/src/scripts/alpine.ts' }),
