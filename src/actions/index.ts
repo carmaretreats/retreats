@@ -28,7 +28,7 @@ export const server = {
       // send an email
       const { data, error } = await resend.emails.send({
         from: "Carma Retreats Lead <retreats@carma-retreats.com>",
-        to: ["carma.retreats.netlify@gmail.com"],
+        to: ["kontakt@carma-retreats.com"],
         subject: `New message from ${name}.`,
         html,
         text,
