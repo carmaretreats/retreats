@@ -27,7 +27,7 @@ const imageOrder = reverse ? 'order-1 md:order-2 justify-start' : 'justify-end';
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pb-[50px]">
     <!-- 📝 Título y subtítulo fuera del flex -->
     {subtitle && (
-      <p class="uppercase section-label text-[var(--color-black)] mb-8">
+      <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
         {subtitle}
       </p>
     )}
@@ -46,7 +46,7 @@ const imageOrder = reverse ? 'order-1 md:order-2 justify-start' : 'justify-end';
           <Image src={image} alt={imageAlt} class="w-full h-full object-cover" />
         </div>
 
-        <div class="body-text text-black">
+        <div class="body-text text-dark-brown">
           <p class="whitespace-pre-line">{text}</p>
         </div>
       </div>

@@ -16,7 +16,7 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<section id="kontakt" class="relative section bg-cream-bg text-black font-sans">
+<section id="kontakt" class="relative section bg-cream-bg text-dark-brown font-sans">
   <div class="section-inner relative z-10">
 
     <!-- 🏷️ SECTION LABEL + TITLE -->
@@ -32,7 +32,7 @@ if (Astro.request.method === "POST") {
       
       <!-- 📝 LEFT COLUMN — Paragraph -->
       <div class="max-w-lg">
-        <p class="body-text text-black">
+        <p class="body-text text-dark-brown">
           Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.<br />
           Du hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.
           Wir freuen uns, von Dir zu hören.
@@ -43,7 +43,7 @@ if (Astro.request.method === "POST") {
       <form action={actions.send} x-data="retreatForm()" @submit="localStorage.removeItem('selectedRetreat')" method="post" novalidate class="space-y-8">
         <!-- Retreat Selection -->
         <div class="space-y-4">
-          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-black">
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
             Retreat auswählen
           </label>
           <div class="space-y-2">
@@ -71,7 +71,7 @@ if (Astro.request.method === "POST") {
         </div>
 
         <div x-show="selectedRetreat" x-cloak>
-          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-black">
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
             Unterkunft auswählen*
           </label>
           <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
@@ -89,7 +89,7 @@ if (Astro.request.method === "POST") {
 
         <!-- Name -->
         <div>
-          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-black">
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
             Dein Name*
           </label>
           <input
@@ -97,7 +97,7 @@ if (Astro.request.method === "POST") {
             name="name"
             value={previousValues.name || ""}
             placeholder="Gib hier deinen Namen an"
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-dark-brown placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
             aria-describedby={inputErrors.name ? "name-error" : undefined}
             required
           />
@@ -108,7 +108,7 @@ if (Astro.request.method === "POST") {
 
         <!-- Email -->
         <div>
-          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-black">
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
             Deine E-Mail*
           </label>
           <input
@@ -116,7 +116,7 @@ if (Astro.request.method === "POST") {
             name="email"
             value={previousValues.email || ""}
             placeholder="Gib hier deine E-Mail-Adresse ein"
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-dark-brown placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
             aria-describedby={inputErrors.email ? "email-error" : undefined}
             required
           />
@@ -127,14 +127,14 @@ if (Astro.request.method === "POST") {
 
         <!-- Message -->
         <div>
-          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-black">
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
             Deine Nachricht
           </label>
           <textarea
             rows="5"
             name="lead_message"
             placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
-            class="w-full text-black placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            class="w-full text-dark-brown placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
           >{previousValues.lead_message || ""}</textarea>
         </div>
 
