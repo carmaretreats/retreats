@@ -3,16 +3,17 @@ backend:
   repo: carmaretreats/retreats
   branch: add-decap-cms
 
-media_folder: "public/uploads"    # Carpeta donde se guardan las imágenes en el repo
-public_folder: "/uploads"         # Ruta pública para servir las imágenes
+media_folder: "public/uploads"
+public_folder: "/uploads"
 
 collections:
-  - name: "testpage"                 # Identificador interno de la colección
-    label: "CMS Preview Page"        # Título que se verá en el panel del CMS
+  - name: "testpage"
+    label: "CMS Preview Page"
     files:
-      - file: "src/pages/cms-preview.astro"   # Página que se va a editar
-        label: "CMS Preview"
+      - file: "src/content/cms-preview.json"
+        label: "CMS Preview (data)"
         name: "cms_preview"
+        format: "json"
         fields:
           - { label: "Title", name: "title", widget: "string" }
           - { label: "Subtitle", name: "subtitle", widget: "string" }

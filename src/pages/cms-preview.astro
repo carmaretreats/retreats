@@ -1,13 +1,13 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Image } from 'astro:assets';
 import placeholder from '../assets/images/placeholder.jpg';
+import data from '../content/cms-preview.json';
 
 const {
-  title = "CMS Preview Page",
-  subtitle = "Testing Decap CMS Integration",
-  body = "Edit this content via Decap CMS to test updates.",
-  image = placeholder,
+  title = data.title ?? "CMS Preview Page",
+  subtitle = data.subtitle ?? "Testing Decap CMS Integration",
+  body = data.body ?? "Edit this content via Decap CMS to test updates.",
+  image = data.image ?? placeholder,
 } = Astro.props;
 ---
 
