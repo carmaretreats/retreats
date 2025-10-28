@@ -1,10 +1,14 @@
 ---
 import CtaLink from './CtaLink.astro';
+import Cta from '../components/CTA.astro';
 const buttonLabel = "NÄCHSTE RETREATS"
 const buttonHref = "#next-retreats" 
 ---
 
 <section id="hero-welcome" class="section bg-cream-bg text-dark-brown text-center font-sans">
+  <div class="flex justify-center mb-4 xs:mb-6 md:mb-0 px-12 sm:px-6 lg:px-8">
+      <Cta href="#retreats" size="large" />
+    </div>
   <div class="section-inner">
     <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main mb-6">
       Willkommen bei Carma Retreats
