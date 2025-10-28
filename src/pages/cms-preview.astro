@@ -41,7 +41,7 @@ const {
       <div class="max-w-2xl text-center">
         <h1 class="text-4xl mb-4 font-editorial">{title}</h1>
         <h2 class="text-xl mb-6">{subtitle}</h2>
-        <img src={image.src} alt="Test image" class="w-80 rounded-xl shadow-md mx-auto mb-6" />
+        <img src={typeof image === "string" ? image : image.src} alt="Test image" class="w-80 rounded-xl shadow-md mx-auto mb-6" />
         <p class="max-w-xl mx-auto">{body}</p>
       </div>
     </template>
