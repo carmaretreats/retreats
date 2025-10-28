@@ -1,7 +1,10 @@
 backend:
   name: github
   repo: carmaretreats/retreats
-  branch: add-decap-cms
+  branch: main
+  base_url: https://www.carma-retreats.com
+  auth_endpoint: /.netlify/functions/auth
+  use_graphql: true
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
