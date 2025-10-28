@@ -3,8 +3,7 @@ backend:
   repo: carmaretreats/retreats
   branch: main
   base_url: https://www.carma-retreats.com
-  auth_endpoint: /.netlify/functions/auth
-  use_graphql: true
+  auth_endpoint: api/auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
