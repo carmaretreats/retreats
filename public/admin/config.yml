@@ -1,0 +1,24 @@
+backend:
+  name: github
+  repo: carmaretreats/retreats
+  branch: main
+  base_url: https://www.carma-retreats.com
+  auth_endpoint: /.netlify/functions/auth
+  use_graphql: true
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "testpage"
+    label: "CMS Preview Page"
+    files:
+      - file: "src/content/cms-preview.json"
+        label: "CMS Preview (data)"
+        name: "cms_preview"
+        format: "json"
+        fields:
+          - { label: "Title", name: "title", widget: "string" }
+          - { label: "Subtitle", name: "subtitle", widget: "string" }
+          - { label: "Body", name: "body", widget: "text" }
+          - { label: "Image", name: "image", widget: "image" }
