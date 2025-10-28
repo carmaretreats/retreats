@@ -3,6 +3,11 @@ import { SEO } from "astro-seo";
 import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+const {
+  noindex = false,
+  nofollow = false,
+  disableCMP = false,
+} = Astro.props;
 ---
 <!doctype html>
 <html lang="de">
@@ -13,8 +18,8 @@ import Footer from '../components/Footer.astro';
       title="Yoga Retreats Sri Lanka 2026 | Carma Retreats"
       description="Ankommen & Aufatmen - Yoga Retreats 2026 an Sri Lankas Südküste. Im Januar & Februar: Yoga, Kultur & Community unter tropischer Sonne."
       canonical="https://www.carma-retreats.com"
-      noindex={false}
-      nofollow={false}
+      noindex={noindex}
+      nofollow={nofollow}
       extend={{
         link: [{ rel: "icon", href: "/favicon.ico" },
           { rel: "icon", type: "image/png", href: "/favicon-32x32.png" },
@@ -33,7 +38,11 @@ import Footer from '../components/Footer.astro';
     />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/9e402988c2ff1.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
+    { !disableCMP && (
+      <>
+        <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/9e402988c2ff1.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
+      </>
+    )}
   </head>
   <body>
     <Header />

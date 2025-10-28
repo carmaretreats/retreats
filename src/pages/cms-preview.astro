@@ -11,8 +11,8 @@ const {
 } = Astro.props;
 ---
 
-<Layout>
-  <main x-data="{ authorized: false, input: '', password: 'carma2025' }" class="min-h-screen bg-cream-bg text-dark-brown p-8 font-sans flex flex-col items-center justify-center">
+<Layout noindex={true} nofollow={true} disableCMP={true}>
+  <main x-data={`{ authorized: false, input: '', password: '${import.meta.env.PUBLIC_CMS_PASSWORD}'}`}  class="min-h-screen bg-cream-bg text-dark-brown p-8 font-sans flex flex-col items-center justify-center">
     
     <!-- PASSWORD SCREEN -->
     <template x-if="!authorized">
