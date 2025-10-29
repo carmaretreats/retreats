@@ -7,15 +7,77 @@ media_folder: "public/uploads"
 public_folder: "/uploads"
 
 collections:
-  - name: "testpage"
-    label: "CMS Preview Page"
+  - name: "landingpage"
+    label: "Carma Retreats Landing Page CMS"
     files:
-      - file: "src/content/cms-preview.json"
-        label: "CMS Preview (data)"
-        name: "cms_preview"
+      - file: "src/content/retreats-page.json"
+        label: "Retreats Page Content"
+        name: "retreats"
         format: "json"
         fields:
-          - { label: "Title", name: "title", widget: "string" }
-          - { label: "Subtitle", name: "subtitle", widget: "string" }
-          - { label: "Body", name: "body", widget: "text" }
-          - { label: "Image", name: "image", widget: "image" }
+          # === RETREATS SECTION ===
+          - label: "Retreats"
+            name: "retreats"
+            widget: "list"
+            summary: "{{fields.title}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Month", name: "month", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - label: "Accommodation Options"
+                name: "accommodationOptions"
+                widget: "list"
+                field: { label: "Option", name: "option", widget: "string" }
+
+          # === KONTAKT SECTION ===
+          - label: "Kontakt Section"
+            name: "kontakt"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section ID", name: "id", widget: "string" }
+              - { label: "Section Label", name: "sectionLabel", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Form"
+                name: "form"
+                widget: "object"
+                fields:
+                  - label: "Retreat Field"
+                    name: "retreat"
+                    widget: "object"
+                    fields:
+                      - { label: "Type", name: "type", widget: "string" }
+                      - { label: "Label", name: "label", widget: "string" }
+                  - label: "Accommodation Field"
+                    name: "accommodation"
+                    widget: "object"
+                    fields:
+                      - { label: "Type", name: "type", widget: "string" }
+                      - { label: "Label", name: "label", widget: "string" }
+                  - label: "Name Field"
+                    name: "name"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Placeholder", name: "placeholder", widget: "string" }
+                      - { label: "Error Message", name: "errorMessage", widget: "string" }
+                  - label: "Email Field"
+                    name: "email"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Placeholder", name: "placeholder", widget: "string" }
+                      - { label: "Error Message", name: "errorMessage", widget: "string" }
+                  - label: "Message Field"
+                    name: "lead_message"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Placeholder", name: "placeholder", widget: "string" }
+                  - label: "Submit Button"
+                    name: "submitButton"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
