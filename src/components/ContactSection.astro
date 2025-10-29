@@ -1,7 +1,14 @@
 ---
 import { isInputError } from "astro:actions";
 import { actions } from "astro:actions";
-
+import data from "../content/retreats-page.json";
+const kontakt = data.kontakt;
+const retreats = data.retreats;
+const retreatOptions = retreats.map((r) => ({
+  id: r.id,
+  title: r.title
+}));
+const form = kontakt.form;
 const result = Astro.getActionResult(actions.send);
 const inputErrors = isInputError(result?.error) ? result.error.fields : {};
 
@@ -16,14 +23,14 @@ if (Astro.request.method === "POST") {
 }
 ---
 
-<section id="kontakt" class="relative section bg-cream-bg text-dark-brown font-sans">
+<section id={kontakt.id} class="relative section bg-cream-bg text-dark-brown font-sans">
   <div class="section-inner relative z-10">
 
     <!-- 🏷️ SECTION LABEL + TITLE -->
     <div class="max-w-3xl mb-8">
-      <p class="uppercase section-label mb-8">Retreat-Infos</p>
+      <p class="uppercase section-label mb-8">{kontakt.sectionLabel}</p>
       <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main mb-6">
-        Kontakt und Buchung
+        {kontakt.heading}
       </h2>
     </div>
 
@@ -33,9 +40,7 @@ if (Astro.request.method === "POST") {
       <!-- 📝 LEFT COLUMN — Paragraph -->
       <div class="max-w-lg">
         <p class="body-text text-dark-brown">
-          Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.<br />
-          Du hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.
-          Wir freuen uns, von Dir zu hören.
+          {kontakt.description}
         </p>
       </div>
 
@@ -44,35 +49,27 @@ if (Astro.request.method === "POST") {
         <!-- Retreat Selection -->
         <div class="space-y-4">
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
-            Retreat auswählen
+            {form.retreat.label}
           </label>
           <div class="space-y-2">
-            <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
-              <input
-                type="radio"
-                name="retreat"
-                value="january"
-                x-model="selectedRetreat"
-                class="accent-[var(--color-accent-orange)]"
-              />
-              Hikkaduwa im Januar
-            </label>
-            <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
-              <input
-                type="radio"
-                name="retreat"
-                value="february"
-                x-model="selectedRetreat"
-                class="accent-[var(--color-accent-orange)]"
-              />
-              Ahangama im Februar
-            </label>
+            {retreatOptions.map((r) => (
+              <label class="flex items-center gap-3 font-sans text-[14px] md:text-[18px] leading-[1.4]">
+                <input
+                  type="radio"
+                  name="retreat"
+                  value={r.id}
+                  x-model="selectedRetreat"
+                  class="accent-[var(--color-accent-orange)]"
+                />
+                {r.title}
+              </label>
+            ))}
           </div>
         </div>
 
         <div x-show="selectedRetreat" x-cloak>
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
-            Unterkunft auswählen*
+            {form.accommodation.label}
           </label>
           <template x-for="option in accommodationOptions[selectedRetreat]" :key="option">
             <label class="flex items-center gap-3 font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]">
@@ -90,7 +87,7 @@ if (Astro.request.method === "POST") {
         <!-- Name -->
         <div>
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
-            Dein Name*
+            {form.name.label}
           </label>
           <input
             type="text"
@@ -102,14 +99,14 @@ if (Astro.request.method === "POST") {
             required
           />
           {inputErrors.name && (
-            <p id="name-error" class="text-accent-orange mt-1 text-sm">Bitte gib deinen Namen ein.</p>
+            <p id="name-error" class="text-accent-orange mt-1 text-sm">{form.name.errorMessage}</p>
           )}
         </div>
 
         <!-- Email -->
         <div>
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
-            Deine E-Mail*
+            {form.email.label}
           </label>
           <input
             type="email"
@@ -121,14 +118,14 @@ if (Astro.request.method === "POST") {
             required
           />
           {inputErrors.email && (
-            <p id="email-error" class="text-accent-orange mt-1 text-sm">Bitte gib eine gültige E-Mail-Adresse ein.</p>
+            <p id="email-error" class="text-accent-orange mt-1 text-sm">{form.email.errorMessage}</p>
           )}
         </div>
 
         <!-- Message -->
         <div>
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
-            Deine Nachricht
+            {form.lead_message.label}
           </label>
           <textarea
             rows="5"
@@ -144,7 +141,7 @@ if (Astro.request.method === "POST") {
             type="submit"
             class="inline-block w-full md:w-auto text-center rounded-full uppercase font-sora text-white tracking-widest text-base md:text-lg px-10 py-4 shadow-md transition-colors duration-300 bg-[var(--color-accent-orange)] hover:bg-[#bb421d] focus:ring-2 focus:ring-[var(--color-accent-orange)] focus:ring-offset-2 focus:ring-offset-cream-bg"
           >
-            Nachricht senden
+            {form.submitButton.label}
           </button>
         </div>
       </form>

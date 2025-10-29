@@ -1,19 +1,14 @@
 import Alpine from 'alpinejs'
+import pageData from '../../src/content/retreats-page.json'; 
+
+const retreatData = pageData.retreats;
+const accommodationMap = Object.fromEntries(
+  retreatData.map(r => [r.id, r.accommodationOptions])
+);
 
 Alpine.data('retreatForm', () => ({
   selectedRetreat: localStorage.getItem('selectedRetreat') || '',
-  accommodationOptions: {
-    january: [
-      'Einzelzimmer – 500 €',
-      'Doppelbett im Dreibettzimmer – 350 €',
-      'Stockbetten im Dreibettzimmer – 200 €'
-    ],
-    february: [
-      'Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €',
-      'Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €',
-      'Dreierzimmer kleines Bett – 380 €'
-    ]
-  }
-}))
+  accommodationOptions: accommodationMap,
+}));
 
 export default () => {}
