@@ -1,17 +1,21 @@
 ---
-/* This version displays FAQs in 2 columns on desktop and 1 column on mobile */
+import data from "../content/retreats-page.json";
+
+const faqSection = data.faqSection;
 ---
 
-<section id="faq" class="section bg-cream-bg text-dark-brown">
+<section id={faqSection.id} class="section bg-cream-bg text-dark-brown">
   <div class="section-inner" x-data="{ openFaq: null }">
     <!-- 📝 Title -->
     <div class="text-left mb-10 md:mb-16">
       <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
-        Retreat-Infos
+        {faqSection.sectionLabel}
       </p>
-      <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;"
-        class="heading-main">
-        Antworten auf deine Fragen.
+      <h2
+        style="font-family: 'EditorialOld', sans-serif; font-style: italic;"
+        class="heading-main"
+      >
+        {faqSection.heading}
       </h2>
     </div>
 
@@ -19,135 +23,83 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 text-left">
       <!-- ✅ Left Column -->
       <div class="space-y-4 mb-4">
-        <!-- FAQ items start -->
-        <template x-for="(faq, index) in [
-          {
-            id: '01',
-            question: 'Für wen sind die Carma Retreats gedacht?',
-            answer: `Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.`
-          },
-          {
-            id: '02',
-            question: 'Was ist enthalten?',
-            answer: `In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations-&Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch&Dinner, sowie kleine Zwischenmahlzeit)`
-          },
-          {
-            id: '03',
-            question: 'Wo finden die Retreats statt?',
-            answer: `Das Retreat im Januar findet in Hikkaduwa statt -an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.\nDas Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer.`
-          },
-          {
-            id: '04',
-            question: 'Finden die Retreats auf Deutsch statt?',
-            answer: `Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung.`
-          },
-          {
-            id: '05',
-            question: 'Welche Zimmertypen gibt es?',
-            answer: `In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis. Wenn du dir mit einer gemeinsam reisenden Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid, wir informieren dann die Unterkunft.`
-          },
-          {
-            id: '06',
-            question: 'Welche Art von Verpflegung gibt es?',
-            answer: `Wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip von Gewaltlosigkeit. Manche Gerichte werden Eier und Milchprodukte enthalten, sag uns gerne vorab Bescheid, wenn du Veganerin bist, dann werden wir den Koch informieren.\nDies gilt auch für Nahrungsmittelunverträglichkeiten - wir werden versuchen, diese so gut es geht zu berücksichtigen.\nIn unseren Retreats leben wir zudem Saucha - das yogische Prinzip von Reinheit. Das bedeutet, dass Alkohol, Nikotin und andere Suchtmittel im Rahmen des Retreats nicht erwünscht sind.`
-          }
-        ]" :key="faq.id">
-          <div class="border-b border-accent-orange">
+        {faqSection.faqsLeft.map((faq, index) => (
+          <div class="border-b border-accent-orange" id={`faq-${faq.id}`}>
             <h3>
               <button
                 type="button"
                 class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
-                @click="openFaq === index ? openFaq = null : openFaq = index"
-                :aria-expanded="openFaq === index"
-                :aria-controls="'faq-text-' + faq.id"
+                x-on:click={`openFaq === ${index} ? openFaq = null : openFaq = ${index}`}
+                x-bind:aria-expanded={`openFaq === ${index}`}
+                x-bind:aria-controls={`'faq-text-' + ${faq.id}`}
               >
-                <span><em x-text="faq.question"></em></span>
-                <span class="ml-4 text-xl transition-transform duration-200" x-text="openFaq === index ? '↑' : '↓'"></span>
+                <span><em>{faq.question}</em></span>
+                <span
+                  class="ml-4 text-xl transition-transform duration-200"
+                  x-text={`openFaq === ${index} ? '↑' : '↓'`}
+                ></span>
               </button>
             </h3>
             <div
               class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-              :id="'faq-text-' + faq.id"
+              id={`faq-text-${faq.id}`}
               role="region"
-              :aria-labelledby="'faq-title-' + faq.id"
-              :class="openFaq === index ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+              aria-labelledby={`faq-title-${faq.id}`}
+              x-bind:class={`openFaq === ${index} ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'`}
             >
               <div class="overflow-hidden space-y-4">
-                <p class="whitespace-pre-line" x-text="faq.answer"></p>
+                <p class="whitespace-pre-line">{faq.answer}</p>
               </div>
             </div>
           </div>
-        </template>
+        ))}
       </div>
 
       <!-- ✅ Right Column -->
       <div class="space-y-4">
-        <template x-for="(faq, index) in [
-          {
-            id: '07',
-            question: 'Welche Yoga-Stile unterrichtet ihr?',
-            answer: `Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen. Jede Einheit ist eine Einladung, tiefer zu spüren, achtsam zu praktizieren und Freude an Bewegung zu finden.`
-          },
-          {
-            id: '08',
-            question: 'Ich reise allein – passt das trotzdem für mich?',
-            answer: `Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Schnell entsteht Verbindung – beim Yoga, beim Frühstück oder unter dem Sternenhimmel. Viele gehen mit neuen Freundschaften nach Hause.`
-          },
-          {
-            id: '09',
-            question: 'Wie komme ich am besten nach Sri Lanka?',
-            answer: `Der internationale Flughafen Colombo Bandaranaike International Airport (CMB)st dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft – eine wunderschöne Fahrt entlang der Küste, vorbei an Reisfeldern, Palmen und kleinen Dörfern.`
-          },
-          {
-            id: '10',
-            question: 'Brauche ich ein Visum für Sri Lanka?',
-            answer: `Ja, du kannst dein Touristenvisum ganz einfach online beantragen.\nHier: https://www.eta.gov.lk/slvisa/`
-          },
-          {
-            id: '11',
-            question: 'Muss ich Yoga-Erfahrung mitbringen?',
-            answer: `Nein. Unsere Retreats sind offen für jedes Level – vom neugierigen Anfänger bis zur erfahrenen Yogini. Wichtig ist nicht, was du kannst, sondern dass du kommst, wie du bist.`
-          },
-          {
-            id: '12',
-            question: 'Wie groß sind die Gruppen?',
-            answer: `Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community.`
-          }
-        ]" :key="faq.id + '-right'">
-          <div class="border-b border-accent-orange">
+        {faqSection.faqsRight.map((faq, index) => (
+          <div class="border-b border-accent-orange" id={`faq-${faq.id}`}>
             <h3>
               <button
                 type="button"
                 class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
-                @click="openFaq === index + 100 ? openFaq = null : openFaq = index + 100"
-                :aria-expanded="openFaq === index + 100"
-                :aria-controls="'faq-text-' + faq.id"
+                x-on:click={`openFaq === ${index + 100} ? openFaq = null : openFaq = ${index + 100}`}
+                x-bind:aria-expanded={`openFaq === ${index + 100}`}
+                x-bind:aria-controls={`'faq-text-' + ${faq.id}`}
               >
-                <span><em x-text="faq.question"></em></span>
-                <span class="ml-4 text-xl transition-transform duration-200" x-text="openFaq === index + 100 ? '↑' : '↓'"></span>
+                <span><em>{faq.question}</em></span>
+                <span
+                  class="ml-4 text-xl transition-transform duration-200"
+                  x-text={`openFaq === ${index + 100} ? '↑' : '↓'`}
+                ></span>
               </button>
             </h3>
             <div
               class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-              :id="'faq-text-' + faq.id"
+              id={`faq-text-${faq.id}`}
               role="region"
-              :aria-labelledby="'faq-title-' + faq.id"
-              :class="openFaq === index + 100 ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'"
+              aria-labelledby={`faq-title-${faq.id}`}
+              x-bind:class={`openFaq === ${index + 100} ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'`}
             >
               <div class="overflow-hidden space-y-4">
-                <p class="whitespace-pre-line" x-text="faq.answer"></p>
+                <p class="whitespace-pre-line">{faq.answer}</p>
               </div>
             </div>
           </div>
-        </template>
+        ))}
       </div>
     </div>
 
     <!-- ✉️ CTA opcional -->
-    <div class="pt-16 text-center">
-      <a href="#kontakt" class="button-text relative inline-block pb-1 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--color-accent-orange)] after:rounded-full hover:text-[#bb421d]">
-        DEINE FRAGE SCHICKEN
-      </a>
-    </div>
+    {faqSection.cta && (
+      <div class="pt-16 text-center">
+        <a
+          href={faqSection.cta.href}
+          class="button-text relative inline-block pb-1 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--color-accent-orange)] after:rounded-full hover:text-[#bb421d]"
+        >
+          {faqSection.cta.label}
+        </a>
+      </div>
+    )}
   </div>
 </section>

@@ -15,10 +15,53 @@ collections:
         name: "retreats"
         format: "json"
         fields:
+          - label: "FAQ Section"
+            name: "faqSection"
+            widget: "object"
+            fields:
+              - { label: "Section ID", name: "id", widget: "string", default: "faq" }
+              - { label: "Section Label", name: "sectionLabel", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Left Column FAQs"
+                name: "faqsLeft"
+                widget: "list"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+              - label: "Right Column FAQs"
+                name: "faqsRight"
+                widget: "list"
+                fields:
+                  - { label: "ID", name: "id", widget: "string" }
+                  - { label: "Question", name: "question", widget: "string" }
+                  - { label: "Answer", name: "answer", widget: "text" }
+              - label: "CTA"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link", name: "href", widget: "string" }
+          - label: "Mini Gallery Section"
+            name: "miniGallery"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section ID", name: "id", widget: "string", default: "mini-gallery" }
+              - { label: "Title", name: "title", widget: "string", default: "Mini Gallery" }
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                summary: "{{fields.alt}}"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt text", name: "alt", widget: "string" }
           # === RETREATS SECTION ===
           - label: "Retreats"
             name: "retreats"
             widget: "list"
+            min: 2
+            max: 2
             summary: "{{fields.title}}"
             fields:
               - { label: "ID", name: "id", widget: "string" }
