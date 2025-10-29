@@ -1,9 +1,6 @@
 backend:
-  name: github
-  repo: carmaretreats/retreats
+  name: git-gateway
   branch: main
-  base_url: https://www.carma-retreats.com
-  auth_endpoint: api/auth
 
 media_folder: "public/uploads"
 public_folder: "/uploads"
