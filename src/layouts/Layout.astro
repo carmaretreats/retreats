@@ -85,14 +85,28 @@ const {
               }, 150);
             };
           </script>
-        <script type="text/javascript" data-cmp-ab="1"
-          src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js"
-          data-cmp-cid="9e402988c2ff1"
-          data-cmp-host="b.delivery.consentmanager.net"
-          data-cmp-cdn="cdn.consentmanager.net"
-          data-cmp-codesrc="0"
-          data-cmp-callback="onConsentAccept">
-        </script>
+          <script>
+            const originalLog = console.log;
+            const originalInfo = console.info;
+
+            console.log = function (...args) {
+              if (
+                typeof args[0] === "string" &&
+                (args[0].includes("dataLayer") || args[0].includes("CMP issue"))
+              ) {
+                return; // Ignora esos mensajes
+              }
+              originalLog.apply(console, args);
+            };
+
+            console.info = function (...args) {
+              if (typeof args[0] === "string" && args[0].includes("CMP")) {
+                return; // Ignora mensajes "CMP issue"
+              }
+              originalInfo.apply(console, args);
+            };
+          </script>
+        <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js" data-cmp-cdid="9e402988c2ff1" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
       </>
     )}
     <Header />
