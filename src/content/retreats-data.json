@@ -1,0 +1,26 @@
+{
+    "retreats": [
+    {
+      "id": "january",
+      "title": "Hikkaduwa Januar",
+      "month": "Januar",
+      "location": "Hikkaduwa",
+      "accommodationOptions": [
+        "Einzelzimmer – 500 €",
+        "Doppelbett im Dreibettzimmer – 350 €",
+        "Stockbetten im Dreibettzimmer – 200 €"
+      ]
+    },
+    {
+      "id": "february",
+      "title": "Ahangama Februar",
+      "month": "Februar",
+      "location": "Ahangama",
+      "accommodationOptions": [
+        "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
+        "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
+        "Dreierzimmer kleines Bett – 380 €"
+      ]
+    }
+  ]
+}

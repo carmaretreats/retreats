@@ -15,16 +15,19 @@ collections:
         name: "retreats"
         format: "json"
         fields:
+          # === FAQ SECTION ===
           - label: "FAQ Section"
             name: "faqSection"
             widget: "object"
+            collapsed: true
             fields:
-              - { label: "Section ID", name: "id", widget: "string", default: "faq" }
+              - { label: "Section ID", name: "id", widget: "string" }
               - { label: "Section Label", name: "sectionLabel", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
               - label: "Left Column FAQs"
                 name: "faqsLeft"
                 widget: "list"
+                summary: "{{fields.question}}"
                 fields:
                   - { label: "ID", name: "id", widget: "string" }
                   - { label: "Question", name: "question", widget: "string" }
@@ -32,6 +35,7 @@ collections:
               - label: "Right Column FAQs"
                 name: "faqsRight"
                 widget: "list"
+                summary: "{{fields.question}}"
                 fields:
                   - { label: "ID", name: "id", widget: "string" }
                   - { label: "Question", name: "question", widget: "string" }
@@ -39,16 +43,16 @@ collections:
               - label: "CTA"
                 name: "cta"
                 widget: "object"
+                collapsed: true
                 fields:
                   - { label: "Label", name: "label", widget: "string" }
                   - { label: "Link", name: "href", widget: "string" }
+          # === MINI GALLERY SECTION ===
           - label: "Mini Gallery Section"
             name: "miniGallery"
             widget: "object"
             collapsed: true
             fields:
-              - { label: "Section ID", name: "id", widget: "string", default: "mini-gallery" }
-              - { label: "Title", name: "title", widget: "string", default: "Mini Gallery" }
               - label: "Images"
                 name: "images"
                 widget: "list"
@@ -56,10 +60,11 @@ collections:
                 fields:
                   - { label: "Image", name: "src", widget: "image" }
                   - { label: "Alt text", name: "alt", widget: "string" }
-          # === RETREATS SECTION ===
+          # === RETREATS DROPDOWN CONTACT FORM ===
           - label: "Retreats"
             name: "retreats"
             widget: "list"
+            collapsed: true
             min: 2
             max: 2
             summary: "{{fields.title}}"
