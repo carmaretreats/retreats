@@ -1,10 +1,7 @@
+publish_mode: editorial_workflow
 backend:
-  name: github
-  repo: carmaretreats/retreats
+  name: git-gateway
   branch: main
-  base_url: https://www.carma-retreats.com
-  auth_endpoint: /.netlify/functions/auth
-  use_graphql: true
 
 media_folder: "public/uploads"
 public_folder: "/uploads"

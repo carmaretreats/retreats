@@ -1,0 +1,67 @@
+{
+  "retreats": [
+    {
+      "id": "january",
+      "title": "Hikkaduwa Januar",
+      "month": "Januar",
+      "location": "Hikkaduwa",
+      "accommodationOptions": [
+        "Einzelzimmer – 500 €",
+        "Doppelbett im Dreibettzimmer – 350 €",
+        "Stockbetten im Dreibettzimmer – 200 €"
+      ]
+    },
+    {
+      "id": "february",
+      "title": "Ahangama Februar",
+      "month": "Februar",
+      "location": "Ahangama",
+      "accommodationOptions": [
+        "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
+        "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
+        "Dreierzimmer kleines Bett – 380 €"
+      ]
+    }
+  ],
+  "kontakt": {
+    "id": "kontakt",
+    "sectionLabel": "Retreat-Infos",
+    "heading": "Kontakt und Buchung",
+    "description": "Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.\nDu hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.\nWir freuen uns, von Dir zu hören.",
+    "form": {
+      "retreat": {
+        "type": "radio-group",
+        "label": "Retreat auswählen",
+        "options": {
+          "january": "Hikkaduwa im Januar",
+          "february": "Ahangama im Februar"
+        }
+      },
+      "accommodation": {
+        "type": "radio-group",
+        "label": "Unterkunft auswählen",
+        "optionsDynamic": true
+      },
+      "name": {
+        "type": "text",
+        "label": "Dein Name*",
+        "placeholder": "Gib hier deinen Namen an",
+        "errorMessage": "Bitte gib deinen Namen ein."
+      },
+      "email": {
+        "type": "email",
+        "label": "Deine E-Mail*",
+        "placeholder": "Gib hier deine E-Mail-Adresse ein",
+        "errorMessage": "Bitte gib eine gültige E-Mail-Adresse ein."
+      },
+      "lead_message": {
+        "type": "textarea",
+        "label": "Deine Nachricht",
+        "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
+      },
+      "submitButton": {
+        "label": "Nachricht senden"
+      }
+    }
+  }
+}
