@@ -63,5 +63,13 @@
         "label": "Nachricht senden"
       }
     }
+  },
+  "miniGallery": {
+    "images": [
+      {
+        "src": "/uploads/zahra-nehme-dupe.webp",
+        "alt": "palms"
+      }
+    ]
   }
 }
