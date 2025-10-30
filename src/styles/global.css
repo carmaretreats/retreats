@@ -132,7 +132,7 @@ html {
 /* === TYPOGRAPHY CLASSES FOR CARMA RETREATS – Web Version === */
 
 .section {
-  @apply w-full py-16;
+  @apply w-full py-6 md:py-12;
 }
 
 .section-inner {

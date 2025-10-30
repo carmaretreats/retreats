@@ -36,23 +36,80 @@ const {
         ],
       }}
     />
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGQ0MY9TF6"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+      function gtag() { dataLayer.push(arguments); }
 
-      gtag('config', 'G-JGQ0MY9TF6');
+      // Default: no consent until user accepts
+      gtag("consent", "default", {
+        ad_storage: "denied",
+        analytics_storage: "denied",
+      });
+
+      gtag("js", new Date());
+      gtag("config", "G-JGQ0MY9TF6"); 
     </script>
-    <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
-    { !disableCMP && (
-      <>
-        <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/9e402988c2ff1.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
-      </>
-    )}
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"
+    ></script>
   </head>
   <body>
+    { !disableCMP && (
+      <>
+          <script>
+            const originalLog = console.log;
+            const originalInfo = console.info;
+
+            console.log = function (...args) {
+              if (
+                typeof args[0] === "string" &&
+                (args[0].includes("dataLayer") || args[0].includes("CMP issue"))
+              ) {
+                return; // Ignora esos mensajes
+              }
+              originalLog.apply(console, args);
+            };
+
+            console.info = function (...args) {
+              if (typeof args[0] === "string" && args[0].includes("CMP")) {
+                return; // Ignora mensajes "CMP issue"
+              }
+              originalInfo.apply(console, args);
+            };
+          </script>
+        <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js" data-cmp-cdid="9e402988c2ff1" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
+        <script>
+          function onConsentAccept() {
+            gtag("consent", "update", {
+              ad_storage: "granted",
+              analytics_storage: "granted",
+            });
+
+            setTimeout(() => {
+              const loc = window.location;
+              const pageLoc = loc.href;
+              const pagePath = loc.pathname + loc.search;
+
+              gtag("event", "page_view", {
+                page_title: document.title,
+                page_location: pageLoc,
+                page_path: pagePath,
+                page_referrer: document.referrer || "",
+              });
+
+              console.log("[GA4] Manual page_view sent with UTM:", pageLoc);
+            }, 150);
+          }
+          window.addEventListener("cmpAccept", onConsentAccept);
+        </script>
+      </>
+    )}
     <Header />
     <slot />
     <Footer />
