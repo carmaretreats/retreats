@@ -1,37 +1,8 @@
 ---
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
 import CtaLink from "./CtaLink.astro";
-
-const highlights = [
-  {
-    title: "Tägliche Yogaklassen",
-    text: "Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin."
-  },
-  {
-    title: "Meditation & Pranayama",
-    text: "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
-  },
-  {
-    title: "Wohlfühlort",
-    text: "Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein."
-  },
-  {
-    title: "Lokale Kultur erleben",
-    text: "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs."
-  },
-  {
-    title: "Community Vibes",
-    text: "Real Connections. Komm allein, geh mit Freunden fürs Leben."
-  },
-  {
-    title: "Soulfood",
-    text: "Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen."
-  },
-  {
-    title: "Zeit für Dich",
-    text: "Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen."
-  }
-];
+import data from '../content/retreats-page.json';
+const sectionData = data.retreatHighlightsSection;
 ---
 
 <section id="retreats-highlights" 
@@ -39,19 +10,16 @@ const highlights = [
   style={`background-image: url(${bgImage.src});`}
 >
   <div class="section-inner text-center">
-      <!-- Label -->
       <p class="uppercase section-label mb-8">
-      Culture, Community, Connection
+        {sectionData.label}
     </p>
   
-      <!-- Section Title -->
     <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main text-white">
-      Was dich erwartet:
+      {sectionData.heading}
     </h2>
   
-      <!-- Highlights list -->
       <ul class="w-full mt-12">
-        {highlights.map((item) => (
+        {sectionData.highlights.map((item) => (
           <li class="mb-6">
             <h3 class="heading-sub italic mb-4">{item.title}</h3>
             <p class="w-full body-text">{item.text}</p>
@@ -59,9 +27,12 @@ const highlights = [
         ))}
       </ul>
   
-      <!-- CTA -->
       <div class="pt-16 flex justify-center">
-        <CtaLink color="white" label="MEHR ERFAHREN" href="#retreats" />
+        <CtaLink 
+          color="white" 
+          label={sectionData.cta.label} 
+          href={sectionData.cta.href} 
+        />
       </div>
   </div>
 </section>

@@ -1,9 +1,9 @@
 ---
-import { Image } from 'astro:assets';
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
-import dayImage from '../assets/images/juanca-paulino.jpg';
-import mandalaImage from '../assets/images/Mandala-1.png';
 import CtaLink from './CtaLink.astro';
+import data from '../content/retreats-page.json';
+
+const sectionData = data.einTagSection;
 ---
 
 <section
@@ -13,95 +13,60 @@ import CtaLink from './CtaLink.astro';
 >
   <div class="section-inner relative">
 
-    <!-- Imagen decorativa Mandala (arriba a la derecha) -->
     <div class="absolute top-8 right-8 hidden md:block opacity-80 pointer-events-none select-none">
-      <Image
-        src={mandalaImage}
-        alt="Decorative Mandala"
+      <img
+        src={sectionData.decorativeImage.src}
+        alt={sectionData.decorativeImage.alt}
         class="w-16 lg:w-20 xl:w-24 h-auto object-contain"
+        loading="lazy"
+        decoding="async"
       />
     </div>
 
-    <!-- ================= HEADER ================= -->
     <div class="w-full text-left mb-10 md:mb-16">
-      <p class="section-label mb-8">Connection, Culture, Community.</p>
+      <p class="section-label mb-8">{sectionData.header.label}</p>
       <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main">
-        Ein Tag bei Carma Retreats
+        {sectionData.header.heading}
       </h2>
     </div>
 
-    <!-- ================= MAIN CONTENT ================= -->
     <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
       
-      <!-- Columna izquierda -->
       <div class="space-y-4 font-sans text-base leading-relaxed">
-        <div>
-          <h3 class="heading-sub italic italic mb-4">7.30 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Meditation und Pranayama
-            Starte den Tag in Stille, umgeben von den Geräuschen der Natur.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">8.00 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Ayurvedischer Morgentee
-            Teezeit in Stille - bleib ganz bei Dir.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">8.30 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Morning Flow Yoga
-            Bewege dich im Rhythmus der Insel.
-            Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">10.30 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Community Brunch
-            Brich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten.</p>
-        </div>
-        <div>
-          <p class="body-text whitespace-pre-line"><em>Nachmittags Zeit zur freien Verfügung</em></p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">15.00 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Fruchtplatte und Get-Together am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen.</p>
-        </div>
+        {sectionData.scheduleLeft.map(item => (
+          <div>
+            {item.time && <h3 class="heading-sub italic mb-4">{item.time}</h3>}
+            <p class="body-text whitespace-pre-line" set:html={item.description} />
+          </div>
+        ))}
       </div>
 
-      <!-- Imagen central -->
       <div class="flex justify-center items-center w-full max-w-[360px] mx-auto">
-        <Image
-          src={dayImage}
-          alt="Carma Retreats Day"
+        <img
+          src={sectionData.centerImage.src}
+          alt={sectionData.centerImage.alt}
           class="w-full aspect-square object-cover"
+          loading="lazy"
+          decoding="async"
         />
       </div>
 
-      <!-- Columna derecha -->
       <div class="space-y-4 font-sans text-base leading-relaxed">
-        <div>
-          <h3 class="heading-sub italic mb-4">16.00 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Ausflug (2 Mal die Woche):
-            Komm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">17.00 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Abendpraxis
-            Bring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">19.00 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Abendessen
-            Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen.</p>
-        </div>
-        <div>
-          <h3 class="heading-sub italic mb-4">20.30 Uhr</h3>
-          <p class="body-text whitespace-pre-line">Ausklang in Stille
-            Wir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille.</p>
-        </div>
+        {sectionData.scheduleRight.map(item => (
+          <div>
+            {item.time && <h3 class="heading-sub italic mb-4">{item.time}</h3>}
+            <p class="body-text whitespace-pre-line" set:html={item.description} />
+          </div>
+        ))}
       </div>
     </div>
 
-    <!-- ================= CTA ================= -->
     <div class="pt-16 flex justify-end">
-      <CtaLink color="white" href="#kontakt" label="Jetzt buchen" />
+      <CtaLink 
+        color="white" 
+        href={sectionData.cta.href} 
+        label={sectionData.cta.label} 
+      />
     </div>
 
   </div>

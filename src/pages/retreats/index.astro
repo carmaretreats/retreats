@@ -17,43 +17,10 @@ import EinTag from '../../components/EinTag.astro';
 import HostsSection from '../../components/HostsSection.astro';
 import GallerySection from '../../components/GallerySection.astro';
 import AboutSection from '../../components/AboutSection.astro';
-import imgCarmen from '../../assets/images/hosts-carmen.jpg';
-import imgMareen from '../../assets/images/hosts-mareen.jpg';
 import TestimonialSlider from '../../components/TestimonialSlider.astro'; 
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import MiniGallery from '../../components/MiniGallery.astro';
-
-import mona from '../../assets/images/testimonials/mona.jpeg';
-import sven from '../../assets/images/testimonials/sven.jpg';
-import fabienne from '../../assets/images/testimonials/fabienne.jpg';
-import julia from '../../assets/images/testimonials/julia.jpg';
-
-export const testimonialsImages = [
-  {
-    src: mona,
-    name: 'Mona',
-    description: 'Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat, ich freu mich schon aufs nächste Mal!',
-    stars: 5
-  },
-  {
-    src: sven,
-    name: 'Sven',
-    description: 'Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht. Es macht einfach immer Freude, bei ihr Yoga zu machen.',
-    stars: 5
-  },
-  {
-    src: fabienne,
-    name: 'Fabienne',
-    description: 'Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause.',
-    stars: 5
-  },
-  {
-    src: julia,
-    name: 'Julia',
-    description: 'Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Bemerkte jedoch auch, wenn ich mich nur entspannen wollte und hat sich zurückgezogen. Carmens Yogastunden empfinde ich als sehr abwechslungsreich. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.',
-    stars: 5
-  },
-];
+import data from '../../content/retreats-page.json';
 ---
 <Layout>
   <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
@@ -67,31 +34,17 @@ export const testimonialsImages = [
     <UnterkunftPreise />
     <HostsSection />
     <GallerySection />
-    <AboutSection
-    subtitle="Mehr über uns"
-    title="Über Carmen"
-    text={`Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.
-Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.
-Ein großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.
-Neben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.
-Heute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.
-In ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.
-Carmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.`}
-    image={imgCarmen}
-    imageAlt="Carmen Portrait"
-    reverse={true}
-    />
-    <AboutSection
-    title="Über Mareen"
-    text={`Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.
-Seit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.
-In ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden.Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.
-Über 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.`}
-    image={imgMareen}
-    imageAlt="Mareen Portrait"
-    reverse={true}
-    />
-    <TestimonialSlider testimonials={testimonialsImages} />
+    {data.aboutSection.people.map(person => (
+      <AboutSection 
+        subtitle={person.subtitle}
+        title={person.title}
+        text={person.text}
+        image={person.image}
+        imageAlt={person.imageAlt}
+        reverse={person.reverse}
+      />
+    ))}
+    <TestimonialSlider testimonials={data.testimonialSection.testimonials} />
     <FaqAccordion />
     <MiniGallery />
     <ContactSection />

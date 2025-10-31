@@ -1,46 +1,31 @@
 ---
 import RetreatMiniCard from '../components/RetreatMiniCard.astro';
-import januaryImage from '../assets/images/retreat-jan-mini.webp';
-import februaryImage from '../assets/images/caroline-taborda-dupe.jpeg';
-import comingSoonImage from '../assets/images/comming-soon.jpg';
+import data from '../content/retreats-page.json';
+
+const sectionData = data.nextRetreatsSection;
 ---
 
 <section id="next-retreats" class="bg-[var(--color-cream-bg)] section">
   <div class="section-inner">
     <div class="text-left mb-12">
-      <h2 class="uppercase section-label text-[var(--color-dark-brown)] mb-8">Nächste Yoga Retreats</h2>
+      <h2 class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
+        {sectionData.heading}
+      </h2>
     </div>
   
     <div class="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
-      <RetreatMiniCard
-        imageSrc=`${januaryImage.src}`
-        title="Januar in Sri Lanka"
-        date="12.–18. Januar 2026"
-        location="Hikkaduwa, Sri Lanka"
-        buttonLabel="Mehr Infos"
-        description="Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe."
-        buttonHref="#january"
-        imageShape="square"
-      />
-      <RetreatMiniCard
-        imageSrc=`${februaryImage.src}`
-        title="Februar in Sri Lanka"
-        date="02.–08. Februar 2026"
-        location="Ahangama, Sri Lanka"
-        buttonLabel="Mehr Infos"
-        description="Nur 7 limitierte Plätze für ein ganz persönliches Retreat -  mit viel Raum für Yoga, Verbindung und Einblicke in die lokale Kultur. Komm an - in der Ferne und in dir."
-        buttonHref="#february"
-        imageShape="circle"
-      />
-      <RetreatMiniCard
-        imageSrc=`${comingSoonImage.src}`
-        title="Coming Soon"
-        date="Stay tuned"
-        buttonLabel="IN NEWSLETTER EINTRAGEN"
-        description="Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!"
-        buttonHref="/newsletter-soon"
-        imageShape="square"
-      />
+      {sectionData.retreatCards.map(card => (
+        <RetreatMiniCard
+          image={card.image}
+          title={card.title}
+          date={card.date}
+          location={card.location}
+          description={card.description}
+          buttonLabel={card.button.label}
+          buttonHref={card.button.href}
+          imageShape={card.imageShape}
+        />
+      ))}
     </div>
   </div>
 </section>

@@ -1,9 +1,9 @@
 ---
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
 import CtaLink from './CtaLink.astro';
-const buttonLabel = "JETZT ANFRAGEN"
-const buttonHref = "#kontakt" 
-const buttonColor = "white" 
+import data from '../content/retreats-page.json';
+
+const sectionData = data.imagineSection;
 ---
 
 <section id="imagine-section"
@@ -12,20 +12,20 @@ const buttonColor = "white"
 >
   <div class="section-inner">
       <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main mb-6 text-white">
-        Stell dir vor...
+        {sectionData.heading}
       </h2>
       <div class="text-white body-text text-center max-w-3xl mx-auto space-y-4"
           style="font-family: var(--font-sans);">
-          <p>
-            ...ein sanftes Rascheln von Palmenblättern trägt dich in den Morgen. Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. 
-          </p>
-          <p>
-            Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.
-          </p>
-          <p>
-            Willkommen an einem Ort, an dem die Zeit langsamer wird, und dein Körper und Geist ruhig werden. Willkommen bei deiner Auszeit in der Ferne, die nachhaltig bewegt.
-          </p>
+          
+          {sectionData.paragraphs.map(paragraph => (
+            <p>{paragraph}</p>
+          ))}
+
       </div>
-      <CtaLink label={buttonLabel} href={buttonHref} color={buttonColor} />
+      <CtaLink 
+        label={sectionData.cta.label} 
+        href={sectionData.cta.href} 
+        color="white" 
+      />
   </div>
 </section>

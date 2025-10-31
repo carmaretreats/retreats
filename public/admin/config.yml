@@ -3,6 +3,8 @@ backend:
   name: git-gateway
   branch: main
 
+local_backend: true 
+
 media_folder: "public/uploads"
 public_folder: "/uploads"
 
@@ -15,6 +17,312 @@ collections:
         name: "retreats"
         format: "json"
         fields:
+          # === HERO SECTION ===
+          - label: "Hero Section"
+            name: "heroSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Left Image (and Mobile Image)"
+                name: "leftImage"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Right Image (Desktop)"
+                name: "rightImage"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Spiral Image"
+                name: "spiralImage"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - { label: "Heading (H1)", name: "heading", widget: "string" }
+              - { label: "Subheading (H2)", name: "subheading", widget: "string" }
+          # === HERO WELCOME SECTION ===
+          - label: "Hero Welcome Section"
+            name: "heroWelcomeSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Main CTA Button"
+                name: "mainCta"
+                widget: "object"
+                fields:
+                  - { label: "Link (href)", name: "href", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Text", name: "text", widget: "text" }
+              - label: "Secondary CTA Link"
+                name: "secondaryCta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+          # === IMAGINE SECTION ===
+          - label: "Imagine Section"
+            name: "imagineSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Paragraphs"
+                name: "paragraphs"
+                widget: "list"
+                field: { label: "Paragraph", name: "paragraph", widget: "text" }
+              - label: "CTA Button"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+          # === MAIN RETREATS SECTION ===
+          - label: "Main Retreats Section"
+            name: "retreatsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Retreats"
+                name: "retreats"
+                widget: "list"
+                min: 2
+                max: 2
+                summary: "{{fields.date}}"
+                fields:
+                  - { label: "Retreat ID (january/february)", name: "id", widget: "string" }
+                  - label: "Layout"
+                    name: "layout"
+                    widget: "select"
+                    options: ["left", "right"]
+                  - { label: "Date & Location Title", name: "date", widget: "string" }
+                  - { label: "Intro Text", name: "intro", widget: "text" }
+                  - { label: "Price Info (Accordion)", name: "priceInfo", widget: "text" }
+                  - { label: "Included Info (Accordion)", name: "includedInfo", widget: "text" }
+                  - { label: "Location Info (Accordion)", name: "locationInfo", widget: "text" }
+                  - label: "Carousel Images"
+                    name: "carouselImages"
+                    widget: "list"
+                    summary: "{{fields.alt}}"
+                    fields:
+                      - { label: "Image", name: "src", widget: "image" }
+                      - { label: "Alt Text", name: "alt", widget: "string" }
+                  - label: "CTA Button"
+                    name: "cta"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Link (href)", name: "href", widget: "string" }
+          # === RETREAT HIGHLIGHTS SECTION ===
+          - label: "Retreat Highlights Section"
+            name: "retreatHighlightsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Highlights"
+                name: "highlights"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+              - label: "CTA Link"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+          # === NEXT RETREATS SECTION (NUEVA SECCIÓN) ===
+          - label: "Next Retreats Section"
+            name: "nextRetreatsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Retreat Cards"
+                name: "retreatCards"
+                widget: "list"
+                min: 3
+                max: 3
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Date", name: "date", widget: "string" }
+                  - { label: "Location", name: "location", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Button"
+                    name: "button"
+                    widget: "object"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Link (href)", name: "href", widget: "string" }
+                  - label: "Image Shape"
+                    name: "imageShape"
+                    widget: "select"
+                    options: ["square", "circle"]
+                    default: "square"
+          # === EIN TAG SECTION ===
+          - label: "Ein Tag Section"
+            name: "einTagSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Decorative Image (Mandala)"
+                name: "decorativeImage"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Header"
+                name: "header"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Left Schedule Column"
+                name: "scheduleLeft"
+                widget: "list"
+                summary: "{{fields.time}} - {{fields.description}}"
+                fields:
+                  - { label: "Time", name: "time", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "Center Image"
+                name: "centerImage"
+                widget: "object"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+              - label: "Right Schedule Column"
+                name: "scheduleRight"
+                widget: "list"
+                summary: "{{fields.time}} - {{fields.description}}"
+                fields:
+                  - { label: "Time", name: "time", widget: "string", required: false }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "CTA Link"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+          # === ACCOMMODATION & PRICES SECTION ===
+          - label: "Accommodation & Prices Section"
+            name: "accommodationSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - label: "Retreats"
+                name: "retreats"
+                widget: "list"
+                min: 2
+                max: 2
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "ID (january/february)", name: "id", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Price Options"
+                    name: "priceOptions"
+                    widget: "list"
+                    summary: "{{fields.description}} - {{fields.price}}"
+                    fields:
+                      - { label: "Description", name: "description", widget: "string" }
+                      - { label: "Price", name: "price", widget: "string" }
+                  - { label: "Retreat Fee Label", name: "retreatFeeLabel", widget: "string" }
+                  - label: "Retreat Fee"
+                    name: "retreatFee"
+                    widget: "object"
+                    fields:
+                      - { label: "Description", name: "description", widget: "string" }
+                      - { label: "Price", name: "price", widget: "string" }
+                  - label: "CTA Button"
+                    name: "cta"
+                    widget: "object"
+                    fields:
+                      - { label: "Data Retreat (january/february)", name: "dataRetreat", widget: "string" }
+                      - { label: "Link (href)", name: "href", widget: "string" }
+                  - label: "Carousel Images"
+                    name: "carouselImages"
+                    widget: "list"
+                    summary: "{{fields.alt}}"
+                    fields:
+                      - { label: "Image", name: "src", widget: "image" }
+                      - { label: "Alt Text", name: "alt", widget: "string" }
+          # === HOSTS SECTION ===
+          - label: "Hosts Section"
+            name: "hostsSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - { label: "Image", name: "image", widget: "image" }
+              - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+              - { label: "Section Label", name: "label", widget: "string" }
+              - { label: "Heading", name: "heading", widget: "string" }
+              - { label: "Paragraph 1 (Intro Line)", name: "paragraph1", widget: "string" }
+              - { label: "Paragraph 2 (Main Text)", name: "paragraph2", widget: "text" }
+              - label: "CTA Link"
+                name: "cta"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Link (href)", name: "href", widget: "string" }
+          # === GALLERY SECTION ===
+          - label: "Gallery Section"
+            name: "gallerySection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Images"
+                name: "images"
+                widget: "list"
+                # ✅ Forzamos a que siempre haya exactamente 6 imágenes para no romper el diseño
+                min: 6
+                max: 6
+                summary: "Image: {{fields.alt}}"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Alt Text", name: "alt", widget: "string" }
+           # === ABOUT SECTION ===
+          - label: "About Section"
+            name: "aboutSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "People"
+                name: "people"
+                widget: "list"
+                summary: "{{fields.title}}"
+                fields:
+                  - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Text", name: "text", widget: "text" }
+                  - { label: "Image", name: "image", widget: "image" }
+                  - { label: "Image Alt Text", name: "imageAlt", widget: "string" }
+                  - { label: "Reverse Layout (Image on Left)", name: "reverse", widget: "boolean", default: false }
+          # === TESTIMONIALS SECTION ===
+          - label: "Testimonials Section"
+            name: "testimonialSection"
+            widget: "object"
+            collapsed: true
+            fields:
+              - label: "Testimonials"
+                name: "testimonials"
+                widget: "list"
+                summary: "{{fields.name}} - {{fields.stars}} Stars"
+                fields:
+                  - { label: "Image", name: "src", widget: "image" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - { label: "Stars", name: "stars", widget: "number", value_type: "int", min: 1, max: 5 }
+          
           # === FAQ SECTION ===
           - label: "FAQ Section"
             name: "faqSection"
@@ -47,6 +355,7 @@ collections:
                 fields:
                   - { label: "Label", name: "label", widget: "string" }
                   - { label: "Link", name: "href", widget: "string" }
+
           # === MINI GALLERY SECTION ===
           - label: "Mini Gallery Section"
             name: "miniGallery"
@@ -60,13 +369,12 @@ collections:
                 fields:
                   - { label: "Image", name: "src", widget: "image" }
                   - { label: "Alt text", name: "alt", widget: "string" }
-          # === RETREATS DROPDOWN CONTACT FORM ===
+          
+          # === RETREATS SECTION ===
           - label: "Retreats"
             name: "retreats"
             widget: "list"
             collapsed: true
-            min: 2
-            max: 2
             summary: "{{fields.title}}"
             fields:
               - { label: "ID", name: "id", widget: "string" }
@@ -76,7 +384,6 @@ collections:
               - label: "Accommodation Options"
                 name: "accommodationOptions"
                 widget: "list"
-                field: { label: "Option", name: "option", widget: "string" }
 
           # === KONTAKT SECTION ===
           - label: "Kontakt Section"
@@ -98,16 +405,24 @@ collections:
                     fields:
                       - { label: "Type", name: "type", widget: "string" }
                       - { label: "Label", name: "label", widget: "string" }
+                      - label: "Options"
+                        name: "options"
+                        widget: "object"
+                        fields:
+                          - { label: "January Retreat Label", name: "january", widget: "string" }
+                          - { label: "February Retreat Label", name: "february", widget: "string" }
                   - label: "Accommodation Field"
                     name: "accommodation"
                     widget: "object"
                     fields:
                       - { label: "Type", name: "type", widget: "string" }
                       - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Options Dynamic", name: "optionsDynamic", widget: "boolean", default: true }
                   - label: "Name Field"
                     name: "name"
                     widget: "object"
                     fields:
+                      - { label: "Type", name: "type", widget: "string", default: "text" }
                       - { label: "Label", name: "label", widget: "string" }
                       - { label: "Placeholder", name: "placeholder", widget: "string" }
                       - { label: "Error Message", name: "errorMessage", widget: "string" }
@@ -115,6 +430,7 @@ collections:
                     name: "email"
                     widget: "object"
                     fields:
+                      - { label: "Type", name: "type", widget: "string", default: "email" }
                       - { label: "Label", name: "label", widget: "string" }
                       - { label: "Placeholder", name: "placeholder", widget: "string" }
                       - { label: "Error Message", name: "errorMessage", widget: "string" }
@@ -122,6 +438,7 @@ collections:
                     name: "lead_message"
                     widget: "object"
                     fields:
+                      - { label: "Type", name: "type", widget: "string", default: "textarea" }
                       - { label: "Label", name: "label", widget: "string" }
                       - { label: "Placeholder", name: "placeholder", widget: "string" }
                   - label: "Submit Button"

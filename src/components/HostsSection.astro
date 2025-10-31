@@ -1,40 +1,43 @@
 ---
-import { Image } from 'astro:assets';
-import hostsImg from '../assets/images/hosts-carmen-mareen.jpg'; 
 import CtaLink from './CtaLink.astro';
+import data from '../content/retreats-page.json';
+
+const hostsData = data.hostsSection;
 ---
 
 <section id="deine-hosts" class="section bg-cream-bg">
-  <!-- Imagen de ancho completo con recorte central -->
   <div class="w-screen h-[60vh] overflow-hidden">
-    <Image 
-      src={hostsImg}
-      alt="Carmen und Mareen"
+    <img 
+      src={hostsData.image}
+      alt={hostsData.imageAlt}
       class="w-full h-full object-cover object-center"
+      loading="lazy"
+      decoding="async"
     />
   </div>
   <div class="section-inner">
   
-    <!-- Contenido textual debajo -->
     <div class="w-full">
       <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
-        DEINE HOSTS
+        {hostsData.label}
       </p>
   
       <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main text-dark-brown">
-        Hi, wir sind Carmen und Mareen.
+        {hostsData.heading}
       </h2>
   
-      <p class="body-text text-dark-brown text-justify">...und gemeinsam sind wir CARMA Retreats.</p>
-      <p class="body-text text-dark-brown text-justify mb-8">
-        Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, 
-        an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. 
-        Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.
-        Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.
+      {/* ✅ Renderizamos cada párrafo en su propia etiqueta <p> */}
+      <p class="body-text text-dark-brown text-justify">{hostsData.paragraph1}</p>
+      <p class="body-text text-dark-brown text-justify mb-8 whitespace-pre-line">
+        {hostsData.paragraph2}
       </p>
   
       <div class="text-right">
-        <CtaLink label="Mehr über uns" color="black" href="#mehr-uber-uns" />
+        <CtaLink 
+          label={hostsData.cta.label} 
+          color="black" 
+          href={hostsData.cta.href} 
+        />
       </div>
     </div>
   </div>

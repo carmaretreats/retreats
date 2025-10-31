@@ -1,111 +1,35 @@
 ---
-import RetreatCard from './RetreatCard.astro'; // Adjust the path as needed
+import RetreatCard from './RetreatCard.astro';
+import data from '../content/retreats-page.json';
 
-import imgjan1 from '../assets/images/january/Hikkaduwa01.webp';
-import imgjan2 from '../assets/images/january/Hikkaduwa02.webp';
-import imgjan3 from '../assets/images/january/Hikkaduwa03.webp';
-import imgjan4 from '../assets/images/january/Hikkaduwa04.webp';
-import imgjan5 from '../assets/images/january/Hikkaduwa05.webp';
-import imgjan6 from '../assets/images/january/Hikkaduwa06.webp';
-import imgjan7 from '../assets/images/january/Hikkaduwa07.webp';
-
-export const januaryImages = [
-  { src: imgjan1, label: '' },
-  { src: imgjan2, label: '' },
-  { src: imgjan3, label: '' },
-  { src: imgjan4, label: '' },
-  { src: imgjan5, label: '' },
-  { src: imgjan6, label: '' },
-  { src: imgjan7, label: '' },
-];
-
-import img1 from '../assets/images/february/Ahangama01.webp';
-import img2 from '../assets/images/february/Ahangama02.webp';
-import img3 from '../assets/images/february/Ahangama03.webp';
-import img4 from '../assets/images/february/Ahangama04.webp';
-import img6 from '../assets/images/february/Ahangama06.webp';
-import img9 from '../assets/images/february/Ahangama09.webp';
-import img11 from '../assets/images/february/Ahangama11.webp';
-import img12 from '../assets/images/february/Ahangama12.webp';
-import img13 from '../assets/images/february/Ahangama13.webp';
-import img14 from '../assets/images/february/Ahangama14.webp';
-
-export const februaryImages = [
-  { src: img1, label: '' },
-  { src: img2, label: '' },
-  { src: img3, label: '' },
-  { src: img4, label: '' },
-  { src: img6, label: '' },
-  { src: img9, label: '' },
-  { src: img11, label: '' },
-  { src: img12, label: '' },
-  { src: img13, label: '' },
-  { src: img14, label: '' },
-];
+const sectionData = data.retreatsSection;
 ---
 
 <section id="retreats" class=" section bg-cream-bg text-dark-brown font-sans">
   <div class="section-inner">
     <div class="w-full flex flex-col gap-10 md:gap-16">
 
-      <!-- Top Heading and Description -->
       <div class="w-full">
-        <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">Retreat-Infos</p>
+        <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">{sectionData.label}</p>
         <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main">
-          Willkommen an einem Ort, an dem die Zeit langsamer wird.
+          {sectionData.heading}
         </h2>
-        <!-- <p class="body-text">
-          Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - im Januar in Hikkaduwa oder im Feburar in Ahangama.
-          In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.
-          Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein. Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen. Für eine Auszeit in der Ferne, die nachhaltig bewegt.
-        </p> -->
       </div>
   
-      <!-- RetreatCard Component -->
-      <RetreatCard
-        retreatId="january"
-        layout="left"
-        date="12.–18. Januar 2026 in Hikkaduwa"
-        introParagraphs={`Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.`}
-        priceContent={`Die Retreatgebühr für Yogaklassen und Rahmenprogramm  beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer	+ Mahlzeiten (Brunch& Dinner)  direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.
-          
-          Hier die Zimmerkategorien mit Preisen:
-
-          Einzelzimmer 500 Euro
-          Doppelbett im Dreibettzimmer 350 Euro
-          Stockbett im Dreibettzimmer 200 Euro`}
-        includedContent={`Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel.`}
-        locationContent={`Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.
-Bekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.
-Tagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt.
-Ein Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit.`}
-        carouselImages={januaryImages}
-        ctaLabel="Jetzt buchen"
-        ctaHref="#kontakt"
-      />
-  
-      <RetreatCard
-        retreatId="february"
-        layout="right"
-        date="2.–8. Februar 2026 in Ahangama"
-        introParagraphs={`Ahangama ist DER neue Surfspot an der Südküste. Du findest hier wunderschöne Sandstrände, hippe Cafés und tolle Natur.
-          Unsere Unterkunft, eine Villa im Kolonialstil, bietet gemütliche Zimmer, einen Pool und einen tropischen Garten.
-          Nur wenige Gehminuten vom Strand entfernt, lädt die Mittagspause zum Baden und Sonne tanken ein.
-          Hier darfst du ankommen – fern von allem, nah bei dir.`}
-        priceContent={`Die Retreatgebühr für Yogaklassen und Rahmenprogramm  beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer	+ Mahlzeiten ( Brunch& Dinner)  direkt bei der Unterkunft, dem wunderschönen Boutique-Hotel Unrushed in Ahangama.
-
-Preise für die Unterkunft Unrushed
-
-Einzelzimmer:        allein / Doppelbett geteilt 520 / 340 Euro
-Dreier Zimmer:       großes Bett alleine/geteilt 440 / 290 Euro
-Dreier Zimmer:        kleines Bett 380 Euro`}
-        includedContent={`Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und traditionelles Töpfern in einem traditionellen singahelischen Handwerksbetrieb).`}
-        locationContent={`Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest - Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.
-Ein Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst.`}
-        carouselImages={februaryImages}
-        ctaLabel="Jetzt buchen"
-        ctaHref="#kontakt"
-      />
+      {sectionData.retreats.map(retreat => (
+        <RetreatCard
+          retreatId={retreat.id}
+          layout={retreat.layout}
+          date={retreat.date}
+          introParagraphs={retreat.intro}
+          priceContent={retreat.priceInfo}
+          includedContent={retreat.includedInfo}
+          locationContent={retreat.locationInfo}
+          carouselImages={retreat.carouselImages}
+          ctaLabel={retreat.cta.label}
+          ctaHref={retreat.cta.href}
+        />
+      ))}
   
     </div>
   </div>

@@ -1,51 +1,22 @@
 ---
-import { Image } from "astro:assets";
 import data from "../content/retreats-page.json";
-
-// 🖼️ Imágenes locales (optimizadas por Astro)
-import separator1 from "../assets/images/separator-1.jpg";
-import separator2 from "../assets/images/separator-2.jpg";
-import separator3 from "../assets/images/separator-3.jpg";
-
 const gallery = data.miniGallery;
-
-// 🔗 Mapa de imágenes locales
-const imageMap = {
-  "separator-1.jpg": separator1,
-  "separator-2.jpg": separator2,
-  "separator-3.jpg": separator3,
-};
 ---
 
 <section class="section bg-cream-bg">
   <div class="section-inner">
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
-      {gallery.images.map((img) => {
-        const fileName = img.src.split("/").pop();
-        const localImage = imageMap[fileName];
-
-        return (
-          <div class="overflow-hidden">
-            {localImage ? (
-              // ✅ Usa <Image /> si está en /src/assets/
-              <Image
-                src={localImage}
-                alt={img.alt}
-                class="w-full h-64 object-cover aspect-square hover:scale-105 transition-transform duration-500"
-                loading="lazy"
-              />
-            ) : (
-              // ⚙️ Usa <img> si viene del CMS (/uploads/)
-              <img
-                src={img.src}
-                alt={img.alt}
-                loading="lazy"
-                class="w-full h-64 object-cover aspect-square hover:scale-105 transition-transform duration-500"
-              />
-            )}
-          </div>
-        );
-      })}
+      {gallery.images.map((img) => (
+        <div class="overflow-hidden">
+          <img
+            src={img.src}
+            alt={img.alt}
+            loading="lazy"
+            decoding="async"
+            class="w-full h-64 object-cover aspect-square hover:scale-105 transition-transform duration-500"
+          />
+        </div>
+      ))}
     </div>
   </div>
 </section>

@@ -1,10 +1,8 @@
 ---
-import type { ImageMetadata } from 'astro';
 import bgImage from '../assets/images/Terra-Rossa-Papier.png';
-
 const { testimonials = [] }: {
   testimonials: {
-    src: ImageMetadata;
+    src: string; // ANTES: ImageMetadata
     name: string;
     description: string;
     stars: number;
@@ -12,14 +10,14 @@ const { testimonials = [] }: {
 } = Astro.props;
 ---
 <section id="testimonial-slider"
-class="section bg-cover bg-center bg-no-repeat"
+  class="section bg-cover bg-center bg-no-repeat"
   style={`background-image: url(${bgImage.src});`}>
   <div class="section-inner">
     <div
       x-data=`{
         slides: ${JSON.stringify(
           testimonials.map((t) => ({
-            imgSrc: t.src.src,
+            imgSrc: t.src, // ANTES: t.src.src
             name: t.name,
             description: t.description,
             stars: t.stars,
@@ -48,26 +46,22 @@ class="section bg-cover bg-center bg-no-repeat"
       x-init="autoplay"
       class="relative w-full overflow-hidden py-12"
     >
-      <!-- slides -->
+      <!-- El resto de tu HTML se queda exactamente igual -->
       <div class="relative w-full min-h-[400px] max-w-[90vw] sm:max-w-2xl lg:max-w-3xl mx-auto bg-cream-bg px-4 sm:px-8 md:px-12 py-8 md:py-14 overflow-hidden">
         <template x-for="(slide, index) in slides" :key="index">
           <div x-cloak x-show="currentSlideIndex === index + 1" class="absolute inset-0 flex flex-col items-center justify-start text-center p-6 transition-opacity duration-1000" x-transition.opacity>
-            <!-- Imagen redonda -->
             <img
               :src="slide.imgSrc"
               :alt="slide.name"
               class="w-24 h-24 object-cover rounded-full mb-4 border-2 border-gray-300 shadow-sm"
             />
-            <!-- Estrellas -->
             <div class="flex justify-center mb-4 text-dark-brown text-xl">
               <template x-for="star in slide.stars" :key="star">
                 <span>★</span>
               </template>
             </div>
-            <!-- Testimonio -->
             <p class="prose prose-lg max-w-none body-text text-dark-brown line-clamp-4"
               x-text="slide.description"></p>
-            <!-- Nombre -->
             <p class="mt-4 section-label text-dark-brown" x-text="slide.name"></p>
           </div>
         </template>
