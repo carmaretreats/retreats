@@ -41,6 +41,7 @@
     "retreatsSection": {
         "label": "Retreat-Infos",
         "heading": "Willkommen an einem Ort, an dem die Zeit langsamer wird.",
+        "introParagraph": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - im Januar in Hikkaduwa oder im Feburar in Ahangama.\nIn Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\nDich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein. Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen. Für eine Auszeit in der Ferne, die nachhaltig bewegt.",
         "retreats": [
             {
                 "id": "january",

@@ -14,6 +14,11 @@ const sectionData = data.retreatsSection;
         <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main">
           {sectionData.heading}
         </h2>
+        {sectionData.introParagraph && (
+          <p class="body-text hidden md:block whitespace-pre-line mt-6">
+            {sectionData.introParagraph}
+          </p>
+        )}
       </div>
   
       {sectionData.retreats.map(retreat => (
