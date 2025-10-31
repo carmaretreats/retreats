@@ -1,660 +1,660 @@
 {
-    "heroSection": {
-        "leftImage": {
-            "src": "/uploads/naomi-pal-dupe_1-1.jpg",
-            "alt": "Mujer meditando en la playa"
-        },
-        "rightImage": {
-            "src": "/uploads/zahra-nehme-dupe_1-1.jpg",
-            "alt": "Vista al océano desde la costa"
-        },
-        "spiralImage": {
-            "src": "/uploads/Markenzeichen-Weis.png",
-            "alt": "Logo espiral de Carma"
-        },
-        "heading": "Ankommen und Aufatmen.",
-        "subheading": "Yoga-retreats, die nachhaltig bewegen."
-    },
-    "heroWelcomeSection": {
-        "mainCta": {
-            "href": "#retreats"
-        },
-        "heading": "Willkommen bei Carma Retreats",
-        "text": "Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.",
-        "secondaryCta": {
-            "label": "NÄCHSTE RETREATS",
-            "href": "#next-retreats"
+  "kontakt": {
+    "id": "kontakt",
+    "sectionLabel": "Retreat-Infos",
+    "heading": "Kontakt und Buchung",
+    "description": "Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.\nDu hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.\nWir freuen uns, von Dir zu hören.",
+    "form": {
+      "retreat": {
+        "type": "radio-group",
+        "label": "Retreat auswählen",
+        "options": {
+          "january": "Hikkaduwa im Januar",
+          "february": "Ahangama im Februar"
         }
-    },
-    "imagineSection": {
-        "heading": "Stell dir vor...",
-        "paragraphs": [
-            "...ein sanftes Rascheln von Palmenblättern trägt dich in den Morgen. Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht.",
-            "Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.",
-            "Willkommen an einem Ort, an dem die Zeit langsamer wird, und dein Körper und Geist ruhig werden. Willkommen bei deiner Auszeit in der Ferne, die nachhaltig bewegt."
-        ],
-        "cta": {
-            "label": "JETZT ANFRAGEN",
-            "href": "#kontakt"
-        }
-    },
-    "retreatsSection": {
-        "label": "Retreat-Infos",
-        "heading": "Willkommen an einem Ort, an dem die Zeit langsamer wird.",
-        "retreats": [
-            {
-                "id": "january",
-                "layout": "left",
-                "date": "12.–18. Januar 2026 in Hikkaduwa",
-                "intro": "Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.",
-                "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen:\n\nEinzelzimmer 500 Euro\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
-                "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel.",
-                "locationInfo": "Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.\nBekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.\nTagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt.\nEin Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit.",
-                "carouselImages": [
-                    {
-                        "src": "/uploads/Hikkaduwa01.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 1"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa02.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa03.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 3"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa04.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 4"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa05.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 5"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa06.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 6"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa07.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 7"
-                    }
-                ],
-                "cta": {
-                    "label": "Jetzt buchen",
-                    "href": "#kontakt"
-                }
-            },
-            {
-                "id": "february",
-                "layout": "right",
-                "date": "2.–8. Februar 2026 in Ahangama",
-                "intro": "Ahangama ist DER neue Surfspot an der Südküste. Du findest hier wunderschöne Sandstrände, hippe Cafés und tolle Natur.\nUnsere Unterkunft, eine Villa im Kolonialstil, bietet gemütliche Zimmer, einen Pool und einen tropischen Garten.\nNur wenige Gehminuten vom Strand entfernt, lädt die Mittagspause zum Baden und Sonne tanken ein.\nHier darfst du ankommen – fern von allem, nah bei dir.",
-                "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten ( Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen Boutique-Hotel Unrushed in Ahangama.\n\nPreise für die Unterkunft Unrushed\n\nEinzelzimmer: alle in / Doppelbett geteilt 520 / 340 Euro\nDreier Zimmer: großes Bett alleine/geteilt 440 / 290 Euro\nDreier Zimmer: kleines Bett 380 Euro",
-                "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und traditionelles Töpfern in einem traditionellen singahelischen Handwerksbetrieb).",
-                "locationInfo": "Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest - Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.\nEin Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst.",
-                "carouselImages": [
-                    {
-                        "src": "/uploads/Ahangama01.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 1"
-                    },
-                    {
-                        "src": "/uploads/Ahangama02.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 2"
-                    },
-                    {
-                        "src": "/uploads/Ahangama03.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 3"
-                    },
-                    {
-                        "src": "/uploads/Ahangama04.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 4"
-                    },
-                    {
-                        "src": "/uploads/Ahangama06.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 5"
-                    },
-                    {
-                        "src": "/uploads/Ahangama09.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 6"
-                    },
-                    {
-                        "src": "/uploads/Ahangama11.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 7"
-                    },
-                    {
-                        "src": "/uploads/Ahangama12.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 8"
-                    },
-                    {
-                        "src": "/uploads/Ahangama13.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 9"
-                    },
-                    {
-                        "src": "/uploads/Ahangama14.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 10"
-                    }
-                ],
-                "cta": {
-                    "label": "Jetzt buchen",
-                    "href": "#kontakt"
-                }
-            }
-        ]
-    },
-    "retreatHighlightsSection": {
-        "label": "Culture, Community, Connection",
-        "heading": "Was dich erwartet:",
-        "highlights": [
-            {
-                "title": "Tägliche Yogaklassen",
-                "text": "Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin."
-            },
-            {
-                "title": "Meditation & Pranayama",
-                "text": "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
-            },
-            {
-                "title": "Wohlfühlort",
-                "text": "Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein."
-            },
-            {
-                "title": "Lokale Kultur erleben",
-                "text": "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs."
-            },
-            {
-                "title": "Community Vibes",
-                "text": "Real Connections. Komm allein, geh mit Freunden fürs Leben."
-            },
-            {
-                "title": "Soulfood",
-                "text": "Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen."
-            },
-            {
-                "title": "Zeit für Dich",
-                "text": "Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen."
-            }
-        ],
-        "cta": {
-            "label": "MEHR ERFAHREN",
-            "href": "#retreats"
-        }
-    },
-    "nextRetreatsSection": {
-        "heading": "Nächste Yoga Retreats",
-        "retreatCards": [
-            {
-                "image": "/uploads/retreat-jan-mini.webp",
-                "title": "Januar in Sri Lanka",
-                "date": "12.–18. Januar 2026",
-                "location": "Hikkaduwa, Sri Lanka",
-                "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
-                "button": {
-                    "label": "Mehr Infos",
-                    "href": "#january"
-                },
-                "imageShape": "square"
-            },
-            {
-                "image": "/uploads/caroline-taborda-dupe.jpeg",
-                "title": "Februar in Sri Lanka",
-                "date": "02.–08. Februar 2026",
-                "location": "Ahangama, Sri Lanka",
-                "description": "Nur 7 limitierte Plätze für ein ganz persönliches Retreat - mit viel Raum für Yoga, Verbindung und Einblicke in die lokale Kultur. Komm an - in der Ferne und in dir.",
-                "button": {
-                    "label": "Mehr Infos",
-                    "href": "#february"
-                },
-                "imageShape": "circle"
-            },
-            {
-                "image": "/uploads/comming-soon.jpg",
-                "title": "Coming Soon",
-                "date": "Stay tuned",
-                "location": "",
-                "description": "Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!",
-                "button": {
-                    "label": "IN NEWSLETTER EINTRAGEN",
-                    "href": "/newsletter-soon"
-                },
-                "imageShape": "square"
-            }
-        ]
-    },
-    "einTagSection": {
-        "decorativeImage": {
-            "src": "/uploads/Mandala-1.png",
-            "alt": "Mandala decorativo"
-        },
-        "header": {
-            "label": "Connection, Culture, Community.",
-            "heading": "Ein Tag bei Carma Retreats"
-        },
-        "scheduleLeft": [
-            {
-                "time": "7.30 Uhr",
-                "description": "Meditation und Pranayama\nStarte den Tag in Stille, umgeben von den Geräuschen der Natur."
-            },
-            {
-                "time": "8.00 Uhr",
-                "description": "Ayurvedischer Morgentee\nTeezeit in Stille - bleib ganz bei Dir."
-            },
-            {
-                "time": "8.30 Uhr",
-                "description": "Morning Flow Yoga\nBewege dich im Rhythmus der Insel.\nDein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis."
-            },
-            {
-                "time": "10.30 Uhr",
-                "description": "Community Brunch\nBrich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten."
-            },
-            {
-                "time": null,
-                "description": "<em>Nachmittags Zeit zur freien Verfügung</em>"
-            },
-            {
-                "time": "15.00 Uhr",
-                "description": "Fruchtplatte und Get-Together am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen."
-            }
-        ],
-        "centerImage": {
-            "src": "/uploads/juanca-paulino.jpg",
-            "alt": "Persona haciendo yoga en la playa"
-        },
-        "scheduleRight": [
-            {
-                "time": "16.00 Uhr",
-                "description": "Ausflug (2 Mal die Woche):\nKomm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel."
-            },
-            {
-                "time": "17.00 Uhr",
-                "description": "Abendpraxis\nBring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis."
-            },
-            {
-                "time": "19.00 Uhr",
-                "description": "Abendessen\nWir runden den Tag ab mit einem leckeren, gemeinsamen Essen."
-            },
-            {
-                "time": "20.30 Uhr",
-                "description": "Ausklang in Stille\nWir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille."
-            }
-        ],
-        "cta": {
-            "label": "Jetzt buchen",
-            "href": "#kontakt"
-        }
-    },
-    "accommodationSection": {
-        "label": "Die Infos",
-        "heading": "Unterkunft & Preise",
-        "retreats": [
-            {
-                "id": "january",
-                "title": "Hikkaduwa Januar",
-                "priceOptions": [
-                    {
-                        "description": "Einzelzimmer",
-                        "price": "500 €"
-                    },
-                    {
-                        "description": "Doppelbett im Dreibettzimmer",
-                        "price": "350 €"
-                    },
-                    {
-                        "description": "Stockbetten im Dreibettzimmer",
-                        "price": "200 €"
-                    }
-                ],
-                "retreatFeeLabel": "plus Retreatgebühr",
-                "retreatFee": {
-                    "description": "Pro Teilnehmer",
-                    "price": "1100 €"
-                },
-                "cta": {
-                    "dataRetreat": "january",
-                    "href": "#kontakt"
-                },
-                "carouselImages": [
-                    {
-                        "src": "/uploads/Hikkaduwa02.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 1"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa01.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa03.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 3"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa04.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 4"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa05.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 5"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa06.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 6"
-                    },
-                    {
-                        "src": "/uploads/Hikkaduwa07.webp",
-                        "alt": "Unterkunft in Hikkaduwa, Ansicht 7"
-                    }
-                ]
-            },
-            {
-                "id": "february",
-                "title": "Ahangama Februar",
-                "priceOptions": [
-                    {
-                        "description": "Einzelzimmer allein/Doppelbett geteilt",
-                        "price": "520 / 340 €"
-                    },
-                    {
-                        "description": "Dreier Zimmer: großes Bett alleine/geteilt",
-                        "price": "440 / 290 €"
-                    },
-                    {
-                        "description": "Dreierzimmer kleines Bett",
-                        "price": "380 €"
-                    }
-                ],
-                "retreatFeeLabel": "plus Retreatgebühr",
-                "retreatFee": {
-                    "description": "Pro Teilnehmer",
-                    "price": "1100 €"
-                },
-                "cta": {
-                    "dataRetreat": "february",
-                    "href": "#kontakt"
-                },
-                "carouselImages": [
-                    {
-                        "src": "/uploads/Ahangama02.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 1"
-                    },
-                    {
-                        "src": "/uploads/Ahangama01.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 2"
-                    },
-                    {
-                        "src": "/uploads/Ahangama03.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 3"
-                    },
-                    {
-                        "src": "/uploads/Ahangama04.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 4"
-                    },
-                    {
-                        "src": "/uploads/Ahangama06.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 5"
-                    },
-                    {
-                        "src": "/uploads/Ahangama09.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 6"
-                    },
-                    {
-                        "src": "/uploads/Ahangama11.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 7"
-                    },
-                    {
-                        "src": "/uploads/Ahangama12.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 8"
-                    },
-                    {
-                        "src": "/uploads/Ahangama13.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 9"
-                    },
-                    {
-                        "src": "/uploads/Ahangama14.webp",
-                        "alt": "Unterkunft in Ahangama, Ansicht 10"
-                    }
-                ]
-            }
-        ]
-    },
-    "hostsSection": {
-        "image": "/uploads/hosts-carmen-mareen.jpg",
-        "imageAlt": "Carmen und Mareen",
-        "label": "DEINE HOSTS",
-        "heading": "Hi, wir sind Carmen und Mareen.",
-        "paragraph1": "...und gemeinsam sind wir CARMA Retreats.",
-        "paragraph2": "Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.\nWir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.",
-        "cta": {
-            "label": "Mehr über uns",
-            "href": "#mehr-uber-uns"
-        }
-    },
-    "gallerySection": {
-        "images": [
-            {
-                "src": "/uploads/juanca-paulino.jpg",
-                "alt": "Yoga-Pose am Strand."
-            },
-            {
-                "src": "/uploads/naomi-pal-dupe.jpg",
-                "alt": "Meditierende Person."
-            },
-            {
-                "src": "/uploads/zahra-nehme-dupe.webp",
-                "alt": "Meerblick in Sri Lanka."
-            },
-            {
-                "src": "/uploads/retreat-jan-mini.webp",
-                "alt": "Yoga-Gruppe im Freien."
-            },
-            {
-                "src": "/uploads/retreat-feb-mini.jpg",
-                "alt": "Gesundes Retreat-Essen."
-            },
-            {
-                "src": "/uploads/hosts-carmen-mareen.jpg",
-                "alt": "Carmen und Mareen."
-            }
-        ]
-    },
-    "aboutSection": {
-        "people": [
-            {
-                "subtitle": "Mehr über uns",
-                "title": "Über Carmen",
-                "text": "Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.\nSeit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.\nEin großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.\nNeben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.\nHeute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.\nIn ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.\nCarmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.",
-                "image": "/uploads/hosts-carmen.jpg",
-                "imageAlt": "Carmen Portrait",
-                "reverse": false
-            },
-            {
-                "subtitle": "",
-                "title": "Über Mareen",
-                "text": "Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.\nSeit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.\nIn ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden.Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.\nÜber 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.",
-                "image": "/uploads/hosts-mareen.jpg",
-                "imageAlt": "Mareen Portrait",
-                "reverse": true
-            }
-        ]
-    },
-    "testimonialSection": {
-        "testimonials": [
-            {
-                "src": "/uploads/mona.jpeg",
-                "name": "Mona",
-                "description": "Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat, ich freu mich schon aufs nächste Mal!",
-                "stars": 5
-            },
-            {
-                "src": "/uploads/sven.jpg",
-                "name": "Sven",
-                "description": "Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht. Es macht einfach immer Freude, bei ihr Yoga zu machen.",
-                "stars": 5
-            },
-            {
-                "src": "/uploads/fabienne.jpg",
-                "name": "Fabienne",
-                "description": "Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause.",
-                "stars": 5
-            },
-            {
-                "src": "/uploads/julia.jpg",
-                "name": "Julia",
-                "description": "Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Bemerkte jedoch auch, wenn ich mich nur entspannen wollte und hat sich zurückgezogen. Carmens Yogastunden empfinde ich als sehr abwechslungsreich. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.",
-                "stars": 5
-            }
-        ]
-    },
-    "faqSection": {
-        "id": "faq",
-        "sectionLabel": "Retreat-Infos",
-        "heading": "Antworten auf deine Fragen.",
-        "faqsLeft": [
-            {
-                "id": "01",
-                "question": "Für wen sind die Carma Retreats gedacht?",
-                "answer": "Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt."
-            },
-            {
-                "id": "02",
-                "question": "Was ist enthalten?",
-                "answer": "In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit)."
-            },
-            {
-                "id": "03",
-                "question": "Wo finden die Retreats statt?",
-                "answer": "Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.\nDas Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer."
-            },
-            {
-                "id": "04",
-                "question": "Finden die Retreats auf Deutsch statt?",
-                "answer": "Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung."
-            },
-            {
-                "id": "05",
-                "question": "Welche Zimmertypen gibt es?",
-                "answer": "In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis. Wenn du dir mit einer gemeinsam reisenden Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid, wir informieren dann die Unterkunft."
-            },
-            {
-                "id": "06",
-                "question": "Welche Art von Verpflegung gibt es?",
-                "answer": "Wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip von Gewaltlosigkeit. Manche Gerichte werden Eier und Milchprodukte enthalten, sag uns gerne vorab Bescheid, wenn du Veganerin bist, dann werden wir den Koch informieren.\nDies gilt auch für Nahrungsmittelunverträglichkeiten – wir werden versuchen, diese so gut es geht zu berücksichtigen.\nIn unseren Retreats leben wir zudem Saucha – das yogische Prinzip von Reinheit. Das bedeutet, dass Alkohol, Nikotin und andere Suchtmittel im Rahmen des Retreats nicht erwünscht sind."
-            }
-        ],
-        "faqsRight": [
-            {
-                "id": "07",
-                "question": "Welche Yoga-Stile unterrichtet ihr?",
-                "answer": "Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen. Jede Einheit ist eine Einladung, tiefer zu spüren, achtsam zu praktizieren und Freude an Bewegung zu finden."
-            },
-            {
-                "id": "08",
-                "question": "Ich reise allein – passt das trotzdem für mich?",
-                "answer": "Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Schnell entsteht Verbindung – beim Yoga, beim Frühstück oder unter dem Sternenhimmel. Viele gehen mit neuen Freundschaften nach Hause."
-            },
-            {
-                "id": "09",
-                "question": "Wie komme ich am besten nach Sri Lanka?",
-                "answer": "Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft – eine wunderschöne Fahrt entlang der Küste, vorbei an Reisfeldern, Palmen und kleinen Dörfern."
-            },
-            {
-                "id": "10",
-                "question": "Brauche ich ein Visum für Sri Lanka?",
-                "answer": "Ja, du kannst dein Touristenvisum ganz einfach online beantragen.\nHier: https://www.eta.gov.lk/slvisa/"
-            },
-            {
-                "id": "11",
-                "question": "Muss ich Yoga-Erfahrung mitbringen?",
-                "answer": "Nein. Unsere Retreats sind offen für jedes Level – vom neugierigen Anfänger bis zur erfahrenen Yogini. Wichtig ist nicht, was du kannst, sondern dass du kommst, wie du bist."
-            },
-            {
-                "id": "12",
-                "question": "Wie groß sind die Gruppen?",
-                "answer": "Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community."
-            }
-        ],
-        "cta": {
-            "label": "DEINE FRAGE SCHICKEN",
-            "href": "#kontakt"
-        }
-    },
-    "miniGallery": {
-        "images": [
-            {
-                "src": "/uploads/separator-1.jpg",
-                "alt": "Retreat image 1"
-            },
-            {
-                "src": "/uploads/separator-2.jpg",
-                "alt": "Retreat image 2"
-            },
-            {
-                "src": "/uploads/separator-3.jpg",
-                "alt": "Retreat image 3"
-            }
-        ]
-    },
-    "retreats": [
-        {
-            "id": "january",
-            "title": "Hikkaduwa Januar",
-            "month": "Januar",
-            "location": "Hikkaduwa",
-            "accommodationOptions": [
-                "Einzelzimmer – 500 €",
-                "Doppelbett im Dreibettzimmer – 350 €",
-                "Stockbetten im Dreibettzimmer – 200 €"
-            ]
-        },
-        {
-            "id": "february",
-            "title": "Ahangama Februar",
-            "month": "Februar",
-            "location": "Ahangama",
-            "accommodationOptions": [
-                "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
-                "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
-                "Dreierzimmer kleines Bett – 380 €"
-            ]
-        }
-    ],
-    "kontakt": {
-        "id": "kontakt",
-        "sectionLabel": "Retreat-Infos",
-        "heading": "Kontakt und Buchung",
-        "description": "Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.\nDu hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.\nWir freuen uns, von Dir zu hören.",
-        "form": {
-            "retreat": {
-                "type": "radio-group",
-                "label": "Retreat auswählen",
-                "options": {
-                    "january": "Hikkaduwa im Januar",
-                    "february": "Ahangama im Februar"
-                }
-            },
-            "accommodation": {
-                "type": "radio-group",
-                "label": "Unterkunft auswählen",
-                "optionsDynamic": true
-            },
-            "name": {
-                "type": "text",
-                "label": "Dein Name*",
-                "placeholder": "Gib hier deinen Namen an",
-                "errorMessage": "Bitte gib deinen Namen ein."
-            },
-            "email": {
-                "type": "email",
-                "label": "Deine E-Mail*",
-                "placeholder": "Gib hier deine E-Mail-Adresse ein",
-                "errorMessage": "Bitte gib eine gültige E-Mail-Adresse ein."
-            },
-            "lead_message": {
-                "type": "textarea",
-                "label": "Deine Nachricht",
-                "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
-            },
-            "submitButton": {
-                "label": "Nachricht senden"
-            }
-        }
+      },
+      "accommodation": {
+        "type": "radio-group",
+        "label": "Unterkunft auswählen",
+        "optionsDynamic": true
+      },
+      "name": {
+        "type": "text",
+        "label": "Dein Name*",
+        "placeholder": "Gib hier deinen Namen an",
+        "errorMessage": "Bitte gib deinen Namen ein."
+      },
+      "email": {
+        "type": "email",
+        "label": "Deine E-Mail*",
+        "placeholder": "Gib hier deine E-Mail-Adresse ein",
+        "errorMessage": "Bitte gib eine gültige E-Mail-Adresse ein."
+      },
+      "lead_message": {
+        "type": "textarea",
+        "label": "Deine Nachricht",
+        "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
+      },
+      "submitButton": {
+        "label": "Nachricht senden"
+      }
     }
+  },
+  "testimonialSection": {
+    "testimonials": [
+      {
+        "src": "/uploads/mona.jpeg",
+        "name": "Mona",
+        "description": "Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat, ich freu mich schon aufs nächste Mal!",
+        "stars": 5
+      },
+      {
+        "src": "/uploads/sven.jpg",
+        "name": "Sven",
+        "description": "Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht. Es macht einfach immer Freude, bei ihr Yoga zu machen.",
+        "stars": 5
+      },
+      {
+        "src": "/uploads/fabienne.jpg",
+        "name": "Fabienne",
+        "description": "Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause.",
+        "stars": 5
+      },
+      {
+        "src": "/uploads/julia.jpg",
+        "name": "Julia",
+        "description": "Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Bemerkte jedoch auch, wenn ich mich nur entspannen wollte und hat sich zurückgezogen. Carmens Yogastunden empfinde ich als sehr abwechslungsreich. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.",
+        "stars": 5
+      }
+    ]
+  },
+  "nextRetreatsSection": {
+    "heading": "Nächste Yoga Retreats",
+    "retreatCards": [
+      {
+        "image": "/uploads/retreat-jan-mini.webp",
+        "title": "Januar in Sri Lanka",
+        "date": "12.–18. Januar 2026",
+        "location": "Hikkaduwa, Sri Lanka",
+        "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
+        "button": {
+          "label": "Mehr Infos",
+          "href": "#january"
+        },
+        "imageShape": "square"
+      },
+      {
+        "image": "/uploads/caroline-taborda-dupe.jpeg",
+        "title": "Februar in Sri Lanka",
+        "date": "02.–08. Februar 2026",
+        "location": "Ahangama, Sri Lanka",
+        "description": "Nur 7 limitierte Plätze für ein ganz persönliches Retreat - mit viel Raum für Yoga, Verbindung und Einblicke in die lokale Kultur. Komm an - in der Ferne und in dir.",
+        "button": {
+          "label": "Mehr Infos",
+          "href": "#february"
+        },
+        "imageShape": "circle"
+      },
+      {
+        "image": "/uploads/comming-soon.jpg",
+        "title": "Coming Soon",
+        "date": "Stay tuned",
+        "location": "",
+        "description": "Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!",
+        "button": {
+          "label": "IN NEWSLETTER EINTRAGEN",
+          "href": "/newsletter-soon"
+        },
+        "imageShape": "square"
+      }
+    ]
+  },
+  "heroSection": {
+    "leftImage": {
+      "src": "/uploads/naomi-pal-dupe_1-1.jpg",
+      "alt": "Mujer meditando en la playa"
+    },
+    "rightImage": {
+      "src": "/uploads/zahra-nehme-dupe_1-1.jpg",
+      "alt": "Vista al océano desde la costa"
+    },
+    "spiralImage": {
+      "src": "/uploads/Markenzeichen-Weis.png",
+      "alt": "Logo espiral de Carma"
+    },
+    "heading": "Ankommen und Aufatmen.",
+    "subheading": "Yoga-retreats, die nachhaltig bewegen."
+  },
+  "retreats": [
+    {
+      "id": "january",
+      "title": "Hikkaduwa Januar",
+      "month": "Januar",
+      "location": "Hikkaduwa",
+      "accommodationOptions": [
+        "Einzelzimmer – 500 €",
+        "Doppelbett im Dreibettzimmer – 350 €",
+        "Stockbetten im Dreibettzimmer – 200 €"
+      ]
+    },
+    {
+      "id": "february",
+      "title": "Ahangama Februar",
+      "month": "Februar",
+      "location": "Ahangama",
+      "accommodationOptions": [
+        "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
+        "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
+        "Dreierzimmer kleines Bett – 380 €"
+      ]
+    }
+  ],
+  "imagineSection": {
+    "heading": "Stell dir vor...",
+    "paragraphs": [
+      "...ein sanftes Rascheln von Palmenblättern trägt dich in den Morgen. Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht.",
+      "Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.",
+      "Willkommen an einem Ort, an dem die Zeit langsamer wird, und dein Körper und Geist ruhig werden. Willkommen bei deiner Auszeit in der Ferne, die nachhaltig bewegt."
+    ],
+    "cta": {
+      "label": "JETZT ANFRAGEN",
+      "href": "#kontakt"
+    }
+  },
+  "faqSection": {
+    "id": "faq",
+    "sectionLabel": "Retreat-Infos",
+    "heading": "Antworten auf deine Fragen.",
+    "faqsLeft": [
+      {
+        "id": "01",
+        "question": "Für wen sind die Carma Retreats gedacht?",
+        "answer": "Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt."
+      },
+      {
+        "id": "02",
+        "question": "Was ist enthalten?",
+        "answer": "In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit)."
+      },
+      {
+        "id": "03",
+        "question": "Wo finden die Retreats statt?",
+        "answer": "Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.\nDas Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer."
+      },
+      {
+        "id": "04",
+        "question": "Finden die Retreats auf Deutsch statt?",
+        "answer": "Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung."
+      },
+      {
+        "id": "05",
+        "question": "Welche Zimmertypen gibt es?",
+        "answer": "In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis. Wenn du dir mit einer gemeinsam reisenden Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid, wir informieren dann die Unterkunft."
+      },
+      {
+        "id": "06",
+        "question": "Welche Art von Verpflegung gibt es?",
+        "answer": "Wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip von Gewaltlosigkeit. Manche Gerichte werden Eier und Milchprodukte enthalten, sag uns gerne vorab Bescheid, wenn du Veganerin bist, dann werden wir den Koch informieren.\nDies gilt auch für Nahrungsmittelunverträglichkeiten – wir werden versuchen, diese so gut es geht zu berücksichtigen.\nIn unseren Retreats leben wir zudem Saucha – das yogische Prinzip von Reinheit. Das bedeutet, dass Alkohol, Nikotin und andere Suchtmittel im Rahmen des Retreats nicht erwünscht sind."
+      }
+    ],
+    "faqsRight": [
+      {
+        "id": "07",
+        "question": "Welche Yoga-Stile unterrichtet ihr?",
+        "answer": "Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen. Jede Einheit ist eine Einladung, tiefer zu spüren, achtsam zu praktizieren und Freude an Bewegung zu finden."
+      },
+      {
+        "id": "08",
+        "question": "Ich reise allein – passt das trotzdem für mich?",
+        "answer": "Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Schnell entsteht Verbindung – beim Yoga, beim Frühstück oder unter dem Sternenhimmel. Viele gehen mit neuen Freundschaften nach Hause."
+      },
+      {
+        "id": "09",
+        "question": "Wie komme ich am besten nach Sri Lanka?",
+        "answer": "Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft – eine wunderschöne Fahrt entlang der Küste, vorbei an Reisfeldern, Palmen und kleinen Dörfern."
+      },
+      {
+        "id": "10",
+        "question": "Brauche ich ein Visum für Sri Lanka?",
+        "answer": "Ja, du kannst dein Touristenvisum ganz einfach online beantragen.\nHier: https://www.eta.gov.lk/slvisa/"
+      },
+      {
+        "id": "11",
+        "question": "Muss ich Yoga-Erfahrung mitbringen?",
+        "answer": "Nein. Unsere Retreats sind offen für jedes Level – vom neugierigen Anfänger bis zur erfahrenen Yogini. Wichtig ist nicht, was du kannst, sondern dass du kommst, wie du bist."
+      },
+      {
+        "id": "12",
+        "question": "Wie groß sind die Gruppen?",
+        "answer": "Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community."
+      }
+    ],
+    "cta": {
+      "label": "DEINE FRAGE SCHICKEN",
+      "href": "#kontakt"
+    }
+  },
+  "accommodationSection": {
+    "label": "Die Infos",
+    "heading": "Unterkunft & Preise",
+    "retreats": [
+      {
+        "id": "january",
+        "title": "Hikkaduwa Januar",
+        "priceOptions": [
+          {
+            "description": "Einzelzimmer",
+            "price": "500 €"
+          },
+          {
+            "description": "Doppelbett im Dreibettzimmer",
+            "price": "350 €"
+          },
+          {
+            "description": "Stockbetten im Dreibettzimmer",
+            "price": "200 €"
+          }
+        ],
+        "retreatFeeLabel": "plus Retreatgebühr",
+        "retreatFee": {
+          "description": "Pro Teilnehmer",
+          "price": "1100 €"
+        },
+        "cta": {
+          "dataRetreat": "january",
+          "href": "#kontakt"
+        },
+        "carouselImages": [
+          {
+            "src": "/uploads/Hikkaduwa02.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 1"
+          },
+          {
+            "src": "/uploads/Hikkaduwa01.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
+          },
+          {
+            "src": "/uploads/Hikkaduwa03.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 3"
+          },
+          {
+            "src": "/uploads/Hikkaduwa04.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 4"
+          },
+          {
+            "src": "/uploads/Hikkaduwa05.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 5"
+          },
+          {
+            "src": "/uploads/Hikkaduwa06.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 6"
+          },
+          {
+            "src": "/uploads/Hikkaduwa07.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 7"
+          }
+        ]
+      },
+      {
+        "id": "february",
+        "title": "Ahangama Februar",
+        "priceOptions": [
+          {
+            "description": "Einzelzimmer allein/Doppelbett geteilt",
+            "price": "520 / 340 €"
+          },
+          {
+            "description": "Dreier Zimmer: großes Bett alleine/geteilt",
+            "price": "440 / 290 €"
+          },
+          {
+            "description": "Dreierzimmer kleines Bett",
+            "price": "380 €"
+          }
+        ],
+        "retreatFeeLabel": "plus Retreatgebühr",
+        "retreatFee": {
+          "description": "Pro Teilnehmer",
+          "price": "1100 €"
+        },
+        "cta": {
+          "dataRetreat": "february",
+          "href": "#kontakt"
+        },
+        "carouselImages": [
+          {
+            "src": "/uploads/Ahangama02.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 1"
+          },
+          {
+            "src": "/uploads/Ahangama01.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 2"
+          },
+          {
+            "src": "/uploads/Ahangama03.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 3"
+          },
+          {
+            "src": "/uploads/Ahangama04.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 4"
+          },
+          {
+            "src": "/uploads/Ahangama06.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 5"
+          },
+          {
+            "src": "/uploads/Ahangama09.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 6"
+          },
+          {
+            "src": "/uploads/Ahangama11.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 7"
+          },
+          {
+            "src": "/uploads/Ahangama12.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 8"
+          },
+          {
+            "src": "/uploads/Ahangama13.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 9"
+          },
+          {
+            "src": "/uploads/Ahangama14.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 10"
+          }
+        ]
+      }
+    ]
+  },
+  "gallerySection": {
+    "images": [
+      {
+        "src": "/uploads/juanca-paulino.jpg",
+        "alt": "Yoga-Pose am Strand."
+      },
+      {
+        "src": "/uploads/naomi-pal-dupe.jpg",
+        "alt": "Meditierende Person."
+      },
+      {
+        "src": "/uploads/zahra-nehme-dupe.webp",
+        "alt": "Meerblick in Sri Lanka."
+      },
+      {
+        "src": "/uploads/retreat-jan-mini.webp",
+        "alt": "Yoga-Gruppe im Freien."
+      },
+      {
+        "src": "/uploads/retreat-feb-mini.jpg",
+        "alt": "Gesundes Retreat-Essen."
+      },
+      {
+        "src": "/uploads/hosts-carmen-mareen.jpg",
+        "alt": "Carmen und Mareen."
+      }
+    ]
+  },
+  "einTagSection": {
+    "decorativeImage": {
+      "src": "/uploads/Mandala-1.png",
+      "alt": "Mandala decorativo"
+    },
+    "header": {
+      "label": "Connection, Culture, Community.",
+      "heading": "Ein Tag bei Carma Retreats"
+    },
+    "scheduleLeft": [
+      {
+        "time": "7.30 Uhr",
+        "description": "Meditation und Pranayama\nStarte den Tag in Stille, umgeben von den Geräuschen der Natur."
+      },
+      {
+        "time": "8.00 Uhr",
+        "description": "Ayurvedischer Morgentee\nTeezeit in Stille - bleib ganz bei Dir."
+      },
+      {
+        "time": "8.30 Uhr",
+        "description": "Morning Flow Yoga\nBewege dich im Rhythmus der Insel.\nDein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis."
+      },
+      {
+        "time": "10.30 Uhr",
+        "description": "Community Brunch\nBrich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten."
+      },
+      {
+        "time": null,
+        "description": "<em>Nachmittags Zeit zur freien Verfügung</em>"
+      },
+      {
+        "time": "15.00 Uhr",
+        "description": "Fruchtplatte und Get-Together am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen."
+      }
+    ],
+    "centerImage": {
+      "src": "/uploads/juanca-paulino.jpg",
+      "alt": "Persona haciendo yoga en la playa"
+    },
+    "scheduleRight": [
+      {
+        "time": "16.00 Uhr",
+        "description": "Ausflug (2 Mal die Woche):\nKomm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel."
+      },
+      {
+        "time": "17.00 Uhr",
+        "description": "Abendpraxis\nBring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis."
+      },
+      {
+        "time": "19.00 Uhr",
+        "description": "Abendessen\nWir runden den Tag ab mit einem leckeren, gemeinsamen Essen."
+      },
+      {
+        "time": "20.30 Uhr",
+        "description": "Ausklang in Stille\nWir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille."
+      }
+    ],
+    "cta": {
+      "label": "Jetzt buchen",
+      "href": "#kontakt"
+    }
+  },
+  "aboutSection": {
+    "people": [
+      {
+        "subtitle": "Mehr über uns",
+        "title": "Über Carmen",
+        "text": "Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.\nSeit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.\nEin großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.\nNeben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.\nHeute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.\nIn ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.\nCarmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.",
+        "image": "/uploads/hosts-carmen.jpg",
+        "imageAlt": "Carmen Portrait",
+        "reverse": true
+      },
+      {
+        "subtitle": "",
+        "title": "Über Mareen",
+        "text": "Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.\nSeit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.\nIn ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden.Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.\nÜber 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.",
+        "image": "/uploads/hosts-mareen.jpg",
+        "imageAlt": "Mareen Portrait",
+        "reverse": true
+      }
+    ]
+  },
+  "retreatsSection": {
+    "label": "Retreat-Infos",
+    "heading": "Willkommen an einem Ort, an dem die Zeit langsamer wird.",
+    "retreats": [
+      {
+        "locationInfo": "Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.\nBekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.\nTagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt.\nEin Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit.",
+        "layout": "left",
+        "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel.",
+        "intro": "Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.",
+        "date": "12.–18. Januar 2026 in Hikkaduwa",
+        "cta": {
+          "label": "Jetzt buchen",
+          "href": "#kontakt"
+        },
+        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen:\n\nEinzelzimmer 500 Euro\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
+        "carouselImages": [
+          {
+            "src": "/uploads/Hikkaduwa01.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 1"
+          },
+          {
+            "src": "/uploads/Hikkaduwa02.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
+          },
+          {
+            "src": "/uploads/Hikkaduwa03.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 3"
+          },
+          {
+            "src": "/uploads/Hikkaduwa04.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 4"
+          },
+          {
+            "src": "/uploads/Hikkaduwa05.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 5"
+          },
+          {
+            "src": "/uploads/Hikkaduwa06.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 6"
+          },
+          {
+            "src": "/uploads/Hikkaduwa07.webp",
+            "alt": "Unterkunft in Hikkaduwa, Ansicht 7"
+          }
+        ],
+        "id": "january"
+      },
+      {
+        "locationInfo": "Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest - Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.\nEin Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst.",
+        "layout": "right",
+        "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und traditionelles Töpfern in einem traditionellen singahelischen Handwerksbetrieb).",
+        "intro": "Ahangama ist DER neue Surfspot an der Südküste. Du findest hier wunderschöne Sandstrände, hippe Cafés und tolle Natur.\nUnsere Unterkunft, eine Villa im Kolonialstil, bietet gemütliche Zimmer, einen Pool und einen tropischen Garten.\nNur wenige Gehminuten vom Strand entfernt, lädt die Mittagspause zum Baden und Sonne tanken ein.\nHier darfst du ankommen – fern von allem, nah bei dir.",
+        "date": "2.–8. Februar 2026 in Ahangama",
+        "cta": {
+          "label": "Jetzt buchen",
+          "href": "#kontakt"
+        },
+        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten ( Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen Boutique-Hotel Unrushed in Ahangama.\n\nPreise für die Unterkunft Unrushed\n\nEinzelzimmer: alle in / Doppelbett geteilt 520 / 340 Euro\nDreier Zimmer: großes Bett alleine/geteilt 440 / 290 Euro\nDreier Zimmer: kleines Bett 380 Euro",
+        "carouselImages": [
+          {
+            "src": "/uploads/Ahangama01.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 1"
+          },
+          {
+            "src": "/uploads/Ahangama02.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 2"
+          },
+          {
+            "src": "/uploads/Ahangama03.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 3"
+          },
+          {
+            "src": "/uploads/Ahangama04.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 4"
+          },
+          {
+            "src": "/uploads/Ahangama06.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 5"
+          },
+          {
+            "src": "/uploads/Ahangama09.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 6"
+          },
+          {
+            "src": "/uploads/Ahangama11.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 7"
+          },
+          {
+            "src": "/uploads/Ahangama12.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 8"
+          },
+          {
+            "src": "/uploads/Ahangama13.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 9"
+          },
+          {
+            "src": "/uploads/Ahangama14.webp",
+            "alt": "Unterkunft in Ahangama, Ansicht 10"
+          }
+        ],
+        "id": "february"
+      }
+    ]
+  },
+  "hostsSection": {
+    "image": "/uploads/hosts-carmen-mareen.jpg",
+    "imageAlt": "Carmen und Mareen",
+    "label": "DEINE HOSTS",
+    "heading": "Hi, wir sind Carmen und Mareen.",
+    "paragraph1": "...und gemeinsam sind wir CARMA Retreats.",
+    "paragraph2": "Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.\nWir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.",
+    "cta": {
+      "label": "Mehr über uns",
+      "href": "#mehr-uber-uns"
+    }
+  },
+  "miniGallery": {
+    "images": [
+      {
+        "src": "/uploads/separator-1.jpg",
+        "alt": "Retreat image 1"
+      },
+      {
+        "src": "/uploads/separator-2.jpg",
+        "alt": "Retreat image 2"
+      },
+      {
+        "src": "/uploads/separator-3.jpg",
+        "alt": "Retreat image 3"
+      }
+    ]
+  },
+  "heroWelcomeSection": {
+    "mainCta": {
+      "href": "#retreats"
+    },
+    "heading": "Willkommen bei Carma Retreats",
+    "text": "Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.",
+    "secondaryCta": {
+      "label": "NÄCHSTE RETREATS",
+      "href": "#next-retreats"
+    }
+  },
+  "retreatHighlightsSection": {
+    "label": "Culture, Community, Connection",
+    "heading": "Was dich erwartet:",
+    "highlights": [
+      {
+        "title": "Tägliche Yogaklassen",
+        "text": "Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin."
+      },
+      {
+        "title": "Meditation & Pranayama",
+        "text": "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
+      },
+      {
+        "title": "Wohlfühlort",
+        "text": "Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein."
+      },
+      {
+        "title": "Lokale Kultur erleben",
+        "text": "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs."
+      },
+      {
+        "title": "Community Vibes",
+        "text": "Real Connections. Komm allein, geh mit Freunden fürs Leben."
+      },
+      {
+        "title": "Soulfood",
+        "text": "Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen."
+      },
+      {
+        "title": "Zeit für Dich",
+        "text": "Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen."
+      }
+    ],
+    "cta": {
+      "label": "MEHR ERFAHREN",
+      "href": "#retreats"
+    }
+  }
 }
