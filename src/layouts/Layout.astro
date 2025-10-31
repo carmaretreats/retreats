@@ -84,8 +84,10 @@ const {
             };
           </script>
         <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/js/semiautomatic.min.js" data-cmp-cdid="9e402988c2ff1" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
-        <script>
+        <script is:inline>
           function onConsentAccept() {
+            console.log("[CMP] Acceptance event detected. Updating GA4 consent.");
+            
             gtag("consent", "update", {
               ad_storage: "granted",
               analytics_storage: "granted",
@@ -103,10 +105,13 @@ const {
                 page_referrer: document.referrer || "",
               });
 
-              console.log("[GA4] Manual page_view sent with UTM:", pageLoc);
+              console.log("[GA4] page_view manual sent in URL:", pageLoc);
             }, 150);
           }
-          window.addEventListener("cmpAccept", onConsentAccept);
+
+          window.__cmp = window.__cmp || {};
+          window.__cmp.onFunction = window.__cmp.onFunction || [];
+          window.__cmp.onFunction.push(onConsentAccept);
         </script>
       </>
     )}
