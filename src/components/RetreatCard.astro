@@ -7,10 +7,10 @@ const {
   retreatId = '',
   layout = 'left',
   date = '',
-  introParagraphs = [],
-  priceContent = [],
-  includedContent = [],
-  locationContent = [],
+  introParagraphs = '',
+  priceContent = '',
+  includedContent = '',
+  locationContent = '',
   carouselImages = [],
   ctaLabel = 'Jetzt Buchen',
   ctaHref = '#kontakt',
@@ -19,33 +19,28 @@ const {
 const carouselOrder = layout === 'left' ? 'md:order-1' : 'md:order-2';
 const contentOrder = layout === 'left' ? 'md:order-2' : 'md:order-1';
 ---
-<!-- RetreatCard Section -->
 <div id={retreatId} class="bg-cream-bg text-dark-brown font-sans w-full">
   <div class="flex flex-col md:flex-row gap-10 md:gap-16">
     
-    <!-- Carousel -->
     <div class={`w-full md:w-1/2 ${carouselOrder}`}>
       <Carousel images={carouselImages} />
     </div>
 
-    <!-- Content -->
     <div class={`w-full md:w-1/2 flex flex-col justify-between ${contentOrder}`}>
       {date && (
         <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="font-editorial text-3xl sm:text-3xl md:text-4xl lg:text-5xl leading-[1.2] mb-2 lg:mb-4 text-[var(--color-dark-brown)] text-left">{date}</h2>
       )}
 
-        <div class="body-text text-dark-brown">
-          <p class="whitespace-pre-line">{introParagraphs}</p>
-        </div>
+      <div class="body-text text-dark-brown">
+        <p class="whitespace-pre-line">{introParagraphs}</p>
+      </div>
 
-      <!-- Accordions with editable content -->
       <RoomAccordion
         priceContent={priceContent}
         includedContent={includedContent}
         locationContent={locationContent}
       />
 
-      <!-- CTA -->
       <div class="flex justify-center mb-4 xs:mb-6 md:mb-0 px-12 sm:px-6 lg:px-8 pt-6">
         <Cta label={ctaLabel} href={ctaHref} color="orange" size="large" />
       </div>

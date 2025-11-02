@@ -1,19 +1,25 @@
 ---
 import CtaLink from './CtaLink.astro';
 import Cta from '../components/CTA.astro';
-const buttonLabel = "NÄCHSTE RETREATS"
-const buttonHref = "#next-retreats" 
+import data from '../content/retreats-page.json';
+
+const sectionData = data.heroWelcomeSection;
 ---
 
 <section id="hero-welcome" class="section bg-cream-bg text-dark-brown text-center font-sans">
   <div class="flex justify-center md:mb-0 mt-[5px] md:mt-[0px] px-12 sm:px-6 lg:px-8">
-      <Cta href="#retreats" size="large" />
+      <Cta href={sectionData.mainCta.href} size="large" />
     </div>
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-[25px] md:pt-[50px] pb-[50px]">
     <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main mb-6">
-      Willkommen bei Carma Retreats
+      {sectionData.heading}
     </h2>
-    <p class="body-text text-center max-w-3xl mx-auto whitespace-pre-line">Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.</p>
-    <CtaLink label={buttonLabel} href={buttonHref} />
+    <p class="body-text text-center max-w-3xl mx-auto whitespace-pre-line">
+      {sectionData.text}
+    </p>
+    <CtaLink 
+      label={sectionData.secondaryCta.label} 
+      href={sectionData.secondaryCta.href} 
+    />
   </div>
 </section>

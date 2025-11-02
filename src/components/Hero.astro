@@ -1,45 +1,43 @@
 ---
-import { Image } from 'astro:assets';
-import leftImg from '../assets/images/hero/naomi-pal-dupe_1-1.jpg';
-import rightImg from '../assets/images/hero/zahra-nehme-dupe_1-1.jpg';
-import spiral from '../assets/images/Markenzeichen-Weis.png';
+
+import data from '../content/retreats-page.json';
+
+const sectionData = data.heroSection;
 ---
 <section id="hero" class="relative w-full bg-cream-bg pb-0 md:mb-8 px-0 md:px-8">
+  <div class="relative w-full h-auto">
     <!-- Image for mobile (always visible) -->
     <div class="block relative md:hidden aspect-square overflow-hidden">
-      <Image src={leftImg} alt="Hero image" class="w-full h-full object-cover object-bottom" />
+      <img src={sectionData.leftImage.src} alt={sectionData.leftImage.alt} class="w-full h-full object-cover object-bottom" loading="eager" decoding="async"/>
       <div class="absolute inset-0 bg-black/15 pointer-events-none z-10"></div>
     </div>
 
     <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
     <div class="hidden md:grid md:grid-cols-2 w-full h-full">
       <div class="relative aspect-square overflow-hidden">
-        <Image src={leftImg} alt="Left hero" class="w-full h-full object-cover object-bottom" loading="eager"/>
-           <!-- Overlay solo en imagen izquierda -->
+        <img src={sectionData.leftImage.src} alt={sectionData.leftImage.alt} class="w-full h-full object-cover object-bottom" loading="eager" decoding="async"/>
         <div class="absolute inset-0 bg-black/15 pointer-events-none z-10"></div>
       </div>
       <div class="aspect-square overflow-hidden">
-        <Image src={rightImg} alt="Right hero" class="w-full h-full object-cover" loading="eager"/>
+        <img src={sectionData.rightImage.src} alt={sectionData.rightImage.alt} class="w-full h-full object-cover" loading="eager" decoding="async"/>
       </div>
     </div>
   </div>
 
-  <!-- Spiral mark -->
   <div class="absolute left-1/2 top-8 transform -translate-x-1/2 pointer-events-none">
-    <Image src={spiral} alt="Markenzeichen" class="h-12 sm:h-14 md:h-16 w-auto object-contain" loading="eager"/>
+    <img src={sectionData.spiralImage.src} alt={sectionData.spiralImage.alt} class="h-12 sm:h-14 md:h-16 w-auto object-contain" loading="eager" decoding="async"/>
   </div>
 
-  <!-- Text + CTA -->
   <div class="relative flex items-end justify-center h-[75vh] mt-[-75vh] pointer-events-none z-10">
     <div class="text-center max-w-4xl pb-0 xs:pb-2 md:pb-8 pointer-events-auto">
       <h1 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" 
         class="responsive-title text-white ">
-        Ankommen und Aufatmen.
+        {sectionData.heading}
       </h1>
 
       <h2
         class="body-text text-white uppercase">
-        Yoga-retreats, die nachhaltig bewegen.
+        {sectionData.subheading}
       </h2>
     </div>
   </div>

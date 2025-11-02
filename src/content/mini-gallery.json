@@ -1,0 +1,16 @@
+{
+  "images": [
+    {
+      "src": "/uploads/separator-1.jpg",
+      "alt": "Retreat image 1"
+    },
+    {
+      "src": "/uploads/separator-2.jpg",
+      "alt": "Retreat image 2"
+    },
+    {
+      "src": "/uploads/separator-3.jpg",
+      "alt": "Retreat image 3"
+    }
+  ]
+}
