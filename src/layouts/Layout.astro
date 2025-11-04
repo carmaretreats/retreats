@@ -43,22 +43,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TFLQ855C');</script>
 
-    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-JGQ0MY9TF6"></script> -->
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-JGQ0MY9TF6');
-    </script>
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   </head>
   <body>
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFLQ855C"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <Header />
     <slot />
     <Footer />
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFLQ855C"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   </body>
 </html>
