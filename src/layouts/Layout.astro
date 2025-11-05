@@ -6,7 +6,6 @@ import Footer from '../components/Footer.astro';
 const {
   noindex = false,
   nofollow = false,
-  disableCMP = currentUrl.searchParams.has('nocmp'),
 } = Astro.props;
 ---
 <!doctype html>
@@ -42,9 +41,7 @@ new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-TFLQ855C');</script>
-    { !disableCMP && (
     <script type="text/javascript" data-cmp-ab="1" src="https://cdn.consentmanager.net/delivery/autoblocking/9e402988c2ff1.js" data-cmp-host="b.delivery.consentmanager.net" data-cmp-cdn="cdn.consentmanager.net" data-cmp-codesrc="0"></script>
-    ) }
 
     <script defer src="https://cdn.jsdelivr.net/npm/@alpinejs/collapse@3.x.x/dist/cdn.min.js"></script>
   </head>
