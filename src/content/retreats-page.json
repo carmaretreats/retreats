@@ -501,24 +501,20 @@
             "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
           },
           {
-            "src": "/uploads/Hikkaduwa03.webp",
-            "alt": "Unterkunft in Hikkaduwa, Ansicht 3"
-          },
-          {
-            "src": "/uploads/Hikkaduwa04.webp",
-            "alt": "Unterkunft in Hikkaduwa, Ansicht 4"
-          },
-          {
-            "src": "/uploads/Hikkaduwa05.webp",
-            "alt": "Unterkunft in Hikkaduwa, Ansicht 5"
-          },
-          {
-            "src": "/uploads/Hikkaduwa06.webp",
-            "alt": "Unterkunft in Hikkaduwa, Ansicht 6"
-          },
-          {
             "src": "/uploads/Hikkaduwa07.webp",
             "alt": "Unterkunft in Hikkaduwa, Ansicht 7"
+          },
+          {
+            "src": "/uploads/monara-rest.jpg",
+            "alt": "Restaurant im Yogaretreat"
+          },
+          {
+            "src": "/uploads/monara-balcony-1-.jpg",
+            "alt": "Balcony in yogacenter Sri Lanka"
+          },
+          {
+            "src": "/uploads/monara-bath.jpg",
+            "alt": "Bathroom in yogaretreat"
           }
         ],
         "id": "january"
