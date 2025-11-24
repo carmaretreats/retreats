@@ -2,7 +2,7 @@
   "kontakt": {
     "id": "kontakt",
     "sectionLabel": "Retreat-Infos",
-    "heading": "Kontakt und Buchung",
+    "heading": "Buchungsanfrage",
     "description": "Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen.\nDu hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus.\nWir freuen uns, von Dir zu hören.",
     "form": {
       "retreat": {
@@ -36,7 +36,7 @@
         "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
       },
       "submitButton": {
-        "label": "Nachricht senden"
+        "label": "BUCHUNGSANFRAGE SENDEN"
       }
     }
   },
@@ -607,7 +607,7 @@
   },
   "heroWelcomeSection": {
     "mainCta": {
-      "href": "#retreats"
+      "href": "#kontakt"
     },
     "heading": "Willkommen bei Carma Retreats",
     "text": "Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.",

@@ -230,3 +230,57 @@ html {
 .mobile-panel.menu-open button[aria-label="Toggle menu"],
 .mobile-panel.menu-closing button[aria-label="Toggle menu"] { position: relative; z-index: 60; }
 
+/*
+==========================================================================
+  CUSTOM OVERRIDE FOR COOKIE CONSENT BANNER
+==========================================================================
+*/
+
+/* 1. Set up the main container to allow reordering and wrapping */
+.cmpboxbtns {
+  display: flex !important;
+  flex-wrap: wrap !important;          /* Allows items to wrap onto new lines */
+  justify-content: center !important; /* Center the buttons */
+  gap: 10px !important;               /* Add space between buttons */
+}
+
+/* 2. Force the "Customize" section to a new line and place it last */
+.cmpmore {
+  width: 100% !important;             /* Takes full width, forcing a new line */
+  order: 3 !important;                /* CRITICAL: Puts it at the end */
+  margin-top: 15px !important;        /* Adds space above it */
+  /* Re-apply flex to style its own internal links */
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  gap: 10px !important;
+}
+
+/* 3. Use 'order' to position the main buttons correctly */
+/* We target the <span> wrappers of the buttons */
+span#cmpwelcomebtnyes { order: 1 !important; } /* "Accept all" appears first */
+span#cmpwelcomebtnno { order: 2 !important; }  /* "Reject all" appears second */
+
+
+/* 4. Style the buttons themselves (no changes here) */
+a.cmpboxbtnyes {
+  background-color: var(--color-accent-orange) !important;
+  color: var(--color-white) !important;
+  border: none !important;
+}
+
+a.cmpboxbtnreject {
+  color: #aaaaaa !important;
+  background-color: transparent !important;
+  border: 1px solid #dddddd !important;
+}
+
+a.cmpboxbtnreject svg {
+  fill: currentColor !important;
+}
+
+/* 5. Style the "Customize" links (no changes here) */
+.cmpmore a {
+  color: #888888 !important;
+  text-decoration: underline !important;
+}
