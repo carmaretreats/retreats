@@ -132,7 +132,12 @@ if (Astro.request.method === "POST") {
             name="lead_message"
             placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
             class="w-full text-dark-brown placeholder-black/50 bg-white border-b border-black py-3 resize-none focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            aria-describedby={inputErrors.lead_message ? "lead-message-error" : undefined}
+            required
           >{previousValues.lead_message || ""}</textarea>
+          {inputErrors.lead_message && (
+            <p id="lead-message-error" class="text-accent-orange mt-1 text-sm">{form.lead_message.errorMessage}</p>
+          )}
         </div>
 
         <!-- Submit Button -->

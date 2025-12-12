@@ -32,8 +32,9 @@
       },
       "lead_message": {
         "type": "textarea",
-        "label": "Deine Nachricht",
-        "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."
+        "label": "Deine Nachricht*",
+        "placeholder": "Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast.",
+        "errorMessage": "Bitte gib eine Nachricht ein."
       },
       "submitButton": {
         "label": "BUCHUNGSANFRAGE SENDEN"

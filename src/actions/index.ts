@@ -12,7 +12,7 @@ export const server = {
     input: z.object({
         name: z.string().min(1, { message: "Bitte gib deinen Namen ein." }),
         email: z.string().email({ message: "Bitte gib eine gültige E‑Mail-Adresse ein." }),
-        lead_message: z.string().optional(),
+        lead_message: z.string().min(1, { message: "Bitte gib eine Nachricht ein." }),
         retreat: z.string().optional(),
         accommodation: z.string().optional(),
     }),
