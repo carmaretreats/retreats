@@ -494,10 +494,6 @@
         "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen:\n\nEinzelzimmer 500 Euro\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
         "carouselImages": [
           {
-            "src": "/uploads/Hikkaduwa01.webp",
-            "alt": "Unterkunft in Hikkaduwa, Ansicht 1"
-          },
-          {
             "src": "/uploads/Hikkaduwa02.webp",
             "alt": "Unterkunft in Hikkaduwa, Ansicht 2"
           },
@@ -516,6 +512,14 @@
           {
             "src": "/uploads/monara-bath.jpg",
             "alt": "Bathroom in yogaretreat"
+          },
+          {
+            "src": "/uploads/monara-3-bett-2.jpeg",
+            "alt": "Bathroom in yoga retreats"
+          },
+          {
+            "src": "/uploads/monara-3bett.jpeg",
+            "alt": "Bed in Yoga retreat"
           }
         ],
         "id": "january"
