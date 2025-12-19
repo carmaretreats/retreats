@@ -1,26 +1,29 @@
 import {
   Body,
-  Button,
   Container,
   Head,
   Hr,
   Html,
-  Img,
   Preview,
-  Section,
   Text,
 } from '@react-email/components';
-
 
 interface KoalaWelcomeEmailProps {
     name: string;
     email: string;
+    whatsapp?: string; // Added optional field
     lead_message: string;
     retreat?: string;
     accommodation?: string;
 }
+
 export const KoalaWelcomeEmail = ({
-  name, email, lead_message, retreat, accommodation,
+  name, 
+  email, 
+  whatsapp, // Added here
+  lead_message, 
+  retreat, 
+  accommodation,
 }: KoalaWelcomeEmailProps) => (
   <Html>
     <Head />
@@ -31,6 +34,12 @@ export const KoalaWelcomeEmail = ({
       <Container style={container}>
         <Text style={paragraph}>Name: {name}</Text>
         <Text style={paragraph}>Email: {email}</Text>
+        
+        {/* Only show this line if whatsapp was provided */}
+        {whatsapp && (
+          <Text style={paragraph}>WhatsApp: {whatsapp}</Text>
+        )}
+
         <Text style={paragraph}>
           Message: {lead_message}
         </Text>
@@ -50,9 +59,10 @@ export const KoalaWelcomeEmail = ({
 );
 
 KoalaWelcomeEmail.PreviewProps = {
-  name: 'Mising Name',
-    email: 'Missing Email',
-    lead_message: 'Mising Message',
+  name: 'Missing Name',
+  email: 'Missing Email',
+  whatsapp: '+49 123 456', // Added for preview
+  lead_message: 'Missing Message',
 } as KoalaWelcomeEmailProps;
 
 export default KoalaWelcomeEmail;

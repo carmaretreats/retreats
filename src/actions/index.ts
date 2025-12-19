@@ -15,10 +15,14 @@ export const server = {
         lead_message: z.string().min(1, { message: "Bitte gib eine Nachricht ein." }),
         retreat: z.string().optional(),
         accommodation: z.string().optional(),
+        // 1. Added schema validation (optional)
+        whatsapp: z.string().optional(),
     }),
-    handler: async ({ name, email , lead_message, retreat, accommodation}) => {
+    // 2. Added whatsapp to the destructuring arguments
+    handler: async ({ name, email , lead_message, retreat, accommodation, whatsapp }) => {
       // create the email
-      const emailContent = SampleEmail({ name, email, lead_message, retreat, accommodation });
+      // 3. Passed whatsapp to the email template component
+      const emailContent = SampleEmail({ name, email, lead_message, retreat, accommodation, whatsapp });
       const html = await render(emailContent);
       const text = await render(emailContent, {
         plainText: true,
@@ -37,8 +41,9 @@ export const server = {
       if (error) {
         throw {
             message: "Error sending email",
-            issues: [], // si querés agregar validaciones personalizadas
-            fields: { name, email, lead_message, retreat, accommodation }
+            issues: [], 
+            // 4. Added whatsapp here so the value persists if submission fails
+            fields: { name, email, lead_message, retreat, accommodation, whatsapp }
         };
       }
     return data;   

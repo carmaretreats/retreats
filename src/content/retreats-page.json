@@ -30,6 +30,12 @@
         "placeholder": "Gib hier deine E-Mail-Adresse ein",
         "errorMessage": "Bitte gib eine gültige E-Mail-Adresse ein."
       },
+      "whatsapp": {
+        "type": "tel",
+        "label": "WhatsApp (Optional)",
+        "placeholder": "+49 123 456 789 (Bitte mit Ländervorwahl)",
+        "errorMessage": "Bitte gib eine gültige Telefonnummer ein."
+      },
       "lead_message": {
         "type": "textarea",
         "label": "Deine Nachricht*",
@@ -111,6 +117,9 @@
     ]
   },
   "heroSection": {
+    "mainCta": {
+      "href": "#kontakt"
+    },
     "leftImage": {
       "src": "/uploads/naomi-pal-dupe_1-1.jpg",
       "alt": "Mujer meditando en la playa"
@@ -618,7 +627,7 @@
     "text": "Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.",
     "secondaryCta": {
       "label": "NÄCHSTE RETREATS",
-      "href": "#next-retreats"
+      "href": "#retreats"
     }
   },
   "retreatHighlightsSection": {

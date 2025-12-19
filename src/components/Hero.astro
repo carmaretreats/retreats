@@ -1,6 +1,7 @@
 ---
 
 import data from '../content/retreats-page.json';
+import Cta from '../components/CTA.astro';
 
 const sectionData = data.heroSection;
 ---
@@ -39,6 +40,10 @@ const sectionData = data.heroSection;
         class="body-text text-white uppercase">
         {sectionData.subheading}
       </h2>
+
+      <div class="block md:hidden flex justify-center mb-4 mt-[5px] md:mt-[0px] px-12 sm:px-6 lg:px-8">
+        <Cta href={sectionData.mainCta.href} size="large" />
+      </div>
     </div>
   </div>
 </section>

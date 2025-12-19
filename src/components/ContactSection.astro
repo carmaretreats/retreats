@@ -122,6 +122,25 @@ if (Astro.request.method === "POST") {
           )}
         </div>
 
+         <!-- WhatsApp (New Field) -->
+        <div>
+          <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
+            WhatsApp
+          </label>
+          <input
+            type="tel"
+            name="whatsapp"
+            value={previousValues.whatsapp || ""}
+            placeholder="+49 123 456 789 (Bitte mit Ländervorwahl)"
+            class="w-full text-dark-brown placeholder-black/50 bg-white border-b border-black py-3 focus:outline-none focus:border-accent-orange font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4]"
+            aria-describedby={inputErrors.whatsapp ? "whatsapp-error" : undefined}
+          />
+          {/* Note: Since it's optional, we usually don't need an error message, but if your backend validates format, it will show here */}
+          {inputErrors.whatsapp && (
+            <p id="whatsapp-error" class="text-accent-orange mt-1 text-sm">{inputErrors.whatsapp[0]}</p>
+          )}
+        </div>
+
         <!-- Message -->
         <div>
           <label class="block mb-2 font-garamond italic text-xl md:text-2xl leading-[1.2] text-dark-brown">
