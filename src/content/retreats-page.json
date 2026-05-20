@@ -81,7 +81,7 @@
       {
         "image": "/uploads/retreat-jan-mini.webp",
         "title": "Januar in Sri Lanka",
-        "date": "12.–18. Januar 2026",
+        "date": "23.–29. Januar 2027",
         "location": "Hikkaduwa, Sri Lanka",
         "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
         "button": {
@@ -93,9 +93,9 @@
       {
         "image": "/uploads/caroline-taborda-dupe.jpeg",
         "title": "Februar in Sri Lanka",
-        "date": "02.–08. Februar 2026",
-        "location": "Ahangama, Sri Lanka",
-        "description": "Nur 7 limitierte Plätze für ein ganz persönliches Retreat - mit viel Raum für Yoga, Verbindung und Einblicke in die lokale Kultur. Komm an - in der Ferne und in dir.",
+        "date": "13.–19. Februar 2027",
+        "location": "Hikkaduwa, Sri Lanka",
+        "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
         "button": {
           "label": "Mehr Infos",
           "href": "#february"
@@ -487,7 +487,7 @@
     ]
   },
   "retreatsSection": {
-    "label": "Nächste Retreats: 12.-18.01.26 in Hikkaduwa (ab 1300 Euro) | 02.-08.02.26 in Ahangama (ab 1390 Euro)",
+    "label": "Nächste Retreats: 23.-29.01.27 in Hikkaduwa (ab 1300 Euro) | 13.-19.02.27 in Hikkaduwa (ab 1390 Euro)",
     "heading": "Willkommen an einem Ort, an dem die Zeit langsamer wird.",
     "retreats": [
       {
@@ -495,7 +495,7 @@
         "layout": "left",
         "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel.",
         "intro": "Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.",
-        "date": "12.–18. Januar 2026 in Hikkaduwa",
+        "date": "23.–29. Januar 2026 in Hikkaduwa",
         "cta": {
           "label": "Jetzt buchen",
           "href": "#kontakt"
@@ -534,16 +534,16 @@
         "id": "january"
       },
       {
-        "locationInfo": "Ahangama liegt an der Südküste Sri Lankas – ein Ort, der in den letzten Jahren zu einem echten Lieblingsspot für Yogis, Surfer und Reisende geworden ist.Hier trifft lässiger Surfspirit auf tropische Ruhe: kleine Cafés, Boutiquen und liebevoll gestaltete Unterkünfte zwischen Palmen und Meer.Ob du morgens am Meer spazieren gehst oder den Tag mit einem Sprung in die Wellen beendest - Ahangama verbindet das Beste aus beidem: Energie und Entspannung, Bewegung und Leichtigkeit.\nEin Ort, der sich schnell wie ein Zuhause anfühlt – und den du so schnell nicht wieder vergisst.",
+        "locationInfo": "Hikkaduwa liegt an der Südwestküste Sri Lankas, etwa zwei Stunden von der Hauptstadt Colombo entfernt – ein Ort, an dem das Leben im Rhythmus der Wellen pulsiert.\nBekannt für sein Korallenriff und die Meeresschildkröten, die hier regelmäßig vorbeischauen, ist Hikkaduwa perfekt zum Schwimmen, Schnorcheln oder einfach für lange Spaziergänge am Strand.\nTagsüber Sonne, Salz und Surfvibes, abends bunte Sonnenuntergänge und kleine Cafés direkt am Wasser – Hikkaduwa ist lebendig, aber entspannt.\nEin Ort, an dem du dich treiben lassen kannst – zwischen Ozean, Kultur und ganz viel Leichtigkeit.",
         "layout": "right",
-        "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und traditionelles Töpfern in einem traditionellen singahelischen Handwerksbetrieb).",
-        "intro": "Ahangama ist DER neue Surfspot an der Südküste. Du findest hier wunderschöne Sandstrände, hippe Cafés und tolle Natur.\nUnsere Unterkunft, eine Villa im Kolonialstil, bietet gemütliche Zimmer, einen Pool und einen tropischen Garten.\nNur wenige Gehminuten vom Strand entfernt, lädt die Mittagspause zum Baden und Sonne tanken ein.\nHier darfst du ankommen – fern von allem, nah bei dir.",
-        "date": "2.–8. Februar 2026 in Ahangama",
+        "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootstour, Tempfelbesuch)",
+        "intro": "Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.\n",
+        "date": "13.–19. Februar 2027 in Hikkaduwa",
         "cta": {
           "label": "Jetzt buchen",
           "href": "#kontakt"
         },
-        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten ( Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen Boutique-Hotel Unrushed in Ahangama.\n\nPreise für die Unterkunft Unrushed\n\nEinzelzimmer: allein / Doppelbett geteilt 520 / 340 Euro\nDreier Zimmer: großes Bett alleine/geteilt 440 / 290 Euro\nDreier Zimmer: kleines Bett 380 Euro",
+        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten ( Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen Monara in Hikkaduwa\n\nPreise für die Unterkunft \n\nEinzelzimmer: allein / Doppelbett geteilt 520 / 340 Euro\nDreier Zimmer: großes Bett alleine/geteilt 440 / 290 Euro\nDreier Zimmer: kleines Bett 380 Euro",
         "carouselImages": [
           {
             "src": "/uploads/Ahangama01.webp",
@@ -589,7 +589,7 @@
         "id": "february"
       }
     ],
-    "introParagraph": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - im Januar in Hikkaduwa oder im Feburar in Ahangama.\n          In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\n          Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein. Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen. Für eine Auszeit in der Ferne, die nachhaltig bewegt."
+    "introParagraph": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - eine Woche im tollen Strandort Hikkaduwa an der Westküste, genau zur besten Reisezeit: im Januar und Februar.\n          In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\n          Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein. Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen. Für eine Auszeit in der Ferne, die nachhaltig bewegt."
   },
   "hostsSection": {
     "image": "/uploads/hosts-carmen-mareen.jpg",
