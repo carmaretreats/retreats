@@ -10,13 +10,13 @@
         "label": "Retreat auswählen",
         "options": {
           "january": "Hikkaduwa im Januar",
-          "february": "Ahangama im Februar"
+          "february": "Hikkaduwa im Februar"
         }
       },
       "accommodation": {
         "type": "radio-group",
         "label": "Unterkunft auswählen",
-        "optionsDynamic": true
+        "optionsDynamic": false
       },
       "name": {
         "type": "text",
@@ -142,20 +142,22 @@
       "month": "Januar",
       "location": "Hikkaduwa",
       "accommodationOptions": [
-        "Einzelzimmer – 500 €",
+        "Einzelzimmer – 750 €/ 650 €",
+        "550  €",
         "Doppelbett im Dreibettzimmer – 350 €",
         "Stockbetten im Dreibettzimmer – 200 €"
       ]
     },
     {
       "id": "february",
-      "title": "Ahangama Februar",
+      "title": "Hikkaduwa Februar",
       "month": "Februar",
-      "location": "Ahangama",
+      "location": "Hikkaduwa",
       "accommodationOptions": [
-        "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
-        "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
-        "Dreierzimmer kleines Bett – 380 €"
+        "Einzelzimmer – 750 €/ 650 €",
+        "550  €",
+        "Doppelbett im Dreibettzimmer – 350 €",
+        "Stockbetten im Dreibettzimmer – 200 €"
       ]
     }
   ],
@@ -253,8 +255,8 @@
         "title": "Hikkaduwa Januar",
         "priceOptions": [
           {
-            "description": "Einzelzimmer",
-            "price": "500 €"
+            "description": "Einzelzimmer je nach Kategorie ",
+            "price": "Premium 750 €, Deluxe 650 €, Standard 550 €"
           },
           {
             "description": "Doppelbett im Dreibettzimmer",
@@ -307,11 +309,11 @@
       },
       {
         "id": "february",
-        "title": "Ahangama Februar",
+        "title": "Hikkaduwa Februar",
         "priceOptions": [
           {
-            "description": "Einzelzimmer allein/Doppelbett geteilt",
-            "price": "520 / 340 €"
+            "description": "Einzelzimmer je nach Kategorie ",
+            "price": "Premium 750 €, Deluxe 650 €, Standard 550 €"
           },
           {
             "description": "Dreier Zimmer: großes Bett alleine/geteilt",
@@ -333,44 +335,16 @@
         },
         "carouselImages": [
           {
-            "src": "/uploads/Ahangama04.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 4"
+            "src": "/uploads/Hikkaduwa01.webp",
+            "alt": "Bed Sri Lanka"
           },
           {
-            "src": "/uploads/Ahangama02.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 1"
+            "src": "/uploads/monara-balcony-1-.jpg",
+            "alt": "Balcony Sri Lanka retreats"
           },
           {
-            "src": "/uploads/Ahangama01.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 2"
-          },
-          {
-            "src": "/uploads/Ahangama03.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 3"
-          },
-          {
-            "src": "/uploads/Ahangama06.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 5"
-          },
-          {
-            "src": "/uploads/Ahangama09.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 6"
-          },
-          {
-            "src": "/uploads/Ahangama11.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 7"
-          },
-          {
-            "src": "/uploads/Ahangama12.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 8"
-          },
-          {
-            "src": "/uploads/Ahangama13.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 9"
-          },
-          {
-            "src": "/uploads/Ahangama14.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 10"
+            "src": "/uploads/monara-3bett.jpeg",
+            "alt": "Triple Room Sri lanka"
           }
         ]
       }
