@@ -10,13 +10,13 @@
         "label": "Retreat auswählen",
         "options": {
           "january": "Hikkaduwa im Januar",
-          "february": "Ahangama im Februar"
+          "february": "Hikkaduwa im Februar"
         }
       },
       "accommodation": {
         "type": "radio-group",
         "label": "Unterkunft auswählen",
-        "optionsDynamic": true
+        "optionsDynamic": false
       },
       "name": {
         "type": "text",
@@ -142,20 +142,22 @@
       "month": "Januar",
       "location": "Hikkaduwa",
       "accommodationOptions": [
-        "Einzelzimmer – 500 €",
+        "Einzelzimmer – 750 €/ 650 €",
+        "550  €",
         "Doppelbett im Dreibettzimmer – 350 €",
         "Stockbetten im Dreibettzimmer – 200 €"
       ]
     },
     {
       "id": "february",
-      "title": "Ahangama Februar",
+      "title": "Hikkaduwa Februar",
       "month": "Februar",
-      "location": "Ahangama",
+      "location": "Hikkaduwa",
       "accommodationOptions": [
-        "Einzelzimmer allein/Doppelbett geteilt – 520 / 340 €",
-        "Dreier Zimmer: großes Bett alleine/geteilt – 440 / 290 €",
-        "Dreierzimmer kleines Bett – 380 €"
+        "Einzelzimmer – 750 €/ 650 €",
+        "550  €",
+        "Doppelbett im Dreibettzimmer – 350 €",
+        "Stockbetten im Dreibettzimmer – 200 €"
       ]
     }
   ],
@@ -253,8 +255,8 @@
         "title": "Hikkaduwa Januar",
         "priceOptions": [
           {
-            "description": "Einzelzimmer",
-            "price": "500 €"
+            "description": "Einzelzimmer je nach Kategorie ",
+            "price": "Premium 750 €, Deluxe 650 €, Standard 550 €"
           },
           {
             "description": "Doppelbett im Dreibettzimmer",
@@ -307,11 +309,11 @@
       },
       {
         "id": "february",
-        "title": "Ahangama Februar",
+        "title": "Hikkaduwa Februar",
         "priceOptions": [
           {
-            "description": "Einzelzimmer allein/Doppelbett geteilt",
-            "price": "520 / 340 €"
+            "description": "Einzelzimmer je nach Kategorie ",
+            "price": "Premium 750 €, Deluxe 650 €, Standard 550 €"
           },
           {
             "description": "Dreier Zimmer: großes Bett alleine/geteilt",
@@ -333,44 +335,16 @@
         },
         "carouselImages": [
           {
-            "src": "/uploads/Ahangama04.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 4"
+            "src": "/uploads/Hikkaduwa01.webp",
+            "alt": "Bed Sri Lanka"
           },
           {
-            "src": "/uploads/Ahangama02.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 1"
+            "src": "/uploads/monara-balcony-1-.jpg",
+            "alt": "Balcony Sri Lanka retreats"
           },
           {
-            "src": "/uploads/Ahangama01.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 2"
-          },
-          {
-            "src": "/uploads/Ahangama03.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 3"
-          },
-          {
-            "src": "/uploads/Ahangama06.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 5"
-          },
-          {
-            "src": "/uploads/Ahangama09.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 6"
-          },
-          {
-            "src": "/uploads/Ahangama11.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 7"
-          },
-          {
-            "src": "/uploads/Ahangama12.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 8"
-          },
-          {
-            "src": "/uploads/Ahangama13.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 9"
-          },
-          {
-            "src": "/uploads/Ahangama14.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 10"
+            "src": "/uploads/monara-3bett.jpeg",
+            "alt": "Triple Room Sri lanka"
           }
         ]
       }
@@ -495,12 +469,12 @@
         "layout": "left",
         "includedInfo": "Die Retreatgebühr beinhaltet 2 Yogaklassen pro Tag - morgens eine dynamische Flowklasse, abends eine ruhige, erdende Yin-oder Restorativklasse, sowie tägliche angeleitete Meditations-und Pranayamasessions. Zusätzlich sind zwei Ausflüge in die faszinierende Kultur Sri Lankas enthalten (Kochkurs und Bootsfahrt) sowie ein Ausflug in den buddhistischen Tempel.",
         "intro": "Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.",
-        "date": "23.–29. Januar 2026 in Hikkaduwa",
+        "date": "23.–29. Januar 2027 in Hikkaduwa",
         "cta": {
           "label": "Jetzt buchen",
           "href": "#kontakt"
         },
-        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen:\n\nEinzelzimmer 500 Euro\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
+        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen pro Woche \n\nEinzelzimmer Premium (1.OG) 750 Euro\nEinzelzimmer Deluxe (1.OG) 650 Euro)\nEinzelzimmer Standard (EG)  550 Euro)\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
         "carouselImages": [
           {
             "src": "/uploads/Hikkaduwa02.webp",
@@ -543,47 +517,23 @@
           "label": "Jetzt buchen",
           "href": "#kontakt"
         },
-        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten ( Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen Monara in Hikkaduwa\n\nPreise für die Unterkunft \n\nEinzelzimmer: allein / Doppelbett geteilt 520 / 340 Euro\nDreier Zimmer: großes Bett alleine/geteilt 440 / 290 Euro\nDreier Zimmer: kleines Bett 380 Euro",
+        "priceInfo": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch& Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.\n\nHier die Zimmerkategorien mit Preisen pro Woche \n\nEinzelzimmer Premium (1.OG) 750 Euro\nEinzelzimmer Deluxe (1.OG) 650 Euro)\nEinzelzimmer Standard (EG)  550 Euro)\nDoppelbett im Dreibettzimmer 350 Euro\nStockbett im Dreibettzimmer 200 Euro",
         "carouselImages": [
           {
-            "src": "/uploads/Ahangama01.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 1"
+            "src": "/uploads/Hikkaduwa07.webp",
+            "alt": "Retreat Center from above"
           },
           {
-            "src": "/uploads/Ahangama02.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 2"
+            "src": "/uploads/Hikkaduwa01.webp",
+            "alt": "bed in retreat center"
           },
           {
-            "src": "/uploads/Ahangama03.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 3"
+            "src": "/uploads/monara-3-bett-2.jpeg",
+            "alt": "Bathroom in tropical retreat center"
           },
           {
-            "src": "/uploads/Ahangama04.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 4"
-          },
-          {
-            "src": "/uploads/Ahangama06.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 5"
-          },
-          {
-            "src": "/uploads/Ahangama09.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 6"
-          },
-          {
-            "src": "/uploads/Ahangama11.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 7"
-          },
-          {
-            "src": "/uploads/Ahangama12.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 8"
-          },
-          {
-            "src": "/uploads/Ahangama13.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 9"
-          },
-          {
-            "src": "/uploads/Ahangama14.webp",
-            "alt": "Unterkunft in Ahangama, Ansicht 10"
+            "src": "/uploads/Hikkaduwa04.webp",
+            "alt": "Yogashala in Sri lanka"
           }
         ],
         "id": "february"
