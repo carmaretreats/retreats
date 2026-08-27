@@ -4,7 +4,15 @@ import '../styles/global.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const currentUrl = Astro.url;
+const canonicalUrl = new URL(
+  currentUrl.pathname.endsWith('/') ? currentUrl.pathname : `${currentUrl.pathname}/`,
+  Astro.site
+).href;
 const {
+  title = "Yoga Retreats Sri Lanka 2027 | Carma Retreats",
+  description = "Ankommen & Aufatmen - Yoga Retreats 2027 an Sri Lankas Südküste. Im Januar & Februar: Yoga, Kultur & Community unter tropischer Sonne.",
+  ogDescription = "Ankommen & Aufatmen – Yoga, Kultur & Community unter tropischer Sonne.",
+  canonical = canonicalUrl,
   noindex = false,
   nofollow = false,
   disableCMP = currentUrl.searchParams.has('nocmp'),
@@ -15,9 +23,9 @@ const {
   <head>
     <meta charset="UTF-8" />
     <SEO
-      title="Yoga Retreats Sri Lanka 2026 | Carma Retreats"
-      description="Ankommen & Aufatmen - Yoga Retreats 2026 an Sri Lankas Südküste. Im Januar & Februar: Yoga, Kultur & Community unter tropischer Sonne."
-      canonical="https://www.carma-retreats.com"
+      title={title}
+      description={description}
+      canonical={canonical}
       noindex={noindex}
       nofollow={nofollow}
       extend={{
@@ -29,8 +37,8 @@ const {
         ],
         meta: [{ name: "theme-color", content: "#2d241d" },
                 { property: "og:type", content: "website" },
-                { property: "og:title", content: "Yoga Retreats Sri Lanka 2026 | Carma Retreats" },
-                { property: "og:description", content: "Ankommen & Aufatmen – Yoga, Kultur & Community unter tropischer Sonne." },
+                { property: "og:title", content: title },
+                { property: "og:description", content: ogDescription },
                 { property: "og:url", content: "https://www.carma-retreats.com" },
                 { property: "og:image", content: "https://www.carma-retreats.com/images/og-preview.jpg" },
                 { property: "og:locale", content: "de_DE" },
