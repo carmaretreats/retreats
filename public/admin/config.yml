@@ -87,7 +87,7 @@ collections:
             fields:
               - { label: "Section Label", name: "label", widget: "string" }
               - { label: "Heading", name: "heading", widget: "string" }
-              - label: "Intro Paragraph (Desktop/Tablet only)"
+              - label: "Intro Paragraph"
                 name: "introParagraph"
                 widget: "text"
                 required: false
