@@ -657,6 +657,7 @@ p {
   z-index: -1;
   pointer-events: none;
   background: var(--paper) url("../img/paper.jpg") center / cover no-repeat;
+  opacity: 0.4;
 }
 
 
