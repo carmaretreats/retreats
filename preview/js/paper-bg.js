@@ -19,9 +19,9 @@ if (host) {
     paperTextureFragmentShader,
     {
       u_image: blank,
-      u_colorFront: getShaderColorFromString("#e6ddd0"),
+      u_colorFront: getShaderColorFromString("#e0d7c9"),
       u_colorBack: getShaderColorFromString("#ffffff"),
-      u_contrast: 0.35,
+      u_contrast: 0.42,
       u_roughness: 0.45,
       u_fiber: 0.4,
       u_fiberSize: 0.2,
