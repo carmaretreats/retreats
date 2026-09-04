@@ -10,14 +10,15 @@
 <link rel="stylesheet" href="css/base.css">
 <style>
   .hero .bg.mobile { display: none; }
-  .ort .intro { align-items: end; }
-  .ort.section { padding-top: 56px; }
-  .ort .stats .num { font-size: 36px; }
-  .ort .cluster { display: grid; grid-template-columns: 2fr 1fr; gap: 20px; margin: 32px 0; height: clamp(200px, 19vw, 260px); }
-  .ort .cluster > * { min-height: 0; min-width: 0; }
-  .ort .cluster > img { width: 100%; height: 100%; object-fit: cover; }
-  .ort .side { display: grid; grid-template-rows: 1fr 1fr; gap: 20px; }
-  .ort .side img { width: 100%; height: 100%; min-height: 0; object-fit: cover; }
+  .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+  .ort-img { position: relative; overflow: hidden; background: var(--ink); }
+  .ort-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .ort-img::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0) 35%, rgba(53,42,31,0.6) 100%); }
+  .ort-img .over { position: absolute; left: var(--gutter); right: 40px; bottom: 56px; z-index: 2; gap: 20px; }
+  .ort-img .num { color: var(--creme); font-size: 36px; }
+  .ort-text { padding: 48px var(--gutter) 40px clamp(32px, 4vw, 64px); justify-content: center; gap: 24px; }
+  .ort .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .ort .pair img { width: 100%; aspect-ratio: 16 / 10; object-fit: cover; }
   .ort .dates .row { align-items: center; }
   .ort .dates .row div { display: flex; flex-direction: column; gap: 2px; }
   .roomlist .row { align-items: center; gap: 20px; }
@@ -83,10 +84,10 @@
     .modal .option .txt { flex: 1 1 60%; }
     .modal .option .price { flex-basis: 100%; padding-left: 30px; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
-    .ort .cluster { grid-template-columns: 1fr; gap: 12px; margin: 32px 0; height: auto; }
-    .ort .cluster > img { aspect-ratio: 4 / 3; }
-    .ort .side { grid-template-rows: none; grid-template-columns: 1fr 1fr; gap: 12px; }
-    .ort .side img { aspect-ratio: 4 / 3; }
+    .ort { grid-template-columns: 1fr; min-height: 0; }
+    .ort-img { min-height: 78vh; }
+    .ort-img .over { right: 24px; bottom: 32px; }
+    .ort-text { padding: 40px 24px 0; }
     .expect .pics { order: -1; gap: 12px; }
     .expect .pics img:last-child { margin-top: 32px; }
   }
@@ -144,24 +145,22 @@
   <div class="pics"><img src="img/C12.jpg" alt="Die Shala am Morgen"><img src="img/8829.jpg" alt="Carmen korrigiert eine Teilnehmerin"></div>
 </section>
 
-<section class="section container ort reveal" id="retreats">
-  <div class="split top intro">
-    <div class="stack">
+<section class="ort reveal" id="retreats">
+  <div class="ort-img on-image">
+    <img src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
+    <div class="over stack">
       <span class="label">Nächste Retreats · Hikkaduwa</span>
       <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+      <div class="stats">
+        <div><span class="num">5</span><span class="label">min zum Strand</span></div>
+        <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
+        <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+      </div>
     </div>
+  </div>
+  <div class="ort-text stack">
     <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.</p>
-  </div>
-  <div class="cluster">
-    <img src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
-    <div class="side"><img src="img/Hikkaduwa04.webp" alt=""><img src="img/monara-rest.jpg" alt=""></div>
-  </div>
-  <div class="split top">
-    <div class="stats">
-      <div><span class="num">5</span><span class="label">min zum Strand</span></div>
-      <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
-      <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
-    </div>
+    <div class="pair"><img src="img/Hikkaduwa04.webp" alt=""><img src="img/monara-rest.jpg" alt=""></div>
     <div class="rows dates">
       <div class="row strong between"><div><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span></div><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
       <div class="row between"><div><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span></div><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
