@@ -659,6 +659,12 @@ p {
   background: var(--paper);
 }
 
+/* the shader mount rewrites its host's position/z-index, so it lives one level below the fixed layer */
+.paper-bg-mount {
+  position: absolute;
+  inset: 0;
+}
+
 /* booking modal */
 .modal {
   border: 0;

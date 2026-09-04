@@ -3,21 +3,27 @@ import {
   paperTextureFragmentShader,
   getShaderColorFromString,
   getShaderNoiseTexture,
+  emptyPixel,
 } from "https://cdn.jsdelivr.net/npm/@paper-design/shaders@0.0.80/+esm";
 
-const host = document.querySelector(".paper-bg");
-const noise = getShaderNoiseTexture();
-if (host && !noise.complete) await new Promise((r) => (noise.onload = r));
+const host = document.querySelector(".paper-bg-mount");
 if (host) {
-  new ShaderMount(
+  // the paper-texture shader only draws once an image uniform is bound, so feed it a transparent pixel
+  const blank = new Image();
+  blank.src = emptyPixel;
+  const noise = getShaderNoiseTexture();
+  await Promise.all([blank.decode(), noise.complete ? null : new Promise((r) => (noise.onload = r))]);
+
+  window.__paperShader = new ShaderMount(
     host,
     paperTextureFragmentShader,
     {
-      u_colorFront: getShaderColorFromString("#e9e1d6"),
+      u_image: blank,
+      u_colorFront: getShaderColorFromString("#e6ddd0"),
       u_colorBack: getShaderColorFromString("#ffffff"),
-      u_contrast: 0.22,
-      u_roughness: 0.3,
-      u_fiber: 0.3,
+      u_contrast: 0.35,
+      u_roughness: 0.45,
+      u_fiber: 0.4,
       u_fiberSize: 0.2,
       u_crumples: 0.12,
       u_crumpleSize: 0.35,
