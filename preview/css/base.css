@@ -9,6 +9,7 @@
 :root {
   --creme: #fff8ee;
   --creme-2: #fffdf8;
+  --paper: #ffffff;
   --terra: #9a4736;
   --orange: #e05830;
   --ink: #352a1f;
@@ -18,7 +19,7 @@
   --label: "Sora", system-ui, sans-serif;
   --serif: "PP Editorial Old", Georgia, serif;
   --gutter: clamp(24px, 4vw, 56px);
-  --section: clamp(80px, 11vw, 160px);
+  --section: clamp(72px, 9vw, 128px);
 }
 
 *,
@@ -33,11 +34,11 @@ html {
 
 body {
   margin: 0;
-  background: var(--creme);
+  background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
-  font-size: 18px;
-  line-height: 30px;
+  font-size: 17px;
+  line-height: 27px;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -60,10 +61,11 @@ p {
 .h1 {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: clamp(40px, 4.5vw, 64px);
-  line-height: 1.12;
+  font-size: clamp(30px, 3.1vw, 46px);
+  line-height: 1.06;
   margin: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.015em;
+  max-width: 18em;
 }
 
 .h1 em {
@@ -96,9 +98,9 @@ p {
 }
 
 .body {
-  font-size: 18px;
-  line-height: 30px;
-  max-width: 560px;
+  font-size: 17px;
+  line-height: 27px;
+  max-width: 520px;
 }
 
 .muted {
@@ -128,7 +130,7 @@ p {
 .num {
   font-family: var(--sans);
   font-weight: 300;
-  font-size: clamp(40px, 4.5vw, 64px);
+  font-size: clamp(30px, 3.1vw, 46px);
   line-height: 1;
 }
 
@@ -150,7 +152,7 @@ p {
 .stack {
   display: flex;
   flex-direction: column;
-  gap: 32px;
+  gap: 24px;
 }
 
 .split {
@@ -179,7 +181,7 @@ p {
 .row {
   display: flex;
   gap: 24px;
-  padding: 16px 0;
+  padding: 13px 0;
   border-top: 1px solid var(--line);
 }
 
@@ -606,6 +608,10 @@ p {
   .site-header .wordmark {
     font-size: 26px;
   }
+  .h1,
+  .num {
+    font-size: 30px;
+  }
   .symbol {
     width: 64px;
     top: 84px;
@@ -642,4 +648,191 @@ p {
     flex-direction: column;
     align-items: flex-start;
   }
+}
+
+/* paper shader background */
+.paper-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background: var(--paper);
+}
+
+/* booking modal */
+.modal {
+  border: 0;
+  padding: 0;
+  width: min(720px, calc(100vw - 32px));
+  max-height: calc(100vh - 32px);
+  background: var(--paper);
+  color: var(--ink);
+  overflow: auto;
+}
+
+.modal::backdrop {
+  background: rgba(53, 42, 31, 0.55);
+}
+
+.modal .inner {
+  padding: 48px clamp(24px, 5vw, 64px) 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.modal .head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.modal .close {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  font-family: var(--label);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.modal .steps {
+  display: flex;
+  gap: 28px;
+  font-family: var(--label);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(53, 42, 31, 0.4);
+}
+
+.modal .steps span.on {
+  color: var(--terra);
+}
+
+.modal .steps span.done {
+  color: var(--ink);
+}
+
+.modal .panel {
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.modal .panel.on {
+  display: flex;
+}
+
+.modal .options {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal .option {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-top: 1px solid var(--line);
+  cursor: pointer;
+}
+
+.modal .option:last-child {
+  border-bottom: 1px solid var(--line);
+}
+
+.modal .option input {
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid var(--ink);
+  margin: 0;
+  flex: 0 0 14px;
+}
+
+.modal .option input:checked {
+  background: var(--orange);
+  border-color: var(--orange);
+}
+
+.modal .option img {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  flex: 0 0 56px;
+}
+
+.modal .option .txt {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.modal .option .price {
+  white-space: nowrap;
+  color: var(--terra);
+}
+
+.modal .nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 24px;
+}
+
+.modal .btn {
+  background: none;
+  border: 0;
+  border-bottom: 1.5px solid var(--orange);
+  padding: 0 0 4px;
+  cursor: pointer;
+  font-family: var(--label);
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.modal .btn.back {
+  border-bottom-color: transparent;
+  color: rgba(53, 42, 31, 0.55);
+}
+
+.modal .summary {
+  display: flex;
+  flex-direction: column;
+}
+
+.modal .summary div {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+}
+
+.modal .summary div:last-child {
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.modal .thanks {
+  display: none;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.modal.sent .panel,
+.modal.sent .steps,
+.modal.sent .nav {
+  display: none;
+}
+
+.modal.sent .thanks {
+  display: flex;
 }
