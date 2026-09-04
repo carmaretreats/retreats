@@ -650,20 +650,16 @@ p {
   }
 }
 
-/* paper shader background */
+/* paper texture, rendered once with Paper Shaders (paper-texture) and shipped as an image */
 .paper-bg {
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: var(--paper);
+  background: var(--paper) url("../img/paper.jpg") center / cover no-repeat;
 }
 
-/* the shader mount rewrites its host's position/z-index, so it lives one level below the fixed layer */
-.paper-bg-mount {
-  position: absolute;
-  inset: 0;
-}
+
 
 /* booking modal */
 .modal {
