@@ -30,7 +30,14 @@
   .day .cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6.6vw, 96px); }
   .day .row { flex-wrap: nowrap; }
   .day .row div span { display: block; }
-  .expect .row .k { flex-basis: 220px; }
+  .expect .items { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
+  .expect .item { display: flex; gap: 14px; align-items: flex-start; }
+  .expect .item .n { flex: 0 0 24px; padding-top: 7px; }
+  .expect .item div { display: flex; flex-direction: column; }
+  .expect .item .muted { font-size: 15px; line-height: 22px; }
+  .expect .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
+  .expect .pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .expect .pics img:last-child { margin-top: 72px; }
   .hosts .thumbs { display: flex; gap: 16px; }
   .hosts .thumbs img { width: 33%; aspect-ratio: 1; object-fit: cover; }
   .dates .row { align-items: center; justify-content: space-between; padding: 22px 0; }
@@ -68,8 +75,9 @@
     .modal .option img { display: none; }
     .modal .option .txt { flex: 1 1 60%; }
     .modal .option .price { flex-basis: 100%; padding-left: 30px; }
-    .expect .row { flex-direction: column; gap: 2px; }
-    .expect .row .muted { display: none; }
+    .expect .items { grid-template-columns: 1fr; gap: 16px; }
+    .expect .pics { order: -1; gap: 12px; }
+    .expect .pics img:last-child { margin-top: 32px; }
   }
 </style>
 </head>
@@ -107,22 +115,22 @@
   <div class="media"><img src="img/8870.jpg" alt="Räucherstäbchen im Morgenlicht"></div>
 </section>
 
-<section class="section container split expect reveal">
-  <div class="media"><img src="img/C12.jpg" alt="Carmen korrigiert eine Teilnehmerin in der Shala"></div>
+<section class="section container split top expect reveal">
   <div class="stack">
     <span class="label">Culture, Community, Connection</span>
     <h2 class="h1">Was dich <em>erwartet:</em></h2>
-    <div class="rows">
-      <div class="row"><span class="k">Tägliche Yogaklassen</span><span class="muted">Morgens ganz Yang, abends Yin.</span></div>
-      <div class="row"><span class="k">Meditation & Pranayama</span><span class="muted">Slow down. Mit jedem Atemzug ein Stück näher bei dir.</span></div>
-      <div class="row"><span class="k">Wohlfühlort</span><span class="muted">Boutique-Hotel in Strandnähe mit Pool und Garten.</span></div>
-      <div class="row"><span class="k">Lokale Kultur erleben</span><span class="muted">Echte Begegnungen. Kochkurs, Töpferkurs.</span></div>
-      <div class="row"><span class="k">Community Vibes</span><span class="muted">Komm allein, geh mit Freunden fürs Leben.</span></div>
-      <div class="row"><span class="k">Soulfood</span><span class="muted">Täglich Brunch und Dinner in der Gruppe.</span></div>
-      <div class="row"><span class="k">Zeit für Dich</span><span class="muted">Ayurvedische Massage, Strand oder Surfen.</span></div>
+    <div class="items">
+      <div class="item"><span class="n label">01</span><div><span>Tägliche Yogaklassen</span><span class="muted">Morgens ganz Yang, abends Yin.</span></div></div>
+      <div class="item"><span class="n label">02</span><div><span>Meditation & Pranayama</span><span class="muted">Slow down. Mit jedem Atemzug ein Stück näher bei dir.</span></div></div>
+      <div class="item"><span class="n label">03</span><div><span>Wohlfühlort</span><span class="muted">Boutique-Hotel in Strandnähe mit Pool und Garten.</span></div></div>
+      <div class="item"><span class="n label">04</span><div><span>Lokale Kultur erleben</span><span class="muted">Echte Begegnungen. Kochkurs, Töpferkurs.</span></div></div>
+      <div class="item"><span class="n label">05</span><div><span>Community Vibes</span><span class="muted">Komm allein, geh mit Freunden fürs Leben.</span></div></div>
+      <div class="item"><span class="n label">06</span><div><span>Soulfood</span><span class="muted">Täglich Brunch und Dinner in der Gruppe.</span></div></div>
+      <div class="item"><span class="n label">07</span><div><span>Zeit für Dich</span><span class="muted">Ayurvedische Massage, Strand oder Surfen.</span></div></div>
     </div>
     <a class="link" href="#retreats">Mehr erfahren</a>
   </div>
+  <div class="pics"><img src="img/C12.jpg" alt="Die Shala am Morgen"><img src="img/8829.jpg" alt="Carmen korrigiert eine Teilnehmerin"></div>
 </section>
 
 <section class="section container split top text-first ort reveal" id="retreats">
