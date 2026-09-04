@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carma Retreats · Layout-Vorschau</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(64px, 10vw, 140px) var(--gutter); }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+  .card { display: flex; flex-direction: column; gap: 16px; }
+  .card .thumb { aspect-ratio: 3 / 4; overflow: hidden; background: var(--ink); position: relative; }
+  .card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
+  .card:hover .thumb img { transform: scale(1.04); }
+  .card .thumb .tag { position: absolute; left: 20px; top: 20px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--creme); }
+  .card h2 { margin: 0; font-weight: 300; font-size: 28px; line-height: 1.2; }
+  .card p { opacity: 0.75; font-size: 16px; line-height: 26px; }
+  .note { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); max-width: 640px; opacity: 0.75; font-size: 16px; line-height: 26px; }
+  @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <span class="label">Carma Retreats · Layout-Vorschau</span>
+  <h1 class="h1" style="margin-top:24px">Drei Richtungen für die neue <em>Website.</em></h1>
+  <p class="body" style="margin-top:32px">Alle drei nutzen die aktuellen Texte, das Brand Book und die neuen Fotos. Layout A ist im Detail ausgearbeitet, inklusive Handy-Ansicht. B und C zeigen die Richtung. Am besten am Laptop anschauen, für die Handy-Ansicht einfach das Fenster schmal ziehen oder auf dem Handy öffnen.</p>
+
+  <div class="cards">
+    <a class="card" href="a.html">
+      <div class="thumb"><img src="img/C10.jpg" alt=""><span class="tag">Layout A · ausgearbeitet</span></div>
+      <h2>Links, rechts, Bild, Text.</h2>
+      <p>Fullscreen-Video oben, danach der vertraute Wechsel aus Bild und Text. Grosse Bildflächen beim Tagesablauf und der Community.</p>
+      <span class="link">Ansehen</span>
+    </a>
+    <a class="card" href="b.html">
+      <div class="thumb"><img src="img/C12.jpg" alt=""><span class="tag">Layout B · Richtung</span></div>
+      <h2>Eine Reise in sechs Kapiteln.</h2>
+      <p>Jede Sektion füllt den Bildschirm: halb Bild, halb Text, mit Kapitelnavigation. Ruhig und geführt.</p>
+      <span class="link">Ansehen</span>
+    </a>
+    <a class="card" href="c.html">
+      <div class="thumb"><img src="img/C13.jpg" alt=""><span class="tag">Layout C · Richtung</span></div>
+      <h2>Zentriert, mit viel Luft.</h2>
+      <p>Alles mittig, kurze Texte, dazwischen Bildpaare. Am nächsten an einem Magazin.</p>
+      <span class="link">Ansehen</span>
+    </a>
+  </div>
+
+  <p class="note">Hinweis: Im Hero läuft später das Video automatisch. Bis das Querformat-Video da ist, steht ein Standbild mit langsamer Bewegung an seiner Stelle. Formular und Newsletter sind in der Vorschau noch nicht angebunden.</p>
+</div>
+</body>
+</html>

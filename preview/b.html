@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carma Retreats · Layout B</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<style>
+  .hero .copy { flex-direction: column; align-items: center; text-align: center; bottom: 120px; }
+  .chapters { position: absolute; left: 0; right: 0; bottom: 40px; z-index: 2; display: flex; justify-content: center; gap: 48px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--creme); }
+  .chapters span:first-child { color: var(--orange); }
+  .chapter { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
+  .chapter .media img { width: 100%; height: 100%; object-fit: cover; }
+  .chapter .text { padding: clamp(64px, 8vw, 120px) var(--gutter); display: flex; flex-direction: column; justify-content: center; gap: 32px; }
+  .chapter.flip .media { order: 2; }
+  .row .n { flex: 0 0 40px; color: var(--terra); font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; padding-top: 8px; }
+  .stats { display: flex; gap: clamp(24px, 4vw, 56px); }
+  .stats div { display: flex; flex-direction: column; gap: 6px; }
+  .thumbs { display: flex; gap: 16px; }
+  .thumbs img { width: 33%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .dates .row { justify-content: space-between; align-items: center; padding: 20px 0; }
+  @media (max-width: 860px) {
+    .chapters { display: none; }
+    .hero .copy { bottom: 56px; }
+    .chapter { grid-template-columns: 1fr; min-height: 0; }
+    .chapter .media { order: 0 !important; height: 60vw; }
+    .chapter.flip .media { order: 0; }
+    .two { grid-template-columns: 1fr; }
+    .thumbs { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <nav><span class="m-only">Menü</span><span><a href="#k2">Retreats</a></span><span><a href="#k4">Unterkunft</a></span></nav>
+  <a class="wordmark" href="#">CARMA</a>
+  <nav class="right"><span><a href="#k3">Tagesablauf</a></span><span><a href="#k5">Über uns</a></span><span class="m-only"><a href="#kontakt">Buchen</a></span></nav>
+</header>
+<img class="symbol" src="img/Markenzeichen-Weis.png" alt="">
+
+<section class="hero on-image">
+  <img class="bg" src="img/C12.jpg" alt="" style="object-position:center 45%">
+  <div class="copy">
+    <div class="stack" style="align-items:center;gap:24px">
+      <h1 class="h1">Ankommen und <em>Aufatmen.</em></h1>
+      <span class="label">Yoga-retreats, die nachhaltig bewegen.</span>
+    </div>
+  </div>
+  <div class="chapters"><span>01 Stell dir vor</span><span>02 Retreats</span><span>03 Ein Tag</span><span>04 Unterkunft</span><span>05 Hosts</span><span>06 Fragen</span></div>
+</section>
+
+<section class="chapter reveal" id="k1">
+  <div class="media"><img src="img/8870.jpg" alt=""></div>
+  <div class="text">
+    <span class="label">01 — Stell dir vor...</span>
+    <h2 class="h1">Ein sanftes Rascheln von <em>Palmenblättern</em> trägt dich in den Morgen.</h2>
+    <p class="body">Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.</p>
+    <a class="link" href="#k6">Jetzt anfragen</a>
+  </div>
+</section>
+
+<section class="chapter flip reveal">
+  <div class="media"><img src="img/C21.jpg" alt=""></div>
+  <div class="text">
+    <span class="label">Culture, Community, Connection</span>
+    <h2 class="h1">Was dich <em>erwartet:</em></h2>
+    <div class="rows">
+      <div class="row"><span class="n">01</span><span>Tägliche Yogaklassen. Morgens ganz Yang, abends Yin.</span></div>
+      <div class="row"><span class="n">02</span><span>Meditation & Pranayama. Mit jedem Atemzug ein Stück näher bei dir.</span></div>
+      <div class="row"><span class="n">03</span><span>Wohlfühlort. Boutique-Hotel in Strandnähe mit Pool und Garten.</span></div>
+      <div class="row"><span class="n">04</span><span>Lokale Kultur erleben. Kochkurs, Töpferkurs, echte Begegnungen.</span></div>
+      <div class="row"><span class="n">05</span><span>Community Vibes. Komm allein, geh mit Freunden fürs Leben.</span></div>
+      <div class="row"><span class="n">06</span><span>Soulfood. Täglich Brunch und Dinner in der Gruppe.</span></div>
+      <div class="row"><span class="n">07</span><span>Zeit für Dich. Massage, Strand oder Surfen lernen.</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter reveal" id="k2">
+  <div class="media"><img src="img/Hikkaduwa06.webp" alt=""></div>
+  <div class="text">
+    <span class="label">02 — Nächste Retreats · Hikkaduwa</span>
+    <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+    <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
+    <div class="rows dates">
+      <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#k6">Jetzt buchen</a></div>
+      <div class="row strong"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#k6">Jetzt buchen</a></div>
+    </div>
+    <div class="stats">
+      <div><span class="num">5</span><span class="label">min zum Strand</span></div>
+      <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
+      <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="chapter flip reveal" id="k3">
+  <div class="media"><img src="img/C13.jpg" alt=""></div>
+  <div class="text">
+    <span class="label">03 — Connection, Culture, Community.</span>
+    <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
+    <div class="two">
+      <div class="rows">
+        <div class="row"><span class="t" style="flex-basis:64px">7.30</span><span>Meditation und Pranayama</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">8.00</span><span>Ayurvedischer Morgentee</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">8.30</span><span>Morning Flow Yoga</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">10.30</span><span>Community Brunch</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">15.00</span><span>Fruchtplatte und Get-Together</span></div>
+      </div>
+      <div class="rows">
+        <div class="row"><span class="t" style="flex-basis:64px">16.00</span><span>Ausflug (2 Mal die Woche)</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">17.00</span><span>Abendpraxis</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">19.00</span><span>Abendessen</span></div>
+        <div class="row"><span class="t" style="flex-basis:64px">20.30</span><span>Ausklang in Stille</span></div>
+      </div>
+    </div>
+    <p class="body muted">Nachmittags Zeit zur freien Verfügung. Bewege dich im Rhythmus der Insel, nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten.</p>
+    <div class="thumbs"><img src="img/8888.jpg" alt=""><img src="img/8741.jpg" alt=""><img src="img/8976.jpg" alt=""></div>
+  </div>
+</section>
+
+<section class="chapter reveal" id="k4">
+  <div class="media"><img src="img/Hikkaduwa02.webp" alt=""></div>
+  <div class="text">
+    <span class="label">04 — Die Infos</span>
+    <h2 class="h1">Unterkunft & <em>Preise</em></h2>
+    <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft.</p>
+    <div class="rows">
+      <div class="row strong between"><span>Einzelzimmer Premium (1. OG)</span><span class="price">750 Euro</span></div>
+      <div class="row between"><span>Einzelzimmer Deluxe (1. OG)</span><span class="price">650 Euro</span></div>
+      <div class="row between"><span>Einzelzimmer Standard (EG)</span><span class="price">550 Euro</span></div>
+      <div class="row between"><span>Doppelbett im Dreibettzimmer</span><span class="price">350 Euro</span></div>
+      <div class="row between"><span>Stockbett im Dreibettzimmer</span><span class="price">200 Euro</span></div>
+      <div class="row between" style="color:var(--terra)"><span>plus Retreatgebühr pro Teilnehmer</span><span class="price">1100 Euro</span></div>
+    </div>
+    <div class="thumbs"><img src="img/monara-bed-1-.jpg" alt=""><img src="img/monara-balcony-1-.jpg" alt=""><img src="img/monara-rest.jpg" alt=""></div>
+  </div>
+</section>
+
+<section class="chapter flip reveal" id="k5">
+  <div class="media"><img src="img/8845.jpg" alt="" style="object-position:center 20%"></div>
+  <div class="text">
+    <span class="label">05 — Deine Hosts</span>
+    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+    <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt.</p>
+    <a class="link" href="a.html#carmen">Mehr über uns</a>
+    <div class="thumbs"><img src="img/8970.jpg" alt=""><img src="img/8656.jpg" alt=""><img src="img/8829.jpg" alt=""></div>
+  </div>
+</section>
+
+<section class="section container split top text-first reveal" id="k6">
+  <div class="stack">
+    <span class="label">06 — Retreat-Infos</span>
+    <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+    <div class="faq">
+      <details><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein.</p></details>
+      <details><summary>Was ist enthalten?</summary><p class="answer">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten.</p></details>
+      <details><summary>Finden die Retreats auf Deutsch statt?</summary><p class="answer">Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt.</p></details>
+      <details><summary>Ich reise allein – passt das trotzdem für mich?</summary><p class="answer">Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen.</p></details>
+      <details><summary>Wie komme ich am besten nach Sri Lanka?</summary><p class="answer">Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft.</p></details>
+      <details><summary>Wie groß sind die Gruppen?</summary><p class="answer">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen.</p></details>
+    </div>
+  </div>
+  <form class="stack" onsubmit="return false" style="gap:24px">
+    <h2 class="h1"><em>Buchungsanfrage</em></h2>
+    <p class="body">Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen. Wir freuen uns, von Dir zu hören.</p>
+    <div class="radios"><label><input type="radio" name="r" checked> Hikkaduwa im Januar</label><label><input type="radio" name="r"> Hikkaduwa im Februar</label></div>
+    <div class="two">
+      <label class="field"><span class="label">Dein Name*</span><input type="text" placeholder="Gib hier deinen Namen an"></label>
+      <label class="field"><span class="label">Deine E-Mail*</span><input type="email" placeholder="Deine E-Mail-Adresse"></label>
+    </div>
+    <label class="field"><span class="label">WhatsApp (Optional)</span><input type="tel" placeholder="+49 123 456 789 (Bitte mit Ländervorwahl)"></label>
+    <label class="field"><span class="label">Deine Nachricht*</span><textarea placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."></textarea></label>
+    <div><button class="link" style="background:none;border-top:0;border-left:0;border-right:0;cursor:pointer">Buchungsanfrage senden</button></div>
+  </form>
+</section>
+
+<footer class="site-footer">
+  <div class="top">
+    <div class="stack" style="gap:24px">
+      <span class="label">Newsletter</span>
+      <p>Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!</p>
+      <div class="newsletter"><input type="email" placeholder="Deine E-Mail"><a class="link" href="#">In Newsletter eintragen</a></div>
+    </div>
+    <div class="cols">
+      <div><span class="label">Kapitel</span><a href="#k1">01 Stell dir vor</a><a href="#k2">02 Retreats</a><a href="#k3">03 Ein Tag</a><a href="#k4">04 Unterkunft</a><a href="#k5">05 Hosts</a><a href="#k6">06 Fragen</a></div>
+      <div><span class="label">Kontakt</span><a href="#">Instagram</a><a href="#">WhatsApp</a><a href="#">E-Mail</a></div>
+      <div><span class="label">Rechtliches</span><a href="#">Impressum</a><a href="#">Datenschutzerklärung</a><a href="#">Cookie-Einstellungen</a></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="wordmark">CARMA <img src="img/Markenzeichen-Weis.png" alt=""></div>
+    <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
