@@ -10,7 +10,9 @@
 <link rel="stylesheet" href="css/base.css">
 <style>
   body { background: var(--paper); }
-  .site-header { position: relative; color: var(--ink); padding-bottom: 20px; }
+  .site-header { position: relative; color: var(--ink); padding-bottom: 20px; background: none; box-shadow: none; }
+  .site-header .wordmark .light { display: none; }
+  .site-header .wordmark .dark { display: block; }
   .symbol { top: 130px; }
   .hero { height: calc(100vh - 110px); min-height: 560px; margin: 0 var(--gutter); }
   .hero::after { background: linear-gradient(180deg, rgba(53,42,31,0) 55%, rgba(53,42,31,0.5) 100%); }
@@ -46,9 +48,12 @@
 <body>
 
 <header class="site-header dark">
-  <nav><span class="m-only">Menü</span><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span></nav>
-  <a class="wordmark" href="#">CARMA</a>
-  <nav class="right"><span><a href="#tag">Tagesablauf</a></span><span><a href="#hosts">Über uns</a></span><span class="m-only"><a href="#kontakt">Buchen</a></span></nav>
+  <nav><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span></nav>
+  <a class="wordmark" href="#" aria-label="Carma Retreats">
+    <img class="light" src="img/carma-weiss.png" alt="Carma Retreats">
+    <img class="dark" src="img/carma-schwarz.png" alt="Carma Retreats">
+  </a>
+  <nav class="right"><span><a href="#hosts">Über uns</a></span><a class="cta" href="https://calendly.com/carma-retreats/kennenlernen" target="_blank" rel="noopener"><i class="cta-long">Lerne uns kennen</i><i class="cta-short">Kennenlernen</i></a></nav>
 </header>
 
 <section class="hero on-image">
@@ -186,7 +191,7 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="wordmark">CARMA <img src="img/Mandala-1.png" alt=""></div>
+    <div class="wordmark"><img src="img/carma-schwarz.png" alt="Carma Retreats" style="height:52px"></div>
     <span class="label">© 2026 Carma Retreats</span>
   </div>
 </footer>

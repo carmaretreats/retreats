@@ -26,8 +26,12 @@ document.querySelectorAll(".faq details").forEach((d) => {
 const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
 if (header && hero) {
+  const symbol = document.querySelector(".symbol");
   new IntersectionObserver(
-    ([e]) => header.classList.toggle("scrolled", !e.isIntersecting),
+    ([e]) => {
+      header.classList.toggle("scrolled", !e.isIntersecting);
+      if (symbol) symbol.classList.toggle("hide", !e.isIntersecting);
+    },
     { threshold: 0.05 }
   ).observe(hero);
 }
