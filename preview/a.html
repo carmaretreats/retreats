@@ -24,7 +24,8 @@
   .roomlist .row { align-items: center; gap: 20px; }
   .roomlist .row img { width: 64px; height: 48px; object-fit: cover; flex: 0 0 64px; }
   .roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
-  .roomlist .row .txt .muted { font-size: 15px; line-height: 22px; }
+  .roomlist .row .txt .muted { font-size: 14px; line-height: 20px; }
+  .roomlist .row .price { color: var(--ink); }
   .about-grid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(40px, 6.6vw, 96px); align-items: start; }
   .about-grid.flip { grid-template-columns: 8fr 4fr; }
   .about-grid.flip .media { order: 2; }
@@ -204,11 +205,11 @@
     <h2 class="h1">Unterkunft & <em>Preise</em></h2>
     <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
     <div class="rows roomlist">
-      <div class="row strong"><img src="img/monara-rest.jpg" alt=""><div class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer, inkl. Brunch & Dinner</span></div><span class="price">200 Euro</span></div>
-      <div class="row"><img src="img/monara-bed-1-.jpg" alt=""><div class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer, inkl. Brunch & Dinner</span></div><span class="price">350 Euro</span></div>
-      <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Eigenes Zimmer, inkl. Brunch & Dinner</span></div><span class="price">550 Euro</span></div>
-      <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Mit Balkon, inkl. Brunch & Dinner</span></div><span class="price">650 Euro</span></div>
-      <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Mit Balkon ins Grün, inkl. Brunch & Dinner</span></div><span class="price">750 Euro</span></div>
+      <div class="row strong"><img src="img/monara-rest.jpg" alt=""><div class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Zimmer & Mahlzeiten 200 Euro + Retreat 1100 Euro</span></div><span class="price">1300 Euro</span></div>
+      <div class="row"><img src="img/monara-bed-1-.jpg" alt=""><div class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Zimmer & Mahlzeiten 350 Euro + Retreat 1100 Euro</span></div><span class="price">1450 Euro</span></div>
+      <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Zimmer & Mahlzeiten 550 Euro + Retreat 1100 Euro</span></div><span class="price">1650 Euro</span></div>
+      <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Zimmer & Mahlzeiten 650 Euro + Retreat 1100 Euro</span></div><span class="price">1750 Euro</span></div>
+      <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Zimmer & Mahlzeiten 750 Euro + Retreat 1100 Euro</span></div><span class="price">1850 Euro</span></div>
     </div>
     <a class="link" href="#kontakt">Zimmer anfragen</a>
   </div>
@@ -335,13 +336,13 @@
     </div>
 
     <div class="panel">
-      <p class="body muted" style="font-size:15px;line-height:22px">Zimmer und Mahlzeiten buchst du direkt bei der Unterkunft. Preise pro Person, zusätzlich zur Retreatgebühr von 1100 Euro.</p>
+      <p class="body muted" style="font-size:15px;line-height:22px">Gesamtpreis pro Person: Retreatgebühr 1100 Euro plus Zimmer mit Brunch & Dinner. Das Zimmer buchst du direkt bei der Unterkunft.</p>
       <div class="options">
-        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer</span></span><span class="price">200 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer</span></span><span class="price">350 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Eigenes Zimmer</span></span><span class="price">550 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Mit Balkon</span></span><span class="price">650 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Mit Balkon ins Grün</span></span><span class="price">750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer · Zimmer 200 Euro + Retreat 1100 Euro</span></span><span class="price">1300 Euro gesamt</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer · Zimmer 350 Euro + Retreat 1100 Euro</span></span><span class="price">1450 Euro gesamt</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Eigenes Zimmer · Zimmer 550 Euro + Retreat 1100 Euro</span></span><span class="price">1650 Euro gesamt</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Mit Balkon · Zimmer 650 Euro + Retreat 1100 Euro</span></span><span class="price">1750 Euro gesamt</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Mit Balkon ins Grün · Zimmer 750 Euro + Retreat 1100 Euro</span></span><span class="price">1850 Euro gesamt</span></label>
         <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="txt"><span>Ich bin noch unsicher</span><span class="muted">Wir beraten dich gerne</span></span></label>
       </div>
     </div>
