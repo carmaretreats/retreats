@@ -791,12 +791,19 @@ p {
   background: none;
   border: 0;
   padding: 0;
+  margin: -6px -4px 0 0;
   cursor: pointer;
-  font-family: var(--label);
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
+  font-family: var(--sans);
+  font-weight: 300;
+  font-size: 26px;
+  line-height: 1;
   color: var(--ink);
+  opacity: 0.55;
+  transition: opacity 0.25s;
+}
+
+.modal .close:hover {
+  opacity: 1;
 }
 
 .modal .steps {
@@ -841,8 +848,8 @@ p {
 .modal .option {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 0;
+  gap: 14px;
+  padding: 9px 0;
   border-top: 1px solid var(--line);
   cursor: pointer;
 }
@@ -864,6 +871,22 @@ p {
 .modal .option input:checked {
   background: var(--orange);
   border-color: var(--orange);
+}
+
+.modal .option img,
+.modal .option .thumb-gap {
+  width: 44px;
+  height: 34px;
+  flex: 0 0 44px;
+  object-fit: cover;
+}
+
+.modal .option .txt {
+  font-size: 15px;
+}
+
+.modal .option .price {
+  font-size: 15px;
 }
 
 .modal .option .txt {

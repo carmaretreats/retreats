@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788716681">
+<link rel="stylesheet" href="css/base.css?v=1788716764">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -91,10 +91,9 @@
   .vcard blockquote { margin: 0; font-size: 16px; line-height: 25px; transition: font-size 0.6s ease, line-height 0.6s ease; }
   .vcard.is-active blockquote { font-size: 19px; line-height: 30px; }
   .vcard figcaption { opacity: 0.8; }
-  .gallery { background: var(--terra) url("img/terra-paper.jpg") center / cover; padding: clamp(28px, 3vw, 44px) 0 clamp(36px, 4vw, 60px); }
+  .gallery { padding: clamp(56px, 7vw, 96px) 0 clamp(56px, 7vw, 96px); }
   .ghead { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 16px; }
-  .gallery .label { color: var(--creme); opacity: 0.8; }
-  .gallery .label.muted { opacity: 0.55; }
+  .gallery .label.muted { color: rgba(53,42,31,0.5); }
   .ggrid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); grid-template-areas: "a a b c" "a a d e"; gap: clamp(10px, 1.2vw, 16px); height: min(68vh, 600px); }
   .ggrid img { width: 100%; height: 100%; object-fit: cover; min-height: 0; }
   .g-a { grid-area: a; }
@@ -391,25 +390,25 @@
   <form class="inner" onsubmit="return false">
     <div class="head">
       <span class="label">Buchungsanfrage</span>
-      <button type="button" class="close" data-close>Schließen</button>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
     </div>
     <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Kontakt</span></div>
 
     <div class="panel on">
       <div class="options">
-        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
-        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1390 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><img src="img/C13.jpg" alt=""><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><img src="img/C16.jpg" alt=""><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1390 Euro</span></label>
       </div>
     </div>
 
     <div class="panel">
       <div class="options">
-        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
-        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="thumb-gap"></span><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
       </div>
       <span class="fine">Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.</span>
     </div>
@@ -434,7 +433,7 @@
     <div class="thanks">
       <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
       <p class="body" style="font-size:15px;line-height:23px">Deine Anfrage ist angekommen.</p>
-      <div><button type="button" class="btn" data-close>Schließen</button></div>
+      <div><button type="button" class="btn" data-close>Fenster schließen</button></div>
     </div>
   </form>
 </dialog>
@@ -447,7 +446,7 @@
         <span class="label">Deine Frage</span>
         <h3 class="h1" style="font-size:24px">Wir sind <em>für dich da.</em></h3>
       </div>
-      <button type="button" class="close" data-close>Schließen</button>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
     </div>
     <div class="ask-body">
       <p class="body" style="font-size:15px;line-height:23px">Schreib uns direkt per WhatsApp oder hinterlass deine Frage hier. Wir melden uns meist noch am selben Tag.</p>
@@ -460,7 +459,7 @@
     <div class="thanks">
       <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
       <p class="body" style="font-size:15px;line-height:23px">Deine Frage ist angekommen. Wir schreiben dir zurück.</p>
-      <div><button type="button" class="btn" data-close>Schließen</button></div>
+      <div><button type="button" class="btn" data-close>Fenster schließen</button></div>
     </div>
   </form>
 </dialog>
@@ -484,6 +483,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788716681"></script>
+<script src="js/main.js?v=1788716764"></script>
 </body>
 </html>
