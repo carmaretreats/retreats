@@ -1,0 +1,482 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Carma Retreats · Layout B</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=1788722941">
+<style>
+  .hero .bg.mobile { display: none; }
+  .hero video.bg { animation: none; }
+  .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
+  .site-header .wordmark .light { display: none; }
+  .site-header .wordmark .dark { display: block; }
+  .symbol { display: none; }
+  .hero { height: calc(100vh - 76px); min-height: 560px; margin: 76px var(--gutter) 0; }
+  .hero::after { background: linear-gradient(180deg, rgba(53,42,31,0.1) 0%, rgba(53,42,31,0.08) 45%, rgba(53,42,31,0.72) 100%); }
+  .hero .copy { flex-direction: column; align-items: center; text-align: center; bottom: 56px; }
+  .hero .copy .h1, .hero .copy .label, .hero .copy .tag { text-shadow: 0 1px 3px rgba(53,42,31,0.5), 0 2px 22px rgba(53,42,31,0.65); }
+  .hero .copy .tag { font-size: 17px; line-height: 26px; color: #fffdf8; max-width: 44ch; }
+
+  .centered { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+  .centered .h1 { max-width: 22ch; }
+  .centered .body { text-align: center; max-width: 620px; }
+  .offset { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(28px, 3vw, 56px); align-items: start; text-align: left; }
+  .offset .col { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 48px); }
+  .offset .h1 { max-width: none; }
+  .offset .body { text-align: left; max-width: none; }
+  .offset img { width: 100%; object-fit: cover; }
+  .col-a img { aspect-ratio: 4 / 3; }
+  .divider { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); margin-top: clamp(12px, 2vw, 28px); }
+  .divider .rule { flex: 1; height: 1px; background: var(--line); }
+  .divider img { width: 42px; height: auto; flex: 0 0 42px; aspect-ratio: auto; object-fit: contain; }
+  .section-divider img { width: 34px; flex-basis: 34px; opacity: 0.9; }
+  .section-divider { margin-top: 0; }
+  .col-b img { aspect-ratio: 3 / 4.4; }
+  .col-b img { display: none; }
+  .col-b video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 3.72; object-fit: cover; object-position: center 44%; }
+  .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
+  .pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+  .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
+  .trio img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 72px; width: 100%; max-width: 940px; text-align: left; }
+  .grid2 .item { display: flex; flex-direction: column; padding: 14px 0; }
+  .grid2 .lead { padding: 14px 0; max-width: none; align-self: start; }
+  .grid2 .item .muted { font-size: 15px; line-height: 23px; }
+  .list { width: 100%; max-width: 760px; text-align: left; }
+  .list .row { justify-content: space-between; align-items: baseline; }
+  .list .row .t { flex: 0 0 64px; color: var(--terra); }
+  .list .row div { display: flex; flex-direction: column; flex: 1; }
+  .list .row .muted { font-size: 15px; line-height: 23px; }
+  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: stretch; text-align: left; min-height: 100vh; padding-top: 100px; padding-bottom: clamp(32px, 3.5vw, 48px); }
+  .split-day .imgs { align-self: stretch; height: auto; }
+  .split-day .imgs img { flex: 1; min-height: 0; aspect-ratio: auto; }
+  #tag .list .row { padding: 5px 0; gap: 16px; }
+  #tag .list .row .t { flex-basis: 56px; font-size: 15px; }
+  #tag .list .row div span:first-child { font-size: 15px; }
+  #tag .list .row .muted { font-size: 13px; line-height: 18px; }
+  #tag .col { gap: 24px; }
+  .split-day .col { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 44px); }
+  .split-day .h1 { max-width: none; }
+  .split-day .list { max-width: none; width: 100%; }
+  .split-day.flip { grid-template-columns: 1fr 1.3fr; }
+  .split-day .body { text-align: left; max-width: none; }
+  .split-day .imgs { gap: clamp(18px, 2.2vw, 28px); }
+  .split-day .imgs img { width: 100%; flex: 1 1 0; height: 0; min-height: 0; object-fit: cover; }
+  .stats { display: flex; gap: clamp(40px, 6.6vw, 96px); }
+  .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+  .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+  .retreats-band { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; --line: rgba(255,248,238,0.4); --line-strong: rgba(255,248,238,0.75); }
+  .retreats-band .band-video { display: none; }
+  .retreats-band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0.62) 0%, rgba(53,42,31,0.5) 45%, rgba(53,42,31,0.66) 100%); }
+  .retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(80px, 9vw, 120px); padding-bottom: clamp(64px, 7vw, 96px); }
+  .retreats-band .h1 { max-width: 22ch; text-shadow: 0 2px 20px rgba(53,42,31,0.45); }
+  .retreats-band .body { color: var(--creme); max-width: 640px; text-shadow: 0 1px 16px rgba(53,42,31,0.5); }
+  .retreats-band .num { color: var(--creme); }
+  .retreats-band .list { max-width: 900px; }
+  .retreats-band .link { color: var(--creme); }
+
+  .roomlist .row { align-items: center; gap: 18px; }
+  .roomlist .row img { width: 56px; height: 42px; object-fit: cover; flex: 0 0 56px; }
+  .roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
+  .roomlist .row .txt .muted { font-size: 14px; line-height: 20px; }
+
+  .voices { background: var(--terra) url("img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(72px, 9vw, 120px) 0; }
+  .voices .label { color: var(--creme); opacity: 0.75; }
+  .voices .h1 em { color: var(--creme); }
+  .quote { max-width: 760px; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; margin: 0; }
+  .quote-who { font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.8; }
+  .faces { display: flex; gap: 20px; justify-content: center; }
+  .faces button { background: none; border: 0; padding: 0; cursor: pointer; opacity: 0.42; transition: opacity 0.5s ease, transform 0.5s ease; }
+  .faces button img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .faces button.on { opacity: 1; transform: scale(1.18); }
+
+  .faq-split { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(40px, 5vw, 88px); align-items: start; text-align: left; }
+  .faq-split .faq { width: 100%; }
+  .faq-aside { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 108px; }
+  .faq-aside .h1 { max-width: none; }
+  .faq-aside .body { text-align: left; max-width: none; font-size: 15px; line-height: 23px; }
+  .host-solo { grid-template-columns: 1fr 1.25fr; min-height: 0; padding-top: clamp(48px, 5vw, 72px); padding-bottom: clamp(48px, 5vw, 72px); }
+  .host-solo.flip { grid-template-columns: 1.25fr 1fr; }
+  .host-solo .col { justify-content: center; gap: 24px; }
+  .host-solo .body { text-align: left; max-width: 46ch; }
+  #hosts.host-solo { grid-template-columns: 1fr 1.15fr; }
+  #hosts .imgs { min-height: min(58vh, 500px); }
+  .host-solo .imgs { min-height: min(72vh, 620px); }
+  .cols2 { columns: 2; column-gap: 40px; font-size: 14px; line-height: 22px; text-align: left; }
+  .cols2 p { break-inside: avoid; margin: 0 0 14px; }
+  .hosts-duo { display: flex; flex-direction: column; align-items: center; gap: clamp(32px, 3.4vw, 48px); }
+  .duo-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+  .duo-head .body { text-align: center; max-width: 640px; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.4vw, 36px); width: 100%; max-width: 900px; }
+  .duo .face { background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; gap: 14px; opacity: 0.45; transition: opacity 0.6s ease; text-align: center; }
+  .duo .face.on { opacity: 1; }
+  .duo .face:not(.on):hover { opacity: 0.68; }
+  .duo .face img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 25%; }
+  .duo .face .name { font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+  .host-text { width: 100%; max-width: 1100px; }
+  .host-text .panel { display: none; }
+  .host-text .panel.on { display: block; animation: hostIn 0.9s ease both; }
+  .cols3 { columns: 3; column-gap: 40px; font-size: 14px; line-height: 22px; text-align: left; }
+  .cols3 p { break-inside: avoid; margin: 0 0 14px; }
+  @keyframes hostIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+  .mandala { position: relative; isolation: isolate; overflow: hidden; }
+  .mandala::before { content: ""; position: absolute; left: 50%; top: 50%; width: 760px; height: 760px; transform: translate(-50%, -50%); background: url("img/mandala/m4.svg") center / contain no-repeat; opacity: 0.045; z-index: 0; pointer-events: none; }
+  .mandala > * { position: relative; z-index: 1; }
+  #faq.mandala::before { background-image: url("img/mandala/m10.svg"); width: 620px; height: 620px; }
+
+  .site-footer .wordmark img { height: 84px; }
+
+  @media (max-width: 860px) {
+    .hero { height: 74vh; margin: 64px 20px 0; }
+    .hero .bg.desktop { display: none; }
+    .hero .bg.mobile { display: block; }
+    .pair, .trio, .grid2, .offset { grid-template-columns: 1fr; }
+    .split-day, .split-day.flip, .host-solo, .host-solo.flip, #hosts.host-solo, .faq-split { grid-template-columns: 1fr; }
+    .split-day { min-height: 0; padding-top: clamp(56px, 12vw, 72px); padding-bottom: clamp(40px, 9vw, 60px); }
+    #hosts .imgs { min-height: 0; }
+    .split-day .imgs { height: auto; }
+    .split-day .imgs img { flex: none; height: auto; aspect-ratio: 4 / 3; }
+    #tag .list .row .muted { font-size: 15px; line-height: 23px; }
+    .split-day.flip .imgs { order: -1; }
+    .cols3, .cols2 { columns: 1; font-size: 15px; line-height: 23px; }
+    .faq-aside { position: static; order: -1; }
+    .host-solo .imgs { min-height: 0; }
+    .host-solo .imgs img { flex: none; height: auto; aspect-ratio: 4 / 5; }
+    .duo { grid-template-columns: 1fr; }
+    .col-b img { display: block; aspect-ratio: 4 / 3; }
+    .col-b video { display: none; }
+    .divider img { width: 32px; flex-basis: 32px; }
+    .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
+    .retreats-band { min-height: 0; }
+    .retreats-band .bg.desktop { display: none; }
+    .retreats-band .band-video { display: block; }
+    .retreats-band .list .row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
+    .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
+    .roomlist .row .txt { flex: 1 1 60%; }
+    .roomlist .row > span:last-child { flex-basis: 100%; padding-left: 62px; color: var(--terra); }
+    .roomlist .row .txt .muted { font-size: 13px; line-height: 19px; }
+    #tag .list .row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+    #tag .list .row .t { flex-basis: auto; }
+    .centered { gap: 28px; }
+    .mandala::before { width: 460px; height: 460px; opacity: 0.04; }
+  }
+</style>
+</head>
+<body>
+
+<div class="intro-stage" aria-hidden="true">
+  <img class="intro-mark" src="img/carma-weiss.png" alt="">
+  <span class="intro-word">Retreats</span>
+  <img class="intro-symbol" src="img/Markenzeichen-Weis.png" alt="">
+  <span class="intro-sub">in Sri Lanka</span>
+</div>
+
+<header class="site-header">
+  <nav><span class="m-only">Menü</span><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span><span><a href="#tag">Tagesablauf</a></span></nav>
+  <a class="wordmark" href="#" aria-label="Carma Retreats">
+    <img class="light" src="img/carma-weiss.png" alt="Carma Retreats">
+    <img class="dark" src="img/carma-schwarz.png" alt="Carma Retreats">
+  </a>
+  <nav class="right"><span><a href="#hosts">Über uns</a></span><a class="cta" href="https://calendly.com/carma-retreats/kennenlernen" target="_blank" rel="noopener"><i class="cta-long">Lerne uns kennen</i><i class="cta-short">Kennenlernen</i></a></nav>
+</header>
+
+<section class="hero on-image">
+  <img class="bg desktop" src="img/C13.jpg" alt="" style="object-position:center 40%">
+  <video class="bg mobile" src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <div class="copy">
+    <div class="stack" style="align-items:center;gap:16px">
+      <span class="label">Yoga-Retreats in Hikkaduwa, Sri Lanka · Januar &amp; Februar 2027</span>
+      <h1 class="h1">Ankommen und <em>Aufatmen.</em></h1>
+      <p class="tag">Eine Woche Yoga am Meer, in kleiner Gruppe und auf Deutsch. Yoga-Retreats, die nachhaltig bewegen.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section container offset reveal" id="stell">
+  <div class="col col-a">
+    <div class="stack" style="gap:24px">
+      <h2 class="h1">Ein sanftes Rascheln von <em>Palmenblättern</em> trägt dich in den Morgen.</h2>
+      <p class="body">Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.</p>
+    </div>
+    <img src="img/8743.jpg" alt="Palmen und tropisches Grün" style="object-position:center 40%">
+    <div class="divider"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+  </div>
+  <div class="col col-b">
+    <img src="img/C16.jpg" alt="Meditation unter dem Palmdach" style="object-position:center 30%">
+    <video src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
+</section>
+
+<section class="section container centered reveal mandala">
+  <div class="grid2">
+    <h2 class="h1 lead">Atme ein und <em>erlebe.</em></h2>
+    <div class="item"><span>Tägliche Yogaklassen</span><span class="muted">Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin.</span></div>
+    <div class="item"><span>Meditation &amp; Pranayama</span><span class="muted">Slow down. Mit jedem Atemzug ein Stück näher bei dir.</span></div>
+    <div class="item"><span>Wohlfühlort</span><span class="muted">Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein.</span></div>
+    <div class="item"><span>Lokale Kultur erleben</span><span class="muted">Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs.</span></div>
+    <div class="item"><span>Community Vibes</span><span class="muted">Real Connections. Komm allein, geh mit Freunden fürs Leben.</span></div>
+    <div class="item"><span>Soulfood</span><span class="muted">Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen.</span></div>
+    <div class="item"><span>Zeit für Dich</span><span class="muted">Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen.</span></div>
+  </div>
+  <div class="trio"><img src="img/8870.jpg" alt="Räucherstäbchen im Morgenlicht"><img src="img/8952.jpg" alt=""><img src="img/8858.jpg" alt=""></div>
+</section>
+
+<section class="retreats-band on-image reveal" id="retreats">
+  <img class="bg desktop" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
+  <video class="bg mobile band-video" src="video/mid-portrait.mp4" poster="img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none"></video>
+  <div class="container inner">
+    <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+    <div class="list rows">
+      <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
+      <div class="row"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
+    </div>
+    <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
+    <div class="stats">
+      <div><span class="num">5</span><span class="label">min zum Strand</span></div>
+      <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
+      <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="section container split-day reveal" id="tag">
+  <div class="col">
+    <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
+<div class="list rows">
+      <div class="row"><span class="t">7.30</span><div><span>Meditation und Pranayama</span><span class="muted">Starte den Tag in Stille, umgeben von den Geräuschen der Natur.</span></div></div>
+      <div class="row"><span class="t">8.00</span><div><span>Ayurvedischer Morgentee</span><span class="muted">Teezeit in Stille - bleib ganz bei Dir.</span></div></div>
+      <div class="row"><span class="t">8.30</span><div><span>Morning Flow Yoga</span><span class="muted">Bewege dich im Rhythmus der Insel. Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis.</span></div></div>
+      <div class="row"><span class="t">10.30</span><div><span>Community Brunch</span><span class="muted">Brich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten.</span></div></div>
+      <div class="row"><span class="t">15.00</span><div><span>Fruchtplatte und Get-Together</span><span class="muted">Am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen.</span></div></div>
+      <div class="row"><span class="t">16.00</span><div><span>Ausflug (2 Mal die Woche)</span><span class="muted">Komm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel.</span></div></div>
+      <div class="row"><span class="t">17.00</span><div><span>Abendpraxis</span><span class="muted">Bring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis.</span></div></div>
+      <div class="row"><span class="t">19.00</span><div><span>Abendessen</span><span class="muted">Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen.</span></div></div>
+      <div class="row"><span class="t">20.30</span><div><span>Ausklang in Stille</span><span class="muted">Wir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille.</span></div></div>
+  </div>
+  </div>
+  <div class="col imgs">
+    <img src="img/C21.jpg" alt="">
+    <img src="img/8732.jpg" alt="Blätter an einer Mauer">
+  </div>
+</section>
+
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m15.svg" alt=""><span class="rule"></span></div>
+
+<section class="section container split-day flip reveal" id="unterkunft">
+  <div class="col imgs">
+    <img src="img/Hikkaduwa02.webp" alt="Die Shala">
+    <img src="img/monara-bed-1-.jpg" alt="Zimmer im Retreat-Center">
+  </div>
+  <div class="col">
+    <h2 class="h1">Unterkunft &amp; <em>Preise</em></h2>
+    <p class="body">Gesamtpreis pro Person, inklusive Retreatgebühr von 1100 Euro und zwei Mahlzeiten am Tag. Das Zimmer buchst du direkt beim Retreat-Center Bunky Monkey.</p>
+<div class="list rows roomlist">
+    <div class="row strong"><img src="img/monara-rest.jpg" alt=""><div class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 200 Euro + Retreat 1100 Euro</span></div><span>1300 Euro</span></div>
+    <div class="row"><img src="img/monara-bed-1-.jpg" alt=""><div class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 350 Euro + Retreat 1100 Euro</span></div><span>1450 Euro</span></div>
+    <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Zimmer &amp; Mahlzeiten 550 Euro + Retreat 1100 Euro</span></div><span>1650 Euro</span></div>
+    <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 650 Euro + Retreat 1100 Euro</span></div><span>1750 Euro</span></div>
+    <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 750 Euro + Retreat 1100 Euro</span></div><span>1850 Euro</span></div>
+  </div>
+    <div><a class="link" href="#kontakt">Zimmer anfragen</a></div>
+  </div>
+</section>
+
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m20.svg" alt=""><span class="rule"></span></div>
+
+<section class="section container split-day host-solo reveal" id="hosts">
+  <div class="col">
+    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+    <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
+    <div><a class="link" href="#carmen">Mehr über uns</a></div>
+  </div>
+  <div class="col imgs">
+    <img src="img/8845.jpg" alt="Carmen und Mareen" style="object-position:center 30%">
+  </div>
+</section>
+
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m4.svg" alt=""><span class="rule"></span></div>
+
+<section class="section container split-day flip host-solo reveal" id="carmen">
+  <div class="col imgs">
+    <img src="img/hosts-carmen.jpg" alt="Carmen" style="object-position:center 25%">
+  </div>
+  <div class="col">
+    <h2 class="h1">Über <em>Carmen</em></h2>
+    <div class="cols2">
+        <p>Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.</p>
+        <p>Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.</p>
+        <p>Ein großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.</p>
+        <p>Neben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.</p>
+        <p>Heute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.</p>
+        <p>In ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht. Carmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.</p>
+    </div>
+  </div>
+</section>
+
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m10.svg" alt=""><span class="rule"></span></div>
+
+<section class="section container split-day host-solo reveal" id="mareen">
+  <div class="col">
+    <h2 class="h1">Über <em>Mareen</em></h2>
+    <div class="cols2">
+        <p>Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.</p>
+        <p>Seit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.</p>
+        <p>In ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden. Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.</p>
+        <p>Über 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat.</p>
+        <p>Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.</p>
+    </div>
+  </div>
+  <div class="col imgs">
+    <img src="img/hosts-mareen.jpg" alt="Mareen" style="object-position:center 68%">
+  </div>
+</section>
+
+<section class="voices reveal" id="stimmen">
+  <div class="container centered" style="gap:32px">
+    <span class="label">Stimmen unserer Gäste</span>
+    <h2 class="h1">Sieben Tage, die <em>nachwirken.</em></h2>
+    <blockquote class="quote" data-quote>Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann.</blockquote>
+    <span class="quote-who" data-who>Mona</span>
+    <div class="faces">
+      <button type="button" class="on" data-name="Mona" data-text="Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann."><img src="img/mona.jpeg" alt="Mona"></button>
+      <button type="button" data-name="Sven" data-text="Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht."><img src="img/sven.jpg" alt="Sven"></button>
+      <button type="button" data-name="Fabienne" data-text="Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause."><img src="img/fabienne.jpg" alt="Fabienne"></button>
+      <button type="button" data-name="Julia" data-text="Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn."><img src="img/julia.jpg" alt="Julia"></button>
+    </div>
+  </div>
+</section>
+
+<section class="section container faq-split reveal mandala" id="faq">
+  <div class="faq-col">
+<div class="faq">
+    <details open><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.</p></details>
+    <details><summary>Was ist enthalten?</summary><p class="answer">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit).</p></details>
+    <details><summary>Wo finden die Retreats statt?</summary><p class="answer">Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.</p></details>
+    <details><summary>Finden die Retreats auf Deutsch statt?</summary><p class="answer">Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung.</p></details>
+    <details><summary>Welche Zimmertypen gibt es?</summary><p class="answer">In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis.</p></details>
+    <details><summary>Welche Yoga-Stile unterrichtet ihr?</summary><p class="answer">Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen.</p></details>
+    <details><summary>Ich reise allein – passt das trotzdem für mich?</summary><p class="answer">Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Viele gehen mit neuen Freundschaften nach Hause.</p></details>
+    <details><summary>Wie komme ich am besten nach Sri Lanka?</summary><p class="answer">Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft.</p></details>
+    <details><summary>Wie groß sind die Gruppen?</summary><p class="answer">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community.</p></details>
+  </div>
+  </div>
+  <aside class="faq-aside">
+    <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+    <p class="body">Noch etwas offen? Schreib uns kurz, wir antworten meist noch am selben Tag.</p>
+    <div class="stack" style="gap:18px;align-items:flex-start">
+      <a class="link" href="#" data-ask>Deine Frage schicken</a>
+      <a class="link" href="#kontakt">Buchungsanfrage starten</a>
+    </div>
+  </aside>
+</section>
+
+
+<dialog class="modal" id="booking">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <span class="label">Buchungsanfrage</span>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
+    </div>
+    <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Kontakt</span></div>
+
+    <div class="panel on">
+      <div class="options">
+        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><img src="img/C13.jpg" alt=""><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><img src="img/C16.jpg" alt=""><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1390 Euro</span></label>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="options">
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="thumb-gap"></span><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
+      </div>
+      <span class="fine">Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.</span>
+    </div>
+
+    <div class="panel">
+      <div class="summary">
+        <div><span class="label">Retreat</span><span data-sum="retreat"></span></div>
+        <div><span class="label">Zimmer</span><span data-sum="room"></span></div>
+      </div>
+      <div class="two">
+        <label class="field"><span class="label">Name*</span><input type="text" name="name" placeholder="Dein Name" required></label>
+        <label class="field"><span class="label">E-Mail*</span><input type="email" name="email" placeholder="Deine E-Mail" required></label>
+      </div>
+      <label class="field"><span class="label">Nachricht</span><textarea name="message" placeholder="Optional"></textarea></label>
+    </div>
+
+    <div class="nav">
+      <button type="button" class="btn back" data-back>Zurück</button>
+      <button type="button" class="btn" data-next>Weiter</button>
+    </div>
+
+    <div class="thanks">
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Anfrage ist angekommen.</p>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="modal chat" id="ask">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <h3 class="h1" style="font-size:24px">Wir sind <em>für dich da.</em></h3>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
+    </div>
+    <div class="ask-body">
+      <p class="body" style="font-size:15px;line-height:23px">Schreib uns direkt per WhatsApp oder hinterlass deine Frage hier. Wir melden uns meist noch am selben Tag.</p>
+      <a class="wa" href="https://wa.me/?text=Hallo%20Carma%20Retreats%2C%20ich%20habe%20eine%20Frage%20zum%20Retreat." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+      <span class="or">oder schreib uns hier</span>
+      <label class="field"><span class="label">Deine E-Mail*</span><input type="email" name="email" placeholder="Gib hier deine E-Mail-Adresse ein" required></label>
+      <label class="field"><span class="label">Deine Frage*</span><textarea name="question" placeholder="Was möchtest du wissen?" required></textarea></label>
+      <div class="nav"><span></span><button type="button" class="btn" data-send>Frage senden</button></div>
+    </div>
+    <div class="thanks">
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Frage ist angekommen. Wir schreiben dir zurück.</p>
+    </div>
+  </form>
+</dialog>
+
+<footer class="site-footer">
+  <div class="top">
+    <div class="stack" style="gap:24px">
+      <span class="label">Newsletter</span>
+      <p>Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!</p>
+      <div class="newsletter"><input type="email" placeholder="Deine E-Mail"><a class="link" href="#">In Newsletter eintragen</a></div>
+    </div>
+    <div class="cols">
+      <div><span class="label">Seite</span><a href="#retreats">Retreats</a><a href="#unterkunft">Unterkunft</a><a href="#tag">Tagesablauf</a><a href="#hosts">Über uns</a><a href="#kontakt">Buchen</a></div>
+      <div><span class="label">Kontakt</span><a href="#">Instagram</a><a href="#">WhatsApp</a><a href="#">E-Mail</a></div>
+      <div><span class="label">Rechtliches</span><a href="#">Impressum</a><a href="#">Datenschutzerklärung</a><a href="#">Cookie-Einstellungen</a></div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="wordmark"><img src="img/carma-full-weiss.png" alt="Carma Retreats"></div>
+    <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
+  </div>
+</footer>
+
+<script src="js/main.js?v=1788722941"></script>
+<script>
+  document.querySelectorAll(".faces button").forEach((b) => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll(".faces button").forEach((o) => o.classList.toggle("on", o === b));
+      document.querySelector("[data-quote]").textContent = b.dataset.text;
+      document.querySelector("[data-who]").textContent = b.dataset.name;
+    });
+  });
+</script>
+</body>
+</html>
