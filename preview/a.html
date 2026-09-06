@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788715218">
+<link rel="stylesheet" href="css/base.css?v=1788715349">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -38,7 +38,7 @@
   .day .cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6.6vw, 96px); }
   .day .row { flex-wrap: nowrap; }
   .day .row div span { display: block; }
-  .expect, #faq, .contact { position: relative; isolation: isolate; }
+  .expect, #faq, .contact { position: relative; isolation: isolate; overflow: hidden; }
   .expect::before, #faq::before, .contact::before { content: ""; position: absolute; background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.045; z-index: 0; pointer-events: none; }
   .expect > *, #faq > *, .contact > * { position: relative; z-index: 1; }
   .expect::before { left: -300px; top: 50%; width: 820px; height: 820px; transform: translateY(-50%); background-image: url("img/mandala/m20.svg"); }
@@ -409,6 +409,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788715218"></script>
+<script src="js/main.js?v=1788715349"></script>
 </body>
 </html>
