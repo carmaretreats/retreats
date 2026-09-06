@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788718162">
+<link rel="stylesheet" href="css/base.css?v=1788718280">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -45,8 +45,8 @@
   .list .row .t { flex: 0 0 64px; color: var(--terra); }
   .list .row div { display: flex; flex-direction: column; flex: 1; }
   .list .row .muted { font-size: 15px; line-height: 23px; }
-  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: center; text-align: left; min-height: 100vh; padding-top: 92px; padding-bottom: clamp(36px, 4vw, 52px); }
-  .split-day .imgs { height: min(70vh, 600px); }
+  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: center; text-align: left; min-height: 100vh; padding-top: 100px; padding-bottom: clamp(32px, 3.5vw, 48px); }
+  .split-day .imgs { height: min(62vh, 520px); }
   .split-day .imgs img { flex: 1; min-height: 0; aspect-ratio: auto; }
   #tag .list .row { padding: 5px 0; gap: 16px; }
   #tag .list .row .t { flex-basis: 56px; font-size: 15px; }
@@ -88,6 +88,21 @@
   .faces button img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
   .faces button.on { opacity: 1; transform: scale(1.18); }
 
+  .hosts-duo { display: flex; flex-direction: column; align-items: center; gap: clamp(32px, 3.4vw, 48px); }
+  .duo-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
+  .duo-head .body { text-align: center; max-width: 640px; }
+  .duo { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 2.4vw, 36px); width: 100%; max-width: 900px; }
+  .duo .face { background: none; border: 0; padding: 0; cursor: pointer; display: flex; flex-direction: column; gap: 14px; opacity: 0.45; transition: opacity 0.6s ease; text-align: center; }
+  .duo .face.on { opacity: 1; }
+  .duo .face:not(.on):hover { opacity: 0.68; }
+  .duo .face img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: center 25%; }
+  .duo .face .name { font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+  .host-text { width: 100%; max-width: 1100px; }
+  .host-text .panel { display: none; }
+  .host-text .panel.on { display: block; animation: hostIn 0.9s ease both; }
+  .cols3 { columns: 3; column-gap: 40px; font-size: 14px; line-height: 22px; text-align: left; }
+  .cols3 p { break-inside: avoid; margin: 0 0 14px; }
+  @keyframes hostIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
   .mandala { position: relative; isolation: isolate; overflow: hidden; }
   .mandala::before { content: ""; position: absolute; left: 50%; top: 50%; width: 760px; height: 760px; transform: translate(-50%, -50%); background: url("img/mandala/m4.svg") center / contain no-repeat; opacity: 0.045; z-index: 0; pointer-events: none; }
   .mandala > * { position: relative; z-index: 1; }
@@ -103,6 +118,8 @@
     .split-day .imgs img { aspect-ratio: 4 / 3; }
     #tag .list .row .muted { font-size: 15px; line-height: 23px; }
     .split-day.flip .imgs { order: -1; }
+    .cols3 { columns: 1; font-size: 15px; line-height: 23px; }
+    .duo { grid-template-columns: 1fr; }
     .col-b img { aspect-ratio: 4 / 3; }
     .offset .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
@@ -227,12 +244,42 @@
   </div>
 </section>
 
-<section class="section container centered reveal" id="hosts">
-  <img src="img/8845.jpg" alt="Carmen und Mareen" style="width:min(900px,100%);aspect-ratio:16/9;object-fit:cover;object-position:center 20%">
-  <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
-  <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
-  <a class="link" href="a.html#carmen">Mehr über uns</a>
-  <div class="trio"><img src="img/8970.jpg" alt=""><img src="img/8656.jpg" alt=""><img src="img/8829.jpg" alt=""></div>
+<section class="section container hosts-duo reveal" id="hosts">
+  <div class="duo-head">
+    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+    <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
+  </div>
+  <div class="duo">
+    <button type="button" class="face on" data-host="carmen">
+      <img src="img/hosts-carmen.jpg" alt="Carmen">
+      <span class="name">Carmen</span>
+    </button>
+    <button type="button" class="face" data-host="mareen">
+      <img src="img/hosts-mareen.jpg" alt="Mareen">
+      <span class="name">Mareen</span>
+    </button>
+  </div>
+  <div class="host-text">
+    <div class="panel on" data-host-panel="carmen">
+      <div class="cols3">
+        <p>Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.</p>
+        <p>Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.</p>
+        <p>Ein großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.</p>
+        <p>Neben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.</p>
+        <p>Heute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.</p>
+        <p>In ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht. Carmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.</p>
+      </div>
+    </div>
+    <div class="panel" data-host-panel="mareen">
+      <div class="cols3">
+        <p>Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.</p>
+        <p>Seit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.</p>
+        <p>In ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden. Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.</p>
+        <p>Über 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat.</p>
+        <p>Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
 <section class="voices reveal" id="stimmen">
@@ -369,8 +416,14 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788718162"></script>
+<script src="js/main.js?v=1788718280"></script>
 <script>
+  document.querySelectorAll(".duo .face").forEach((b) => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll(".duo .face").forEach((o) => o.classList.toggle("on", o === b));
+      document.querySelectorAll("[data-host-panel]").forEach((p) => p.classList.toggle("on", p.dataset.hostPanel === b.dataset.host));
+    });
+  });
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
       document.querySelectorAll(".faces button").forEach((o) => o.classList.toggle("on", o === b));
