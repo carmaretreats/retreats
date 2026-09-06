@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788715430">
+<link rel="stylesheet" href="css/base.css?v=1788715497">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -26,6 +26,11 @@
   .roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
   .roomlist .row .txt .muted { font-size: 14px; line-height: 20px; }
   .roomlist .row .price { color: var(--ink); }
+  .divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); padding-top: clamp(40px, 5vw, 72px); padding-bottom: clamp(40px, 5vw, 72px); }
+  .divider .rule { flex: 1; height: 1px; background: var(--line); }
+  .divider img { width: 42px; height: auto; flex: 0 0 42px; }
+  .section + .divider { padding-top: 0; }
+  .divider + .section { padding-top: 0; }
   .about-grid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(40px, 6.6vw, 96px); align-items: start; }
   .about-grid.flip { grid-template-columns: 8fr 4fr; }
   .about-grid.flip .media { order: 2; }
@@ -72,6 +77,8 @@
   @media (max-width: 860px) {
     .voices .quotes { grid-template-columns: 1fr; }
     .about-grid, .about-grid.flip { grid-template-columns: 1fr; gap: 28px; }
+    .divider { gap: 20px; }
+    .divider img { width: 32px; flex-basis: 32px; }
     .about-grid.flip .media { order: 0; }
     .about-grid .media img { height: auto; aspect-ratio: 4 / 5; }
     .about .cols2 { columns: 1; }
@@ -247,6 +254,8 @@
   </div>
 </section>
 
+<div class="container divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+
 <section class="section container about reveal" id="carmen">
   <div class="about-grid">
     <div class="media"><img src="img/hosts-carmen.jpg" alt="Carmen"></div>
@@ -261,6 +270,8 @@
     </div>
   </div>
 </section>
+
+<div class="container divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
 
 <section class="section container about reveal" id="mareen">
   <div class="about-grid flip">
@@ -409,6 +420,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788715430"></script>
+<script src="js/main.js?v=1788715497"></script>
 </body>
 </html>
