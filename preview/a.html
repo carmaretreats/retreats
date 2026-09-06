@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788715497">
+<link rel="stylesheet" href="css/base.css?v=1788715739">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -67,15 +67,31 @@
   .rooms-media .pair { display: flex; gap: 24px; }
   .rooms-media .pair img { width: 50%; aspect-ratio: 5 / 4; object-fit: cover; }
   .rooms-media > img { aspect-ratio: 16 / 10.5; object-fit: cover; width: 100%; }
+  .modal.chat { margin: auto 24px 24px auto; width: min(400px, calc(100vw - 32px)); }
+  .modal.chat .inner { padding: 28px 28px 32px; gap: 20px; }
+  .modal.chat .ask-body { display: flex; flex-direction: column; gap: 20px; }
+  .modal.chat.sent .ask-body { display: none; }
+  .modal.chat .wa { display: block; text-align: center; padding: 13px 18px; background: var(--terra); color: var(--creme); font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background-color 0.3s; }
+  .modal.chat .wa:hover { background: var(--orange); }
+  .modal.chat .or { font-family: var(--label); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(53,42,31,0.5); text-align: center; }
   .modal .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .contact .media img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
-  .voices .quotes { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
-  .voices figure { margin: 0; display: flex; flex-direction: column; gap: 20px; padding-top: 24px; border-top: 1px solid var(--line); }
-  .voices figure img { width: 64px; height: 64px; border-radius: 50%; object-fit: cover; }
-  .voices blockquote { margin: 0; font-size: 17px; line-height: 28px; }
-  @media (max-width: 1100px) { .voices .quotes { grid-template-columns: 1fr 1fr; } }
+  .voices { background: var(--terra); color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(72px, 9vw, 128px) 0; overflow: hidden; }
+  .voices .head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
+  .voices .label { color: var(--creme); opacity: 0.75; }
+  .voices .h1 em { color: var(--creme); font-style: italic; }
+  .vtrack { display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
+  .vtrack::-webkit-scrollbar { display: none; }
+  .vtrack.dragging { cursor: grabbing; scroll-snap-type: none; }
+  .vcard { flex: 0 0 clamp(260px, 26vw, 360px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 20px; padding-top: 24px; border-top: 1px solid rgba(255,248,238,0.35); }
+  .vcard img { width: 60px; height: 60px; border-radius: 50%; object-fit: cover; pointer-events: none; }
+  .vcard blockquote { margin: 0; font-size: 17px; line-height: 27px; }
+  .vcard figcaption { opacity: 0.8; }
+  .vbar { height: 1px; background: rgba(255,248,238,0.28); position: relative; }
+  .vbar span { position: absolute; left: 0; top: 0; height: 1px; background: var(--creme); width: 25%; transition: width 0.15s linear, transform 0.15s linear; }
   @media (max-width: 860px) {
-    .voices .quotes { grid-template-columns: 1fr; }
+    .voices .head { margin-bottom: 32px; }
+    .vcard { flex-basis: 78vw; }
     .about-grid, .about-grid.flip { grid-template-columns: 1fr; gap: 28px; }
     .divider { gap: 20px; }
     .divider img { width: 32px; flex-basis: 32px; }
@@ -87,6 +103,7 @@
     .day .cols { grid-template-columns: 1fr; gap: 0; }
     .day .cols .rows:first-child .row:last-child { border-bottom: 0; }
     .modal .two { grid-template-columns: 1fr; }
+    .modal.chat { margin: auto 0 0 0; width: 100%; max-height: 92vh; }
     .hosts .thumbs { display: none; }
     .modal .inner { padding: 32px 24px 40px; gap: 24px; }
     .modal .steps { gap: 14px; font-size: 11px; letter-spacing: 0.12em; }
@@ -287,17 +304,18 @@
   </div>
 </section>
 
-<section class="section container voices reveal" id="stimmen">
-  <div class="stack" style="gap:20px;margin-bottom:64px">
+<section class="voices reveal" id="stimmen">
+  <div class="container head">
     <span class="label">Stimmen unserer Gäste</span>
     <h2 class="h1">Was Teilnehmer:innen <em>sagen.</em></h2>
   </div>
-  <div class="quotes">
-    <figure><img src="img/mona.jpeg" alt=""><blockquote>Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann.</blockquote><figcaption class="label">Mona</figcaption></figure>
-    <figure><img src="img/sven.jpg" alt=""><blockquote>Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht.</blockquote><figcaption class="label">Sven</figcaption></figure>
-    <figure><img src="img/fabienne.jpg" alt=""><blockquote>Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause.</blockquote><figcaption class="label">Fabienne</figcaption></figure>
-    <figure><img src="img/julia.jpg" alt=""><blockquote>Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.</blockquote><figcaption class="label">Julia</figcaption></figure>
+  <div class="vtrack">
+      <figure class="vcard"><img src="img/mona.jpeg" alt=""><blockquote>Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann.</blockquote><figcaption class="label">Mona</figcaption></figure>
+      <figure class="vcard"><img src="img/sven.jpg" alt=""><blockquote>Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht.</blockquote><figcaption class="label">Sven</figcaption></figure>
+      <figure class="vcard"><img src="img/fabienne.jpg" alt=""><blockquote>Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause.</blockquote><figcaption class="label">Fabienne</figcaption></figure>
+      <figure class="vcard"><img src="img/julia.jpg" alt=""><blockquote>Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.</blockquote><figcaption class="label">Julia</figcaption></figure>
   </div>
+  <div class="container"><div class="vbar"><span></span></div></div>
 </section>
 
 <section class="gallery reveal">
@@ -314,7 +332,7 @@
   <div class="stack">
     <span class="label">Retreat-Infos</span>
     <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
-    <a class="link" href="#kontakt">Deine Frage schicken</a>
+    <a class="link" href="#" data-ask>Deine Frage schicken</a>
   </div>
   <div class="faq">
     <details open><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.</p></details>
@@ -340,7 +358,7 @@
       <div class="row"><span class="t label">03</span><span>Deine Daten und Nachricht</span></div>
     </div>
     <div><a class="link" href="#kontakt">Buchungsanfrage starten</a></div>
-    <p class="body muted" style="font-size:15px;line-height:22px">Oder direkt per <a href="#" style="border-bottom:1px solid var(--orange)">WhatsApp</a> oder <a href="#" style="border-bottom:1px solid var(--orange)">E-Mail</a>.</p>
+    <p class="body muted" style="font-size:15px;line-height:22px">Nur eine Frage? <a href="#" data-ask style="border-bottom:1px solid var(--orange)">Schreib uns kurz</a>.</p>
   </div>
   <div class="media"><img src="img/8875.jpg" alt=""></div>
 </section>
@@ -401,6 +419,32 @@
   </form>
 </dialog>
 
+
+<dialog class="modal chat" id="ask">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <div class="stack" style="gap:8px">
+        <span class="label">Deine Frage</span>
+        <h3 class="h1" style="font-size:24px">Wir sind <em>für dich da.</em></h3>
+      </div>
+      <button type="button" class="close" data-close>Schließen</button>
+    </div>
+    <div class="ask-body">
+      <p class="body" style="font-size:15px;line-height:23px">Schreib uns direkt per WhatsApp oder hinterlass deine Frage hier. Wir melden uns meist noch am selben Tag.</p>
+      <a class="wa" href="https://wa.me/?text=Hallo%20Carma%20Retreats%2C%20ich%20habe%20eine%20Frage%20zum%20Retreat." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+      <span class="or">oder schreib uns hier</span>
+      <label class="field"><span class="label">Deine E-Mail*</span><input type="email" name="email" placeholder="Gib hier deine E-Mail-Adresse ein" required></label>
+      <label class="field"><span class="label">Deine Frage*</span><textarea name="question" placeholder="Was möchtest du wissen?" required></textarea></label>
+      <div class="nav"><span></span><button type="button" class="btn" data-send>Frage senden</button></div>
+    </div>
+    <div class="thanks">
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Frage ist angekommen. Wir schreiben dir zurück.</p>
+      <div><button type="button" class="btn" data-close>Schließen</button></div>
+    </div>
+  </form>
+</dialog>
+
 <footer class="site-footer">
   <div class="top">
     <div class="stack" style="gap:24px">
@@ -420,6 +464,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788715497"></script>
+<script src="js/main.js?v=1788715739"></script>
 </body>
 </html>

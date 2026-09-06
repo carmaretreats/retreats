@@ -128,3 +128,64 @@ if (modal) {
   addEventListener("keydown", skip, { once: true });
   addEventListener("click", skip, { once: true });
 })();
+
+// testimonials: drag to explore, thin bar shows the position
+(() => {
+  const track = document.querySelector(".vtrack");
+  const bar = document.querySelector(".vbar span");
+  if (!track) return;
+
+  const update = () => {
+    if (!bar) return;
+    const max = track.scrollWidth - track.clientWidth;
+    const ratio = track.clientWidth / track.scrollWidth;
+    bar.style.width = `${Math.min(1, ratio) * 100}%`;
+    bar.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 / ratio - 1) * 100) : 0}%)`;
+  };
+  update();
+  track.addEventListener("scroll", update, { passive: true });
+  addEventListener("resize", update);
+
+  let startX = 0;
+  let startLeft = 0;
+  let dragging = false;
+  track.addEventListener("pointerdown", (e) => {
+    if (e.pointerType === "touch") return;
+    dragging = true;
+    startX = e.clientX;
+    startLeft = track.scrollLeft;
+    track.classList.add("dragging");
+    track.setPointerCapture(e.pointerId);
+  });
+  track.addEventListener("pointermove", (e) => {
+    if (!dragging) return;
+    track.scrollLeft = startLeft - (e.clientX - startX);
+  });
+  const stop = () => {
+    dragging = false;
+    track.classList.remove("dragging");
+  };
+  track.addEventListener("pointerup", stop);
+  track.addEventListener("pointercancel", stop);
+})();
+
+// short question box: WhatsApp or a two-field form
+(() => {
+  const ask = document.getElementById("ask");
+  if (!ask) return;
+  const open = (e) => {
+    e.preventDefault();
+    ask.classList.remove("sent");
+    ask.showModal();
+  };
+  document.querySelectorAll("[data-ask]").forEach((el) => el.addEventListener("click", open));
+  ask.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => ask.close()));
+  ask.querySelector("[data-send]").addEventListener("click", () => {
+    const missing = [...ask.querySelectorAll("[required]")].find((el) => !el.value.trim());
+    if (missing) return missing.focus();
+    ask.classList.add("sent");
+  });
+  ask.addEventListener("click", (e) => {
+    if (e.target === ask) ask.close();
+  });
+})();

@@ -13,8 +13,8 @@
   --terra: #9a4736;
   --orange: #e05830;
   --ink: #352a1f;
-  --line: rgba(53, 42, 31, 0.2);
-  --line-strong: #352a1f;
+  --line: rgba(154, 71, 54, 0.3);
+  --line-strong: rgba(154, 71, 54, 0.75);
   --sans: "Plus Jakarta Sans", system-ui, sans-serif;
   --label: "Sora", system-ui, sans-serif;
   --serif: "PP Editorial Old", Georgia, serif;
