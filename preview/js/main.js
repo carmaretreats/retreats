@@ -27,16 +27,14 @@ const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
 if (header && hero) {
   const symbol = document.querySelector(".symbol");
-  // hide the header while reading downwards, bring it back on the way up
-  let lastY = window.scrollY;
+  // the header steps aside while scrolling and comes back once the page rests
+  let idle;
   addEventListener(
     "scroll",
     () => {
-      const y = window.scrollY;
-      if (Math.abs(y - lastY) > 6) {
-        header.classList.toggle("away", y > lastY && y > window.innerHeight * 0.9);
-        lastY = y;
-      }
+      clearTimeout(idle);
+      if (window.scrollY > 80) header.classList.add("away");
+      idle = setTimeout(() => header.classList.remove("away"), 550);
     },
     { passive: true }
   );
@@ -104,7 +102,7 @@ if (modal) {
   });
 }
 
-// intro on first load: mark settles in the middle, subline fades, mark rises, hero copy follows
+// intro on first load: centred mark fades in, then cross-fades into the header mark
 (() => {
   const root = document.documentElement;
   const hero = document.querySelector(".hero");
@@ -117,10 +115,10 @@ if (modal) {
     if (done) return;
     done = true;
     root.classList.add("intro-out");
-    setTimeout(() => root.classList.remove("intro"), 900);
-    setTimeout(() => root.classList.remove("intro-out"), 3200);
+    setTimeout(() => root.classList.remove("intro"), 500);
+    setTimeout(() => root.classList.remove("intro-out"), 2600);
   };
-  const timer = setTimeout(end, 3400);
+  const timer = setTimeout(end, 4200);
   const skip = () => {
     clearTimeout(timer);
     end();
