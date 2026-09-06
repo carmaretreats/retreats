@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788720633">
+<link rel="stylesheet" href="css/base.css?v=1788722269">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
@@ -36,6 +36,8 @@
   .section-divider img { width: 34px; flex-basis: 34px; opacity: 0.9; }
   .section-divider { margin-top: 0; }
   .col-b img { aspect-ratio: 3 / 4.4; }
+  .col-b img { display: none; }
+  .col-b video { display: block; width: 100%; height: auto; aspect-ratio: 3 / 4.4; object-fit: cover; }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
   .pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
@@ -146,7 +148,8 @@
     .host-solo .imgs { min-height: 0; }
     .host-solo .imgs img { flex: none; height: auto; aspect-ratio: 4 / 5; }
     .duo { grid-template-columns: 1fr; }
-    .col-b img { aspect-ratio: 4 / 3; }
+    .col-b img { display: block; aspect-ratio: 4 / 3; }
+    .col-b video { display: none; }
     .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
     .retreats-band { min-height: 0; }
@@ -206,6 +209,7 @@
   </div>
   <div class="col col-b">
     <img src="img/C16.jpg" alt="Meditation unter dem Palmdach" style="object-position:center 30%">
+    <video src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
   </div>
 </section>
 
@@ -464,7 +468,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788720633"></script>
+<script src="js/main.js?v=1788722269"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {

@@ -7,10 +7,12 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788720633">
+<link rel="stylesheet" href="css/base.css?v=1788722269">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
+  #stell .media img { display: none; }
+  #stell .media video { display: block; width: 100%; height: auto; aspect-ratio: 1 / 1; object-fit: cover; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
   .ort-img { position: relative; overflow: hidden; background: var(--ink); }
   .ort-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -139,6 +141,8 @@
     .modal .steps span { white-space: nowrap; }
     .modal .option { gap: 12px; }
     .modal .option .price { font-size: 15px; }
+    #stell .media img { display: block; }
+    #stell .media video { display: none; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
     .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
     .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
@@ -199,7 +203,10 @@
 </section>
 
 <section class="section container split reveal" id="stell">
-  <div class="media"><img src="img/8870.jpg" alt="Räucherstäbchen im Morgenlicht"></div>
+  <div class="media">
+    <img src="img/8870.jpg" alt="Räucherstäbchen im Morgenlicht">
+    <video src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="metadata"></video>
+  </div>
   <div class="stack">
     <h2 class="h1">Ein sanftes Rascheln von <em>Palmenblättern</em> trägt dich in den Morgen.</h2>
     <p class="body">Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.</p>
@@ -502,6 +509,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788720633"></script>
+<script src="js/main.js?v=1788722269"></script>
 </body>
 </html>
