@@ -683,7 +683,8 @@ p {
     font-size: 14px;
   }
   .site-header nav {
-    font-size: 12px;
+    font-size: 11px;
+    gap: 10px;
   }
   .split {
     grid-template-columns: 1fr;
@@ -714,15 +715,29 @@ p {
     display: inline;
   }
   .site-header .cta {
-    padding: 7px 12px;
+    padding: 0 0 3px;
+    border: 0;
+    border-bottom: 1px solid var(--orange);
+    border-radius: 0;
     font-size: 11px;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.04em;
+    margin-left: 10px;
+  }
+  .site-header .cta:hover {
+    background: none;
+    color: inherit;
+  }
+  .site-header {
+    padding: 16px 20px;
+  }
+  .site-header.scrolled {
+    padding: 11px 20px;
   }
   .site-header .wordmark img {
-    height: 32px;
+    height: 28px;
   }
   .site-header.scrolled .wordmark img {
-    height: 26px;
+    height: 24px;
   }
   .site-header nav {
     gap: 16px;
@@ -737,8 +752,8 @@ p {
     font-size: 28px;
   }
   .symbol {
-    width: 42px;
-    top: 88px;
+    width: 40px;
+    top: 78px;
   }
   .hero .copy {
     flex-direction: column;
