@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788719226">
+<link rel="stylesheet" href="css/base.css?v=1788719402">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -31,6 +31,7 @@
   .divider { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); margin-top: clamp(12px, 2vw, 28px); }
   .divider .rule { flex: 1; height: 1px; background: var(--line); }
   .divider img { width: 42px; height: auto; flex: 0 0 42px; aspect-ratio: auto; object-fit: contain; }
+  .section-divider img { width: 34px; flex-basis: 34px; opacity: 0.9; }
   .section-divider { margin-top: 0; }
   .col-b img { aspect-ratio: 3 / 4.4; }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
@@ -244,7 +245,7 @@
   </div>
 </section>
 
-<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m15.svg" alt=""><span class="rule"></span></div>
 
 <section class="section container split-day flip reveal" id="unterkunft">
   <div class="col imgs">
@@ -265,6 +266,8 @@
   </div>
 </section>
 
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m20.svg" alt=""><span class="rule"></span></div>
+
 <section class="section container split-day host-solo reveal" id="hosts">
   <div class="col">
     <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
@@ -276,7 +279,7 @@
   </div>
 </section>
 
-<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m4.svg" alt=""><span class="rule"></span></div>
 
 <section class="section container split-day flip host-solo reveal" id="carmen">
   <div class="col imgs">
@@ -295,7 +298,7 @@
   </div>
 </section>
 
-<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/mandala/m10.svg" alt=""><span class="rule"></span></div>
 
 <section class="section container split-day host-solo reveal" id="mareen">
   <div class="col">
@@ -352,17 +355,6 @@
   </aside>
 </section>
 
-<section class="section container centered reveal" id="kontakt">
-  <h2 class="h1"><em>Buchungsanfrage</em></h2>
-  <p class="body">In drei Schritten zu deinem Platz. Wir melden uns meist noch am selben Tag.</p>
-  <div class="list rows" style="max-width:520px">
-    <div class="row strong"><span class="t label">01</span><span>Retreat auswählen</span></div>
-    <div class="row"><span class="t label">02</span><span>Zimmer auswählen</span></div>
-    <div class="row"><span class="t label">03</span><span>Deine Kontaktdaten</span></div>
-  </div>
-  <a class="link" href="#kontakt">Buchungsanfrage starten</a>
-  <p class="body muted" style="font-size:15px;line-height:22px">Nur eine Frage? <a href="#" data-ask style="border-bottom:1px solid var(--orange)">Schreib uns kurz</a>.</p>
-</section>
 
 <dialog class="modal" id="booking">
   <form class="inner" onsubmit="return false">
@@ -455,7 +447,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788719226"></script>
+<script src="js/main.js?v=1788719402"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
