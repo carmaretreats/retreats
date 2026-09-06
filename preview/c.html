@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788717921">
+<link rel="stylesheet" href="css/base.css?v=1788718162">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -45,14 +45,21 @@
   .list .row .t { flex: 0 0 64px; color: var(--terra); }
   .list .row div { display: flex; flex-direction: column; flex: 1; }
   .list .row .muted { font-size: 15px; line-height: 23px; }
-  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: start; text-align: left; }
+  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: center; text-align: left; min-height: 100vh; padding-top: 92px; padding-bottom: clamp(36px, 4vw, 52px); }
+  .split-day .imgs { height: min(70vh, 600px); }
+  .split-day .imgs img { flex: 1; min-height: 0; aspect-ratio: auto; }
+  #tag .list .row { padding: 5px 0; gap: 16px; }
+  #tag .list .row .t { flex-basis: 56px; font-size: 15px; }
+  #tag .list .row div span:first-child { font-size: 15px; }
+  #tag .list .row .muted { font-size: 13px; line-height: 18px; }
+  #tag .col { gap: 24px; }
   .split-day .col { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 44px); }
   .split-day .h1 { max-width: none; }
   .split-day .list { max-width: none; width: 100%; }
   .split-day.flip { grid-template-columns: 1fr 1.3fr; }
   .split-day .body { text-align: left; max-width: none; }
-  .split-day .imgs { position: sticky; top: 104px; gap: clamp(18px, 2.2vw, 28px); }
-  .split-day .imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .split-day .imgs { gap: clamp(18px, 2.2vw, 28px); }
+  .split-day .imgs img { width: 100%; object-fit: cover; }
   .stats { display: flex; gap: clamp(40px, 6.6vw, 96px); }
   .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
@@ -91,7 +98,10 @@
   @media (max-width: 860px) {
     .hero { height: 74vh; margin: 64px 20px 0; }
     .pair, .trio, .grid2, .offset, .split-day { grid-template-columns: 1fr; }
-    .split-day .imgs { position: static; }
+    .split-day { min-height: 0; padding-top: 0; }
+    .split-day .imgs { height: auto; }
+    .split-day .imgs img { aspect-ratio: 4 / 3; }
+    #tag .list .row .muted { font-size: 15px; line-height: 23px; }
     .split-day.flip .imgs { order: -1; }
     .col-b img { aspect-ratio: 4 / 3; }
     .offset .divider img { width: 32px; flex-basis: 32px; }
@@ -359,7 +369,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788717921"></script>
+<script src="js/main.js?v=1788718162"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
