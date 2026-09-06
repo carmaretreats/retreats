@@ -27,6 +27,19 @@ const header = document.querySelector(".site-header");
 const hero = document.querySelector(".hero");
 if (header && hero) {
   const symbol = document.querySelector(".symbol");
+  // hide the header while reading downwards, bring it back on the way up
+  let lastY = window.scrollY;
+  addEventListener(
+    "scroll",
+    () => {
+      const y = window.scrollY;
+      if (Math.abs(y - lastY) > 6) {
+        header.classList.toggle("away", y > lastY && y > window.innerHeight * 0.9);
+        lastY = y;
+      }
+    },
+    { passive: true }
+  );
   new IntersectionObserver(
     ([e]) => {
       header.classList.toggle("scrolled", !e.isIntersecting);
@@ -90,3 +103,30 @@ if (modal) {
     if (e.target === modal) modal.close();
   });
 }
+
+// intro on first load: mark settles in the middle, subline fades, mark rises, hero copy follows
+(() => {
+  const root = document.documentElement;
+  const hero = document.querySelector(".hero");
+  if (!hero || window.scrollY > 0) return;
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+  root.classList.add("intro");
+  let done = false;
+  const end = () => {
+    if (done) return;
+    done = true;
+    root.classList.add("intro-out");
+    setTimeout(() => root.classList.remove("intro"), 900);
+    setTimeout(() => root.classList.remove("intro-out"), 3200);
+  };
+  const timer = setTimeout(end, 3400);
+  const skip = () => {
+    clearTimeout(timer);
+    end();
+  };
+  addEventListener("wheel", skip, { once: true, passive: true });
+  addEventListener("touchmove", skip, { once: true, passive: true });
+  addEventListener("keydown", skip, { once: true });
+  addEventListener("click", skip, { once: true });
+})();
