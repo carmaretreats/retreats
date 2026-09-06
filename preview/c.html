@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788717710">
+<link rel="stylesheet" href="css/base.css?v=1788717921">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -45,9 +45,26 @@
   .list .row .t { flex: 0 0 64px; color: var(--terra); }
   .list .row div { display: flex; flex-direction: column; flex: 1; }
   .list .row .muted { font-size: 15px; line-height: 23px; }
+  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: start; text-align: left; }
+  .split-day .col { display: flex; flex-direction: column; gap: clamp(28px, 3vw, 44px); }
+  .split-day .h1 { max-width: none; }
+  .split-day .list { max-width: none; width: 100%; }
+  .split-day.flip { grid-template-columns: 1fr 1.3fr; }
+  .split-day .body { text-align: left; max-width: none; }
+  .split-day .imgs { position: sticky; top: 104px; gap: clamp(18px, 2.2vw, 28px); }
+  .split-day .imgs img { width: 100%; aspect-ratio: 1; object-fit: cover; }
   .stats { display: flex; gap: clamp(40px, 6.6vw, 96px); }
   .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
+  .retreats-band { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; --line: rgba(255,248,238,0.4); --line-strong: rgba(255,248,238,0.75); }
+  .retreats-band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0.62) 0%, rgba(53,42,31,0.5) 45%, rgba(53,42,31,0.66) 100%); }
+  .retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(80px, 9vw, 120px); padding-bottom: clamp(64px, 7vw, 96px); }
+  .retreats-band .h1 { max-width: 22ch; text-shadow: 0 2px 20px rgba(53,42,31,0.45); }
+  .retreats-band .body { color: var(--creme); max-width: 640px; text-shadow: 0 1px 16px rgba(53,42,31,0.5); }
+  .retreats-band .num { color: var(--creme); }
+  .retreats-band .list { max-width: 900px; }
+  .retreats-band .link { color: var(--creme); }
 
   .roomlist .row { align-items: center; gap: 18px; }
   .roomlist .row img { width: 56px; height: 42px; object-fit: cover; flex: 0 0 56px; }
@@ -73,10 +90,14 @@
 
   @media (max-width: 860px) {
     .hero { height: 74vh; margin: 64px 20px 0; }
-    .pair, .trio, .grid2, .offset { grid-template-columns: 1fr; }
+    .pair, .trio, .grid2, .offset, .split-day { grid-template-columns: 1fr; }
+    .split-day .imgs { position: static; }
+    .split-day.flip .imgs { order: -1; }
     .col-b img { aspect-ratio: 4 / 3; }
     .offset .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
+    .retreats-band { min-height: 0; }
+    .retreats-band .list .row { flex-direction: column; align-items: flex-start; gap: 8px; }
     .centered { gap: 28px; }
     .mandala::before { width: 460px; height: 460px; opacity: 0.04; }
   }
@@ -139,24 +160,27 @@
   <div class="trio"><img src="img/C16.jpg" alt=""><img src="img/8952.jpg" alt=""><img src="img/8858.jpg" alt=""></div>
 </section>
 
-<section class="section container centered reveal" id="retreats">
-  <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
-  <div class="list rows">
-    <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
-    <div class="row"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
-  </div>
-  <img class="wide" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
-  <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
-  <div class="stats">
-    <div><span class="num">5</span><span class="label">min zum Strand</span></div>
-    <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
-    <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+<section class="retreats-band on-image reveal" id="retreats">
+  <img class="bg" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
+  <div class="container inner">
+    <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+    <div class="list rows">
+      <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
+      <div class="row"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
+    </div>
+    <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
+    <div class="stats">
+      <div><span class="num">5</span><span class="label">min zum Strand</span></div>
+      <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
+      <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+    </div>
   </div>
 </section>
 
-<section class="section container centered reveal" id="tag">
-  <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
-  <div class="list rows">
+<section class="section container split-day reveal" id="tag">
+  <div class="col">
+    <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
+<div class="list rows">
       <div class="row"><span class="t">7.30</span><div><span>Meditation und Pranayama</span><span class="muted">Starte den Tag in Stille, umgeben von den Geräuschen der Natur.</span></div></div>
       <div class="row"><span class="t">8.00</span><div><span>Ayurvedischer Morgentee</span><span class="muted">Teezeit in Stille - bleib ganz bei Dir.</span></div></div>
       <div class="row"><span class="t">8.30</span><div><span>Morning Flow Yoga</span><span class="muted">Bewege dich im Rhythmus der Insel. Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis.</span></div></div>
@@ -167,21 +191,30 @@
       <div class="row"><span class="t">19.00</span><div><span>Abendessen</span><span class="muted">Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen.</span></div></div>
       <div class="row"><span class="t">20.30</span><div><span>Ausklang in Stille</span><span class="muted">Wir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille.</span></div></div>
   </div>
-  <div class="pair"><img src="img/C21.jpg" alt=""><img src="img/8888.jpg" alt=""></div>
+  </div>
+  <div class="col imgs">
+    <img src="img/C21.jpg" alt="">
+    <img src="img/8888.jpg" alt="">
+  </div>
 </section>
 
-<section class="section container centered reveal" id="unterkunft">
-  <h2 class="h1">Unterkunft &amp; <em>Preise</em></h2>
-  <div class="pair"><img src="img/Hikkaduwa02.webp" alt=""><img src="img/monara-bed-1-.jpg" alt=""></div>
-  <p class="body">Gesamtpreis pro Person, inklusive Retreatgebühr von 1100 Euro und zwei Mahlzeiten am Tag. Das Zimmer buchst du direkt beim Retreat-Center Bunky Monkey.</p>
-  <div class="list rows roomlist">
+<section class="section container split-day flip reveal" id="unterkunft">
+  <div class="col imgs">
+    <img src="img/Hikkaduwa02.webp" alt="Die Shala">
+    <img src="img/monara-bed-1-.jpg" alt="Zimmer im Retreat-Center">
+  </div>
+  <div class="col">
+    <h2 class="h1">Unterkunft &amp; <em>Preise</em></h2>
+    <p class="body">Gesamtpreis pro Person, inklusive Retreatgebühr von 1100 Euro und zwei Mahlzeiten am Tag. Das Zimmer buchst du direkt beim Retreat-Center Bunky Monkey.</p>
+<div class="list rows roomlist">
     <div class="row strong"><img src="img/monara-rest.jpg" alt=""><div class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 200 Euro + Retreat 1100 Euro</span></div><span>1300 Euro</span></div>
     <div class="row"><img src="img/monara-bed-1-.jpg" alt=""><div class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 350 Euro + Retreat 1100 Euro</span></div><span>1450 Euro</span></div>
     <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Zimmer &amp; Mahlzeiten 550 Euro + Retreat 1100 Euro</span></div><span>1650 Euro</span></div>
     <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 650 Euro + Retreat 1100 Euro</span></div><span>1750 Euro</span></div>
     <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 750 Euro + Retreat 1100 Euro</span></div><span>1850 Euro</span></div>
   </div>
-  <a class="link" href="#kontakt">Zimmer anfragen</a>
+    <div><a class="link" href="#kontakt">Zimmer anfragen</a></div>
+  </div>
 </section>
 
 <section class="section container centered reveal" id="hosts">
@@ -326,7 +359,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788717710"></script>
+<script src="js/main.js?v=1788717921"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
