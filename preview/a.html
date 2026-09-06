@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788717021">
+<link rel="stylesheet" href="css/base.css?v=1788717324">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -40,6 +40,12 @@
   .about .cols2 .h1 { break-inside: avoid; margin-bottom: 24px; }
   .contact .steplist .row { align-items: baseline; gap: 20px; }
   .contact .steplist .row .t { flex-basis: 40px; }
+  .quote-band::after { content: ""; position: absolute; inset: 0; background: rgba(53,42,31,0.42); }
+  .band-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; padding: 0 var(--gutter); }
+  .quote-band .band-mark { width: 56px; height: auto; object-fit: contain; opacity: 0.9; }
+  .band-quote { font-family: var(--sans); font-weight: 300; font-size: clamp(26px, 3vw, 42px); line-height: 1.15; color: var(--creme); margin: 0; max-width: 20ch; text-shadow: 0 2px 20px rgba(53,42,31,0.5); }
+  .band-quote em { font-family: var(--serif); font-style: italic; }
+  .band-copy .label { color: var(--creme); opacity: 0.8; }
   .day .cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6.6vw, 96px); }
   .day .row { flex-wrap: nowrap; }
   .day .row div span { display: block; }
@@ -130,6 +136,8 @@
     .modal .option { gap: 12px; }
     .modal .option .price { font-size: 15px; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
+    .quote-band .band-mark { width: 40px; }
+    .band-copy { gap: 14px; }
     .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.035; }
     #faq::before { left: -180px; bottom: -140px; width: 460px; height: 460px; opacity: 0.05; }
     .contact::before { right: -170px; width: 380px; height: 380px; opacity: 0.05; }
@@ -248,8 +256,13 @@
       </div>
     </div>
   </div>
-  <div class="fullbleed reveal">
+  <div class="fullbleed quote-band on-image reveal">
     <img src="img/C13.jpg" alt="Carmen unterrichtet in der Shala">
+    <div class="band-copy">
+      <img class="band-mark" src="img/Markenzeichen-Weis.png" alt="">
+      <p class="band-quote">Ayubowan &ndash; <em>möge dein Leben lang sein.</em></p>
+      <span class="label">Der Gruß, mit dem dich Sri Lanka empfängt</span>
+    </div>
   </div>
 </section>
 
@@ -473,6 +486,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788717021"></script>
+<script src="js/main.js?v=1788717324"></script>
 </body>
 </html>

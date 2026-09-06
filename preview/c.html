@@ -7,48 +7,79 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788717021">
+<link rel="stylesheet" href="css/base.css?v=1788717324">
 <style>
-  body { background: var(--paper); }
-  .site-header { position: relative; color: var(--ink); padding-bottom: 20px; background: none; box-shadow: none; }
+  .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
   .site-header .wordmark .dark { display: block; }
-  .symbol { top: 130px; }
-  .hero { height: calc(100vh - 110px); min-height: 560px; margin: 0 var(--gutter); }
-  .hero::after { background: linear-gradient(180deg, rgba(53,42,31,0) 55%, rgba(53,42,31,0.5) 100%); }
-  .hero .copy { flex-direction: column; align-items: center; text-align: center; bottom: 64px; }
-  .centered { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 48px; }
-  .centered .h1 { max-width: 900px; }
+  .symbol { display: none; }
+  .hero { height: calc(100vh - 76px); min-height: 560px; margin: 76px var(--gutter) 0; }
+  .hero::after { background: linear-gradient(180deg, rgba(53,42,31,0.1) 0%, rgba(53,42,31,0.08) 45%, rgba(53,42,31,0.72) 100%); }
+  .hero .copy { flex-direction: column; align-items: center; text-align: center; bottom: 56px; }
+  .hero .copy .h1, .hero .copy .label, .hero .copy .tag { text-shadow: 0 1px 3px rgba(53,42,31,0.5), 0 2px 22px rgba(53,42,31,0.65); }
+  .hero .copy .tag { font-size: 17px; line-height: 26px; color: #fffdf8; max-width: 44ch; }
+
+  .centered { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 40px; }
+  .centered .h1 { max-width: 22ch; }
   .centered .body { text-align: center; max-width: 620px; }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
   .pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
   .trio { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; width: 100%; }
-  .trio img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
-  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 0 80px; width: 100%; max-width: 1000px; text-align: left; }
-  .grid2 .row { flex-direction: column; gap: 4px; padding: 20px 0; }
-  .list { width: 100%; max-width: 800px; text-align: left; }
-  .list .row { justify-content: space-between; }
+  .trio img { width: 100%; aspect-ratio: 1; object-fit: cover; }
+  .grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 72px; width: 100%; max-width: 940px; text-align: left; }
+  .grid2 .item { display: flex; flex-direction: column; padding: 14px 0; }
+  .grid2 .item .muted { font-size: 15px; line-height: 23px; }
+  .list { width: 100%; max-width: 760px; text-align: left; }
+  .list .row { justify-content: space-between; align-items: baseline; }
+  .list .row .t { flex: 0 0 64px; color: var(--terra); }
+  .list .row div { display: flex; flex-direction: column; flex: 1; }
+  .list .row .muted { font-size: 15px; line-height: 23px; }
   .stats { display: flex; gap: clamp(40px, 6.6vw, 96px); }
   .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
-  .site-footer { background: var(--creme-2); color: var(--ink); border-top: 1px solid var(--line); }
-  .site-footer .label, .site-footer .link { color: var(--ink); }
-  .site-footer .newsletter { border-color: var(--ink); }
-  .site-footer .newsletter input { color: var(--ink); }
-  .site-footer .bottom { border-top-color: var(--line); }
+
+  .roomlist .row { align-items: center; gap: 18px; }
+  .roomlist .row img { width: 56px; height: 42px; object-fit: cover; flex: 0 0 56px; }
+  .roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
+  .roomlist .row .txt .muted { font-size: 14px; line-height: 20px; }
+
+  .voices { background: var(--terra) url("img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(72px, 9vw, 120px) 0; }
+  .voices .label { color: var(--creme); opacity: 0.75; }
+  .voices .h1 em { color: var(--creme); }
+  .quote { max-width: 760px; font-size: clamp(19px, 1.8vw, 24px); line-height: 1.5; margin: 0; }
+  .quote-who { font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.8; }
+  .faces { display: flex; gap: 20px; justify-content: center; }
+  .faces button { background: none; border: 0; padding: 0; cursor: pointer; opacity: 0.42; transition: opacity 0.5s ease, transform 0.5s ease; }
+  .faces button img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
+  .faces button.on { opacity: 1; transform: scale(1.18); }
+
+  .mandala { position: relative; isolation: isolate; overflow: hidden; }
+  .mandala::before { content: ""; position: absolute; left: 50%; top: 50%; width: 760px; height: 760px; transform: translate(-50%, -50%); background: url("img/mandala/m4.svg") center / contain no-repeat; opacity: 0.045; z-index: 0; pointer-events: none; }
+  .mandala > * { position: relative; z-index: 1; }
+  #faq.mandala::before { background-image: url("img/mandala/m10.svg"); width: 620px; height: 620px; }
+
+  .site-footer .wordmark img { height: 84px; }
+
   @media (max-width: 860px) {
-    .site-header { padding-bottom: 12px; }
-    .symbol { top: 96px; }
-    .hero { height: 70vh; margin: 0 24px; }
+    .hero { height: 74vh; margin: 64px 20px 0; }
     .pair, .trio, .grid2 { grid-template-columns: 1fr; }
-    .stats { gap: 32px; }
+    .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
+    .centered { gap: 28px; }
+    .mandala::before { width: 460px; height: 460px; opacity: 0.04; }
   }
 </style>
 </head>
 <body>
 
-<header class="site-header dark">
-  <nav><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span></nav>
+<div class="intro-stage" aria-hidden="true">
+  <img class="intro-mark" src="img/carma-weiss.png" alt="">
+  <span class="intro-word">Retreats</span>
+  <img class="intro-symbol" src="img/Markenzeichen-Weis.png" alt="">
+  <span class="intro-sub">in Sri Lanka</span>
+</div>
+
+<header class="site-header">
+  <nav><span class="m-only">Menü</span><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span><span><a href="#tag">Tagesablauf</a></span></nav>
   <a class="wordmark" href="#" aria-label="Carma Retreats">
     <img class="light" src="img/carma-weiss.png" alt="Carma Retreats">
     <img class="dark" src="img/carma-schwarz.png" alt="Carma Retreats">
@@ -57,46 +88,43 @@
 </header>
 
 <section class="hero on-image">
-  <img class="symbol" src="img/Markenzeichen-Weis.png" alt="" style="top:32px">
   <img class="bg" src="img/C13.jpg" alt="" style="object-position:center 40%">
   <div class="copy">
-    <div class="stack" style="align-items:center;gap:20px">
+    <div class="stack" style="align-items:center;gap:16px">
+      <span class="label">Yoga-Retreats in Hikkaduwa, Sri Lanka · Januar &amp; Februar 2027</span>
       <h1 class="h1">Ankommen und <em>Aufatmen.</em></h1>
-      <span class="label">Yoga-retreats, die nachhaltig bewegen.</span>
+      <p class="tag">Eine Woche Yoga am Meer, in kleiner Gruppe und auf Deutsch. Yoga-Retreats, die nachhaltig bewegen.</p>
     </div>
   </div>
 </section>
 
-<section class="section container centered reveal">
-  <span class="label">Stell dir vor...</span>
+<section class="section container centered reveal" id="stell">
   <h2 class="h1">Ein sanftes Rascheln von <em>Palmenblättern</em> trägt dich in den Morgen.</h2>
   <p class="body">Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.</p>
   <div class="pair"><img src="img/8870.jpg" alt=""><img src="img/8732.jpg" alt=""></div>
 </section>
 
-<section class="section container centered reveal">
-  <span class="label">Culture, Community, Connection</span>
-  <h2 class="h1">Was dich <em>erwartet:</em></h2>
-  <div class="grid2 rows">
-    <div class="row"><span>Tägliche Yogaklassen</span><span class="muted">Morgens ganz Yang, abends Yin.</span></div>
-    <div class="row"><span>Meditation & Pranayama</span><span class="muted">Slow down. Mit jedem Atemzug näher bei dir.</span></div>
-    <div class="row"><span>Wohlfühlort</span><span class="muted">Boutique-Hotel in Strandnähe, Pool und Garten.</span></div>
-    <div class="row"><span>Lokale Kultur erleben</span><span class="muted">Echte Begegnungen. Kochkurs, Töpferkurs.</span></div>
-    <div class="row"><span>Community Vibes</span><span class="muted">Komm allein, geh mit Freunden fürs Leben.</span></div>
-    <div class="row"><span>Soulfood</span><span class="muted">Täglich Brunch und Dinner in der Gruppe.</span></div>
-    <div class="row"><span>Zeit für Dich</span><span class="muted">Ayurvedische Massage, Strand oder Surfen.</span></div>
+<section class="section container centered reveal mandala">
+  <h2 class="h1">Atme ein und <em>erlebe.</em></h2>
+  <div class="grid2">
+    <div class="item"><span>Tägliche Yogaklassen</span><span class="muted">Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin.</span></div>
+    <div class="item"><span>Meditation &amp; Pranayama</span><span class="muted">Slow down. Mit jedem Atemzug ein Stück näher bei dir.</span></div>
+    <div class="item"><span>Wohlfühlort</span><span class="muted">Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein.</span></div>
+    <div class="item"><span>Lokale Kultur erleben</span><span class="muted">Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs.</span></div>
+    <div class="item"><span>Community Vibes</span><span class="muted">Real Connections. Komm allein, geh mit Freunden fürs Leben.</span></div>
+    <div class="item"><span>Soulfood</span><span class="muted">Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen.</span></div>
+    <div class="item"><span>Zeit für Dich</span><span class="muted">Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen.</span></div>
   </div>
   <div class="trio"><img src="img/C16.jpg" alt=""><img src="img/8952.jpg" alt=""><img src="img/8858.jpg" alt=""></div>
 </section>
 
 <section class="section container centered reveal" id="retreats">
-  <span class="label">Nächste Retreats · Hikkaduwa</span>
   <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
   <div class="list rows">
-    <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#kontakt">Jetzt buchen</a></div>
-    <div class="row strong"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#kontakt">Jetzt buchen</a></div>
+    <div class="row strong"><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
+    <div class="row"><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
   </div>
-  <img class="wide" src="img/Hikkaduwa06.webp" alt="">
+  <img class="wide" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
   <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
   <div class="stats">
     <div><span class="num">5</span><span class="label">min zum Strand</span></div>
@@ -106,96 +134,186 @@
 </section>
 
 <section class="section container centered reveal" id="tag">
-  <span class="label">Connection, Culture, Community.</span>
   <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
   <div class="list rows">
-    <div class="row"><span class="t">7.30</span><span>Meditation und Pranayama</span></div>
-    <div class="row"><span class="t">8.00</span><span>Ayurvedischer Morgentee</span></div>
-    <div class="row"><span class="t">8.30</span><span>Morning Flow Yoga</span></div>
-    <div class="row"><span class="t">10.30</span><span>Community Brunch</span></div>
-    <div class="row"><span class="t">15.00</span><span>Fruchtplatte und Get-Together</span></div>
-    <div class="row"><span class="t">16.00</span><span>Ausflug (2 Mal die Woche)</span></div>
-    <div class="row"><span class="t">17.00</span><span>Abendpraxis</span></div>
-    <div class="row"><span class="t">19.00</span><span>Abendessen</span></div>
-    <div class="row"><span class="t">20.30</span><span>Ausklang in Stille</span></div>
+      <div class="row"><span class="t">7.30</span><div><span>Meditation und Pranayama</span><span class="muted">Starte den Tag in Stille, umgeben von den Geräuschen der Natur.</span></div></div>
+      <div class="row"><span class="t">8.00</span><div><span>Ayurvedischer Morgentee</span><span class="muted">Teezeit in Stille - bleib ganz bei Dir.</span></div></div>
+      <div class="row"><span class="t">8.30</span><div><span>Morning Flow Yoga</span><span class="muted">Bewege dich im Rhythmus der Insel. Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis.</span></div></div>
+      <div class="row"><span class="t">10.30</span><div><span>Community Brunch</span><span class="muted">Brich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten.</span></div></div>
+      <div class="row"><span class="t">15.00</span><div><span>Fruchtplatte und Get-Together</span><span class="muted">Am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen.</span></div></div>
+      <div class="row"><span class="t">16.00</span><div><span>Ausflug (2 Mal die Woche)</span><span class="muted">Komm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel.</span></div></div>
+      <div class="row"><span class="t">17.00</span><div><span>Abendpraxis</span><span class="muted">Bring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis.</span></div></div>
+      <div class="row"><span class="t">19.00</span><div><span>Abendessen</span><span class="muted">Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen.</span></div></div>
+      <div class="row"><span class="t">20.30</span><div><span>Ausklang in Stille</span><span class="muted">Wir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille.</span></div></div>
   </div>
   <div class="pair"><img src="img/C21.jpg" alt=""><img src="img/8888.jpg" alt=""></div>
 </section>
 
 <section class="section container centered reveal" id="unterkunft">
-  <span class="label">Die Infos</span>
-  <h2 class="h1">Unterkunft & <em>Preise</em></h2>
+  <h2 class="h1">Unterkunft &amp; <em>Preise</em></h2>
   <div class="pair"><img src="img/Hikkaduwa02.webp" alt=""><img src="img/monara-bed-1-.jpg" alt=""></div>
-  <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
-  <div class="list rows" style="max-width:720px">
-    <div class="row strong"><span>Einzelzimmer Premium (1. OG)</span><span>750 Euro</span></div>
-    <div class="row"><span>Einzelzimmer Deluxe (1. OG)</span><span>650 Euro</span></div>
-    <div class="row"><span>Einzelzimmer Standard (EG)</span><span>550 Euro</span></div>
-    <div class="row"><span>Doppelbett im Dreibettzimmer</span><span>350 Euro</span></div>
-    <div class="row"><span>Stockbett im Dreibettzimmer</span><span>200 Euro</span></div>
-    <div class="row" style="color:var(--terra)"><span>plus Retreatgebühr pro Teilnehmer</span><span>1100 Euro</span></div>
+  <p class="body">Gesamtpreis pro Person, inklusive Retreatgebühr von 1100 Euro und zwei Mahlzeiten am Tag. Das Zimmer buchst du direkt beim Retreat-Center Bunky Monkey.</p>
+  <div class="list rows roomlist">
+    <div class="row strong"><img src="img/monara-rest.jpg" alt=""><div class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 200 Euro + Retreat 1100 Euro</span></div><span>1300 Euro</span></div>
+    <div class="row"><img src="img/monara-bed-1-.jpg" alt=""><div class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Zimmer &amp; Mahlzeiten 350 Euro + Retreat 1100 Euro</span></div><span>1450 Euro</span></div>
+    <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Zimmer &amp; Mahlzeiten 550 Euro + Retreat 1100 Euro</span></div><span>1650 Euro</span></div>
+    <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 650 Euro + Retreat 1100 Euro</span></div><span>1750 Euro</span></div>
+    <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Zimmer &amp; Mahlzeiten 750 Euro + Retreat 1100 Euro</span></div><span>1850 Euro</span></div>
   </div>
-  <a class="link" href="#kontakt">Jetzt buchen</a>
+  <a class="link" href="#kontakt">Zimmer anfragen</a>
 </section>
 
 <section class="section container centered reveal" id="hosts">
-  <img src="img/8845.jpg" alt="" style="width:min(720px,100%);aspect-ratio:7/8;object-fit:cover;object-position:center 20%">
-  <span class="label">Deine Hosts</span>
+  <img src="img/8845.jpg" alt="Carmen und Mareen" style="width:min(900px,100%);aspect-ratio:16/9;object-fit:cover;object-position:center 20%">
   <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
   <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
   <a class="link" href="a.html#carmen">Mehr über uns</a>
-  <div class="trio"><img src="img/8970.jpg" alt="" style="aspect-ratio:1"><img src="img/8656.jpg" alt="" style="aspect-ratio:1"><img src="img/8829.jpg" alt="" style="aspect-ratio:1"></div>
+  <div class="trio"><img src="img/8970.jpg" alt=""><img src="img/8656.jpg" alt=""><img src="img/8829.jpg" alt=""></div>
 </section>
 
-<section class="section container centered reveal" id="faq">
-  <span class="label">Retreat-Infos</span>
-  <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
-  <div class="faq list" style="text-align:left">
-    <details open><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein.</p></details>
-    <details><summary>Was ist enthalten?</summary><p class="answer">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten.</p></details>
-    <details><summary>Wo finden die Retreats statt?</summary><p class="answer">Das Retreat findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.</p></details>
-    <details><summary>Finden die Retreats auf Deutsch statt?</summary><p class="answer">Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt.</p></details>
-    <details><summary>Ich reise allein – passt das trotzdem für mich?</summary><p class="answer">Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes.</p></details>
-    <details><summary>Brauche ich ein Visum für Sri Lanka?</summary><p class="answer">Ja, du kannst dein Touristenvisum ganz einfach online beantragen.</p></details>
-    <details><summary>Wie groß sind die Gruppen?</summary><p class="answer">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen.</p></details>
+<section class="voices reveal" id="stimmen">
+  <div class="container centered" style="gap:32px">
+    <span class="label">Stimmen unserer Gäste</span>
+    <h2 class="h1">Sieben Tage, die <em>nachwirken.</em></h2>
+    <blockquote class="quote" data-quote>Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann.</blockquote>
+    <span class="quote-who" data-who>Mona</span>
+    <div class="faces">
+      <button type="button" class="on" data-name="Mona" data-text="Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann."><img src="img/mona.jpeg" alt="Mona"></button>
+      <button type="button" data-name="Sven" data-text="Carmen ist eine wunderbare Yoga-Lehrerin! Als Läufer konnte ich sehr von ihrem Unterricht profitieren - ihre Stunden haben mir geholfen, beweglicher zu werden und meine Muskeln gezielt zu dehnen. Besonders schätze ich ihre freundliche und liebevolle Art, die jede Stunde zu etwas Besonderem macht."><img src="img/sven.jpg" alt="Sven"></button>
+      <button type="button" data-name="Fabienne" data-text="Carmen ist eine sehr einfühlsame Yogalehrerin, welche gut auf die Bedürfnisse ihrer Schüler/innen eingeht. In ihrer Klasse fühle ich mich immer sehr gut aufgehoben und ich gehe sehr erfüllt Nachhause."><img src="img/fabienne.jpg" alt="Fabienne"></button>
+      <button type="button" data-name="Julia" data-text="Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn."><img src="img/julia.jpg" alt="Julia"></button>
+    </div>
   </div>
-  <a class="link" href="#kontakt">Deine Frage schicken</a>
+</section>
+
+<section class="section container centered reveal mandala" id="faq">
+  <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+  <div class="faq list">
+    <details open><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.</p></details>
+    <details><summary>Was ist enthalten?</summary><p class="answer">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit).</p></details>
+    <details><summary>Wo finden die Retreats statt?</summary><p class="answer">Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.</p></details>
+    <details><summary>Finden die Retreats auf Deutsch statt?</summary><p class="answer">Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung.</p></details>
+    <details><summary>Welche Zimmertypen gibt es?</summary><p class="answer">In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis.</p></details>
+    <details><summary>Welche Yoga-Stile unterrichtet ihr?</summary><p class="answer">Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen.</p></details>
+    <details><summary>Ich reise allein – passt das trotzdem für mich?</summary><p class="answer">Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Viele gehen mit neuen Freundschaften nach Hause.</p></details>
+    <details><summary>Wie komme ich am besten nach Sri Lanka?</summary><p class="answer">Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft.</p></details>
+    <details><summary>Wie groß sind die Gruppen?</summary><p class="answer">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community.</p></details>
+  </div>
+  <a class="link" href="#" data-ask>Deine Frage schicken</a>
 </section>
 
 <section class="section container centered reveal" id="kontakt">
-  <span class="label">Retreat-Infos</span>
   <h2 class="h1"><em>Buchungsanfrage</em></h2>
-  <p class="body">Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen. Du hast noch weitere Fragen? Füll einfach das Formular aus. Wir freuen uns, von Dir zu hören.</p>
-  <form class="stack list" onsubmit="return false" style="max-width:720px;gap:28px">
-    <div class="radios" style="justify-content:center"><label><input type="radio" name="r" checked> Hikkaduwa im Januar</label><label><input type="radio" name="r"> Hikkaduwa im Februar</label></div>
-    <div class="pair" style="gap:24px">
-      <label class="field"><span class="label">Dein Name*</span><input type="text" placeholder="Gib hier deinen Namen an"></label>
-      <label class="field"><span class="label">Deine E-Mail*</span><input type="email" placeholder="Deine E-Mail-Adresse"></label>
-    </div>
-    <label class="field"><span class="label">WhatsApp (Optional)</span><input type="tel" placeholder="+49 123 456 789 (Bitte mit Ländervorwahl)"></label>
-    <label class="field"><span class="label">Deine Nachricht*</span><textarea placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."></textarea></label>
-    <div style="text-align:center"><button class="link" style="background:none;border-top:0;border-left:0;border-right:0;cursor:pointer">Buchungsanfrage senden</button></div>
-  </form>
+  <p class="body">In drei Schritten zu deinem Platz. Wir melden uns meist noch am selben Tag.</p>
+  <div class="list rows" style="max-width:520px">
+    <div class="row strong"><span class="t label">01</span><span>Retreat auswählen</span></div>
+    <div class="row"><span class="t label">02</span><span>Zimmer auswählen</span></div>
+    <div class="row"><span class="t label">03</span><span>Deine Kontaktdaten</span></div>
+  </div>
+  <a class="link" href="#kontakt">Buchungsanfrage starten</a>
+  <p class="body muted" style="font-size:15px;line-height:22px">Nur eine Frage? <a href="#" data-ask style="border-bottom:1px solid var(--orange)">Schreib uns kurz</a>.</p>
 </section>
+
+<dialog class="modal" id="booking">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <span class="label">Buchungsanfrage</span>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
+    </div>
+    <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Kontakt</span></div>
+
+    <div class="panel on">
+      <div class="options">
+        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><img src="img/C13.jpg" alt=""><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><img src="img/C16.jpg" alt=""><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1390 Euro</span></label>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="options">
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="thumb-gap"></span><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
+      </div>
+      <span class="fine">Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.</span>
+    </div>
+
+    <div class="panel">
+      <div class="summary">
+        <div><span class="label">Retreat</span><span data-sum="retreat"></span></div>
+        <div><span class="label">Zimmer</span><span data-sum="room"></span></div>
+      </div>
+      <div class="two">
+        <label class="field"><span class="label">Name*</span><input type="text" name="name" placeholder="Dein Name" required></label>
+        <label class="field"><span class="label">E-Mail*</span><input type="email" name="email" placeholder="Deine E-Mail" required></label>
+      </div>
+      <label class="field"><span class="label">Nachricht</span><textarea name="message" placeholder="Optional"></textarea></label>
+    </div>
+
+    <div class="nav">
+      <button type="button" class="btn back" data-back>Zurück</button>
+      <button type="button" class="btn" data-next>Weiter</button>
+    </div>
+
+    <div class="thanks">
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Anfrage ist angekommen.</p>
+    </div>
+  </form>
+</dialog>
+
+<dialog class="modal chat" id="ask">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <h3 class="h1" style="font-size:24px">Wir sind <em>für dich da.</em></h3>
+      <button type="button" class="close" data-close aria-label="Schließen">&times;</button>
+    </div>
+    <div class="ask-body">
+      <p class="body" style="font-size:15px;line-height:23px">Schreib uns direkt per WhatsApp oder hinterlass deine Frage hier. Wir melden uns meist noch am selben Tag.</p>
+      <a class="wa" href="https://wa.me/?text=Hallo%20Carma%20Retreats%2C%20ich%20habe%20eine%20Frage%20zum%20Retreat." target="_blank" rel="noopener">Per WhatsApp schreiben</a>
+      <span class="or">oder schreib uns hier</span>
+      <label class="field"><span class="label">Deine E-Mail*</span><input type="email" name="email" placeholder="Gib hier deine E-Mail-Adresse ein" required></label>
+      <label class="field"><span class="label">Deine Frage*</span><textarea name="question" placeholder="Was möchtest du wissen?" required></textarea></label>
+      <div class="nav"><span></span><button type="button" class="btn" data-send>Frage senden</button></div>
+    </div>
+    <div class="thanks">
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Frage ist angekommen. Wir schreiben dir zurück.</p>
+    </div>
+  </form>
+</dialog>
 
 <footer class="site-footer">
   <div class="top">
     <div class="stack" style="gap:24px">
       <span class="label">Newsletter</span>
       <p>Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!</p>
-      <div class="newsletter"><input type="email" placeholder="Deine E-Mail"><a class="link" href="#">Eintragen</a></div>
+      <div class="newsletter"><input type="email" placeholder="Deine E-Mail"><a class="link" href="#">In Newsletter eintragen</a></div>
     </div>
     <div class="cols">
       <div><span class="label">Seite</span><a href="#retreats">Retreats</a><a href="#unterkunft">Unterkunft</a><a href="#tag">Tagesablauf</a><a href="#hosts">Über uns</a><a href="#kontakt">Buchen</a></div>
+      <div><span class="label">Kontakt</span><a href="#">Instagram</a><a href="#">WhatsApp</a><a href="#">E-Mail</a></div>
       <div><span class="label">Rechtliches</span><a href="#">Impressum</a><a href="#">Datenschutzerklärung</a><a href="#">Cookie-Einstellungen</a></div>
     </div>
   </div>
   <div class="bottom">
-    <div class="wordmark"><img src="img/carma-schwarz.png" alt="Carma Retreats" style="height:52px"></div>
-    <span class="label">© 2026 Carma Retreats</span>
+    <div class="wordmark"><img src="img/carma-full-weiss.png" alt="Carma Retreats"></div>
+    <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
   </div>
 </footer>
 
-<script src="js/main.js?v=1788717021"></script>
+<script src="js/main.js?v=1788717324"></script>
+<script>
+  document.querySelectorAll(".faces button").forEach((b) => {
+    b.addEventListener("click", () => {
+      document.querySelectorAll(".faces button").forEach((o) => o.classList.toggle("on", o === b));
+      document.querySelector("[data-quote]").textContent = b.dataset.text;
+      document.querySelector("[data-who]").textContent = b.dataset.name;
+    });
+  });
+</script>
 </body>
 </html>
