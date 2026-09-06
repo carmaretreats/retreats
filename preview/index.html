@@ -7,43 +7,49 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788722644">
+<link rel="stylesheet" href="css/base.css?v=1788722828">
 <style>
   .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(64px, 10vw, 140px) var(--gutter); }
-  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 64px; }
+  .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 4vw, 56px); margin-top: 64px; }
   .card { display: flex; flex-direction: column; gap: 16px; }
-  .card .thumb { aspect-ratio: 3 / 4; overflow: hidden; background: var(--ink); position: relative; }
+  .card .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); position: relative; }
   .card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
   .card:hover .thumb img { transform: scale(1.04); }
   .card .thumb .tag { position: absolute; left: 20px; top: 20px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--creme); }
   .card h2 { margin: 0; font-weight: 300; font-size: 28px; line-height: 1.2; }
   .card p { opacity: 0.75; font-size: 16px; line-height: 26px; }
-  .note { margin-top: 64px; padding-top: 32px; border-top: 1px solid var(--line); max-width: 640px; opacity: 0.75; font-size: 16px; line-height: 26px; }
+  .note { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); max-width: 640px; font-size: 16px; line-height: 26px; }
+  .note p { opacity: 0.75; }
+  .note p strong { font-weight: 400; opacity: 1; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
   @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <span class="label">Carma Retreats · Layout-Vorschau</span>
-  <h1 class="h1" style="margin-top:24px">Zwei Richtungen für die neue <em>Website.</em></h1>
-  <p class="body" style="margin-top:32px">Beide nutzen die aktuellen Texte, das Brand Book und die neuen Fotos. Layout A ist im Detail ausgearbeitet, inklusive Handy-Ansicht. C zeigt eine zweite Richtung. Am besten am Laptop anschauen, für die Handy-Ansicht einfach das Fenster schmal ziehen oder auf dem Handy öffnen.</p>
+  <h1 class="h1" style="margin-top:24px">Zwei Vorschläge für die neue <em>Website.</em></h1>
+  <p class="body" style="margin-top:32px">Beide zeigen dieselben Inhalte in zwei unterschiedlichen Handschriften. Sektionen lassen sich zwischen den Layouts tauschen, ihr müsst euch also nicht für ein Paket entscheiden, sondern könnt sagen, was euch aus welchem gefällt.</p>
 
   <div class="cards">
     <a class="card" href="a.html">
-      <div class="thumb"><img src="img/C10.jpg" alt=""><span class="tag">Layout A · ausgearbeitet</span></div>
+      <div class="thumb"><img src="img/C10.jpg" alt=""><span class="tag">Layout A</span></div>
       <h2>Links, rechts, Bild, Text.</h2>
-      <p>Fullscreen-Video oben, danach der vertraute Wechsel aus Bild und Text. Grosse Bildflächen beim Tagesablauf und der Community.</p>
+      <p>Der vertraute Wechsel aus Bild und Text, dazu grosse Bildflächen beim Tagesablauf und der Community.</p>
       <span class="link">Ansehen</span>
     </a>
     <a class="card" href="c.html">
-      <div class="thumb"><img src="img/C13.jpg" alt=""><span class="tag">Layout C · Richtung</span></div>
+      <div class="thumb"><img src="img/C13.jpg" alt=""><span class="tag">Layout C</span></div>
       <h2>Zentriert, mit viel Luft.</h2>
       <p>Alles mittig, kurze Texte, dazwischen Bildpaare. Am nächsten an einem Magazin.</p>
       <span class="link">Ansehen</span>
     </a>
   </div>
 
-  <p class="note">Hinweis: Auf dem Handy läuft das Hochformat-Video bereits ohne Ton. Am Laptop steht bis zum Querformat-Video ein Standbild mit langsamer Bewegung an seiner Stelle. Formulare, Newsletter und der Kennenlern-Termin sind in der Vorschau noch nicht angebunden.</p>
+  <div class="note">
+    <p><strong>Was noch kommt</strong></p>
+    <p style="margin-top:14px">Die Handy-Ansicht wird auf der Textseite noch gekürzt, damit sie sich unterwegs angenehmer liest.</p>
+    <p style="margin-top:14px">Nach der Entscheidung für ein Layout folgt die Feinarbeit: Bildqualität, Ladegeschwindigkeit, SEO-Einstellungen sowie das Platzieren der Anbindungen für Formular, Newsletter und Kennenlern-Termin.</p>
+  </div>
 </div>
 </body>
 </html>
