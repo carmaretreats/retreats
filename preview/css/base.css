@@ -339,9 +339,9 @@ p {
 .symbol {
   position: absolute;
   left: 50%;
-  top: 108px;
+  top: 106px;
   transform: translateX(-50%);
-  width: 84px;
+  width: 62px;
   z-index: 19;
   transition: opacity 0.35s ease;
 }
@@ -737,8 +737,8 @@ p {
     font-size: 28px;
   }
   .symbol {
-    width: 52px;
-    top: 92px;
+    width: 42px;
+    top: 88px;
   }
   .hero .copy {
     flex-direction: column;
