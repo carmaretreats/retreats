@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788726632">
+<link rel="stylesheet" href="css/base.css?v=1788726844">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
@@ -15,7 +15,7 @@
   .site-header .wordmark .light { display: none; }
   .site-header .wordmark .dark { display: block; }
   .symbol { display: none; }
-  .hero { height: calc(100vh - 76px); min-height: 560px; margin: 76px var(--gutter) 0; }
+  .hero { height: calc(100vh - 100px); min-height: 560px; margin: 100px var(--gutter) 0; }
   .hero::after { background: linear-gradient(180deg, rgba(53,42,31,0.1) 0%, rgba(53,42,31,0.08) 45%, rgba(53,42,31,0.72) 100%); }
   .hero .copy { flex-direction: column; align-items: center; text-align: center; bottom: 56px; }
   .hero .copy .h1, .hero .copy .label, .hero .copy .tag { text-shadow: 0 1px 3px rgba(53,42,31,0.5), 0 2px 22px rgba(53,42,31,0.65); }
@@ -97,7 +97,7 @@
 
   .faq-split { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(40px, 5vw, 88px); align-items: start; text-align: left; }
   .faq-split .faq { width: 100%; }
-  .faq-aside { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 108px; }
+  .faq-aside { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 132px; }
   .faq-aside .h1 { max-width: none; }
   .faq-aside .body { text-align: left; max-width: none; font-size: 15px; line-height: 23px; }
   .host-solo { grid-template-columns: 1fr 1.25fr; min-height: 0; padding-top: clamp(48px, 5vw, 72px); padding-bottom: clamp(48px, 5vw, 72px); }
@@ -132,7 +132,7 @@
   .site-footer .wordmark img { height: 84px; }
 
   @media (max-width: 860px) {
-    .hero { height: 74vh; margin: 64px 20px 0; }
+    .hero { height: 74vh; margin: 78px 20px 0; }
     .hero .bg.desktop { display: none; }
     .hero .bg.mobile { display: block; }
     .pair, .trio, .grid2, .offset { grid-template-columns: 1fr; }
@@ -466,7 +466,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788726632"></script>
+<script src="js/main.js?v=1788726844"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
