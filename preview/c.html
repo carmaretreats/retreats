@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788718280">
+<link rel="stylesheet" href="css/base.css?v=1788719080">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -45,8 +45,8 @@
   .list .row .t { flex: 0 0 64px; color: var(--terra); }
   .list .row div { display: flex; flex-direction: column; flex: 1; }
   .list .row .muted { font-size: 15px; line-height: 23px; }
-  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: center; text-align: left; min-height: 100vh; padding-top: 100px; padding-bottom: clamp(32px, 3.5vw, 48px); }
-  .split-day .imgs { height: min(62vh, 520px); }
+  .split-day { display: grid; grid-template-columns: 1.3fr 1fr; gap: clamp(32px, 4vw, 72px); align-items: stretch; text-align: left; min-height: 100vh; padding-top: 100px; padding-bottom: clamp(32px, 3.5vw, 48px); }
+  .split-day .imgs { align-self: stretch; height: auto; }
   .split-day .imgs img { flex: 1; min-height: 0; aspect-ratio: auto; }
   #tag .list .row { padding: 5px 0; gap: 16px; }
   #tag .list .row .t { flex-basis: 56px; font-size: 15px; }
@@ -59,7 +59,7 @@
   .split-day.flip { grid-template-columns: 1fr 1.3fr; }
   .split-day .body { text-align: left; max-width: none; }
   .split-day .imgs { gap: clamp(18px, 2.2vw, 28px); }
-  .split-day .imgs img { width: 100%; object-fit: cover; }
+  .split-day .imgs img { width: 100%; flex: 1 1 0; height: 0; min-height: 0; object-fit: cover; }
   .stats { display: flex; gap: clamp(40px, 6.6vw, 96px); }
   .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
@@ -88,6 +88,17 @@
   .faces button img { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; display: block; }
   .faces button.on { opacity: 1; transform: scale(1.18); }
 
+  .faq-split { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(40px, 5vw, 88px); align-items: start; text-align: left; }
+  .faq-split .faq { width: 100%; }
+  .faq-aside { display: flex; flex-direction: column; gap: 22px; position: sticky; top: 108px; }
+  .faq-aside .h1 { max-width: none; }
+  .faq-aside .body { text-align: left; max-width: none; font-size: 15px; line-height: 23px; }
+  .host-solo { grid-template-columns: 1fr 1.25fr; min-height: 0; padding-top: clamp(48px, 5vw, 72px); padding-bottom: clamp(48px, 5vw, 72px); }
+  .host-solo.flip { grid-template-columns: 1.25fr 1fr; }
+  .host-solo .col { justify-content: center; gap: 24px; }
+  .host-solo .imgs { min-height: min(72vh, 620px); }
+  .cols2 { columns: 2; column-gap: 40px; font-size: 14px; line-height: 22px; text-align: left; }
+  .cols2 p { break-inside: avoid; margin: 0 0 14px; }
   .hosts-duo { display: flex; flex-direction: column; align-items: center; gap: clamp(32px, 3.4vw, 48px); }
   .duo-head { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 20px; }
   .duo-head .body { text-align: center; max-width: 640px; }
@@ -118,7 +129,11 @@
     .split-day .imgs img { aspect-ratio: 4 / 3; }
     #tag .list .row .muted { font-size: 15px; line-height: 23px; }
     .split-day.flip .imgs { order: -1; }
-    .cols3 { columns: 1; font-size: 15px; line-height: 23px; }
+    .cols3, .cols2 { columns: 1; font-size: 15px; line-height: 23px; }
+    .host-solo, .host-solo.flip, .faq-split { grid-template-columns: 1fr; }
+    .faq-aside { position: static; order: -1; }
+    .host-solo .imgs { min-height: 0; }
+    .host-solo .imgs img { height: auto; aspect-ratio: 4 / 5; }
     .duo { grid-template-columns: 1fr; }
     .col-b img { aspect-ratio: 4 / 3; }
     .offset .divider img { width: 32px; flex-basis: 32px; }
@@ -244,41 +259,42 @@
   </div>
 </section>
 
-<section class="section container hosts-duo reveal" id="hosts">
-  <div class="duo-head">
-    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
-    <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
+<section class="section container centered reveal" id="hosts">
+  <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+  <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
+  <img class="wide" src="img/8845.jpg" alt="Carmen und Mareen" style="object-position:center 20%">
+</section>
+
+<section class="section container split-day flip host-solo reveal" id="carmen">
+  <div class="col imgs">
+    <img src="img/hosts-carmen.jpg" alt="Carmen" style="object-position:center 25%">
   </div>
-  <div class="duo">
-    <button type="button" class="face on" data-host="carmen">
-      <img src="img/hosts-carmen.jpg" alt="Carmen">
-      <span class="name">Carmen</span>
-    </button>
-    <button type="button" class="face" data-host="mareen">
-      <img src="img/hosts-mareen.jpg" alt="Mareen">
-      <span class="name">Mareen</span>
-    </button>
-  </div>
-  <div class="host-text">
-    <div class="panel on" data-host-panel="carmen">
-      <div class="cols3">
+  <div class="col">
+    <h2 class="h1">Über <em>Carmen</em></h2>
+    <div class="cols2">
         <p>Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.</p>
         <p>Seit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.</p>
         <p>Ein großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.</p>
         <p>Neben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.</p>
         <p>Heute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.</p>
         <p>In ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht. Carmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.</p>
-      </div>
     </div>
-    <div class="panel" data-host-panel="mareen">
-      <div class="cols3">
+  </div>
+</section>
+
+<section class="section container split-day host-solo reveal" id="mareen">
+  <div class="col">
+    <h2 class="h1">Über <em>Mareen</em></h2>
+    <div class="cols2">
         <p>Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.</p>
         <p>Seit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.</p>
         <p>In ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden. Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.</p>
         <p>Über 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat.</p>
         <p>Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.</p>
-      </div>
     </div>
+  </div>
+  <div class="col imgs">
+    <img src="img/hosts-mareen.jpg" alt="Mareen" style="object-position:center 25%">
   </div>
 </section>
 
@@ -297,9 +313,9 @@
   </div>
 </section>
 
-<section class="section container centered reveal mandala" id="faq">
-  <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
-  <div class="faq list">
+<section class="section container faq-split reveal mandala" id="faq">
+  <div class="faq-col">
+<div class="faq">
     <details open><summary>Für wen sind die Carma Retreats gedacht?</summary><p class="answer">Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.</p></details>
     <details><summary>Was ist enthalten?</summary><p class="answer">In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit).</p></details>
     <details><summary>Wo finden die Retreats statt?</summary><p class="answer">Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.</p></details>
@@ -310,7 +326,15 @@
     <details><summary>Wie komme ich am besten nach Sri Lanka?</summary><p class="answer">Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft.</p></details>
     <details><summary>Wie groß sind die Gruppen?</summary><p class="answer">Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community.</p></details>
   </div>
-  <a class="link" href="#" data-ask>Deine Frage schicken</a>
+  </div>
+  <aside class="faq-aside">
+    <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+    <p class="body">Noch etwas offen? Schreib uns kurz, wir antworten meist noch am selben Tag.</p>
+    <div class="stack" style="gap:18px;align-items:flex-start">
+      <a class="link" href="#" data-ask>Deine Frage schicken</a>
+      <a class="link" href="#kontakt">Buchungsanfrage starten</a>
+    </div>
+  </aside>
 </section>
 
 <section class="section container centered reveal" id="kontakt">
@@ -416,14 +440,8 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788718280"></script>
+<script src="js/main.js?v=1788719080"></script>
 <script>
-  document.querySelectorAll(".duo .face").forEach((b) => {
-    b.addEventListener("click", () => {
-      document.querySelectorAll(".duo .face").forEach((o) => o.classList.toggle("on", o === b));
-      document.querySelectorAll("[data-host-panel]").forEach((p) => p.classList.toggle("on", p.dataset.hostPanel === b.dataset.host));
-    });
-  });
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
       document.querySelectorAll(".faces button").forEach((o) => o.classList.toggle("on", o === b));
