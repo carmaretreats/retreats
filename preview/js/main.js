@@ -231,3 +231,14 @@ if (modal) {
     if (e.target === ask) ask.close();
   });
 })();
+
+// nudge muted background videos into playing where autoplay policies are strict
+(() => {
+  const play = () => document.querySelectorAll("video[autoplay]").forEach((v) => v.play().catch(() => {}));
+  play();
+  addEventListener("touchstart", play, { once: true, passive: true });
+  addEventListener("click", play, { once: true });
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) play();
+  });
+})();

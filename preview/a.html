@@ -7,9 +7,10 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788719854">
+<link rel="stylesheet" href="css/base.css?v=1788720633">
 <style>
   .hero .bg.mobile { display: none; }
+  .hero video.bg { animation: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
   .ort-img { position: relative; overflow: hidden; background: var(--ink); }
   .ort-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -40,6 +41,7 @@
   .about .cols2 .h1 { break-inside: avoid; margin-bottom: 24px; }
   .contact .steplist .row { align-items: baseline; gap: 20px; }
   .contact .steplist .row .t { flex-basis: 40px; }
+  .band-video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .quote-band::after { content: ""; position: absolute; inset: 0; background: rgba(53,42,31,0.42); }
   .band-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; padding: 0 var(--gutter); }
   .quote-band .band-mark { width: 56px; height: auto; object-fit: contain; opacity: 0.9; }
@@ -126,6 +128,8 @@
     .hero .bg.desktop { display: none; }
     .hero .bg.mobile { display: block; }
     .day .cols { grid-template-columns: 1fr; gap: 0; }
+    .day .row { flex-direction: column; gap: 2px; padding: 11px 0; }
+    .day .row .t { flex: none; }
     .day .cols .rows:first-child .row:last-child { border-bottom: 0; }
     .modal .two { grid-template-columns: 1fr; }
     .modal.chat { margin: auto 0 0 0; width: 100%; max-height: 92vh; }
@@ -136,13 +140,24 @@
     .modal .option { gap: 12px; }
     .modal .option .price { font-size: 15px; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
+    .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
+    .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
+    .roomlist .row .txt { flex: 1 1 60%; }
+    .roomlist .row .price { flex-basis: 100%; padding-left: 62px; color: var(--terra); }
+    .roomlist .row .txt .muted { font-size: 13px; line-height: 19px; }
     .quote-band .band-mark { width: 40px; }
+    .band-still { display: none; }
+    .band-video { display: block; }
+    .quote-band { height: 74vh; }
     .band-copy { gap: 14px; }
     .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.035; }
     #faq::before { left: -180px; bottom: -140px; width: 460px; height: 460px; opacity: 0.05; }
     .contact::before { right: -170px; width: 380px; height: 380px; opacity: 0.05; }
     .ort { grid-template-columns: 1fr; min-height: 0; }
-    .ort-img { min-height: 78vh; }
+    .ort-img { min-height: 86vh; }
+    .ort-img .over { gap: 14px; }
+    .ort-img .num { font-size: 27px; }
+    .ort .stats { gap: 12px 22px; }
     .ort-img .over { right: 24px; bottom: 32px; }
     .ort-text { padding: 40px 24px 0; }
     .ort .dates .row { flex-direction: column; align-items: flex-start; gap: 10px; }
@@ -172,7 +187,7 @@
 
 <section class="hero on-image">
   <img class="bg desktop" src="img/C10.jpg" alt="">
-  <img class="bg mobile" src="img/C14.jpg" alt="">
+  <video class="bg mobile" src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
   <div class="copy">
     <div class="stack">
       <span class="label">Yoga-Retreats in Hikkaduwa, Sri Lanka · Januar & Februar 2027</span>
@@ -257,7 +272,8 @@
     </div>
   </div>
   <div class="fullbleed quote-band on-image reveal">
-    <img src="img/C13.jpg" alt="Carmen unterrichtet in der Shala">
+    <img class="band-still" src="img/C13.jpg" alt="Carmen unterrichtet in der Shala">
+    <video class="band-video" src="video/mid-portrait.mp4" poster="img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none"></video>
     <div class="band-copy">
       <img class="band-mark" src="img/Markenzeichen-Weis.png" alt="">
       <p class="band-quote">Ayubowan &ndash; <em>möge dein Leben lang sein.</em></p>
@@ -486,6 +502,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788719854"></script>
+<script src="js/main.js?v=1788720633"></script>
 </body>
 </html>

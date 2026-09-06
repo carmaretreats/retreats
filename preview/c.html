@@ -7,8 +7,10 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788719854">
+<link rel="stylesheet" href="css/base.css?v=1788720633">
 <style>
+  .hero .bg.mobile { display: none; }
+  .hero video.bg { animation: none; }
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
   .site-header .wordmark .dark { display: block; }
@@ -66,6 +68,7 @@
   .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
   .wide { width: 100%; aspect-ratio: 16 / 8; object-fit: cover; }
   .retreats-band { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; --line: rgba(255,248,238,0.4); --line-strong: rgba(255,248,238,0.75); }
+  .retreats-band .band-video { display: none; }
   .retreats-band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
   .retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0.62) 0%, rgba(53,42,31,0.5) 45%, rgba(53,42,31,0.66) 100%); }
   .retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(80px, 9vw, 120px); padding-bottom: clamp(64px, 7vw, 96px); }
@@ -128,23 +131,35 @@
 
   @media (max-width: 860px) {
     .hero { height: 74vh; margin: 64px 20px 0; }
-    .pair, .trio, .grid2, .offset, .split-day { grid-template-columns: 1fr; }
-    .split-day { min-height: 0; padding-top: 0; }
+    .hero .bg.desktop { display: none; }
+    .hero .bg.mobile { display: block; }
+    .pair, .trio, .grid2, .offset { grid-template-columns: 1fr; }
+    .split-day, .split-day.flip, .host-solo, .host-solo.flip, #hosts.host-solo, .faq-split { grid-template-columns: 1fr; }
+    .split-day { min-height: 0; padding-top: clamp(56px, 12vw, 72px); padding-bottom: clamp(40px, 9vw, 60px); }
+    #hosts .imgs { min-height: 0; }
     .split-day .imgs { height: auto; }
-    .split-day .imgs img { aspect-ratio: 4 / 3; }
+    .split-day .imgs img { flex: none; height: auto; aspect-ratio: 4 / 3; }
     #tag .list .row .muted { font-size: 15px; line-height: 23px; }
     .split-day.flip .imgs { order: -1; }
     .cols3, .cols2 { columns: 1; font-size: 15px; line-height: 23px; }
-    .host-solo, .host-solo.flip, .faq-split { grid-template-columns: 1fr; }
     .faq-aside { position: static; order: -1; }
     .host-solo .imgs { min-height: 0; }
-    .host-solo .imgs img { height: auto; aspect-ratio: 4 / 5; }
+    .host-solo .imgs img { flex: none; height: auto; aspect-ratio: 4 / 5; }
     .duo { grid-template-columns: 1fr; }
     .col-b img { aspect-ratio: 4 / 3; }
     .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
     .retreats-band { min-height: 0; }
+    .retreats-band .bg.desktop { display: none; }
+    .retreats-band .band-video { display: block; }
     .retreats-band .list .row { flex-direction: column; align-items: flex-start; gap: 8px; }
+    .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
+    .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
+    .roomlist .row .txt { flex: 1 1 60%; }
+    .roomlist .row > span:last-child { flex-basis: 100%; padding-left: 62px; color: var(--terra); }
+    .roomlist .row .txt .muted { font-size: 13px; line-height: 19px; }
+    #tag .list .row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+    #tag .list .row .t { flex-basis: auto; }
     .centered { gap: 28px; }
     .mandala::before { width: 460px; height: 460px; opacity: 0.04; }
   }
@@ -169,7 +184,8 @@
 </header>
 
 <section class="hero on-image">
-  <img class="bg" src="img/C13.jpg" alt="" style="object-position:center 40%">
+  <img class="bg desktop" src="img/C13.jpg" alt="" style="object-position:center 40%">
+  <video class="bg mobile" src="video/hero-portrait.mp4" poster="img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
   <div class="copy">
     <div class="stack" style="align-items:center;gap:16px">
       <span class="label">Yoga-Retreats in Hikkaduwa, Sri Lanka · Januar &amp; Februar 2027</span>
@@ -208,7 +224,8 @@
 </section>
 
 <section class="retreats-band on-image reveal" id="retreats">
-  <img class="bg" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
+  <img class="bg desktop" src="img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben">
+  <video class="bg mobile band-video" src="video/mid-portrait.mp4" poster="img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none"></video>
   <div class="container inner">
     <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
     <div class="list rows">
@@ -447,7 +464,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788719854"></script>
+<script src="js/main.js?v=1788720633"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
