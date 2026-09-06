@@ -135,7 +135,23 @@ if (modal) {
   const bar = document.querySelector(".vbar span");
   if (!track) return;
 
+  const cards = [...track.querySelectorAll(".vcard")];
+  const mark = () => {
+    const edge = track.scrollLeft + 8;
+    let best = 0;
+    let bestD = Infinity;
+    cards.forEach((c, i) => {
+      const d = Math.abs(c.offsetLeft - track.offsetLeft - edge);
+      if (d < bestD) {
+        bestD = d;
+        best = i;
+      }
+    });
+    cards.forEach((c, i) => c.classList.toggle("is-active", i === best));
+  };
+
   const update = () => {
+    mark();
     if (!bar) return;
     const max = track.scrollWidth - track.clientWidth;
     const ratio = track.clientWidth / track.scrollWidth;
