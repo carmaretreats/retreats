@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788717632">
+<link rel="stylesheet" href="css/base.css?v=1788717710">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -28,6 +28,9 @@
   .offset .body { text-align: left; max-width: none; }
   .offset img { width: 100%; object-fit: cover; }
   .col-a img { aspect-ratio: 4 / 3; }
+  .divider { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); margin-top: clamp(12px, 2vw, 28px); }
+  .divider .rule { flex: 1; height: 1px; background: var(--line); }
+  .offset .divider img { width: 42px; height: auto; flex: 0 0 42px; aspect-ratio: auto; object-fit: contain; }
   .col-b img { aspect-ratio: 3 / 4.4; }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
   .pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -72,6 +75,7 @@
     .hero { height: 74vh; margin: 64px 20px 0; }
     .pair, .trio, .grid2, .offset { grid-template-columns: 1fr; }
     .col-b img { aspect-ratio: 4 / 3; }
+    .offset .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
     .centered { gap: 28px; }
     .mandala::before { width: 460px; height: 460px; opacity: 0.04; }
@@ -114,6 +118,7 @@
       <p class="body">Du spürst die Wärme der Sonne auf deiner Yogamatte, dein Herz schlägt ruhig, dein Geist wird leicht. Ankommen und Aufatmen. Jeder Moment ist vollkommen - du bist ganz präsent, im Hier und Jetzt.</p>
     </div>
     <img src="img/8870.jpg" alt="Räucherstäbchen im Morgenlicht">
+    <div class="divider"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
   </div>
   <div class="col col-b">
     <img src="img/8732.jpg" alt="Blätter an einer Mauer">
@@ -321,7 +326,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788717632"></script>
+<script src="js/main.js?v=1788717710"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
