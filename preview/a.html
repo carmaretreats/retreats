@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788715135">
+<link rel="stylesheet" href="css/base.css?v=1788715218">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -38,9 +38,12 @@
   .day .cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6.6vw, 96px); }
   .day .row { flex-wrap: nowrap; }
   .day .row div span { display: block; }
-  .expect { position: relative; isolation: isolate; }
-  .expect::before { content: ""; position: absolute; left: -300px; top: 50%; width: 820px; height: 820px; transform: translateY(-50%); background: url("img/mandala/m20.svg") center / contain no-repeat; opacity: 0.08; z-index: 0; pointer-events: none; }
-  .expect > * { position: relative; z-index: 1; }
+  .expect, #faq, .contact { position: relative; isolation: isolate; }
+  .expect::before, #faq::before, .contact::before { content: ""; position: absolute; background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.045; z-index: 0; pointer-events: none; }
+  .expect > *, #faq > *, .contact > * { position: relative; z-index: 1; }
+  .expect::before { left: -300px; top: 50%; width: 820px; height: 820px; transform: translateY(-50%); background-image: url("img/mandala/m20.svg"); }
+  #faq::before { left: -260px; bottom: -220px; width: 700px; height: 700px; background-image: url("img/mandala/m7.svg"); opacity: 0.06; }
+  .contact::before { right: -280px; top: 40%; width: 760px; height: 760px; transform: translateY(-50%); background-image: url("img/mandala/m3.svg"); }
   .expect .items { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
   .expect .item { display: flex; }
   .expect .item div { display: flex; flex-direction: column; }
@@ -86,7 +89,9 @@
     .modal .option .txt { flex: 1 1 60%; }
     .modal .option .price { flex-basis: 100%; padding-left: 30px; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
-    .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.06; }
+    .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.035; }
+    #faq::before { left: -180px; bottom: -140px; width: 460px; height: 460px; opacity: 0.05; }
+    .contact::before { right: -190px; width: 480px; height: 480px; opacity: 0.035; }
     .ort { grid-template-columns: 1fr; min-height: 0; }
     .ort-img { min-height: 78vh; }
     .ort-img .over { right: 24px; bottom: 32px; }
@@ -404,6 +409,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788715135"></script>
+<script src="js/main.js?v=1788715218"></script>
 </body>
 </html>
