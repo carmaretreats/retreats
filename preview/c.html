@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788719080">
+<link rel="stylesheet" href="css/base.css?v=1788719226">
 <style>
   .site-header { background: #fff; color: var(--ink); box-shadow: 0 1px 0 rgba(154,71,54,0.18); }
   .site-header .wordmark .light { display: none; }
@@ -30,7 +30,8 @@
   .col-a img { aspect-ratio: 4 / 3; }
   .divider { display: flex; align-items: center; gap: clamp(20px, 3vw, 40px); margin-top: clamp(12px, 2vw, 28px); }
   .divider .rule { flex: 1; height: 1px; background: var(--line); }
-  .offset .divider img { width: 42px; height: auto; flex: 0 0 42px; aspect-ratio: auto; object-fit: contain; }
+  .divider img { width: 42px; height: auto; flex: 0 0 42px; aspect-ratio: auto; object-fit: contain; }
+  .section-divider { margin-top: 0; }
   .col-b img { aspect-ratio: 3 / 4.4; }
   .pair { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; width: 100%; }
   .pair img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
@@ -96,6 +97,9 @@
   .host-solo { grid-template-columns: 1fr 1.25fr; min-height: 0; padding-top: clamp(48px, 5vw, 72px); padding-bottom: clamp(48px, 5vw, 72px); }
   .host-solo.flip { grid-template-columns: 1.25fr 1fr; }
   .host-solo .col { justify-content: center; gap: 24px; }
+  .host-solo .body { text-align: left; max-width: 46ch; }
+  #hosts.host-solo { grid-template-columns: 1fr 1.15fr; }
+  #hosts .imgs { min-height: min(58vh, 500px); }
   .host-solo .imgs { min-height: min(72vh, 620px); }
   .cols2 { columns: 2; column-gap: 40px; font-size: 14px; line-height: 22px; text-align: left; }
   .cols2 p { break-inside: avoid; margin: 0 0 14px; }
@@ -136,7 +140,7 @@
     .host-solo .imgs img { height: auto; aspect-ratio: 4 / 5; }
     .duo { grid-template-columns: 1fr; }
     .col-b img { aspect-ratio: 4 / 3; }
-    .offset .divider img { width: 32px; flex-basis: 32px; }
+    .divider img { width: 32px; flex-basis: 32px; }
     .stats { gap: 28px; flex-wrap: wrap; justify-content: center; }
     .retreats-band { min-height: 0; }
     .retreats-band .list .row { flex-direction: column; align-items: flex-start; gap: 8px; }
@@ -240,6 +244,8 @@
   </div>
 </section>
 
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+
 <section class="section container split-day flip reveal" id="unterkunft">
   <div class="col imgs">
     <img src="img/Hikkaduwa02.webp" alt="Die Shala">
@@ -259,11 +265,18 @@
   </div>
 </section>
 
-<section class="section container centered reveal" id="hosts">
-  <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
-  <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
-  <img class="wide" src="img/8845.jpg" alt="Carmen und Mareen" style="object-position:center 20%">
+<section class="section container split-day host-solo reveal" id="hosts">
+  <div class="col">
+    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+    <p class="body">...und gemeinsam sind wir CARMA Retreats. Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst.</p>
+    <div><a class="link" href="#carmen">Mehr über uns</a></div>
+  </div>
+  <div class="col imgs">
+    <img src="img/8845.jpg" alt="Carmen und Mareen" style="object-position:center 30%">
+  </div>
 </section>
+
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
 
 <section class="section container split-day flip host-solo reveal" id="carmen">
   <div class="col imgs">
@@ -282,6 +295,8 @@
   </div>
 </section>
 
+<div class="container divider section-divider reveal"><span class="rule"></span><img src="img/markenzeichen-terra.png" alt=""><span class="rule"></span></div>
+
 <section class="section container split-day host-solo reveal" id="mareen">
   <div class="col">
     <h2 class="h1">Über <em>Mareen</em></h2>
@@ -294,7 +309,7 @@
     </div>
   </div>
   <div class="col imgs">
-    <img src="img/hosts-mareen.jpg" alt="Mareen" style="object-position:center 25%">
+    <img src="img/hosts-mareen.jpg" alt="Mareen" style="object-position:center 68%">
   </div>
 </section>
 
@@ -440,7 +455,7 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788719080"></script>
+<script src="js/main.js?v=1788719226"></script>
 <script>
   document.querySelectorAll(".faces button").forEach((b) => {
     b.addEventListener("click", () => {
