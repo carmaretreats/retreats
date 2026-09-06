@@ -6,8 +6,8 @@
 <title>Carma Retreats · Layout A</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788723117">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css?v=1788726466">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
@@ -47,8 +47,8 @@
   .quote-band::after { content: ""; position: absolute; inset: 0; background: rgba(53,42,31,0.42); }
   .band-copy { position: absolute; inset: 0; z-index: 2; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 20px; text-align: center; padding: 0 var(--gutter); }
   .quote-band .band-mark { width: 56px; height: auto; object-fit: contain; opacity: 0.9; }
-  .band-quote { font-family: var(--sans); font-weight: 300; font-size: clamp(26px, 3vw, 42px); line-height: 1.15; color: var(--creme); margin: 0; max-width: 20ch; text-shadow: 0 2px 20px rgba(53,42,31,0.5); }
-  .band-quote em { font-family: var(--serif); font-style: italic; }
+  .band-quote { font-family: var(--serif); font-style: italic; font-weight: 400; font-size: clamp(28px, 3.2vw, 43px); line-height: 1.2; letter-spacing: 0; color: var(--creme); margin: 0; max-width: 20ch; text-shadow: 0 2px 20px rgba(53,42,31,0.5); }
+  .band-quote em { font-style: italic; }
   .band-copy .label { color: var(--creme); opacity: 0.8; }
   .day .cols { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6.6vw, 96px); }
   .day .row { flex-wrap: nowrap; }
@@ -81,9 +81,9 @@
   .modal.chat .inner { padding: 28px 28px 32px; gap: 20px; }
   .modal.chat .ask-body { display: flex; flex-direction: column; gap: 20px; }
   .modal.chat.sent .ask-body { display: none; }
-  .modal.chat .wa { display: block; text-align: center; padding: 13px 18px; background: var(--terra); color: var(--creme); font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; transition: background-color 0.3s; }
+  .modal.chat .wa { display: block; text-align: center; padding: 13px 18px; background: var(--terra); color: var(--creme); font-family: var(--label); font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase; transition: background-color 0.3s; }
   .modal.chat .wa:hover { background: var(--orange); }
-  .modal.chat .or { font-family: var(--label); font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(53,42,31,0.5); text-align: center; }
+  .modal.chat .or { font-family: var(--label); font-size: 14px; letter-spacing: 0.05em; text-transform: uppercase; color: rgba(53,42,31,0.5); text-align: center; }
   .modal .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
   .contact .media img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
   .voices { background: var(--terra) url("img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(72px, 9vw, 128px) 0; overflow: hidden; }
@@ -173,21 +173,19 @@
 <body>
 <div class="paper-bg" aria-hidden="true"></div>
 <div class="intro-stage" aria-hidden="true">
-  <img class="intro-mark" src="img/carma-weiss.png" alt="">
-  <span class="intro-word">Retreats</span>
-  <img class="intro-symbol" src="img/Markenzeichen-Weis.png" alt="">
+  <img class="intro-mark" src="img/logo/Carna-Retreats---Full-Lock-Up---Weiss.svg" alt="">
   <span class="intro-sub">in Sri Lanka</span>
 </div>
 
 <header class="site-header">
   <nav><span class="m-only">Menü</span><span><a href="#retreats">Retreats</a></span><span><a href="#unterkunft">Unterkunft</a></span><span><a href="#tag">Tagesablauf</a></span></nav>
   <a class="wordmark" href="#" aria-label="Carma Retreats">
-    <img class="light" src="img/carma-weiss.png" alt="Carma Retreats">
-    <img class="dark" src="img/carma-schwarz.png" alt="Carma Retreats">
+    <img class="light" src="img/logo/Carma---Weiss.svg" alt="Carma Retreats">
+    <img class="dark" src="img/logo/Carma---Schwarz.svg" alt="Carma Retreats">
   </a>
   <nav class="right"><span><a href="#hosts">Über uns</a></span><a class="cta" href="https://calendly.com/carma-retreats/kennenlernen" target="_blank" rel="noopener"><i class="cta-long">Lerne uns kennen</i><i class="cta-short">Kennenlernen</i></a></nav>
 </header>
-<img class="symbol" src="img/Markenzeichen-Weis.png" alt="">
+<img class="symbol" src="img/logo/Markenzeichen---Weiss.svg" alt="">
 
 <section class="hero on-image">
   <img class="bg desktop" src="img/C10.jpg" alt="">
@@ -196,7 +194,7 @@
     <div class="stack">
       <span class="label">Yoga-Retreats in Hikkaduwa, Sri Lanka · Januar & Februar 2027</span>
       <h1 class="h1">Ankommen und <em>Aufatmen.</em></h1>
-      <p class="tag">Eine Woche Yoga am Meer, in kleiner Gruppe und auf Deutsch. Yoga-Retreats, die nachhaltig bewegen.</p>
+      <p class="tag sub">Eine Woche Yoga am Meer, in kleiner Gruppe und auf Deutsch. Yoga-Retreats, die nachhaltig bewegen.</p>
     </div>
     <a class="link" href="#kontakt">Jetzt anfragen</a>
   </div>
@@ -248,8 +246,8 @@
     <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne. Und während du entspannt am Pool eine Kokosnuss schlürfst, kannst du der hier lebenden süßen Affenfamilie beim Spielen in den Palmen zuschauen.</p>
     <div class="pair"><img src="img/Hikkaduwa04.webp" alt=""><img src="img/monara-rest.jpg" alt=""></div>
     <div class="rows dates">
-      <div class="row strong between"><div><span>23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span></div><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
-      <div class="row between"><div><span>13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span></div><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
+      <div class="row strong between"><div><span class="sub">23.–29. Januar 2027 in Hikkaduwa</span><span class="label">ab 1300 Euro</span></div><a class="link" href="#kontakt" data-retreat="23.–29. Januar 2027">Jetzt buchen</a></div>
+      <div class="row between"><div><span class="sub">13.–19. Februar 2027 in Hikkaduwa</span><span class="label">ab 1390 Euro</span></div><a class="link" href="#kontakt" data-retreat="13.–19. Februar 2027">Jetzt buchen</a></div>
     </div>
   </div>
 </section>
@@ -503,11 +501,11 @@
     </div>
   </div>
   <div class="bottom">
-    <div class="wordmark"><img src="img/carma-full-weiss.png" alt="Carma Retreats"></div>
+    <div class="wordmark"><img src="img/logo/Carna-Retreats---Full-Lock-Up---Weiss.svg" alt="Carma Retreats"></div>
     <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
   </div>
 </footer>
 
-<script src="js/main.js?v=1788723117"></script>
+<script src="js/main.js?v=1788726466"></script>
 </body>
 </html>
