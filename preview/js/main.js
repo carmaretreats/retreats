@@ -162,27 +162,53 @@ if (modal) {
   track.addEventListener("scroll", update, { passive: true });
   addEventListener("resize", update);
 
+  const bring = (card) => {
+    const gutter = parseFloat(getComputedStyle(track).paddingLeft) || 0;
+    track.scrollTo({ left: card.offsetLeft - track.offsetLeft - gutter, behavior: "smooth" });
+    cards.forEach((c) => c.classList.toggle("is-active", c === card));
+  };
+
+  cards.forEach((card) =>
+    card.addEventListener("click", () => {
+      if (track.dataset.moved === "1") return;
+      if (!card.classList.contains("is-active")) bring(card);
+    })
+  );
+
   let startX = 0;
   let startLeft = 0;
   let dragging = false;
+
+  track.addEventListener("selectstart", (e) => {
+    if (dragging && track.dataset.moved === "1") e.preventDefault();
+  });
+
+  const move = (e) => {
+    if (!dragging) return;
+    const dx = e.clientX - startX;
+    if (Math.abs(dx) > 5) track.dataset.moved = "1";
+    track.scrollLeft = startLeft - dx;
+  };
+
+  const stop = () => {
+    if (!dragging) return;
+    dragging = false;
+    track.classList.remove("dragging");
+    removeEventListener("pointermove", move);
+    removeEventListener("pointerup", stop);
+    setTimeout(() => (track.dataset.moved = "0"), 0);
+  };
+
   track.addEventListener("pointerdown", (e) => {
     if (e.pointerType === "touch") return;
     dragging = true;
+    track.dataset.moved = "0";
     startX = e.clientX;
     startLeft = track.scrollLeft;
     track.classList.add("dragging");
-    track.setPointerCapture(e.pointerId);
+    addEventListener("pointermove", move);
+    addEventListener("pointerup", stop);
   });
-  track.addEventListener("pointermove", (e) => {
-    if (!dragging) return;
-    track.scrollLeft = startLeft - (e.clientX - startX);
-  });
-  const stop = () => {
-    dragging = false;
-    track.classList.remove("dragging");
-  };
-  track.addEventListener("pointerup", stop);
-  track.addEventListener("pointercancel", stop);
 })();
 
 // short question box: WhatsApp or a two-field form

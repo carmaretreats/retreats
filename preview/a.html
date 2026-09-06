@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788716184">
+<link rel="stylesheet" href="css/base.css?v=1788716650">
 <style>
   .hero .bg.mobile { display: none; }
   .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
@@ -82,24 +82,35 @@
   .voices .h1 em { color: var(--creme); font-style: italic; }
   .vtrack { display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
   .vtrack::-webkit-scrollbar { display: none; }
-  .vtrack.dragging { cursor: grabbing; scroll-snap-type: none; }
-  .vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; border-top: 1px solid rgba(255,248,238,0.35); opacity: 0.42; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
-  .vcard.is-active { flex-basis: clamp(320px, 34vw, 460px); opacity: 1; gap: 22px; }
+  .vtrack.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
+  .vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; border-top: 1px solid rgba(255,248,238,0.35); opacity: 0.42; cursor: pointer; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
+  .vcard.is-active { flex-basis: clamp(320px, 34vw, 460px); opacity: 1; gap: 22px; cursor: default; }
+  .vcard:not(.is-active):hover { opacity: 0.62; }
   .vcard img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; pointer-events: none; transition: width 0.6s ease, height 0.6s ease; }
   .vcard.is-active img { width: 72px; height: 72px; }
   .vcard blockquote { margin: 0; font-size: 16px; line-height: 25px; transition: font-size 0.6s ease, line-height 0.6s ease; }
   .vcard.is-active blockquote { font-size: 19px; line-height: 30px; }
   .vcard figcaption { opacity: 0.8; }
   .gallery { background: var(--terra) url("img/terra-paper.jpg") center / cover; padding: clamp(28px, 3vw, 44px) 0 clamp(36px, 4vw, 60px); }
-  .gallery .label { color: var(--creme); opacity: 0.75; margin-bottom: 14px; }
-  .ggrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(10px, 1.2vw, 16px); }
-  .ggrid img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; }
+  .ghead { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 16px; }
+  .gallery .label { color: var(--creme); opacity: 0.8; }
+  .gallery .label.muted { opacity: 0.55; }
+  .ggrid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); grid-template-areas: "a a b c" "a a d e"; gap: clamp(10px, 1.2vw, 16px); height: min(68vh, 600px); }
+  .ggrid img { width: 100%; height: 100%; object-fit: cover; min-height: 0; }
+  .g-a { grid-area: a; }
+  .g-b { grid-area: b; }
+  .g-c { grid-area: c; }
+  .g-d { grid-area: d; }
+  .g-e { grid-area: e; }
   .vbar { height: 1px; background: rgba(255,248,238,0.28); position: relative; }
   .vbar span { position: absolute; left: 0; top: 0; height: 1px; background: var(--creme); width: 25%; transition: width 0.15s linear, transform 0.15s linear; }
   @media (max-width: 860px) {
     .voices .head { margin-bottom: 32px; }
     .vcard { flex-basis: 62vw; opacity: 0.45; }
-    .ggrid { grid-template-columns: 1fr 1fr; }
+    .ggrid { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-template-areas: "a a" "b c" "d e"; height: auto; }
+    .ggrid img { aspect-ratio: 4 / 3; }
+    .g-a { aspect-ratio: 3 / 2; }
+    .ghead { flex-direction: column; gap: 6px; }
     .vcard.is-active { flex-basis: 82vw; }
     .about-grid, .about-grid.flip { grid-template-columns: 1fr; gap: 28px; }
     .divider { gap: 20px; }
@@ -117,10 +128,8 @@
     .modal .inner { padding: 32px 24px 40px; gap: 24px; }
     .modal .steps { gap: 14px; font-size: 11px; letter-spacing: 0.12em; }
     .modal .steps span { white-space: nowrap; }
-    .modal .option { flex-wrap: wrap; gap: 12px 16px; }
-    .modal .option img { display: none; }
-    .modal .option .txt { flex: 1 1 60%; }
-    .modal .option .price { flex-basis: 100%; padding-left: 30px; }
+    .modal .option { gap: 12px; }
+    .modal .option .price { font-size: 15px; }
     .expect .items { grid-template-columns: 1fr; gap: 16px; }
     .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.035; }
     #faq::before { left: -180px; bottom: -140px; width: 460px; height: 460px; opacity: 0.05; }
@@ -329,14 +338,16 @@
 
 <section class="gallery reveal">
   <div class="container">
-    <span class="label">Community · Hikkaduwa 2026</span>
+    <div class="ghead">
+      <span class="label">Community · Hikkaduwa 2026</span>
+      <span class="label muted">Eine Woche in Bildern</span>
+    </div>
     <div class="ggrid">
-      <img src="img/8952.jpg" alt="Die Gruppe in Weiss" style="object-position:center 60%">
-      <img src="img/8920.jpg" alt="">
-      <img src="img/8743.jpg" alt="">
-      <img src="img/8976.jpg" alt="">
-      <img src="img/8888.jpg" alt="">
-      <img src="img/8858.jpg" alt="">
+      <img class="g-a" src="img/8952.jpg" alt="Die Gruppe in Weiss" style="object-position:center 55%">
+      <img class="g-b" src="img/8888.jpg" alt="">
+      <img class="g-c" src="img/8920.jpg" alt="">
+      <img class="g-d" src="img/8976.jpg" alt="">
+      <img class="g-e" src="img/8858.jpg" alt="">
     </div>
   </div>
 </section>
@@ -364,46 +375,43 @@
   <div class="stack">
     <span class="label">Retreat-Infos</span>
     <h2 class="h1"><em>Buchungsanfrage</em></h2>
-    <p class="body">Schreib uns eine Nachricht, um jetzt deinen Platz zu buchen. Du hast noch weitere Fragen? Gerne beantworten wir dir diese – füll dazu einfach das Formular aus. Wir freuen uns, von Dir zu hören.</p>
+    <p class="body">In drei Schritten zu deinem Platz. Wir melden uns meist noch am selben Tag.</p>
     <div class="rows steplist">
       <div class="row strong"><span class="t label">01</span><span>Retreat auswählen</span></div>
       <div class="row"><span class="t label">02</span><span>Zimmer auswählen</span></div>
-      <div class="row"><span class="t label">03</span><span>Deine Daten und Nachricht</span></div>
+      <div class="row"><span class="t label">03</span><span>Deine Kontaktdaten</span></div>
     </div>
     <div><a class="link" href="#kontakt">Buchungsanfrage starten</a></div>
     <p class="body muted" style="font-size:15px;line-height:22px">Nur eine Frage? <a href="#" data-ask style="border-bottom:1px solid var(--orange)">Schreib uns kurz</a>.</p>
   </div>
-  <div class="media"><img src="img/8875.jpg" alt=""></div>
+  <div class="media"><img src="img/C15.jpg" alt="Morgenpraxis auf der Terrasse" style="object-position:center 35%"></div>
 </section>
 
 <dialog class="modal" id="booking">
   <form class="inner" onsubmit="return false">
     <div class="head">
-      <div class="stack" style="gap:12px">
-        <span class="label">Buchungsanfrage</span>
-        <h3 class="h1" style="font-size:26px">Dein Platz in <em>Hikkaduwa.</em></h3>
-      </div>
+      <span class="label">Buchungsanfrage</span>
       <button type="button" class="close" data-close>Schließen</button>
     </div>
-    <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Deine Daten</span></div>
+    <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Kontakt</span></div>
 
     <div class="panel on">
       <div class="options">
-        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><img src="img/C13.jpg" alt=""><span class="txt"><span>23.–29. Januar 2027</span><span class="muted">Hikkaduwa · Sri Lanka</span></span><span class="price">ab 1300 Euro</span></label>
-        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><img src="img/C16.jpg" alt=""><span class="txt"><span>13.–19. Februar 2027</span><span class="muted">Hikkaduwa · Sri Lanka</span></span><span class="price">ab 1390 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1390 Euro</span></label>
       </div>
     </div>
 
     <div class="panel">
-      <p class="body muted" style="font-size:15px;line-height:22px">Gesamtpreis pro Person: Retreatgebühr 1100 Euro plus Zimmer mit Brunch & Dinner. Das Zimmer buchst du direkt bei der Unterkunft.</p>
       <div class="options">
-        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer · Zimmer 200 Euro + Retreat 1100 Euro</span></span><span class="price">1300 Euro gesamt</span></label>
-        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span><span class="muted">Geteiltes Zimmer · Zimmer 350 Euro + Retreat 1100 Euro</span></span><span class="price">1450 Euro gesamt</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span><span class="muted">Eigenes Zimmer · Zimmer 550 Euro + Retreat 1100 Euro</span></span><span class="price">1650 Euro gesamt</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span><span class="muted">Mit Balkon · Zimmer 650 Euro + Retreat 1100 Euro</span></span><span class="price">1750 Euro gesamt</span></label>
-        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span><span class="muted">Mit Balkon ins Grün · Zimmer 750 Euro + Retreat 1100 Euro</span></span><span class="price">1850 Euro gesamt</span></label>
-        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="txt"><span>Ich bin noch unsicher</span><span class="muted">Wir beraten dich gerne</span></span></label>
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
       </div>
+      <span class="fine">Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.</span>
     </div>
 
     <div class="panel">
@@ -412,11 +420,10 @@
         <div><span class="label">Zimmer</span><span data-sum="room"></span></div>
       </div>
       <div class="two">
-        <label class="field"><span class="label">Dein Name*</span><input type="text" name="name" placeholder="Gib hier deinen Namen an" required></label>
-        <label class="field"><span class="label">Deine E-Mail*</span><input type="email" name="email" placeholder="Gib hier deine E-Mail-Adresse ein" required></label>
+        <label class="field"><span class="label">Name*</span><input type="text" name="name" placeholder="Dein Name" required></label>
+        <label class="field"><span class="label">E-Mail*</span><input type="email" name="email" placeholder="Deine E-Mail" required></label>
       </div>
-      <label class="field"><span class="label">WhatsApp (Optional)</span><input type="tel" name="phone" placeholder="+49 123 456 789 (Bitte mit Ländervorwahl)"></label>
-      <label class="field"><span class="label">Deine Nachricht</span><textarea name="message" placeholder="Schreib uns hier, um deinen Platz zu buchen oder wenn du weitere Fragen hast."></textarea></label>
+      <label class="field"><span class="label">Nachricht</span><textarea name="message" placeholder="Optional"></textarea></label>
     </div>
 
     <div class="nav">
@@ -425,8 +432,8 @@
     </div>
 
     <div class="thanks">
-      <h3 class="h1" style="font-size:26px">Danke, <em>wir melden uns.</em></h3>
-      <p class="body">Deine Anfrage ist angekommen. Wir schreiben dir in den nächsten Tagen zurück.</p>
+      <h3 class="h1" style="font-size:24px">Danke, <em>wir melden uns.</em></h3>
+      <p class="body" style="font-size:15px;line-height:23px">Deine Anfrage ist angekommen.</p>
       <div><button type="button" class="btn" data-close>Schließen</button></div>
     </div>
   </form>
@@ -477,6 +484,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788716184"></script>
+<script src="js/main.js?v=1788716650"></script>
 </body>
 </html>
