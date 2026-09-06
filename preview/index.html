@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788722941">
+<link rel="stylesheet" href="css/base.css?v=1788722997">
 <style>
   .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(64px, 10vw, 140px) var(--gutter); }
   .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 4vw, 56px); margin-top: 64px; }
@@ -18,9 +18,15 @@
   .card .thumb .tag { position: absolute; left: 20px; top: 20px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--creme); }
   .card h2 { margin: 0; font-weight: 300; font-size: 28px; line-height: 1.2; }
   .card p { opacity: 0.75; font-size: 16px; line-height: 26px; }
-  .note { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); max-width: 640px; font-size: 16px; line-height: 26px; }
+  .note { margin-top: 72px; padding-top: 32px; border-top: 1px solid var(--line); max-width: 760px; font-size: 16px; line-height: 26px; }
   .note p { opacity: 0.75; }
   .note p strong { font-weight: 400; opacity: 1; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+  .todo { display: flex; flex-direction: column; margin-top: 18px; }
+  .todo div { display: flex; gap: 24px; padding: 14px 0; border-top: 1px solid var(--line); }
+  .todo div:last-child { border-bottom: 1px solid var(--line); }
+  .todo .k { flex: 0 0 150px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding-top: 5px; }
+  .todo div span:last-child { opacity: 0.75; }
+  @media (max-width: 860px) { .todo div { flex-direction: column; gap: 4px; } .todo .k { flex: none; } }
   @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
 </style>
 </head>
@@ -47,8 +53,11 @@
 
   <div class="note">
     <p><strong>Was noch kommt</strong></p>
-    <p style="margin-top:14px">Die Handy-Ansicht wird auf der Textseite noch gekürzt, damit sie sich unterwegs angenehmer liest.</p>
-    <p style="margin-top:14px">Nach der Entscheidung für ein Layout folgt die Feinarbeit: Bildqualität, Ladegeschwindigkeit, SEO-Einstellungen sowie das Platzieren der Anbindungen für Formular, Newsletter und Kennenlern-Termin.</p>
+    <div class="todo">
+      <div><span class="k">Handy-Ansicht</span><span>Die Texte werden auf der Handy-Version gekürzt, damit sie sich unterwegs angenehmer lesen.</span></div>
+      <div><span class="k">Anbindungen</span><span>Buchungsformular, Newsletter, Kennenlern-Termin, WhatsApp, Zahlung über Stripe und das Retreat-PDF zum Download.</span></div>
+      <div><span class="k">Technik</span><span>Bildqualität, Ladegeschwindigkeit und SEO-Einstellungen.</span></div>
+    </div>
   </div>
 </div>
 </body>
