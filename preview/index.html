@@ -7,10 +7,11 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788728888">
+<link rel="stylesheet" href="css/base.css?v=1788787434">
 <style>
   .wrap { max-width: 1100px; margin: 0 auto; padding: clamp(64px, 10vw, 140px) var(--gutter); }
   .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(28px, 4vw, 56px); margin-top: 64px; }
+  .cards.three { grid-template-columns: repeat(3, 1fr); }
   .card { display: flex; flex-direction: column; gap: 16px; }
   .card .thumb { aspect-ratio: 4 / 3; overflow: hidden; background: var(--ink); position: relative; }
   .card .thumb img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.8s; }
@@ -27,16 +28,22 @@
   .todo .k { flex: 0 0 150px; font-family: var(--label); font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; padding-top: 5px; }
   .todo div span:last-child { opacity: 0.75; }
   @media (max-width: 860px) { .todo div { flex-direction: column; gap: 4px; } .todo .k { flex: none; } }
-  @media (max-width: 860px) { .cards { grid-template-columns: 1fr; } }
+  @media (max-width: 860px) { .cards, .cards.three { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 <div class="wrap">
   <span class="label">Carma Retreats · Layout-Vorschau</span>
-  <h1 class="h1" style="margin-top:24px">Zwei Vorschläge für die neue <em>Website.</em></h1>
-  <p class="body" style="margin-top:32px">Beide zeigen dieselben Inhalte in zwei unterschiedlichen Handschriften. Sektionen lassen sich zwischen den Layouts tauschen, ihr müsst euch also nicht für ein Paket entscheiden, sondern könnt sagen, was euch aus welchem gefällt.</p>
+  <h1 class="h1" style="margin-top:24px">Die Vorschläge für die neue <em>Website.</em></h1>
+  <p class="body" style="margin-top:32px">Ganz links steht die Fassung nach eurem Feedback, daneben die beiden ursprünglichen Entwürfe zum Vergleich. Sektionen lassen sich weiterhin zwischen den Layouts tauschen.</p>
 
-  <div class="cards">
+  <div class="cards three">
+    <a class="card" href="final.html">
+      <div class="thumb"><img src="img/hosts-beide.jpg" alt=""><span class="tag">Nach eurem Feedback</span></div>
+      <h2>Die Zusammenführung.</h2>
+      <p>Alle Entscheidungen aus eurer Rückmeldung in einer Seite: Intro und Hero aus A, der Ort aus B, neuer Tagesablauf, Buchung vor den Fragen.</p>
+      <span class="link">Ansehen</span>
+    </a>
     <a class="card" href="a.html">
       <div class="thumb"><img src="img/C10.jpg" alt=""><span class="tag">Layout A</span></div>
       <h2>Links, rechts, Bild, Text.</h2>
