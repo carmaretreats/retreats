@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788793157">
+<link rel="stylesheet" href="css/base.css?v=1788793543">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
@@ -130,10 +130,19 @@
   .retreats-band .link { color: var(--creme); }
   .retreats-band .stats { display: flex; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; justify-content: center; }
   .retreats-band .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .day-split { display: grid; grid-template-columns: 1.45fr 1fr; gap: clamp(40px, 5vw, 80px); align-items: start; }
-  .day-copy { display: flex; flex-direction: column; gap: 28px; }
+  .day-split { display: grid; grid-template-columns: 1fr 330px; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
+  #tag .rows .row { padding: 9px 0; gap: 16px; align-items: baseline; }
+  #tag .rows .row .t { flex: 0 0 62px; font-size: 15px; }
+  #tag .rows .row div { display: block; flex: 1; }
+  #tag .rows .row div span { display: inline; font-size: 15px; }
+  #tag .rows .row div span:first-child::after { content: " · "; color: var(--terra); }
+  #tag .rows .row .muted { font-size: 15px; line-height: 1.35; }
+  .day-copy { display: flex; flex-direction: column; gap: 22px; }
+  .fee { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 16px 0; border-top: 1.5px solid var(--terra); color: var(--terra); }
+  .fee-price { white-space: nowrap; }
   .day-copy .h1 { max-width: none; }
-  .day-pic img { width: 100%; aspect-ratio: 3 / 4.2; object-fit: cover; }
+  .day-pic { align-self: center; justify-self: end; width: min(100%, 330px); }
+  .day-pic img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
   @media (max-width: 860px) {
     .voices .head { margin-bottom: 32px; }
     .vcard { flex-basis: 62vw; opacity: 0.45; }
@@ -170,7 +179,14 @@
     .retreats-band .band-video { display: block; }
     .retreats-band .inner { padding-top: 92px; }
     .retreats-band .rows .row { flex-direction: column; align-items: flex-start; gap: 10px; }
-    .day-split { grid-template-columns: 1fr; gap: 28px; }
+    .day-split { grid-template-columns: 1fr; gap: 28px; min-height: 0; padding-top: clamp(56px, 12vw, 72px); }
+    #tag .rows .row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
+    #tag .rows .row div span:first-child::after { content: ""; }
+    #tag .rows .row div span { display: block; }
+    #tag .rows .row .t { flex: none; }
+    #tag .rows .row .muted { font-size: 15px; line-height: 23px; }
+    .fee { flex-direction: column; gap: 4px; }
+    .day-pic { width: 100%; justify-self: stretch; }
     .day-pic img { aspect-ratio: 4 / 3; }
     .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
     .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
@@ -278,7 +294,7 @@
 </section>
 
 <section class="day" id="tag">
-  <div class="container section reveal day-split" style="padding-bottom:64px">
+  <div class="container reveal day-split">
     <div class="day-copy">
       <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
       <div class="rows">
@@ -318,6 +334,10 @@
       <div class="row"><img src="img/Hikkaduwa01.webp" alt=""><div class="txt"><span>Einzelzimmer Standard (EG)</span></div><span class="price">550 Euro</span></div>
       <div class="row"><img src="img/monara-balcony-1-.jpg" alt=""><div class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></div><span class="price">650 Euro</span></div>
       <div class="row"><img src="img/Hikkaduwa04.webp" alt=""><div class="txt"><span>Einzelzimmer Premium (1. OG)</span></div><span class="price">750 Euro</span></div>
+    </div>
+    <div class="fee">
+      <span>Dazu kommt die Retreatgebühr</span>
+      <span class="fee-price">1100 Euro pro Person</span>
     </div>
     <a class="link" href="#kontakt">Zimmer anfragen</a>
   </div>
@@ -527,6 +547,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788793157"></script>
+<script src="js/main.js?v=1788793543"></script>
 </body>
 </html>
