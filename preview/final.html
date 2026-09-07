@@ -7,7 +7,7 @@
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;1,400&family=Plus+Jakarta+Sans:wght@300;400&family=Sora:wght@400&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/base.css?v=1788793543">
+<link rel="stylesheet" href="css/base.css?v=1788793740">
 <style>
   .hero .bg.mobile { display: none; }
   .hero video.bg { animation: none; }
@@ -130,7 +130,7 @@
   .retreats-band .link { color: var(--creme); }
   .retreats-band .stats { display: flex; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; justify-content: center; }
   .retreats-band .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
-  .day-split { display: grid; grid-template-columns: 1fr 330px; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
+  .day-split { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
   #tag .rows .row { padding: 9px 0; gap: 16px; align-items: baseline; }
   #tag .rows .row .t { flex: 0 0 62px; font-size: 15px; }
   #tag .rows .row div { display: block; flex: 1; }
@@ -141,8 +141,9 @@
   .fee { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; padding: 16px 0; border-top: 1.5px solid var(--terra); color: var(--terra); }
   .fee-price { white-space: nowrap; }
   .day-copy .h1 { max-width: none; }
-  .day-pic { align-self: center; justify-self: end; width: min(100%, 330px); }
-  .day-pic img { width: 100%; height: auto; aspect-ratio: 3 / 4; object-fit: cover; }
+  .day-pics { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(14px, 1.6vw, 24px); align-items: start; }
+  .day-pics img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; }
+  .day-pics img:first-child { margin-top: clamp(40px, 5vw, 72px); }
   @media (max-width: 860px) {
     .voices .head { margin-bottom: 32px; }
     .vcard { flex-basis: 62vw; opacity: 0.45; }
@@ -186,8 +187,7 @@
     #tag .rows .row .t { flex: none; }
     #tag .rows .row .muted { font-size: 15px; line-height: 23px; }
     .fee { flex-direction: column; gap: 4px; }
-    .day-pic { width: 100%; justify-self: stretch; }
-    .day-pic img { aspect-ratio: 4 / 3; }
+    .day-pics img:first-child { margin-top: 32px; }
     .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
     .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
     .roomlist .row .txt { flex: 1 1 60%; }
@@ -295,6 +295,10 @@
 
 <section class="day" id="tag">
   <div class="container reveal day-split">
+    <div class="day-pics">
+      <img src="img/C21.jpg" alt="Zwei Teilnehmerinnen im Baum" style="object-position:center 22%">
+      <img src="img/C14.jpg" alt="Praxis auf der Terrasse">
+    </div>
     <div class="day-copy">
       <h2 class="h1">Ein Tag bei <em>Carma Retreats</em></h2>
       <div class="rows">
@@ -310,7 +314,6 @@
       </div>
       <div><a class="link" href="#kontakt">Jetzt buchen</a></div>
     </div>
-    <div class="day-pic"><img src="img/C21.jpg" alt="Zwei Teilnehmerinnen im Baum" style="object-position:center 22%"></div>
   </div>
   <div class="fullbleed quote-band on-image reveal">
     <img class="band-still" src="img/C13.jpg" alt="Carmen unterrichtet in der Shala">
@@ -547,6 +550,6 @@
   </div>
 </footer>
 
-<script src="js/main.js?v=1788793543"></script>
+<script src="js/main.js?v=1788793740"></script>
 </body>
 </html>
