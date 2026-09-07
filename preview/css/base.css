@@ -415,8 +415,8 @@ p {
 }
 
 .hero .copy .tag {
-  font-size: clamp(20px, 1.8vw, 25px);
-  line-height: 1.3;
+  font-size: 18px;
+  line-height: 1.45;
   color: var(--creme);
   max-width: 30ch;
 }
