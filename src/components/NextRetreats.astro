@@ -9,21 +9,25 @@ const dates = [
   <img class="bg desktop" src="/media/img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben" />
   <video class="bg mobile band-video" src="/media/video/mid-portrait.mp4" poster="/media/img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none"></video>
   <div class="wrap inner">
-    <span class="label">Nächste Retreats</span>
-    <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
-    <div class="rows dates">
-      {dates.map((d, i) => (
-        <div class={i === 0 ? 'row strong between' : 'row between'}>
-          <div><span>{d.label}</span><span class="label">{d.price}</span></div>
-          <a class="link" href="#kontakt" data-retreat={d.label.split(' in ')[0]}>Jetzt buchen</a>
-        </div>
-      ))}
+    <div class="retreat-copy">
+      <span class="label">Nächste Retreats</span>
+      <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+      <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
     </div>
-    <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
-    <div class="stats">
-      <div><span class="num">10–15</span><span class="label">min zu Fuß zum Strand</span></div>
-      <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
-      <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+    <div class="band-offer">
+      <div class="rows dates">
+        {dates.map((d, i) => (
+          <div class={i === 0 ? 'row strong between' : 'row between'}>
+            <div><span>{d.label}</span><span class="label">{d.price}</span></div>
+            <a class="link" href="#kontakt" data-retreat={d.label.split(' in ')[0]}>Jetzt buchen</a>
+          </div>
+        ))}
+      </div>
+      <div class="stats">
+        <div><span class="num">10–15</span><span class="label">min zu Fuß zum Strand</span></div>
+        <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
+        <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+      </div>
     </div>
   </div>
 </section>

@@ -1219,16 +1219,18 @@ html.intro .hero .copy {
 .retreats-band { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; --line: rgba(255,248,238,0.4); --line-strong: rgba(255,248,238,0.75); }
 .retreats-band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .retreats-band .band-video { display: none; }
-.retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(53,42,31,0.72) 0%, rgba(53,42,31,0.5) 55%, rgba(53,42,31,0.4) 100%); }
-.retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(96px, 9vw, 130px); padding-bottom: clamp(64px, 7vw, 96px); }
-.retreats-band .h1 { max-width: 22ch; }
-.retreats-band .body { color: var(--creme); max-width: 58ch; }
+.retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0.66) 0%, rgba(53,42,31,0.52) 40%, rgba(53,42,31,0.62) 100%); }
+.retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 5vw, 88px); align-items: center; text-align: left; width: 100%; padding-top: clamp(96px, 9vw, 130px); padding-bottom: clamp(64px, 7vw, 96px); }
+.retreat-copy { display: flex; flex-direction: column; gap: 24px; }
+.band-offer { display: flex; flex-direction: column; gap: clamp(32px, 4vw, 56px); }
+.retreats-band .h1 { max-width: none; }
+.retreats-band .body { color: var(--creme); max-width: none; }
 .retreats-band .num { color: var(--creme); }
-.retreats-band .rows { width: 100%; max-width: 780px; text-align: left; }
+.retreats-band .rows { width: 100%; text-align: left; }
 .retreats-band .rows .row { align-items: center; padding: 18px 0; }
 .retreats-band .rows .row > div { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
 .retreats-band .link { color: var(--creme); align-self: flex-start; }
-.retreats-band .stats { display: flex; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; }
+.retreats-band .stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: clamp(20px, 3vw, 44px); }
 .retreats-band .stats div { display: flex; flex-direction: column; gap: 6px; }
 .day-split { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
 #tag .rows .row { padding: 9px 0; gap: 16px; align-items: baseline; }
