@@ -1234,12 +1234,7 @@ html.intro .hero .copy {
 .retreats-band .rows .row { align-items: center; padding: 18px 0; }
 .retreats-band .rows .row > div { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
 .retreats-band .link { color: var(--creme); align-self: flex-start; }
-.band-greeting { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
-.band-greeting .band-mark { width: 48px; height: auto; object-fit: contain; opacity: 0.9; }
-/* Eine Stufe kleiner als die Ueberschrift links: der Gruss soll als Zitat
-   lesen, nicht als zweite Hauptueberschrift im selben Band. */
-.band-greeting .band-quote { font-size: var(--fs-m); max-width: 20ch; }
-.band-greeting .label { color: var(--creme); opacity: 0.8; }
+.band-logo { width: clamp(160px, 17vw, 230px); height: auto; object-fit: contain; }
 .retreats-band .stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: clamp(20px, 3vw, 44px); padding-top: clamp(28px, 3vw, 44px); border-top: 1px solid var(--line); }
 .retreats-band .stats div { display: flex; flex-direction: column; gap: 6px; }
 .day-split { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
