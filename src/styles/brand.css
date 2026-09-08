@@ -1388,7 +1388,10 @@ html.intro .hero .copy {
   max-width: none;
 }
 
+/* Datum auf Textgroesse: die Karte kaeme sonst als einziger Block der Seite
+   mit allen vier Stufen gleichzeitig daher. Unterschieden durch Garamond kursiv. */
 .card-meta {
+  font-size: var(--fs-s);
   font-style: italic;
   opacity: 0.85;
 }
