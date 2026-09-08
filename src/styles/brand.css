@@ -1626,3 +1626,18 @@ html.intro .hero .copy {
 
 /* Sagt den Status, statt Knappheit zu behaupten. */
 .modal .thanks .note { color: var(--terra); }
+
+/* Der Fokusring kam als blaues Browser-Rechteck. Sichtbar bleibt er, aber in
+   der Markenfarbe und nur bei Tastaturbedienung. */
+:focus-visible {
+  outline: 2px solid var(--orange);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.on-image :focus-visible,
+.on-paper :focus-visible,
+.voices :focus-visible,
+.site-footer :focus-visible {
+  outline-color: var(--creme);
+}
