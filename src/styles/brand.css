@@ -26,6 +26,9 @@
   /* Versalien lesen sich bei gleicher Pixelzahl groesser als Fliesstext.
      Optischer Ausgleich, keine vierte Stufe: Brand Book 20pt Buttons zu 21pt Text. */
   --fs-caps: 15px;
+  /* Navigation ist Chrome, kein Inhalt: eine Stufe unter den Labels im Text,
+     damit die Kopfzeile nicht so schwer wirkt. */
+  --fs-nav: 13px;
   --lh-tight: 1.2;
   --lh-text: 1.5;
   --gutter: clamp(24px, 4vw, 56px);
@@ -277,8 +280,8 @@ main > * + * {
   gap: clamp(20px, 4vw, 52px);
   align-items: center;
   font-family: var(--label);
-  font-size: var(--fs-caps);
-  letter-spacing: 0.05em;
+  font-size: var(--fs-nav);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
 }
 
@@ -303,10 +306,10 @@ main > * + * {
 
 .site-header .cta {
   font-family: var(--label);
-  font-size: var(--fs-caps);
-  letter-spacing: 0.05em;
+  font-size: var(--fs-nav);
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  padding: 10px 18px;
+  padding: 9px 17px;
   border: 1px solid currentColor;
   border-radius: 999px;
   white-space: nowrap;
