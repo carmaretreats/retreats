@@ -136,7 +136,12 @@ if (modal) {
   if (!track) return;
 
   const cards = [...track.querySelectorAll(".vcard")];
+  // Waehrend des programmatischen Scrollens darf mark() nicht dazwischenfunken:
+  // die Karte wechselt beim Aktivieren ihre Breite, wodurch mark() kurzzeitig
+  // wieder die alte Karte als naechste erkannt und die Auswahl zurueckgesetzt hat.
+  let lockUntil = 0;
   const mark = () => {
+    if (Date.now() < lockUntil) return;
     const edge = track.scrollLeft + 8;
     let best = 0;
     let bestD = Infinity;
@@ -163,6 +168,7 @@ if (modal) {
   addEventListener("resize", update);
 
   const bring = (card) => {
+    lockUntil = Date.now() + 900;
     const gutter = parseFloat(getComputedStyle(track).paddingLeft) || 0;
     track.scrollTo({ left: card.offsetLeft - track.offsetLeft - gutter, behavior: "smooth" });
     cards.forEach((c) => c.classList.toggle("is-active", c === card));
@@ -240,5 +246,35 @@ if (modal) {
   addEventListener("click", play, { once: true });
   document.addEventListener("visibilitychange", () => {
     if (!document.hidden) play();
+  });
+})();
+
+// WhatsApp: nach einer Weile einmal anklopfen. Der Hinweis bleibt fuer die
+// Sitzung weg, sobald er geschlossen wurde, damit er nicht nervt.
+(() => {
+  const bubble = document.querySelector(".wa-bubble");
+  if (!bubble) return;
+  const key = "wa-hint-dismissed";
+  try {
+    if (sessionStorage.getItem(key)) return;
+  } catch {}
+
+  const timer = setTimeout(() => {
+    bubble.hidden = false;
+  }, 18000);
+
+  bubble.querySelector(".wa-close").addEventListener("click", () => {
+    clearTimeout(timer);
+    bubble.hidden = true;
+    try {
+      sessionStorage.setItem(key, "1");
+    } catch {}
+  });
+
+  bubble.closest(".wa-dock").querySelector(".wa-fab").addEventListener("click", () => {
+    bubble.hidden = true;
+    try {
+      sessionStorage.setItem(key, "1");
+    } catch {}
   });
 })();

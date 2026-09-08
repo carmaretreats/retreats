@@ -1195,7 +1195,7 @@ html.intro .hero .copy {
 .vtrack { display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
 .vtrack::-webkit-scrollbar { display: none; }
 .vtrack.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
-.vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; border-top: 1px solid rgba(255,248,238,0.35); opacity: 0.42; cursor: pointer; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
+.vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; opacity: 0.42; cursor: pointer; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
 .vcard.is-active { flex-basis: clamp(320px, 34vw, 460px); opacity: 1; gap: 22px; cursor: default; }
 .vcard:not(.is-active):hover { opacity: 0.62; }
 .vcard img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; pointer-events: none; transition: width 0.6s ease, height 0.6s ease; }
@@ -1484,4 +1484,101 @@ html.intro .hero .copy {
 
 @media (max-width: 860px) {
   #unterkunft .squares { gap: 10px; }
+}
+
+
+/* WhatsApp: fest unten rechts, in der Akzentfarbe statt im Messenger-Gruen,
+   damit es nicht als Fremdkoerper auf der Seite sitzt. */
+.wa-fab {
+  position: fixed;
+  right: clamp(16px, 2.2vw, 28px);
+  bottom: clamp(16px, 2.2vw, 28px);
+  z-index: 30;
+  width: 54px;
+  height: 54px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--orange);
+  color: var(--creme);
+  box-shadow: 0 6px 22px rgba(53, 42, 31, 0.28);
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.wa-fab svg {
+  width: 28px;
+  height: 28px;
+  fill: currentColor;
+}
+
+.wa-fab:hover {
+  background: #6d8b73;
+  transform: translateY(-2px);
+}
+
+@media (max-width: 860px) {
+  .wa-fab { width: 48px; height: 48px; }
+  .wa-fab svg { width: 25px; height: 25px; }
+}
+
+.wa-dock {
+  position: fixed;
+  right: clamp(16px, 2.2vw, 28px);
+  bottom: clamp(16px, 2.2vw, 28px);
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.wa-dock .wa-fab {
+  position: static;
+  right: auto;
+  bottom: auto;
+}
+
+.wa-bubble {
+  position: relative;
+  max-width: 268px;
+  padding: 16px 34px 16px 18px;
+  border-radius: 16px 16px 4px 16px;
+  background: var(--creme);
+  color: var(--ink);
+  box-shadow: 0 10px 30px rgba(53, 42, 31, 0.22);
+  font-size: var(--fs-s);
+  line-height: var(--lh-text);
+  animation: wa-in 0.45s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+.wa-bubble p { margin: 0; }
+.wa-bubble strong { font-weight: 500; }
+
+.wa-close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+  color: var(--ink);
+  opacity: 0.45;
+  padding: 4px;
+}
+
+.wa-close:hover { opacity: 1; }
+
+@keyframes wa-in {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .wa-bubble { animation: none; }
+}
+
+@media (max-width: 860px) {
+  .wa-bubble { max-width: min(74vw, 268px); }
 }

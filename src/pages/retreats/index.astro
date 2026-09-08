@@ -17,6 +17,7 @@ import GallerySection from '../../components/GallerySection.astro';
 import ContactSection from '../../components/ContactSection.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
 import BookingModal from '../../components/BookingModal.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import AskModal from '../../components/AskModal.astro';
 import data from '../../content/retreats-page.json';
 const people = data.aboutSection.people;
@@ -43,6 +44,7 @@ const people = data.aboutSection.people;
     <SloganBand />
     <FaqAccordion />
   </main>
+  <WhatsAppButton />
   <BookingModal />
   <AskModal />
 </Layout>
