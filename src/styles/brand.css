@@ -1233,7 +1233,9 @@ html.intro .hero .copy {
 .retreats-band .link { color: var(--creme); align-self: flex-start; }
 .band-greeting { display: flex; flex-direction: column; align-items: flex-start; gap: 16px; }
 .band-greeting .band-mark { width: 48px; height: auto; object-fit: contain; opacity: 0.9; }
-.band-greeting .band-quote { max-width: 16ch; }
+/* Eine Stufe kleiner als die Ueberschrift links: der Gruss soll als Zitat
+   lesen, nicht als zweite Hauptueberschrift im selben Band. */
+.band-greeting .band-quote { font-size: var(--fs-m); max-width: 20ch; }
 .band-greeting .label { color: var(--creme); opacity: 0.8; }
 .retreats-band .stats { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: clamp(20px, 3vw, 44px); padding-top: clamp(28px, 3vw, 44px); border-top: 1px solid var(--line); }
 .retreats-band .stats div { display: flex; flex-direction: column; gap: 6px; }
