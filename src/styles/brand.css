@@ -1117,7 +1117,18 @@ html.intro .hero .copy {
 .hero video.bg { animation: none; }
 #stell .media img { display: none; }
 /* Hoehe fuehrt, Breite folgt: mit width 100% wurde das Hochformat von der
-   max-height wieder auf ein Quadrat zusammengedrueckt. */
+   max-height wieder auf ein Quadrat zusammengedrueckt. Die Spalte richtet
+   sich danach, sonst klafft rechts vom Video eine tote Flaeche. */
+@media (min-width: 861px) {
+  #stell {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: clamp(56px, 6vw, 96px);
+  }
+
+  /* Das Video steht nicht an der Seitenkante, sondern rueckt zur Mitte. */
+  #stell .media { padding-left: clamp(40px, 5vw, 88px); }
+}
+
 #stell .media video { display: block; height: min(78vh, 680px); width: auto; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 40%; }
 .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
 .ort-img { position: relative; overflow: hidden; background: var(--ink); }
