@@ -1124,9 +1124,10 @@ html.intro .hero .copy {
 .ort .dates .row div { display: flex; flex-direction: column; gap: 2px; }
 .roomlist .row { align-items: center; gap: 20px; }
 .roomlist .row img { width: 64px; height: 48px; object-fit: cover; flex: 0 0 64px; }
-.roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
+/* Der Preis steht direkt hinter dem Zimmernamen, nicht am rechten Rand. */
+.roomlist .row .txt { display: flex; flex-direction: column; flex: 0 1 auto; }
 .roomlist .row .txt .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
-.roomlist .row .price { color: var(--ink); }
+.roomlist .row .price { color: var(--ink); margin-left: 0; }
 .divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); }
 .divider .rule { flex: 1; height: 1px; background: var(--line); }
 .divider img { width: 36px; height: auto; flex: 0 0 36px; }
@@ -1430,35 +1431,32 @@ html.intro .hero .copy {
 }
 
 
-/* Unterkunft: die Bildspalte laeuft auf die Hoehe der Textspalte mit.
-   Die Bilder liegen absolut, damit nicht sie die Sektionshoehe bestimmen,
-   sondern die Zimmer- und Terminliste daneben. */
-.media-fill { display: contents; }
+/* Unterkunft: links Zimmerpreise und Termine, rechts die Beschreibung
+   mit drei quadratischen Fotos darunter. Das Raster ist zweispaltig, damit
+   die Bilder gross genug bleiben und die Spalte auf Texthoehe kommt. */
+#unterkunft .rooms-media {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(28px, 3.5vw, 44px);
+}
 
-@media (min-width: 861px) {
-  #unterkunft {
-    align-items: stretch;
-  }
+#unterkunft .rooms-media .body {
+  max-width: none;
+}
 
-  #unterkunft .rooms-media {
-    position: relative;
-  }
+#unterkunft .squares {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
 
-  #unterkunft .media-fill {
-    position: absolute;
-    /* Die Textspalte behaelt ihre Breite, die Bilder ruecken nur ein. */
-    inset: 0 0 0 14%;
-    display: grid;
-    grid-template-rows: 1.3fr 1fr;
-    gap: 24px;
-  }
+#unterkunft .squares img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  display: block;
+}
 
-  #unterkunft .media-fill > img,
-  #unterkunft .pair,
-  #unterkunft .pair img {
-    height: 100%;
-    max-height: none;
-    aspect-ratio: auto;
-    min-height: 0;
-  }
+@media (max-width: 860px) {
+  #unterkunft .squares { gap: 10px; }
 }
