@@ -163,9 +163,25 @@ if (modal) {
     bar.style.width = `${Math.min(1, ratio) * 100}%`;
     bar.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 / ratio - 1) * 100) : 0}%)`;
   };
+  // Die Spur bekommt eine feste Hoehe. Ohne sie waechst die Sektion beim
+  // Wechsel: eine schmale Karte bricht ihren Text auf mehr Zeilen um, und die
+  // hoechste Karte bestimmt die Hoehe der ganzen Reihe.
+  const fixHeight = () => {
+    track.style.minHeight = "";
+    const active = cards.find((c) => c.classList.contains("is-active"));
+    cards.forEach((c) => c.classList.remove("is-active"));
+    const tallest = track.scrollHeight;
+    if (active) active.classList.add("is-active");
+    track.style.minHeight = `${tallest}px`;
+  };
+
   update();
+  fixHeight();
   track.addEventListener("scroll", update, { passive: true });
-  addEventListener("resize", update);
+  addEventListener("resize", () => {
+    update();
+    fixHeight();
+  });
 
   const bring = (card) => {
     lockUntil = Date.now() + 900;
