@@ -3,7 +3,7 @@ const { person, flip = false, id } = Astro.props;
 const paragraphs = (person.text || '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
 const name = (person.title || '').replace(/^Über\s+/, '');
 ---
-<section class="section container about reveal" id={id}>
+<section class="section wrap about reveal" id={id}>
   <div class={flip ? 'about-grid flip' : 'about-grid'}>
     <div class="media"><img src={person.image} alt={person.imageAlt} style={flip ? 'object-position:center 68%' : 'object-position:center 25%'} /></div>
     <div class="cols2">
