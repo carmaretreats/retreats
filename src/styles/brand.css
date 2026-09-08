@@ -1281,7 +1281,7 @@ html.intro .hero .copy {
   .retreats-band .rows .row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .day-split { grid-template-columns: 1fr; gap: 28px; min-height: 0; padding-top: clamp(56px, 12vw, 72px); }
   #tag .rows .row { flex-direction: column; align-items: flex-start; gap: 2px; padding: 10px 0; }
-  #tag .rows .row div span:first-child::after { content: ""; }
+  #tag .rows .row div span:first-child:not(:only-child)::after { content: ""; }
   #tag .rows .row div span { display: block; }
   #tag .rows .row .t { flex: none; }
   #tag .rows .row .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
