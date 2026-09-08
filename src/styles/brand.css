@@ -1434,10 +1434,18 @@ html.intro .hero .copy {
 /* Unterkunft: links Zimmerpreise und Termine, rechts die Beschreibung
    mit drei quadratischen Fotos darunter. Das Raster ist zweispaltig, damit
    die Bilder gross genug bleiben und die Spalte auf Texthoehe kommt. */
+#unterkunft {
+  align-items: stretch;
+}
+
+/* Die rechte Spalte setzt auf Hoehe der Ueberschrift an, nicht auf Hoehe
+   der Eyebrow, und laeuft bis zur Gebuehrenzeile links durch. */
 #unterkunft .rooms-media {
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   gap: clamp(28px, 3.5vw, 44px);
+  padding-top: calc(var(--fs-caps) * var(--lh-text) + 24px);
 }
 
 #unterkunft .rooms-media .body {
