@@ -595,14 +595,30 @@ main > * + * {
 
 /* footer */
 .site-footer {
-  background: var(--terra);
+  background: var(--terra) url("/media/img/terra-paper.jpg") center / cover;
   color: var(--creme);
-  padding: var(--section) var(--gutter) 40px;
+  /* Unten Platz fuer das WhatsApp-Widget, das sonst auf der Copyright-Zeile liegt. */
+  padding: var(--section) var(--gutter) 96px;
+  /* Der Fuss ist Navigation, keine Lektuere: eine Stufe kleiner als der
+     Fliesstext, sonst wirkt die Linkwand vollgestopft. */
+  font-size: var(--fs-nav);
 }
 
 .site-footer .label,
 .site-footer .link {
   color: var(--creme);
+}
+
+.site-footer .label {
+  font-size: var(--fs-nav);
+  letter-spacing: 0.07em;
+  opacity: 0.7;
+}
+
+.site-footer .body,
+.site-footer a,
+.site-footer input {
+  font-size: var(--fs-nav);
 }
 
 .site-footer .top {
@@ -620,11 +636,11 @@ main > * + * {
 .site-footer .cols div {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 11px;
 }
 
 .site-footer .cols .label {
-  margin-bottom: 8px;
+  margin-bottom: 6px;
 }
 
 .site-footer .newsletter {
@@ -650,8 +666,8 @@ main > * + * {
 }
 
 .site-footer .bottom {
-  margin-top: 80px;
-  padding-top: 32px;
+  margin-top: 56px;
+  padding-top: 26px;
   border-top: 1px solid rgba(255, 248, 238, 0.4);
   display: flex;
   justify-content: space-between;
@@ -660,7 +676,7 @@ main > * + * {
 }
 
 .site-footer .wordmark img {
-  width: 200px;
+  width: 132px;
   height: auto;
 }
 
