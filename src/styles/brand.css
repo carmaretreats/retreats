@@ -1306,3 +1306,24 @@ html.intro .hero .copy {
   .expect .pics img:last-child { margin-top: 32px; }
 }
 
+
+/* Terracotta-Papier als Sektionsgrund */
+.on-paper {
+  background: var(--terra) url("/media/img/terra-paper.jpg") center / cover;
+  color: var(--creme);
+  --line: rgba(255, 248, 238, 0.35);
+  --line-strong: rgba(255, 248, 238, 0.7);
+}
+
+.on-paper .h1,
+.on-paper .h1 em,
+.on-paper .body,
+.on-paper .link,
+.on-paper .num {
+  color: var(--creme);
+}
+
+.on-paper .label {
+  color: var(--creme);
+  opacity: 0.8;
+}
