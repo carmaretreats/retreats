@@ -1018,7 +1018,7 @@ main > * + * {
 
 .modal.sent .panel,
 .modal.sent .steps,
-.modal.sent .nav {
+.modal.sent > form > .nav {
   display: none;
 }
 
@@ -1611,3 +1611,15 @@ html.intro .hero .copy {
 @media (max-width: 860px) {
   .wa-bubble { max-width: min(74vw, 268px); }
 }
+
+/* Der Abwarten-Weg im Danke-Schritt ist gleichwertig, aber nicht der Hauptweg. */
+.modal .thanks .nav { margin-top: 8px; }
+.modal .thanks .ghost {
+  background: none;
+  border: 0;
+  border-bottom-color: transparent;
+  cursor: pointer;
+  padding: 0 0 4px;
+  color: rgba(53, 42, 31, 0.55);
+}
+.modal .thanks .ghost:hover { color: var(--ink); }
