@@ -1433,6 +1433,11 @@ html.intro .hero .copy {
 
 .slogan-band .link {
   align-self: center;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid var(--orange);
+  cursor: pointer;
+  padding: 0 0 4px;
 }
 
 
