@@ -221,19 +221,16 @@ main > * + * {
   flex-direction: column;
 }
 
+/* Linien trennen nur zwischen Zeilen. Rahmen um jeden Block herum ergaben
+   auf einem Screen zehn Striche und liessen die Seite unruhig wirken. */
 .row {
   display: flex;
   gap: 24px;
   padding: 13px 0;
+}
+
+.rows .row + .row {
   border-top: 1px solid var(--line);
-}
-
-.rows .row:last-child {
-  border-bottom: 1px solid var(--line);
-}
-
-.row.strong {
-  border-top-color: var(--line-strong);
 }
 
 .row .t {
@@ -1430,4 +1427,38 @@ html.intro .hero .copy {
 
 .slogan-band .link {
   align-self: center;
+}
+
+
+/* Unterkunft: die Bildspalte laeuft auf die Hoehe der Textspalte mit.
+   Die Bilder liegen absolut, damit nicht sie die Sektionshoehe bestimmen,
+   sondern die Zimmer- und Terminliste daneben. */
+.media-fill { display: contents; }
+
+@media (min-width: 861px) {
+  #unterkunft {
+    align-items: stretch;
+  }
+
+  #unterkunft .rooms-media {
+    position: relative;
+  }
+
+  #unterkunft .media-fill {
+    position: absolute;
+    /* Die Textspalte behaelt ihre Breite, die Bilder ruecken nur ein. */
+    inset: 0 0 0 14%;
+    display: grid;
+    grid-template-rows: 1.3fr 1fr;
+    gap: 24px;
+  }
+
+  #unterkunft .media-fill > img,
+  #unterkunft .pair,
+  #unterkunft .pair img {
+    height: 100%;
+    max-height: none;
+    aspect-ratio: auto;
+    min-height: 0;
+  }
 }

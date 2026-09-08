@@ -17,8 +17,8 @@ const dates = [
     <h2 class="h1">Unterkunft & <em>Preise</em></h2>
     <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
     <div class="rows roomlist">
-      {rooms.map((r, i) => (
-        <div class={i === 0 ? 'row strong' : 'row'}>
+      {rooms.map(r => (
+        <div class="row">
           <img src={r.img} alt="" />
           <div class="txt"><span>{r.name}</span></div>
           <span class="price">{r.price}</span>
@@ -30,8 +30,8 @@ const dates = [
       <span class="fee-price">1100 Euro pro Person</span>
     </div>
     <div class="rows dates">
-      {dates.map((d, i) => (
-        <div class={i === 0 ? 'row strong between' : 'row between'}>
+      {dates.map(d => (
+        <div class="row between">
           <span>{d}</span>
           <a class="link" href="#kontakt" data-retreat={d.split(' in ')[0]}>Jetzt buchen</a>
         </div>
@@ -39,10 +39,12 @@ const dates = [
     </div>
   </div>
   <div class="rooms-media">
-    <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />
-    <div class="pair">
-      <img src="/media/img/monara-bed-1-.jpg" alt="" />
-      <img src="/media/img/monara-balcony-1-.jpg" alt="" />
+    <div class="media-fill">
+      <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />
+      <div class="pair">
+        <img src="/media/img/monara-bed-1-.jpg" alt="" />
+        <img src="/media/img/monara-balcony-1-.jpg" alt="" />
+      </div>
     </div>
   </div>
 </section>
