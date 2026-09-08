@@ -1,6 +1,10 @@
 ---
 import data from '../content/retreats-page.json';
 const sec = data.nextRetreatsSection;
+
+// Die CMS-Links zeigen auf #january / #februar, die es im Redesign nicht mehr
+// gibt: beide Termine liegen jetzt im Band mit Preis und Buchen-Button.
+const target = (href) => (href || '').startsWith('#') ? '#retreats' : href;
 ---
 <section class="section wrap cards-band reveal">
   <span class="label">Nächste Retreats</span>
@@ -14,7 +18,7 @@ const sec = data.nextRetreatsSection;
         <p class="sub card-meta">{[card.date, card.location].filter(Boolean).join(', ')}</p>
         <p class="body card-text">{card.description}</p>
         {card.button.href.startsWith('#')
-          ? <a class="link" href={card.button.href}>{card.button.label}</a>
+          ? <a class="link" href={target(card.button.href)}>{card.button.label}</a>
           : <button class="link" type="button" data-ask>{card.button.label}</button>}
       </article>
     ))}
