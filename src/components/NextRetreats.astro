@@ -1,5 +1,7 @@
 ---
 import data from '../content/retreats-page.json';
+const sec = data.retreatsSection;
+const intro = (sec.introParagraph || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
 const dates = [
   { label: '23.–29. Januar 2027 in Hikkaduwa', price: 'ab 1300 Euro' },
   { label: '13.–19. Februar 2027 in Hikkaduwa', price: 'ab 1300 Euro' },
@@ -12,7 +14,7 @@ const dates = [
     <div class="retreat-copy">
       <span class="label">Nächste Retreats</span>
       <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
-      <p class="body">Hikkaduwa liegt an der Südwestküste Sri Lankas, direkt am Meer. Egal ob Schnorcheln, Surfen oder ein Strandspaziergang - Hikkaduwa hat einiges zu bieten. In einem neu erbauten Yogaretreatcenter im tropischen Grün, mit einer offenen Yogashala und einem Pool, findest du hier dein Zuhause in der Ferne.</p>
+      {intro.map(t => <p class="body">{t}</p>)}
     </div>
     <div class="band-offer">
       <div class="rows dates">
