@@ -811,6 +811,9 @@ main > * + * {
 .modal {
   border: 0;
   padding: 0;
+  /* Der globale Reset setzt margin: 0 und killt damit die Auto-Zentrierung,
+     die <dialog> vom Browser mitbringt. */
+  margin: auto;
   width: min(720px, calc(100vw - 32px));
   max-height: calc(100vh - 32px);
   background: var(--paper);
@@ -1113,7 +1116,9 @@ html.intro .hero .copy {
 .hero .bg.mobile { display: none; }
 .hero video.bg { animation: none; }
 #stell .media img { display: none; }
-#stell .media video { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; max-height: min(70vh, 600px); object-fit: cover; object-position: center 40%; }
+/* Hoehe fuehrt, Breite folgt: mit width 100% wurde das Hochformat von der
+   max-height wieder auf ein Quadrat zusammengedrueckt. */
+#stell .media video { display: block; height: min(78vh, 680px); width: auto; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 40%; }
 .ort { display: grid; grid-template-columns: 1fr 1fr; min-height: 100vh; }
 .ort-img { position: relative; overflow: hidden; background: var(--ink); }
 .ort-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -1183,16 +1188,20 @@ html.intro .hero .copy {
 .modal.chat .inner { padding: 28px 28px 32px; gap: 20px; }
 .modal.chat .ask-body { display: flex; flex-direction: column; gap: 20px; }
 .modal.chat.sent .ask-body { display: none; }
-.modal.chat .wa { display: block; text-align: center; padding: 13px 18px; background: var(--terra); color: var(--creme); font-family: var(--label); font-size: var(--fs-caps); letter-spacing: 0.05em; text-transform: uppercase; transition: background-color 0.3s; }
-.modal.chat .wa:hover { background: var(--orange); }
-.modal.chat .or { font-family: var(--label); font-size: var(--fs-caps); letter-spacing: 0.05em; text-transform: uppercase; color: rgba(53,42,31,0.5); text-align: center; }
+/* Der WhatsApp-Weg war ein voller Terracotta-Block und damit das schwerste
+   Element im Dialog. Als Link neben dem Senden-Button sind beide Wege
+   gleichwertig und der Dialog bleibt ruhig. */
+.modal.chat .wa { color: rgba(53,42,31,0.6); border-bottom-color: transparent; }
+.modal.chat .wa:hover { color: var(--ink); border-bottom-color: var(--line); }
 .modal .two { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
 .contact .media img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
-.voices { background: var(--terra) url("/media/img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(72px, 9vw, 128px) 0; overflow: hidden; }
+/* Die Sektion bleibt genau einen Bildschirm hoch. Das laengste Zitat wuerde
+   sie sonst auf anderthalb Screens ziehen. */
+.voices { background: var(--terra) url("/media/img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(56px, 7vw, 96px) 0; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
 .voices .head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
 .voices .label { color: var(--creme); opacity: 0.75; }
 .voices .h1 em { color: var(--creme); font-style: italic; }
-.vtrack { display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
+.vtrack { flex: 1; min-height: 0; align-items: stretch; display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
 .vtrack::-webkit-scrollbar { display: none; }
 .vtrack.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
 .vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; opacity: 0.42; cursor: pointer; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
@@ -1200,7 +1209,7 @@ html.intro .hero .copy {
 .vcard:not(.is-active):hover { opacity: 0.62; }
 .vcard img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; pointer-events: none; transition: width 0.6s ease, height 0.6s ease; }
 .vcard.is-active img { width: 72px; height: 72px; }
-.vcard blockquote { margin: 0; font-size: var(--fs-s); line-height: var(--lh-text); transition: font-size 0.6s ease, line-height 0.6s ease; }
+.vcard blockquote { margin: 0; flex: 1; min-height: 0; overflow: hidden; font-size: var(--fs-s); line-height: var(--lh-text); -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%); transition: font-size 0.6s ease, line-height 0.6s ease; }
 .vcard.is-active blockquote { font-size: var(--fs-s); line-height: var(--lh-text); }
 .vcard figcaption { opacity: 0.8; }
 .gallery { padding: 0; }
