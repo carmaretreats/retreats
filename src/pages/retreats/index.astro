@@ -5,6 +5,8 @@ import Hero from '../../components/Hero.astro';
 import ImagineSection from '../../components/ImagineSection.astro';
 import Divider from '../../components/Divider.astro';
 import RetreatHighlights from '../../components/RetreatHighlights.astro';
+import RetreatCards from '../../components/RetreatCards.astro';
+import SloganBand from '../../components/SloganBand.astro';
 import NextRetreats from '../../components/NextRetreats.astro';
 import EinTag from '../../components/EinTag.astro';
 import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
@@ -25,6 +27,7 @@ const people = data.aboutSection.people;
     <Hero />
     <ImagineSection />
     <Divider motif="m20" />
+    <RetreatCards />
     <RetreatHighlights />
     <NextRetreats />
     <EinTag />
@@ -35,6 +38,7 @@ const people = data.aboutSection.people;
     <AboutSection person={people[1]} id="mareen" flip={true} />
     <TestimonialSlider />
     <GallerySection />
+    <SloganBand />
     <ContactSection />
     <FaqAccordion />
   </main>
