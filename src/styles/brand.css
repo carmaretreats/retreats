@@ -176,13 +176,16 @@ p {
   scroll-margin-top: 116px;
 }
 
-.section {
-  padding-top: var(--section);
-  padding-bottom: var(--section);
+/* Der vertikale Rhythmus kommt aus genau einer Regel: gleicher Abstand
+   zwischen allen Bloecken. Sektionen tragen keine eigene Aussenluft mehr,
+   nur farbige oder bildfuellende Baender haben Innenabstand. */
+main > * + * {
+  margin-top: var(--section);
 }
 
-.section + .section {
+.section {
   padding-top: 0;
+  padding-bottom: 0;
 }
 
 .stack {
@@ -330,9 +333,9 @@ p {
 
 .site-header.scrolled {
   padding: 12px var(--gutter);
-  background: #ffffff;
+  background: var(--paper);
   color: var(--ink);
-  box-shadow: 0 1px 0 rgba(53, 42, 31, 0.12);
+  box-shadow: 0 1px 0 rgba(154, 71, 54, 0.18);
 }
 
 .site-header.scrolled .wordmark img {
@@ -1124,11 +1127,9 @@ html.intro .hero .copy {
 .roomlist .row .txt { display: flex; flex-direction: column; flex: 1; }
 .roomlist .row .txt .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
 .roomlist .row .price { color: var(--ink); }
-.divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); padding-top: clamp(40px, 5vw, 72px); padding-bottom: clamp(40px, 5vw, 72px); }
+.divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); }
 .divider .rule { flex: 1; height: 1px; background: var(--line); }
 .divider img { width: 36px; height: auto; flex: 0 0 36px; }
-.section + .divider { padding-top: 0; }
-.divider + .section { padding-top: 0; }
 .about-grid { display: grid; grid-template-columns: 4fr 8fr; gap: clamp(40px, 6.6vw, 96px); align-items: start; }
 .about-grid.flip { grid-template-columns: 8fr 4fr; }
 .about-grid.flip .media { order: 2; }
@@ -1170,7 +1171,7 @@ html.intro .hero .copy {
 .ort .stats { display: flex; flex-wrap: wrap; gap: 20px clamp(24px, 4vw, 56px); }
 .ort .stats .label { white-space: nowrap; }
 .ort .stats div { display: flex; flex-direction: column; gap: 6px; }
-.rooms-media { display: flex; flex-direction: column; gap: 24px; position: sticky; top: 96px; }
+.rooms-media { display: flex; flex-direction: column; gap: 24px; }
 .rooms-media .pair { display: flex; gap: 24px; }
 .rooms-media .pair img { width: 50%; aspect-ratio: 5 / 4; object-fit: cover; }
 .rooms-media > img { aspect-ratio: 16 / 10.5; max-height: min(48vh, 400px); object-fit: cover; width: 100%; }
@@ -1198,7 +1199,7 @@ html.intro .hero .copy {
 .vcard blockquote { margin: 0; font-size: var(--fs-s); line-height: var(--lh-text); transition: font-size 0.6s ease, line-height 0.6s ease; }
 .vcard.is-active blockquote { font-size: var(--fs-s); line-height: var(--lh-text); }
 .vcard figcaption { opacity: 0.8; }
-.gallery { padding: clamp(56px, 7vw, 96px) 0 clamp(56px, 7vw, 96px); }
+.gallery { padding: 0; }
 .ghead { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 16px; }
 .gallery .label.muted { color: rgba(53,42,31,0.5); }
 .ggrid { display: grid; grid-template-columns: repeat(4, 1fr); grid-template-rows: repeat(2, minmax(0, 1fr)); grid-template-areas: "a a b c" "a a d e"; gap: clamp(10px, 1.2vw, 16px); height: min(68vh, 600px); }
@@ -1218,17 +1219,17 @@ html.intro .hero .copy {
 .retreats-band { position: relative; min-height: 100vh; display: flex; align-items: center; overflow: hidden; --line: rgba(255,248,238,0.4); --line-strong: rgba(255,248,238,0.75); }
 .retreats-band .bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .retreats-band .band-video { display: none; }
-.retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(53,42,31,0.62) 0%, rgba(53,42,31,0.5) 45%, rgba(53,42,31,0.66) 100%); }
-.retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; text-align: center; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(96px, 9vw, 130px); padding-bottom: clamp(64px, 7vw, 96px); }
+.retreats-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(53,42,31,0.72) 0%, rgba(53,42,31,0.5) 55%, rgba(53,42,31,0.4) 100%); }
+.retreats-band .inner { color: var(--creme); text-shadow: 0 1px 14px rgba(53,42,31,0.55); position: relative; z-index: 2; display: flex; flex-direction: column; align-items: flex-start; text-align: left; gap: clamp(28px, 3.4vw, 48px); width: 100%; padding-top: clamp(96px, 9vw, 130px); padding-bottom: clamp(64px, 7vw, 96px); }
 .retreats-band .h1 { max-width: 22ch; }
-.retreats-band .body { color: var(--creme); max-width: 640px; }
+.retreats-band .body { color: var(--creme); max-width: 58ch; }
 .retreats-band .num { color: var(--creme); }
-.retreats-band .rows { width: 100%; max-width: 860px; text-align: left; }
+.retreats-band .rows { width: 100%; max-width: 780px; text-align: left; }
 .retreats-band .rows .row { align-items: center; padding: 18px 0; }
 .retreats-band .rows .row > div { display: flex; flex-direction: column; align-items: flex-start; gap: 3px; }
-.retreats-band .link { color: var(--creme); align-self: center; }
-.retreats-band .stats { display: flex; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; justify-content: center; }
-.retreats-band .stats div { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.retreats-band .link { color: var(--creme); align-self: flex-start; }
+.retreats-band .stats { display: flex; gap: clamp(24px, 4vw, 56px); flex-wrap: wrap; }
+.retreats-band .stats div { display: flex; flex-direction: column; gap: 6px; }
 .day-split { display: grid; grid-template-columns: 0.85fr 1.4fr; gap: clamp(40px, 5vw, 72px); align-items: center; min-height: 100vh; padding-top: 96px; padding-bottom: clamp(32px, 3.5vw, 48px); }
 #tag .rows .row { padding: 9px 0; gap: 16px; align-items: baseline; }
 #tag .rows .row .t { flex: 0 0 62px; font-size: var(--fs-s); }
@@ -1315,6 +1316,8 @@ html.intro .hero .copy {
 
 /* Terracotta-Papier als Sektionsgrund */
 .on-paper {
+  padding-top: var(--section);
+  padding-bottom: var(--section);
   background: var(--terra) url("/media/img/terra-paper.jpg") center / cover;
   color: var(--creme);
   --line: rgba(255, 248, 238, 0.35);
