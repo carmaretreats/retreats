@@ -1623,3 +1623,6 @@ html.intro .hero .copy {
   color: rgba(53, 42, 31, 0.55);
 }
 .modal .thanks .ghost:hover { color: var(--ink); }
+
+/* Sagt den Status, statt Knappheit zu behaupten. */
+.modal .thanks .note { color: var(--terra); }
