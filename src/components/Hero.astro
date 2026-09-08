@@ -1,49 +1,18 @@
 ---
-
-import data from '../content/retreats-page.json';
-import Cta from '../components/CTA.astro';
-
-const sectionData = data.heroSection;
+const {
+  headline = 'Ankommen und',
+  highlight = 'Aufatmen.',
+  tag = 'Yoga-Retreats, die nachhaltig bewegen: eine Woche am Meer, in kleiner Gruppe und auf Deutsch. Hikkaduwa, Sri Lanka, im Januar und Februar 2027.',
+} = Astro.props;
 ---
-<section id="hero" class="relative w-full bg-cream-bg pb-0 md:mb-8 px-0 md:px-8">
-  <div class="relative w-full h-auto">
-    <!-- Image for mobile (always visible) -->
-    <div class="block relative md:hidden aspect-square overflow-hidden">
-      <img src={sectionData.leftImage.src} alt={sectionData.leftImage.alt} class="w-full h-full object-cover object-bottom" loading="eager" decoding="async"/>
-      <div class="absolute inset-0 bg-black/15 pointer-events-none z-10"></div>
+<section class="hero on-image">
+  <img class="bg desktop" src="/media/img/C10.jpg" alt="" />
+  <video class="bg mobile" src="/media/video/hero-portrait.mp4" poster="/media/img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+  <div class="copy">
+    <div class="stack">
+      <h1 class="h1">{headline} <em>{highlight}</em></h1>
+      <p class="tag">{tag}</p>
     </div>
-
-    <!-- Images for tablet/desktop (hidden on mobile, uses grid on larger screens) -->
-    <div class="hidden md:grid md:grid-cols-2 w-full h-full">
-      <div class="relative aspect-square overflow-hidden">
-        <img src={sectionData.leftImage.src} alt={sectionData.leftImage.alt} class="w-full h-full object-cover object-bottom" loading="eager" decoding="async"/>
-        <div class="absolute inset-0 bg-black/15 pointer-events-none z-10"></div>
-      </div>
-      <div class="aspect-square overflow-hidden">
-        <img src={sectionData.rightImage.src} alt={sectionData.rightImage.alt} class="w-full h-full object-cover" loading="eager" decoding="async"/>
-      </div>
-    </div>
-  </div>
-
-  <div class="absolute left-1/2 top-8 transform -translate-x-1/2 pointer-events-none">
-    <img src={sectionData.spiralImage.src} alt={sectionData.spiralImage.alt} class="h-12 sm:h-14 md:h-16 w-auto object-contain" loading="eager" decoding="async"/>
-  </div>
-
-  <div class="relative flex items-end justify-center h-[75vh] mt-[-75vh] pointer-events-none z-10">
-    <div class="text-center max-w-4xl pb-0 xs:pb-2 md:pb-8 pointer-events-auto">
-      <h1 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" 
-        class="responsive-title text-white ">
-        {sectionData.heading}
-      </h1>
-
-      <h2
-        class="body-text text-white uppercase">
-        {sectionData.subheading}
-      </h2>
-
-      <div class="block md:hidden flex justify-center mb-4 mt-[5px] md:mt-[0px] px-12 sm:px-6 lg:px-8">
-        <Cta href={sectionData.mainCta.href} size="large" />
-      </div>
-    </div>
+    <a class="link" href="#kontakt">Jetzt anfragen</a>
   </div>
 </section>

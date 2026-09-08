@@ -6,10 +6,14 @@ import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
+// Der Netlify-Adapter startet lokal einen Deno-Edge-Server, der auf dieser Maschine nicht hochkommt.
+// Fuer `astro dev` lassen wir ihn weg, Builds und Deploys nutzen ihn unveraendert.
+const isDev = process.argv.includes('dev');
+
 export default defineConfig({
   site: 'https://www.carma-retreats.com/',
   output: 'server',
-  adapter: netlify(),
+  ...(isDev ? {} : { adapter: netlify() }),
   integrations: [
     alpinejs({ entrypoint: '/src/scripts/alpine.ts' }),
     react(),

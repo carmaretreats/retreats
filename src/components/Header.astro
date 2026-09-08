@@ -1,82 +1,25 @@
 ---
-import { Image } from 'astro:assets';
-import logo from '../assets/images/logos/Carma-Schwarz.png';
-import MobileNav from './MobileNav.astro';
-import DesktopNav from './DesktopNav.astro';
+const nav = [
+  { label: 'Retreats', href: '#retreats' },
+  { label: 'Unterkunft', href: '#unterkunft' },
+  { label: 'Tagesablauf', href: '#tag' },
+];
+const cta = 'https://calendly.com/carma-retreats/kennenlernen';
 ---
-
-<header 
-  class="w-full bg-cream-bg top-0 left-0 z-60"
-  x-data="{ open: false, busy: false, closeMenu() { if (this.busy) return; this.busy = true; const el = this.$refs.panel; el.classList.add('menu-closing'); setTimeout(() => {this.open = false; el.classList.remove('menu-closing'); setTimeout(()=> { this.busy = false }, 60);}, 420);}}"
-  x-init="$watch('open', v => document.body.classList.toggle('overflow-hidden', v))"
->
-  <div class="max-w-screen-2xl mx-auto px-4 sm:px-6 lg:px-8 h-[7.8rem] flex items-center relative">
-    <div class="flex items-center flex-1 justify-start">
-      <!-- Mobile animated hamburger -->
-      <button
-        class="sm:hidden text-dark-brown w-10 h-10 relative focus:outline-none flex items-center justify-center z-70"
-        @click.prevent="if(!busy){ if(!open){ open = true } else { closeMenu() } }"
-        :aria-expanded="open"
-        aria-controls="mobile-menu"
-        aria-label="Toggle menu"
-      >
-        <div class="block w-5 absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2">
-          <span
-            class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{ 'rotate-45': open, '-translate-y-1.5': !open }"
-            aria-hidden="true"
-          ></span>
-          <span
-            class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{ 'opacity-0': open }"
-            aria-hidden="true"
-          ></span>
-          <span
-            class="block absolute h-0.5 w-5 bg-current transform transition duration-500 ease-in-out"
-            :class="{ '-rotate-45': open, 'translate-y-1.5': !open }"
-            aria-hidden="true"
-          ></span>
-        </div>
-      </button>
-
-      <div class="hidden sm:flex sm:items-center">
-        <DesktopNav side="left" />
-      </div>
-    </div>
-
-    <!-- CENTER: logo -->
-    <div class="absolute left-1/2 transform -translate-x-1/2 z-70">
-      <a href="/" class="pointer-events-auto" aria-label="Home">
-        <Image src={logo} alt="Carma Braun — Retreats logo" class="h-12 sm:h-14 md:h-16 w-auto object-contain" />
-      </a>
-    </div>
-
-    <!-- RIGHT -->
-    <div class="flex items-center justify-end flex-1">
-      <div class="hidden sm:flex sm:items-center">
-        <DesktopNav side="right" />
-      </div>
-      <div class="w-6 sm:w-auto" aria-hidden="true"></div>
-    </div>
-  </div>
-
-  <!-- Mobile overlay -->
-  <div
-    id="mobile-menu"
-    x-ref="panel"
-    role="dialog"
-    aria-modal="true"
-    aria-labelledby="mobile-menu-title"
-    x-cloak
-    :class="{ 'menu-open': open }"
-    @click.self="if(!busy) closeMenu()"
-    class="mobile-panel fixed inset-0 z-50 pointer-events-none"
-  >
-    <div class="mobile-panel-inner w-full h-full bg-cream-bg flex items-center justify-center p-6">
-      <div class="max-w-screen-md w-full">
-        <h2 id="mobile-menu-title" class="sr-only">Main menu</h2>
-        <MobileNav />
-      </div>
-    </div>
-  </div>
+<header class="site-header">
+  <nav>
+    <span class="m-only">Menü</span>
+    {nav.map(item => <span><a href={item.href}>{item.label}</a></span>)}
+  </nav>
+  <a class="wordmark" href="/retreats" aria-label="Carma Retreats">
+    <img class="light" src="/media/logo/Carma---Weiss.svg" alt="Carma Retreats" />
+    <img class="dark" src="/media/logo/Carma---Schwarz.svg" alt="Carma Retreats" />
+  </a>
+  <nav class="right">
+    <span><a href="#hosts">Über uns</a></span>
+    <a class="cta" href={cta} target="_blank" rel="noopener">
+      <i class="cta-long">Lerne uns kennen</i><i class="cta-short">Kennenlernen</i>
+    </a>
+  </nav>
 </header>
+<img class="symbol" src="/media/logo/Markenzeichen---Weiss.svg" alt="" />

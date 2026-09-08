@@ -1,34 +1,35 @@
 ---
-import { Image } from 'astro:assets';
-import CarmaFullLogo from '../assets/images/logos/CarnaRetreats-Full-Weiß.png';
+const seite = [
+  { label: 'Retreats', href: '#retreats' },
+  { label: 'Unterkunft', href: '#unterkunft' },
+  { label: 'Tagesablauf', href: '#tag' },
+  { label: 'Über uns', href: '#hosts' },
+  { label: 'Buchen', href: '#kontakt' },
+];
+const rechtliches = [
+  { label: 'Impressum', href: '/impressum' },
+  { label: 'Datenschutzerklärung', href: '/datenschutz' },
+  { label: 'Cookie-Einstellungen', href: '#' },
+];
 ---
-
-<footer class="bg-dark-brown text-white w-full px-6 py-16 text-center font-sans">
-  <div class="max-w-5xl mx-auto flex flex-col items-center gap-6">
-
-    <!-- Logo -->
-     <a href="/" class="pointer-events-auto" aria-label="Home">
-      <Image
-        src={CarmaFullLogo}
-        alt="Carma Retreats Logo"
-        widths={[200, 400, 600]} 
-        sizes="(max-width: 640px) 150px, 300px"
-        class="h-auto max-w-[200px] sm:max-w-[150px] lg:max-w-[300px] w-auto mx-auto"
-        loading="eager"
-      />
-    </a>
-
-    <!-- Legal Links -->
-    <div class="flex flex-wrap justify-center gap-6 text-sm text-white/80 mt-8">
-      <a href="/impressum" class="hover:underline">Impressum</a>
-      <a href="/datenschutz" class="hover:underline">Datenschutzerklärung</a>
-      <a href="#cmpbox" class="hover:underline">Cookie-Einstellungen</a>
+<footer class="site-footer">
+  <div class="top">
+    <div class="stack" style="gap:24px">
+      <span class="label">Newsletter</span>
+      <p>Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!</p>
+      <div class="newsletter">
+        <input type="email" placeholder="Deine E-Mail" />
+        <a class="link" href="/newsletter-soon">In Newsletter eintragen</a>
+      </div>
     </div>
-
-    <!-- Optional bottom note -->
-    <p class="text-xs text-white/60 mt-6">
-      © {new Date().getFullYear()} Carma Retreats · Alle Rechte vorbehalten
-    </p>
-
+    <div class="cols">
+      <div><span class="label">Seite</span>{seite.map(i => <a href={i.href}>{i.label}</a>)}</div>
+      <div><span class="label">Kontakt</span><a href="#">Instagram</a><a href="#">WhatsApp</a><a href="#">E-Mail</a></div>
+      <div><span class="label">Rechtliches</span>{rechtliches.map(i => <a href={i.href}>{i.label}</a>)}</div>
+    </div>
+  </div>
+  <div class="bottom">
+    <div class="wordmark"><img src="/media/logo/Carna-Retreats---Full-Lock-Up---Weiss.svg" alt="Carma Retreats" /></div>
+    <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
   </div>
 </footer>

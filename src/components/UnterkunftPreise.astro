@@ -1,49 +1,36 @@
 ---
-import Carousel from '../components/Carousel.astro';
-import Cta from '../components/CTA.astro';
-import data from '../content/retreats-page.json';
-
-const sectionData = data.accommodationSection;
+const rooms = [
+  { name: 'Stockbett im Dreibettzimmer', price: '200 Euro', img: '/media/img/monara-rest.jpg' },
+  { name: 'Doppelbett im Dreibettzimmer', price: '350 Euro', img: '/media/img/monara-bed-1-.jpg' },
+  { name: 'Einzelzimmer Standard (EG)', price: '550 Euro', img: '/media/img/Hikkaduwa01.webp' },
+  { name: 'Einzelzimmer Deluxe (1. OG)', price: '650 Euro', img: '/media/img/monara-balcony-1-.jpg' },
+  { name: 'Einzelzimmer Premium (1. OG)', price: '750 Euro', img: '/media/img/Hikkaduwa04.webp' },
+];
 ---
-
-<section id="unterkunft-preise" class="section bg-cream-bg text-dark-brown">
-  <div class="section-inner">
-    <div class="max-w-6xl mx-auto text-left mb-12">
-      <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
-        {sectionData.label}
-      </p>
-      <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main">
-        {sectionData.heading}
-      </h2>
+<section class="section container split top text-first reveal" id="unterkunft">
+  <div class="stack">
+    <h2 class="h1">Unterkunft & <em>Preise</em></h2>
+    <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
+    <div class="rows roomlist">
+      {rooms.map((r, i) => (
+        <div class={i === 0 ? 'row strong' : 'row'}>
+          <img src={r.img} alt="" />
+          <div class="txt"><span>{r.name}</span></div>
+          <span class="price">{r.price}</span>
+        </div>
+      ))}
     </div>
-  
-    {sectionData.retreats.map((retreat, index) => (
-      <div class={`max-w-6xl mx-auto flex flex-col md:flex-row gap-8 items-start ${index === 0 ? 'mb-16' : ''}`}>
-        <!-- Text -->
-        <div class="w-full md:w-1/2 font-sans text-left space-y-2 order-2 md:order-1">
-          <h3 class="heading-sub italic mb-4 md:mb-6 text-dark-brown">
-            {retreat.title}
-          </h3>
-          
-          {retreat.priceOptions.map(option => (
-            <p class="text-dark-brown body-text">{option.description}<span class="float-right">{option.price}</span></p>
-          ))}
-          
-          <hr class="my-3 border-accent-orange" />
-          
-          <p class="text-dark-brown body-text italic">{retreat.retreatFeeLabel}</p>
-          <p class="text-dark-brown body-text">{retreat.retreatFee.description}<span class="float-right">{retreat.retreatFee.price}</span></p>
-
-          <div class="flex justify-center mb-4 xs:mb-6 md:mb-0 px-12 sm:px-6 lg:px-8 pt-6">
-            <Cta dataRetreat={retreat.cta.dataRetreat} href={retreat.cta.href} color="orange" size="large" />
-          </div>
-        </div>
-    
-        <!-- Carousel -->
-        <div class="w-full md:w-1/2 order-1 md:order-2">
-          <Carousel images={retreat.carouselImages} />
-        </div>
-      </div>
-    ))}
+    <div class="fee">
+      <span>Dazu kommt die Retreatgebühr</span>
+      <span class="fee-price">1100 Euro pro Person</span>
+    </div>
+    <a class="link" href="#kontakt">Zimmer anfragen</a>
+  </div>
+  <div class="rooms-media">
+    <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />
+    <div class="pair">
+      <img src="/media/img/monara-bed-1-.jpg" alt="" />
+      <img src="/media/img/monara-balcony-1-.jpg" alt="" />
+    </div>
   </div>
 </section>

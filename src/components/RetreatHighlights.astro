@@ -1,38 +1,18 @@
 ---
-import bgImage from '../assets/images/Terra-Rossa-Papier.png';
-import CtaLink from "./CtaLink.astro";
 import data from '../content/retreats-page.json';
-const sectionData = data.retreatHighlightsSection;
 ---
-
-<section id="retreats-highlights" 
-  class="section bg-cover bg-center bg-no-repeat text-white text-center"
-  style={`background-image: url(${bgImage.src});`}
->
-  <div class="section-inner text-center">
-      <p class="uppercase section-label mb-8">
-        {sectionData.label}
-    </p>
-  
-    <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main text-white">
-      {sectionData.heading}
-    </h2>
-  
-      <ul class="w-full mt-12">
-        {sectionData.highlights.map((item) => (
-          <li class="mb-6">
-            <h3 class="heading-sub italic mb-4">{item.title}</h3>
-            <p class="w-full body-text">{item.text}</p>
-          </li>
-        ))}
-      </ul>
-  
-      <div class="pt-16 flex justify-center">
-        <CtaLink 
-          color="white" 
-          label={sectionData.cta.label} 
-          href={sectionData.cta.href} 
-        />
-      </div>
+<section class="section container split top expect reveal">
+  <div class="stack">
+    <h2 class="h1">Atme ein und <em>erlebe.</em></h2>
+    <div class="items">
+      {data.retreatHighlightsSection.highlights.map(h => (
+        <div class="item"><div><span>{h.title}</span><span class="muted">{h.text}</span></div></div>
+      ))}
+    </div>
+    <a class="link" href="#retreats">Mehr erfahren</a>
+  </div>
+  <div class="pics">
+    <img src="/media/img/C12.jpg" alt="Die Shala am Morgen" />
+    <img src="/media/img/8656.jpg" alt="Meditation in der Shala" />
   </div>
 </section>
