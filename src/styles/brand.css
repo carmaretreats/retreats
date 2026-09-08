@@ -1125,8 +1125,6 @@ html.intro .hero .copy {
     gap: clamp(56px, 6vw, 96px);
   }
 
-  /* Das Video steht nicht an der Seitenkante, sondern rueckt zur Mitte. */
-  #stell .media { padding-left: clamp(40px, 5vw, 88px); }
 }
 
 #stell .media video { display: block; height: min(78vh, 680px); width: auto; max-width: 100%; aspect-ratio: 3 / 4; object-fit: cover; object-position: center 40%; }
