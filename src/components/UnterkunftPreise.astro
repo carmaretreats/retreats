@@ -6,6 +6,10 @@ const rooms = [
   { name: 'Einzelzimmer Deluxe (1. OG)', price: '650 Euro', img: '/media/img/monara-balcony-1-.jpg' },
   { name: 'Einzelzimmer Premium (1. OG)', price: '750 Euro', img: '/media/img/Hikkaduwa04.webp' },
 ];
+const dates = [
+  '23.–29. Januar 2027 in Hikkaduwa',
+  '13.–19. Februar 2027 in Hikkaduwa',
+];
 ---
 <section class="section wrap split top text-first reveal" id="unterkunft">
   <div class="stack">
@@ -25,7 +29,14 @@ const rooms = [
       <span>Dazu kommt die Retreatgebühr</span>
       <span class="fee-price">1100 Euro pro Person</span>
     </div>
-    <a class="link" href="#kontakt">Zimmer anfragen</a>
+    <div class="rows dates">
+      {dates.map((d, i) => (
+        <div class={i === 0 ? 'row strong between' : 'row between'}>
+          <span>{d}</span>
+          <a class="link" href="#kontakt" data-retreat={d.split(' in ')[0]}>Jetzt buchen</a>
+        </div>
+      ))}
+    </div>
   </div>
   <div class="rooms-media">
     <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />

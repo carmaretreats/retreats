@@ -2,10 +2,6 @@
 import data from '../content/retreats-page.json';
 const sec = data.retreatsSection;
 const intro = (sec.introParagraph || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
-const dates = [
-  { label: '23.–29. Januar 2027 in Hikkaduwa', price: 'ab 1300 Euro' },
-  { label: '13.–19. Februar 2027 in Hikkaduwa', price: 'ab 1300 Euro' },
-];
 ---
 <section class="retreats-band on-image reveal" id="retreats">
   <img class="bg desktop" src="/media/img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben" />
@@ -17,19 +13,17 @@ const dates = [
       {intro.map(t => <p class="body">{t}</p>)}
     </div>
     <div class="band-offer">
-      <div class="rows dates">
-        {dates.map((d, i) => (
-          <div class={i === 0 ? 'row strong between' : 'row between'}>
-            <div><span>{d.label}</span><span class="label">{d.price}</span></div>
-            <a class="link" href="#kontakt" data-retreat={d.label.split(' in ')[0]}>Jetzt buchen</a>
-          </div>
-        ))}
+      <div class="band-greeting">
+        <img class="band-mark" src="/media/logo/Markenzeichen---Weiss.svg" alt="" />
+        <p class="band-quote">Ayubowan &ndash; <em>möge dein Leben lang sein.</em></p>
+        <span class="label">Der Gruß, mit dem dich Sri Lanka empfängt</span>
       </div>
       <div class="stats">
         <div><span class="num">10–15</span><span class="label">min zu Fuß zum Strand</span></div>
         <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
         <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
       </div>
+      <a class="link" href="#unterkunft">Termine und Preise</a>
     </div>
   </div>
 </section>
