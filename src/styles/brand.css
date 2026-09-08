@@ -1124,8 +1124,8 @@ html.intro .hero .copy {
 .ort .dates .row div { display: flex; flex-direction: column; gap: 2px; }
 .roomlist .row { align-items: center; gap: 20px; }
 .roomlist .row img { width: 64px; height: 48px; object-fit: cover; flex: 0 0 64px; }
-/* Der Preis steht direkt hinter dem Zimmernamen, nicht am rechten Rand. */
-.roomlist .row .txt { display: flex; flex-direction: column; flex: 0 1 auto; }
+/* Feste Namensspalte: die Preise stehen nah am Text und trotzdem auf einer Linie. */
+.roomlist .row .txt { display: flex; flex-direction: column; flex: 0 0 clamp(220px, 22vw, 300px); }
 .roomlist .row .txt .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
 .roomlist .row .price { color: var(--ink); margin-left: 0; }
 .divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); }
@@ -1455,6 +1455,10 @@ html.intro .hero .copy {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   display: block;
+}
+
+#unterkunft .squares img:nth-child(2) {
+  border-radius: 50%;
 }
 
 @media (max-width: 860px) {
