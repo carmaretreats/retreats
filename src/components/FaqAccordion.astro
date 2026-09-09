@@ -1,6 +1,5 @@
 ---
-import data from '../content/retreats-page.json';
-const faqs = [...(data.faqSection.faqsLeft || []), ...(data.faqSection.faqsRight || [])];
+import { generalFaqs as faqs } from '../lib/faq.js';
 ---
 <section class="section wrap split top text-first reveal mandala" id="faq" style="grid-template-columns: 1fr 2fr">
   <div class="stack">

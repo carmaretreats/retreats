@@ -1,4 +1,6 @@
 ---
+import { bookingFaqs } from '../lib/faq.js';
+
 const rooms = [
   { name: 'Stockbett im Dreibettzimmer', price: '200 Euro', img: '/media/img/monara-rest.jpg' },
   { name: 'Doppelbett im Dreibettzimmer', price: '350 Euro', img: '/media/img/monara-bed-1-.jpg' },
@@ -27,6 +29,14 @@ const dates = [
     <div class="fee">
       <span>Dazu kommt die Retreatgebühr</span>
       <span class="fee-price">1100 Euro pro Person</span>
+    </div>
+    <div class="faq">
+      {bookingFaqs.map(f => (
+        <details>
+          <summary>{f.question}</summary>
+          <p class="answer">{f.answer}</p>
+        </details>
+      ))}
     </div>
   </div>
   <div class="rooms-media">
