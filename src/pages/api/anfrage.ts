@@ -27,7 +27,8 @@ export const POST: APIRoute = async ({ request, url }) => {
   try {
     await sendAnfrage(parsed.data, process.env.RESEND_API_KEY || import.meta.env.RESEND_API_KEY);
     return reply(200, 'Danke, deine Nachricht ist angekommen.');
-  } catch {
+  } catch (err) {
+    console.error('[anfrage]', err);
     return reply(503, 'Das Senden hat gerade nicht geklappt. Schreib uns gern direkt per WhatsApp oder versuch es gleich noch einmal.');
   }
 };
