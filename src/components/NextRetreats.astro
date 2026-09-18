@@ -1,24 +1,86 @@
 ---
 import data from '../content/retreats-page.json';
-const sec = data.retreatsSection;
-const intro = (sec.introParagraph || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
+const intro = data.retreatsSection.introParagraph.split(/\n+/).map(text => text.trim()).filter(Boolean);
+const facts = [
+  { value: '10–15', label: 'Minuten zu Fuß zum Strand' },
+  { value: '2', label: 'Yogaklassen am Tag' },
+  { value: '10–12', label: 'Teilnehmer:innen' },
+];
 ---
-<section class="retreats-band on-image reveal" id="retreats">
-  <img class="bg desktop" src="/media/img/Hikkaduwa06.webp" alt="Das Retreatcenter von oben" />
-  <video class="bg mobile band-video" src="/media/video/mid-portrait.mp4" poster="/media/img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none"></video>
-  <div class="wrap inner">
-    <div class="retreat-copy">
-      <span class="label">Retreat-Infos</span>
-      <h2 class="h1">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
-      {intro.map(t => <p class="body">{t}</p>)}
-    </div>
-    <div class="band-offer">
-      <img class="band-logo" src="/media/logo/Markenzeichen---Weiss.svg" alt="Carma Retreats" />
-      <div class="stats">
-        <div><span class="num">10–15</span><span class="label">min zu Fuß zum Strand</span></div>
-        <div><span class="num">2</span><span class="label">Klassen am Tag</span></div>
-        <div><span class="num">7–10</span><span class="label">Teilnehmer:innen</span></div>
+<section class="retreat-overview section" id="retreats" aria-labelledby="retreat-overview-title">
+  <div class="wrap">
+    <div class="overview-grid">
+      <div class="overview-copy">
+        <span class="label">Retreat-Infos · Hikkaduwa</span>
+        <h2 class="h1" id="retreat-overview-title">Willkommen an einem Ort, an dem die Zeit <em>langsamer wird.</em></h2>
+        {intro.map(text => <p class="body">{text}</p>)}
+        <div class="links">
+          <a class="link" href="#unterkunft">Entdecke die Unterkunft</a>
+          <a class="link" href="/uploads/carma-info-guide-2027.pdf" target="_blank" rel="noopener">Info-Guide als PDF</a>
+        </div>
+        <img class="overview-mark" src="/media/logo/Markenzeichen---Weiss.svg" width="44" height="44" alt="" aria-hidden="true" />
       </div>
+      <figure class="overview-photo">
+        <img src="/media/img/kunde-09.jpg" width="1067" height="1600" alt="Eindruck vom Retreat in Hikkaduwa" loading="lazy" decoding="async" />
+        <video class="overview-video" poster="/media/img/mid-portrait-poster.jpg" autoplay muted loop playsinline preload="none" aria-hidden="true">
+          <source src="/media/video/mid-portrait.mp4" type="video/mp4" media="(max-width: 860px)" />
+        </video>
+      </figure>
     </div>
+    <dl class="overview-facts">
+      {facts.map(fact => (
+        <div>
+          <dt>{fact.label}</dt>
+          <dd>{fact.value}</dd>
+        </div>
+      ))}
+    </dl>
   </div>
 </section>
+
+<style>
+  .overview-copy .links { display: flex; flex-wrap: wrap; gap: 14px 32px; }
+  .retreat-overview { background: var(--terra) url("/media/img/terra-paper.jpg") center / cover; color: var(--creme); padding-block: var(--section); --line: rgba(255, 248, 238, 0.4); }
+  .overview-copy .h1, .overview-copy .h1 em, .overview-copy .body, .overview-copy .link { color: var(--creme); }
+  .overview-copy .label { color: var(--creme); }
+  .overview-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(56px, 9vw, 144px);
+    align-items: center;
+  }
+  .overview-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 26px; }
+  .overview-copy .h1 { max-width: 28ch; }
+  .overview-copy .body { max-width: 49ch; }
+  .overview-copy .link { margin-top: 6px; border-bottom-color: var(--creme); }
+  .overview-mark { width: 44px; height: 44px; object-fit: contain; margin-top: 12px; }
+  .overview-photo { margin: 0; width: 100%; max-width: 480px; justify-self: end; }
+  .overview-photo > img { width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; object-position: 45% center; }
+  .overview-photo figcaption { margin-top: 14px; font-size: 13px; color: var(--creme); }
+  .overview-video { display: none; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; }
+  .overview-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin: 64px 0 0;
+    padding: 32px 0 0;
+    border-top: 1px solid var(--line);
+  }
+  /* column-reverse plus flex-end: die Zahlen sitzen oben auf einer Linie, die Labels haengen darunter */
+  .overview-facts > div { display: flex; flex-direction: column-reverse; justify-content: flex-end; gap: 12px; align-items: center; text-align: center; padding: 0 20px; }
+  .overview-facts > div + div { border-left: 1px solid var(--line); }
+  .overview-facts dt { font-family: var(--label); font-size: var(--fs-nav); letter-spacing: 0.07em; text-transform: uppercase; }
+  .overview-facts dd { margin: 0; font-family: var(--garamond); font-size: 42px; line-height: 1; color: var(--creme); }
+  @media (max-width: 860px) {
+    .overview-grid { grid-template-columns: 1fr; gap: 36px; }
+    .overview-photo { justify-self: center; }
+    .overview-photo > img { display: none; }
+    .overview-video { display: block; }
+    .overview-copy { gap: 22px; }
+    .overview-mark { margin-top: 0; }
+    .overview-facts { margin-top: 40px; padding-top: 24px; }
+    .overview-facts { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .overview-facts > div { padding: 0 6px; gap: 10px; min-width: 0; }
+    .overview-facts dd { font-size: clamp(24px, 7vw, 34px); white-space: nowrap; }
+    .overview-facts dt { font-size: 10px; letter-spacing: 0.03em; overflow-wrap: anywhere; hyphens: auto; }
+  }
+</style>

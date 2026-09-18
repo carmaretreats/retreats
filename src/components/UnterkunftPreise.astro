@@ -1,12 +1,14 @@
 ---
 import { bookingFaqs } from '../lib/faq.js';
 
+// Foto-Zuordnung von der Kundin (13.09.2026): das Dreibettzimmer-Foto zeigt
+// Doppelbett und Stockbett, daher zwei Ausschnitte; die Badewanne gehoert zu Premium.
 const rooms = [
-  { name: 'Stockbett im Dreibettzimmer', price: '200 Euro', img: '/media/img/monara-rest.jpg' },
-  { name: 'Doppelbett im Dreibettzimmer', price: '350 Euro', img: '/media/img/monara-bed-1-.jpg' },
-  { name: 'Einzelzimmer Standard (EG)', price: '550 Euro', img: '/media/img/Hikkaduwa01.webp' },
-  { name: 'Einzelzimmer Deluxe (1. OG)', price: '650 Euro', img: '/media/img/monara-balcony-1-.jpg' },
-  { name: 'Einzelzimmer Premium (1. OG)', price: '750 Euro', img: '/media/img/Hikkaduwa04.webp' },
+  { name: 'Stockbett im Dreibettzimmer', price: '200 Euro', img: '/media/img/zimmer-stockbett.jpg', pos: 'center 55%', photos: ['/media/img/zimmer-stockbett.jpg', '/uploads/monara-3bett.jpeg'] },
+  { name: 'Doppelbett im Dreibettzimmer', price: '350 Euro', img: '/uploads/monara-3bett.jpeg', pos: '18% center', photos: ['/uploads/monara-3bett.jpeg'] },
+  { name: 'Einzelzimmer Standard (EG)', price: '550 Euro', img: '/media/img/zimmer-standard.jpg', pos: 'center 45%', photos: ['/media/img/zimmer-standard.jpg', '/media/img/zimmer-doppelbett.jpg'] },
+  { name: 'Einzelzimmer Deluxe (1. OG)', price: '650 Euro', img: '/media/img/zimmer-deluxe.jpg', pos: 'center', photos: ['/media/img/zimmer-deluxe.jpg'] },
+  { name: 'Einzelzimmer Premium (1. OG)', price: '750 Euro', img: '/media/img/zimmer-premium.jpg', pos: 'center 55%', photos: ['/media/img/zimmer-premium.jpg', '/media/img/zimmer-premium-bad.jpg'] },
 ];
 const dates = [
   '23.–29. Januar 2027 in Hikkaduwa',
@@ -20,7 +22,9 @@ const dates = [
     <div class="rows roomlist">
       {rooms.map(r => (
         <div class="row">
-          <img src={r.img} alt="" />
+          <button class="thumb" type="button" data-photos={JSON.stringify(r.photos)} data-title={r.name} aria-label={`Fotos ansehen: ${r.name}`}>
+            <img src={r.img} alt="" style={`object-position: ${r.pos}`} />
+          </button>
           <div class="txt"><span>{r.name}</span></div>
           <span class="price">{r.price}</span>
         </div>
@@ -43,16 +47,85 @@ const dates = [
     <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
     <div class="squares">
       <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />
-      <img src="/media/img/monara-bed-1-.jpg" alt="Ein Zimmer im Retreat-Center" />
-      <img src="/media/img/monara-balcony-1-.jpg" alt="Der Balkon im ersten Stock" />
+      <img src="/media/img/kunde-brunch.jpg" alt="Gemeinsamer Brunch auf Bananenblättern" style="object-position:center 30%" />
+      <img src="/media/img/unterkunft-garten.jpg" alt="Blick in den Garten mit Pool" style="object-position:center 62%" />
     </div>
     <div class="rows dates">
       {dates.map(d => (
         <div class="row between">
           <span>{d}</span>
-          <a class="link" href="#kontakt" data-retreat={d.split(' in ')[0]}>Jetzt buchen</a>
+          <a class="book-btn" href="#kontakt" data-retreat={d.split(' in ')[0]}>Jetzt buchen</a>
         </div>
       ))}
     </div>
+    <a class="link guide" href="/uploads/carma-info-guide-2027.pdf" target="_blank" rel="noopener">Info-Guide als PDF</a>
   </div>
 </section>
+
+<dialog class="modal lightbox" id="lightbox" aria-label="Zimmerfotos">
+  <figure>
+    <img alt="" />
+    <div class="lb-foot">
+      <figcaption class="label"></figcaption>
+      <div class="lb-nav">
+        <button type="button" class="varrow" data-step="-1" aria-label="Vorheriges Foto">&larr;</button>
+        <button type="button" class="varrow" data-step="1" aria-label="Nächstes Foto">&rarr;</button>
+      </div>
+    </div>
+  </figure>
+  <button type="button" class="close" data-close aria-label="Schließen">&#215;</button>
+</dialog>
+
+<script>
+  const box = document.getElementById('lightbox') as HTMLDialogElement;
+  const img = box.querySelector('img')!;
+  const cap = box.querySelector('figcaption')!;
+  const arrows = box.querySelectorAll<HTMLButtonElement>('[data-step]');
+  let photos: string[] = [];
+  let i = 0;
+  const show = (n: number) => {
+    i = (n + photos.length) % photos.length;
+    img.src = photos[i];
+    cap.textContent = photos.length > 1 ? `${cap.dataset.title} · ${i + 1}/${photos.length}` : cap.dataset.title!;
+  };
+  document.querySelectorAll<HTMLButtonElement>('.roomlist .thumb').forEach(b =>
+    b.addEventListener('click', () => {
+      photos = JSON.parse(b.dataset.photos!);
+      cap.dataset.title = b.dataset.title;
+      box.classList.toggle('single', photos.length < 2);
+      show(0);
+      box.showModal();
+    })
+  );
+  arrows.forEach(a => a.addEventListener('click', () => show(i + Number(a.dataset.step))));
+  box.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') show(i + 1);
+    if (e.key === 'ArrowLeft') show(i - 1);
+  });
+  box.querySelector('[data-close]')!.addEventListener('click', () => box.close());
+  box.addEventListener('click', e => { if (e.target === box) box.close(); });
+</script>
+
+<style>
+  /* hebt den Spalten-Abstand auf, der Link rueckt an die Terminzeilen */
+  .guide { margin-top: calc(-1 * clamp(28px, 3.5vw, 44px)); }
+  .roomlist .row + .row { border-top: 0; }
+  .faq details:first-of-type { border-top: 0; }
+  .faq details:last-of-type { border-bottom: 0; }
+  @media (max-width: 860px) {
+    /* Auf dem Handy loesen sich beide Spalten auf, alle Bloecke liegen direkt im
+       Sektions-Grid und werden neu sortiert: der Absatz und die Fotos erklaeren
+       die Zimmerliste und stehen deshalb davor. */
+    #unterkunft > .stack, #unterkunft > .rooms-media { display: contents; }
+    #unterkunft { row-gap: 24px; }
+    #unterkunft .label { order: 0; }
+    #unterkunft .h1 { order: 1; }
+    #unterkunft .rooms-media .body { order: 2; margin-top: 0; }
+    #unterkunft .squares { order: 3; }
+    #unterkunft .roomlist { order: 4; }
+    #unterkunft .fee { order: 5; }
+    #unterkunft .faq { order: 6; }
+    #unterkunft .dates { order: 7; margin-top: 16px; }
+    #unterkunft .guide { order: 8; margin-top: -8px; }
+  }
+</style>

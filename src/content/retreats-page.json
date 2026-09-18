@@ -52,7 +52,7 @@
       {
         "src": "/uploads/mona.jpeg",
         "name": "Mona",
-        "description": "Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im Carma Retreat, ich freu mich schon aufs nächste Mal!",
+        "description": "Das Yoga Retreat mit Mareen und Carmen war einfach toll! Ich habe mich von Anfang bis Ende so wohl gefühlt und es war eine ganz wunderbare Atmosphäre. Eine perfekte Mischung aus Yoga, Zeit zum entspannen, tollen Gesprächen, Ausflügen, leckerem Essen….Wir haben auch gemeinsam einen Kochkurs gemacht, dabei gelernt die für Sri Lanka typische Currys zuzubereiten! Das Haus ist nah am Strand und in traumhafter Umgebung. Ich kenne Mareen schon aus ihren Berliner Yogaklassen – Mareen und Carmen unterrichten mit so viel Herz und Inspiration, dass man sich sofort wohlfühlt. Die beiden haben einen Ort geschaffen, an dem man wirklich abschalten kann. Danke liebe Mareen & Carmen für diese einzigartige Zeit bei euch im CARMA Retreat, ich freu mich schon aufs nächste Mal!",
         "stars": 5
       },
       {
@@ -72,6 +72,18 @@
         "name": "Julia",
         "description": "Die Yogaeinheiten mit Carmen waren für mich sehr lehrreich. Mit ihrer fachlichen Kompetenz konnte sie mir detaillierte Verbesserungsvorschläge für meine Positionen nennen. Bemerkte jedoch auch, wenn ich mich nur entspannen wollte und hat sich zurückgezogen. Carmens Yogastunden empfinde ich als sehr abwechslungsreich. Jedesmal, wenn die Stunde endet fühle ich mich besser als beim Beginn.",
         "stars": 5
+      },
+      {
+        "src": "/uploads/maike.jpg",
+        "name": "Maike",
+        "description": "Das Retreat in Sri Lanka hat mich tief berührt. Von der ersten Sekunde an fühlt man sich willkommen, getragen und verbunden. Mareen und Carmen schaffen mit ihrer warmherzigen Art einen Raum, in dem man sich sofort wohl und aufgehoben fühlt – und die liebevolle Organisation bis ins kleinste Detail macht die Erfahrung einfach besonders.",
+        "stars": 5
+      },
+      {
+        "src": "/uploads/oksana.jpg",
+        "name": "Oksana",
+        "description": "Ich war öfters in Retreats davor. Mareen und Carmen haben eine wunderschöne Atmosphäre gezaubert. Man fühlte sich total rundum wohl in einer ruhigen Villa mit Pool und eigenem Koch. Die Yogapraxis zweimal am Tag und Meditationen früh am Morgen und besonders abends waren ein totaler Highlight. Rundum versorgt und sanft geleitet. Ich denke sehr oft und gerne an die Zeit in Sri-Lanka zurück. Vor allem immer dann, wenn ich mit Mareen in Berlin Yoga mache. Das Retreat schaffte Freiraum und Platz für die Entspannung und Energietanken. Namaste 🙏🏻",
+        "stars": 5
       }
     ]
   },
@@ -79,11 +91,11 @@
     "heading": "Nächste Yoga Retreats",
     "retreatCards": [
       {
-        "image": "/uploads/retreat-jan-mini.webp",
+        "image": "/uploads/retreat-jan-sunset.jpg",
         "title": "Januar in Sri Lanka",
         "date": "23.–29. Januar 2027",
         "location": "Hikkaduwa, Sri Lanka",
-        "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
+        "description": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
         "button": {
           "label": "Mehr Infos",
           "href": "#january"
@@ -95,7 +107,7 @@
         "title": "Februar in Sri Lanka",
         "date": "13.–19. Februar 2027",
         "location": "Hikkaduwa, Sri Lanka",
-        "description": "Eine Woche voller Tiefe & Wärme- erlebe Yoga, Community- Feeling und singhalesische Kultur in Strandnähe.",
+        "description": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
         "button": {
           "label": "Mehr Infos",
           "href": "#february"
@@ -104,13 +116,13 @@
       },
       {
         "image": "/uploads/comming-soon.jpg",
-        "title": "Coming Soon",
-        "date": "Stay tuned",
+        "title": "Weitere Retreats",
+        "date": "Termine folgen",
         "location": "",
-        "description": "Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!",
+        "description": "Wir planen schon die nächsten Retreats. Trag dich in unseren Newsletter ein und erfahre als Erste:r davon.",
         "button": {
           "label": "IN NEWSLETTER EINTRAGEN",
-          "href": "/newsletter-soon"
+          "href": "/newsletter"
         },
         "imageShape": "square"
       }
@@ -130,7 +142,7 @@
     },
     "spiralImage": {
       "src": "/uploads/Markenzeichen-Weis.png",
-      "alt": "Logo espiral de Carma"
+      "alt": "Logo espiral de CARMA"
     },
     "heading": "Ankommen und Aufatmen.",
     "subheading": "Yoga-retreats, die nachhaltig bewegen."
@@ -180,18 +192,18 @@
     "faqsLeft": [
       {
         "id": "01",
-        "question": "Für wen sind die Carma Retreats gedacht?",
+        "question": "Für wen sind die CARMA Retreats gedacht?",
         "answer": "Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt."
       },
       {
         "id": "02",
         "question": "Was ist enthalten?",
-        "answer": "In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen und zwei gemeinsame Ausflüge enthalten. Zusätzlich zahlst du an die Unterkunft für deine gewählte Zimmeroption inklusive 2 Mahlzeiten pro Tag (Brunch & Dinner, sowie kleine Zwischenmahlzeit)."
+        "answer": "In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen sowie zwei gemeinsame Ausflüge enthalten.\nZusätzlich zahlst du direkt an die Unterkunft für deine gewählte Zimmeroption. Im Zimmerpreis sind täglich zwei Mahlzeiten (Brunch & Dinner), eine kleine Zwischenmahlzeit sowie der Flughafentransfer vom Flughafen zur Unterkunft inbegriffen."
       },
       {
         "id": "03",
         "question": "Wo finden die Retreats statt?",
-        "answer": "Das Retreat im Januar findet in Hikkaduwa statt – an der Südwestküste Sri Lankas – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel.\nDas Retreat im Februar ist in Ahangama, an der Südküste Sri Lankas – ein Ort, der Leichtigkeit atmet. Zwischen Surf-Vibes, Palmen und stylischen Cafés findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer."
+        "answer": "Beide Retreats finden in Hikkaduwa an der Südwestküste Sri Lankas statt – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel. Zwischen tropischer Natur, langen Stränden und dem lebendigen Flair des Küstenortes findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer."
       },
       {
         "id": "04",
@@ -238,7 +250,7 @@
       {
         "id": "12",
         "question": "Wie groß sind die Gruppen?",
-        "answer": "Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was Carma besonders macht: Connection, Culture, Community."
+        "answer": "Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was CARMA besonders macht: Connection, Culture, Community."
       }
     ],
     "cta": {
@@ -385,7 +397,7 @@
     },
     "header": {
       "label": "Connection, Culture, Community.",
-      "heading": "Ein Tag bei Carma Retreats"
+      "heading": "Ein Tag bei CARMA Retreats"
     },
     "scheduleLeft": [
       {
@@ -432,7 +444,7 @@
       },
       {
         "time": "20.30 Uhr",
-        "description": "Ausklang in Stille\nWir enden den Tag wie wir ihn begonnen haben, ganz bei uns in Stille."
+        "description": "Sharing Circle & Ausklang in Stille\nWir lassen den Tag gemeinsam im Sharing Circle ausklingen. Danach gehen wir ins Schweigen und kehren zurück zu uns – in Ruhe und Stille."
       }
     ],
     "cta": {
@@ -445,7 +457,7 @@
       {
         "subtitle": "Mehr über uns",
         "title": "Über Carmen",
-        "text": "Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.\nSeit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.\nEin großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.\nNeben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.\nHeute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den Carma Retreats mit viel Herz und Achtsamkeit.\nIn ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.\nCarmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.",
+        "text": "Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.\nSeit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.\nEin großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.\nNeben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.\nHeute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den CARMA Retreats mit viel Herz und Achtsamkeit.\nIn ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.\nCarmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.",
         "image": "/uploads/hosts-carmen.jpg",
         "imageAlt": "Carmen Portrait",
         "reverse": true
@@ -453,7 +465,7 @@
       {
         "subtitle": "",
         "title": "Über Mareen",
-        "text": "Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.\nSeit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.\nIn ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden.Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.\nÜber 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit Carma Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.",
+        "text": "Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.\nSeit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.\nIn ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden. Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.\nÜber 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit CARMA Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.",
         "image": "/uploads/hosts-mareen.jpg",
         "imageAlt": "Mareen Portrait",
         "reverse": true
@@ -539,7 +551,7 @@
         "id": "february"
       }
     ],
-    "introParagraph": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - eine Woche im tollen Strandort Hikkaduwa an der Westküste, genau zur besten Reisezeit: im Januar und Februar.\n          In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\n          Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der lokalen Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – und spürst, wie gut es tut, einfach da zu sein. Auf Ausflügen tauchst du in die Kultur Sri Lankas ein, besuchst Tempel, machst einen Kochkurs und lernst das Land mit allen Sinnen kennen. Für eine Auszeit in der Ferne, die nachhaltig bewegt."
+    "introParagraph": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - eine Woche im tollen Strandort Hikkaduwa an der Westküste, genau zur besten Reisezeit: im Januar und Februar.\n          In Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\n          Dich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – mit Zeit zum Ankommen, Durchatmen und einfach Sein.\nAuch abseits der Yogamatte möchten wir dir das Sri Lanka zeigen, das wir lieben: Bei einem Kochkurs, einer Bootsfahrt durch die tropische Landschaft und einem Tempelbesuch tauchst du in das Leben und die Kultur der Insel ein und lernst das Land mit allen Sinnen kennen.\nEine Auszeit in der Ferne, die nachhaltig bewegt."
   },
   "hostsSection": {
     "image": "/uploads/hosts-carmen-mareen.jpg",
@@ -573,7 +585,7 @@
     "mainCta": {
       "href": "#kontakt"
     },
-    "heading": "Willkommen bei Carma Retreats",
+    "heading": "Willkommen bei CARMA Retreats",
     "text": "Unsere Retreats schaffen einen Raum, in dem du ankommst - bei dir, in Verbindung mit anderen und im Hier und Jetzt.",
     "secondaryCta": {
       "label": "NÄCHSTE RETREATS",
@@ -589,16 +601,16 @@
         "text": "Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin."
       },
       {
-        "title": "Meditation & Pranayama",
-        "text": "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
+        "title": "Lokale Kultur erleben",
+        "text": "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs."
       },
       {
         "title": "Wohlfühlort",
         "text": "Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein."
       },
       {
-        "title": "Lokale Kultur erleben",
-        "text": "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Töpferkurs."
+        "title": "Meditation & Pranayama",
+        "text": "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
       },
       {
         "title": "Community Vibes",

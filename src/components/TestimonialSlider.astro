@@ -1,19 +1,36 @@
 ---
 import data from '../content/retreats-page.json';
-const items = data.testimonialSection.testimonials;
+// Monas Stimme ist doppelt so lang wie die anderen und wuerde die Buehne fuer alle strecken.
+const items = data.testimonialSection.testimonials.filter(t => t.name !== 'Mona');
 ---
 <section class="voices reveal" id="stimmen">
+  <div class="vmandala" aria-hidden="true">
+    {['m3', 'm4', 'm10'].map((m, i) => (
+      <span class={i === 0 ? 'on' : ''} style={`--mask: url(/media/mandala/${m}.svg)`}></span>
+    ))}
+  </div>
   <div class="wrap head">
     <span class="label">Stimmen unserer Gäste</span>
     <h2 class="h1">Sieben Tage, die <em>nachwirken.</em></h2>
   </div>
-  <div class="vtrack">
-    {items.map(t => (
-      <figure class="vcard">
-        <img src={t.src} alt={t.name} />
-        <blockquote>{t.description}</blockquote>
-        <figcaption class="label">{t.name}</figcaption>
-      </figure>
-    ))}
+  <div class="wrap vstage" data-voices aria-roledescription="Karussell" aria-label="Stimmen unserer Gäste">
+    <div class="vslides">
+      {items.map((t, i) => (
+        <figure class={i === 0 ? 'vslide on' : 'vslide'} aria-hidden={i !== 0}>
+          <img src={t.src} alt="" width="56" height="56" loading="lazy" />
+          <blockquote>{t.description}</blockquote>
+          <figcaption class="label">{t.name}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="vnav">
+      <button type="button" class="varrow" data-dir="-1" aria-label="Vorherige Stimme">&larr;</button>
+      <div class="vdots" role="tablist">
+        {items.map((t, i) => (
+          <button type="button" role="tab" aria-selected={i === 0} aria-label={`Stimme von ${t.name}`} data-go={i}></button>
+        ))}
+      </div>
+      <button type="button" class="varrow" data-dir="1" aria-label="Nächste Stimme">&rarr;</button>
+    </div>
   </div>
 </section>

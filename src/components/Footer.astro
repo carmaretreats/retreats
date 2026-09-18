@@ -1,4 +1,5 @@
 ---
+import NewsletterForm from './NewsletterForm.astro';
 const seite = [
   { label: 'Retreats', href: '#retreats' },
   { label: 'Unterkunft', href: '#unterkunft' },
@@ -8,28 +9,27 @@ const seite = [
 ];
 const rechtliches = [
   { label: 'Impressum', href: '/impressum' },
+  { label: 'AGB', href: '/uploads/carma-agb.pdf' },
   { label: 'Datenschutzerklärung', href: '/datenschutz' },
   { label: 'Cookie-Einstellungen', href: '#' },
 ];
 ---
 <footer class="site-footer">
   <div class="top">
-    <div class="stack" style="gap:24px">
+    <div class="stack newsletter-block">
       <span class="label">Newsletter</span>
-      <p>Weitere Retreats in Planung - melde dich hier für unseren Newsletter an und erfahre mehr!</p>
-      <div class="newsletter">
-        <input type="email" placeholder="Deine E-Mail" />
-        <a class="link" href="/newsletter-soon">In Newsletter eintragen</a>
-      </div>
+      <h3 class="h1">Post <em>von CARMA.</em></h3>
+      <p>Erfahre als Erste:r von neuen Retreats und bekomme ab und zu ein Stück Auszeit ins Postfach.</p>
+      <NewsletterForm />
     </div>
     <div class="cols">
       <div><span class="label">Seite</span>{seite.map(i => <a href={i.href}>{i.label}</a>)}</div>
-      <div><span class="label">Kontakt</span><a href="#">Instagram</a><a href="https://wa.me/4915229394860" target="_blank" rel="noopener">WhatsApp</a><a href="#">E-Mail</a></div>
+      <div><span class="label">Kontakt</span><a href="https://www.instagram.com/carmaretreats/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/4915229394860" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:kontakt@carma-retreats.com">E-Mail</a></div>
       <div><span class="label">Rechtliches</span>{rechtliches.map(i => <a href={i.href}>{i.label}</a>)}</div>
     </div>
   </div>
   <div class="bottom">
-    <div class="wordmark"><img src="/media/logo/Carna-Retreats---Links---Weiss.svg" alt="Carma Retreats" /></div>
-    <span class="label">© 2026 Carma Retreats · Alle Rechte vorbehalten</span>
+    <div class="wordmark"><img src="/media/logo/Carna-Retreats---Links---Weiss.svg" alt="CARMA Retreats" /></div>
+    <span class="label">© 2026 CARMA Retreats · Alle Rechte vorbehalten</span>
   </div>
 </footer>

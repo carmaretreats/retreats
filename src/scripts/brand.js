@@ -47,10 +47,39 @@ if (header && hero) {
   ).observe(hero);
 }
 
+// mobile menu: closes on any choice, outside tap, Escape, or once the page scrolls
+const menuToggle = document.querySelector(".menu-toggle");
+if (header && menuToggle) {
+  const setMenu = (open) => {
+    header.classList.toggle("menu-open", open);
+    menuToggle.setAttribute("aria-expanded", String(open));
+  };
+  menuToggle.addEventListener("click", () => setMenu(!header.classList.contains("menu-open")));
+  // capture phase: the #kontakt links stop propagation before a bubbling listener would see them
+  header.querySelector(".mobile-menu").addEventListener("click", (e) => e.target.closest("a") && setMenu(false), true);
+  header.querySelector(".menu-backdrop").addEventListener("click", () => setMenu(false));
+  addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && header.classList.contains("menu-open")) {
+      setMenu(false);
+      menuToggle.focus();
+    }
+  });
+  addEventListener("scroll", () => setMenu(false), { passive: true });
+}
+
+// requests go through /api/anfrage, which mails the team and confirms to the guest
+const sendAnfrage = async (fields) => {
+  const body = new FormData();
+  Object.entries(fields).forEach(([k, v]) => body.append(k, v ?? ""));
+  const response = await fetch("/api/anfrage", { method: "POST", body, headers: { Accept: "application/json" } });
+  const result = await response.json().catch(() => ({}));
+  if (!response.ok) throw new Error(result.message || "Das Senden hat gerade nicht geklappt.");
+};
+
 // booking modal: retreat -> room -> contact
 const modal = document.getElementById("booking");
 if (modal) {
-  const steps = [...modal.querySelectorAll(".steps span")];
+  const steps = [...modal.querySelectorAll(".steps button")];
   const panels = [...modal.querySelectorAll(".panel")];
   const back = modal.querySelector("[data-back]");
   const next = modal.querySelector("[data-next]");
@@ -84,18 +113,58 @@ if (modal) {
   document.querySelectorAll('a[href="#kontakt"]').forEach((a) => {
     a.addEventListener("click", (e) => {
       e.preventDefault();
+      // Modal links must not reach Lenis' anchor navigation handler.
+      e.stopPropagation();
       open(a.dataset.retreat);
     });
   });
 
-  next.addEventListener("click", () => {
+  // the step labels are navigation too, not only a progress display
+  steps.forEach((el, n) => el.addEventListener("click", () => show(n)));
+  const status = modal.querySelector("[data-status]");
+  next.addEventListener("click", async () => {
     if (step < panels.length - 1) return show(step + 1);
     const required = [...panels[step].querySelectorAll("[required]")];
     const missing = required.find((el) => !el.value.trim());
     if (missing) return missing.focus();
-    modal.classList.add("sent");
+    if (next.disabled) return;
+    next.disabled = true;
+    next.textContent = "Wird gesendet …";
+    status.textContent = "";
+    try {
+      await sendAnfrage({
+        kind: "booking",
+        name: modal.querySelector('[name="name"]').value,
+        email: modal.querySelector('[name="email"]').value,
+        retreat: modal.querySelector('[name="retreat"]:checked').value,
+        room: modal.querySelector('[name="room"]:checked').value,
+        message: modal.querySelector('[name="message"]').value,
+      });
+      modal.classList.add("sent");
+    } catch (err) {
+      status.textContent = err.message;
+    } finally {
+      next.disabled = false;
+      next.textContent = "Buchungsanfrage senden";
+    }
   });
   back.addEventListener("click", () => show(Math.max(0, step - 1)));
+
+  // der Zahlungslink oeffnet erst, wenn die AGB bestaetigt sind
+  const agb = modal.querySelector("[data-agb]");
+  const pay = modal.querySelector("[data-pay]");
+  if (agb && pay) {
+    const sync = () => pay.setAttribute("aria-disabled", String(!agb.checked));
+    agb.addEventListener("change", sync);
+    pay.addEventListener("click", (e) => {
+      if (agb.checked) return;
+      e.preventDefault();
+      agb.focus();
+      agb.closest(".agb-check").classList.add("missing");
+    });
+    agb.addEventListener("change", () => agb.closest(".agb-check").classList.remove("missing"));
+    sync();
+  }
   modal.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => modal.close()));
   modal.addEventListener("click", (e) => {
     if (e.target === modal) modal.close();
@@ -115,7 +184,11 @@ if (modal) {
     if (done) return;
     done = true;
     root.classList.add("intro-out");
-    setTimeout(() => root.classList.remove("intro"), 500);
+    setTimeout(() => {
+      root.classList.remove("intro");
+      // the scrollbar comes back with the intro's overflow lock, columns re-flow
+      dispatchEvent(new Event("intro:end"));
+    }, 500);
     setTimeout(() => root.classList.remove("intro-out"), 2600);
   };
   const timer = setTimeout(end, 4200);
@@ -129,91 +202,61 @@ if (modal) {
   addEventListener("click", skip, { once: true });
 })();
 
-// testimonials: drag to explore, thin bar shows the position
+// testimonials: one voice at a time, arrows, dots and swipe
 (() => {
-  const track = document.querySelector(".vtrack");
-  const bar = document.querySelector(".vbar span");
-  if (!track) return;
-
-  const cards = [...track.querySelectorAll(".vcard")];
-  // Waehrend des programmatischen Scrollens darf mark() nicht dazwischenfunken:
-  // die Karte wechselt beim Aktivieren ihre Breite, wodurch mark() kurzzeitig
-  // wieder die alte Karte als naechste erkannt und die Auswahl zurueckgesetzt hat.
-  let lockUntil = 0;
-  const mark = () => {
-    if (Date.now() < lockUntil) return;
-    const edge = track.scrollLeft + 8;
-    let best = 0;
-    let bestD = Infinity;
-    cards.forEach((c, i) => {
-      const d = Math.abs(c.offsetLeft - track.offsetLeft - edge);
-      if (d < bestD) {
-        bestD = d;
-        best = i;
-      }
-    });
-    cards.forEach((c, i) => c.classList.toggle("is-active", i === best));
+  const stage = document.querySelector("[data-voices]");
+  if (!stage) return;
+  const slides = [...stage.querySelectorAll(".vslide")];
+  const dots = [...stage.querySelectorAll("[data-go]")];
+  const mandalas = [...document.querySelectorAll(".vmandala span")];
+  let current = 0;
+  const show = (next) => {
+    const n = (next + slides.length) % slides.length;
+    if (n === current) return;
+    slides[current].classList.add("out");
+    slides[current].classList.remove("on");
+    slides[current].setAttribute("aria-hidden", "true");
+    const s = slides[n];
+    s.classList.remove("out");
+    s.classList.add("on");
+    s.setAttribute("aria-hidden", "false");
+    dots.forEach((d, i) => d.setAttribute("aria-selected", String(i === n)));
+    mandalas.forEach((m, i) => m.classList.toggle("on", i === n % mandalas.length));
+    current = n;
   };
+  stage.querySelectorAll("[data-dir]").forEach((b) => b.addEventListener("click", () => show(current + Number(b.dataset.dir))));
+  dots.forEach((d) => d.addEventListener("click", () => show(Number(d.dataset.go))));
+  stage.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowRight") show(current + 1);
+    if (e.key === "ArrowLeft") show(current - 1);
+  });
+  // swipe: horizontal pointer travel of 40px flips the slide
+  let startX = null;
+  const slidesEl = stage.querySelector(".vslides");
+  slidesEl.addEventListener("pointerdown", (e) => (startX = e.clientX));
+  slidesEl.addEventListener("pointerup", (e) => {
+    if (startX === null) return;
+    const dx = e.clientX - startX;
+    startX = null;
+    if (Math.abs(dx) > 40) show(current + (dx < 0 ? 1 : -1));
+  });
+  slidesEl.addEventListener("pointercancel", () => (startX = null));
+})();
 
-  const update = () => {
-    mark();
-    if (!bar) return;
-    const max = track.scrollWidth - track.clientWidth;
-    const ratio = track.clientWidth / track.scrollWidth;
-    bar.style.width = `${Math.min(1, ratio) * 100}%`;
-    bar.style.transform = `translateX(${max > 0 ? (track.scrollLeft / max) * ((1 / ratio - 1) * 100) : 0}%)`;
-  };
-  update();
-  track.addEventListener("scroll", update, { passive: true });
-  addEventListener("resize", update);
-
-  const bring = (card) => {
-    lockUntil = Date.now() + 900;
-    const gutter = parseFloat(getComputedStyle(track).paddingLeft) || 0;
-    track.scrollTo({ left: card.offsetLeft - track.offsetLeft - gutter, behavior: "smooth" });
-    cards.forEach((c) => c.classList.toggle("is-active", c === card));
-  };
-
-  cards.forEach((card) =>
-    card.addEventListener("click", () => {
-      if (track.dataset.moved === "1") return;
-      if (!card.classList.contains("is-active")) bring(card);
+// newsletter popup
+(() => {
+  const dlg = document.getElementById("newsletter");
+  if (!dlg) return;
+  document.querySelectorAll("[data-newsletter-open]").forEach((el) =>
+    el.addEventListener("click", (e) => {
+      e.preventDefault();
+      dlg.showModal();
+      dlg.querySelector("input[type=email]")?.focus();
     })
   );
-
-  let startX = 0;
-  let startLeft = 0;
-  let dragging = false;
-
-  track.addEventListener("selectstart", (e) => {
-    if (dragging && track.dataset.moved === "1") e.preventDefault();
-  });
-
-  const move = (e) => {
-    if (!dragging) return;
-    const dx = e.clientX - startX;
-    if (Math.abs(dx) > 5) track.dataset.moved = "1";
-    track.scrollLeft = startLeft - dx;
-  };
-
-  const stop = () => {
-    if (!dragging) return;
-    dragging = false;
-    track.classList.remove("dragging");
-    removeEventListener("pointermove", move);
-    removeEventListener("pointerup", stop);
-    setTimeout(() => (track.dataset.moved = "0"), 0);
-  };
-
-  track.addEventListener("pointerdown", (e) => {
-    if (e.pointerType === "touch") return;
-    dragging = true;
-    track.dataset.moved = "0";
-    startX = e.clientX;
-    startLeft = track.scrollLeft;
-    track.classList.add("dragging");
-    addEventListener("pointermove", move);
-    addEventListener("pointerup", stop);
+  dlg.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => dlg.close()));
+  dlg.addEventListener("click", (e) => {
+    if (e.target === dlg) dlg.close();
   });
 })();
 
@@ -228,10 +271,28 @@ if (modal) {
   };
   document.querySelectorAll("[data-ask]").forEach((el) => el.addEventListener("click", open));
   ask.querySelectorAll("[data-close]").forEach((b) => b.addEventListener("click", () => ask.close()));
-  ask.querySelector("[data-send]").addEventListener("click", () => {
+  const send = ask.querySelector("[data-send]");
+  const status = ask.querySelector("[data-status]");
+  send.addEventListener("click", async () => {
     const missing = [...ask.querySelectorAll("[required]")].find((el) => !el.value.trim());
     if (missing) return missing.focus();
-    ask.classList.add("sent");
+    if (send.disabled) return;
+    send.disabled = true;
+    send.textContent = "Wird gesendet …";
+    status.textContent = "";
+    try {
+      await sendAnfrage({
+        kind: "question",
+        email: ask.querySelector('[name="email"]').value,
+        message: ask.querySelector('[name="question"]').value,
+      });
+      ask.classList.add("sent");
+    } catch (err) {
+      status.textContent = err.message;
+    } finally {
+      send.disabled = false;
+      send.textContent = "Frage senden";
+    }
   });
   ask.addEventListener("click", (e) => {
     if (e.target === ask) ask.close();
@@ -277,4 +338,61 @@ if (modal) {
       sessionStorage.setItem(key, "1");
     } catch {}
   });
+})();
+
+// host text in two CSS columns: with an odd line count the left column keeps
+// the extra line, so the right one ends a line early. Nudging the vertical
+// space under the headline and between paragraphs by a few pixels moves the
+// break points until both columns end on the same line. Word spacing was
+// tried first, but it is visible on Windows font rendering.
+(() => {
+  const blocks = [...document.querySelectorAll(".about .cols2")];
+  if (!blocks.length) return;
+  const columnEnds = (el) => {
+    const range = document.createRange();
+    range.selectNodeContents(el);
+    const box = el.getBoundingClientRect();
+    const mid = box.left + box.width / 2;
+    let left = 0;
+    let right = 0;
+    for (const r of range.getClientRects()) {
+      if (r.left < mid) left = Math.max(left, r.bottom);
+      else right = Math.max(right, r.bottom);
+    }
+    return { left, right };
+  };
+  const offBy = (el) => {
+    const { left, right } = columnEnds(el);
+    return Math.abs(left - right);
+  };
+  const balance = (el) => {
+    el.style.removeProperty("--tune");
+    if (getComputedStyle(el).columnCount !== "2") return;
+    const line = parseFloat(getComputedStyle(el).lineHeight) || 24;
+    // widen first, then tighten, one pixel at a time, smallest change wins
+    for (let step = 0; step <= 36; step++) {
+      const tune = (step % 2 ? -1 : 1) * Math.ceil(step / 2);
+      if (tune < -8) continue;
+      el.style.setProperty("--tune", `${tune}px`);
+      if (offBy(el) < line / 2) return;
+    }
+    el.style.removeProperty("--tune");
+  };
+  const run = () => blocks.forEach(balance);
+  document.fonts?.ready.then(run) ?? run();
+  let t;
+  addEventListener("resize", () => {
+    clearTimeout(t);
+    t = setTimeout(run, 150);
+  });
+  // the intro's overflow lock hides the scrollbar; when it ends the block gets
+  // narrower and re-flows, and late font swaps can do the same
+  const recheck = () =>
+    blocks.forEach((b) => {
+      const line = parseFloat(getComputedStyle(b).lineHeight) || 24;
+      if (offBy(b) >= line / 2) balance(b);
+    });
+  addEventListener("intro:end", () => requestAnimationFrame(recheck));
+  addEventListener("load", recheck);
+  [1000, 2500, 5000, 8000].forEach((ms) => setTimeout(recheck, ms));
 })();

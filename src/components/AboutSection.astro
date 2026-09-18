@@ -1,6 +1,7 @@
 ---
 const { person, flip = false, id } = Astro.props;
-const paragraphs = (person.text || '').split(/\n\s*\n/).map(t => t.trim()).filter(Boolean);
+// das CMS trennt Absaetze mit einfachen Zeilenumbruechen
+const paragraphs = (person.text || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
 const name = (person.title || '').replace(/^Über\s+/, '');
 ---
 <section class="section wrap about reveal" id={id}>

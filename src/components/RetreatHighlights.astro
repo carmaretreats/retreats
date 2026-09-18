@@ -1,7 +1,7 @@
 ---
 import data from '../content/retreats-page.json';
 ---
-<section class="section wrap split top expect reveal">
+<section class="section wrap split top expect">
   <div class="stack">
     <span class="label">Was dich erwartet</span>
     <h2 class="h1">Eine Auszeit in der Ferne, die <em>nachhaltig bewegt.</em></h2>
@@ -9,11 +9,11 @@ import data from '../content/retreats-page.json';
       {data.retreatHighlightsSection.highlights.map(h => (
         <div class="item"><div><span>{h.title}</span><span class="muted">{h.text}</span></div></div>
       ))}
+      <div class="item cta"><a class="book-btn" href="#kontakt">Jetzt buchen</a></div>
     </div>
-    <a class="link" href="#retreats">Mehr erfahren</a>
   </div>
   <div class="pics">
-    <img src="/media/img/C12.jpg" alt="Die Shala am Morgen" />
-    <img src="/media/img/8656.jpg" alt="Meditation in der Shala" />
+    <img src="/media/img/kunde-24.jpg" alt="Namaste im Abendlicht unter Palmen" />
+    <img src="/media/img/kunde-27.jpg" alt="Yoga auf der Terrasse zwischen Palmen" />
   </div>
 </section>

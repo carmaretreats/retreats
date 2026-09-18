@@ -6,7 +6,7 @@
       <span class="label">Buchungsanfrage</span>
       <button type="button" class="close" data-close aria-label="Schließen">&#215;</button>
     </div>
-    <div class="steps"><span class="on">01 Retreat</span><span>02 Zimmer</span><span>03 Kontakt</span></div>
+    <div class="steps"><button type="button" class="on">01 Retreat</button><button type="button">02 Zimmer</button><button type="button">03 Kontakt</button></div>
 
     <div class="panel on">
       <div class="options">
@@ -37,6 +37,7 @@
         <label class="field"><span class="label">E-Mail*</span><input type="email" name="email" placeholder="Deine E-Mail" required></label>
       </div>
       <label class="field"><span class="label">Nachricht</span><textarea name="message" placeholder="Optional"></textarea></label>
+      <p class="body status" data-status role="alert"></p>
     </div>
 
     <div class="nav">
@@ -45,12 +46,13 @@
     </div>
 
     <div class="thanks">
-      <h3 class="h1" style="font-size:var(--fs-m)">Danke, <em>wir melden uns.</em></h3>
-      <p class="body">Deine Anfrage ist angekommen, wir melden uns meist noch am selben Tag.</p>
+      <h3 class="h1" style="font-size:var(--fs-m)">Danke für deine Anfrage, <em>wir freuen uns.</em></h3>
+      <p class="body">Wie schön, dass du dir eine Auszeit mit uns gönnen möchtest. Wir melden uns gern und meist noch am selben Tag bei dir.</p>
       <p class="body note">Dein Platz ist damit noch nicht reserviert. Verbindlich wird er mit der Anzahlung.</p>
+      <label class="agb-check"><input type="checkbox" data-agb><span>Ich habe die <a href="/uploads/carma-agb.pdf" target="_blank" rel="noopener">AGB</a> gelesen und bin damit einverstanden.</span></label>
       <div class="nav">
         <button type="button" class="link ghost" data-close>Erst mal abwarten</button>
-        <a class="link" href="https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00" target="_blank" rel="noopener">Anzahlen und Platz sichern</a>
+        <a class="link" href="https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00" target="_blank" rel="noopener" data-pay aria-disabled="true">Anzahlen und Platz sichern</a>
       </div>
     </div>
   </form>

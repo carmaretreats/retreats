@@ -19,7 +19,9 @@ const target = (href) => (href || '').startsWith('#') ? '#retreats' : href;
         <p class="body card-text">{card.description}</p>
         {card.button.href.startsWith('#')
           ? <a class="link" href={target(card.button.href)}>{card.button.label}</a>
-          : <button class="link" type="button" data-ask>{card.button.label}</button>}
+          : card.button.href === '/newsletter'
+            ? <button class="link" type="button" data-newsletter-open>{card.button.label}</button>
+            : <button class="link" type="button" data-ask>{card.button.label}</button>}
       </article>
     ))}
   </div>

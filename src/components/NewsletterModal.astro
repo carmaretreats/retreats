@@ -1,0 +1,13 @@
+---
+import NewsletterForm from './NewsletterForm.astro';
+---
+<dialog class="modal newsletter-modal" id="newsletter">
+  <div class="inner">
+    <div class="head">
+      <h3 class="h1" style="font-size:var(--fs-m)">Post <em>von CARMA.</em></h3>
+      <button type="button" class="close" data-close aria-label="Schließen">&#215;</button>
+    </div>
+    <p class="body">Erfahre als Erste:r von neuen Retreats und bekomme ab und zu ein Stück Auszeit ins Postfach.</p>
+    <NewsletterForm id="newsletter-modal" />
+  </div>
+</dialog>

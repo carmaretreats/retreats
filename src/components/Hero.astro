@@ -5,14 +5,94 @@ const {
   tag = 'Yoga-Retreats, die nachhaltig bewegen: eine Woche am Meer, in kleiner Gruppe und auf Deutsch. Hikkaduwa, Sri Lanka, im Januar und Februar 2027.',
 } = Astro.props;
 ---
-<section class="hero on-image">
-  <img class="bg desktop" src="/media/img/C10.jpg" alt="" />
-  <video class="bg mobile" src="/media/video/hero-portrait.mp4" poster="/media/img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="auto"></video>
+<section id="hero" class="hero hero-original on-image">
+  <div class="hero-photos">
+    <img class="hero-photo hero-photo-primary" src="/media/img/C10.jpg" width="1142" height="1600" alt="Gemeinsame Yogapraxis im offenen Yogapavillon" loading="eager" fetchpriority="high" decoding="async" />
+    <img class="hero-photo hero-photo-secondary" src="/media/img/hero-crew.jpg" width="1066" height="1600" alt="Carmen und Mareen in Namaste-Haltung in der Yogashala" decoding="async" />
+    <video class="hero-video" poster="/media/img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+      <source src="/media/video/hero-portrait.mp4" type="video/mp4" media="(max-width: 767px)" />
+    </video>
+  </div>
+  <img class="hero-mark" src="/uploads/Markenzeichen-Weis.png" alt="" aria-hidden="true" width="56" height="56" />
   <div class="copy">
     <div class="stack">
       <h1 class="h1">{headline} <em>{highlight}</em></h1>
       <p class="tag">{tag}</p>
     </div>
-    <a class="link" href="#kontakt">Jetzt anfragen</a>
+    <div class="actions">
+      <a class="book-btn terra" href="#kontakt">Jetzt buchen</a>
+      <button class="link" type="button" data-ask>Jetzt anfragen</button>
+    </div>
   </div>
 </section>
+
+<style>
+  .hero.hero-original {
+    /* Nie hoeher als der Viewport, damit Subline und Buttons above the fold bleiben */
+    height: clamp(520px, calc(100svh - 72px), 900px);
+    min-height: 0;
+    margin-inline: 32px;
+  }
+  .hero-photos {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  /* auf dem Handy laeuft das Hochkant-Video statt der Fotos, wie in der Vorschau */
+  .hero-video { display: none; width: 100%; height: 100%; object-fit: cover; object-position: center 40%; }
+  .hero-photo {
+    width: 100%;
+    height: 100%;
+    min-width: 0;
+    min-height: 0;
+    object-fit: cover;
+    object-position: center 65%;
+  }
+  /* Gesichter der beiden liegen im oberen Drittel */
+  .hero-photo-secondary { object-position: center 12%; }
+  .hero.hero-original::after {
+    background: linear-gradient(180deg, rgb(35 28 20 / 16%) 0%, transparent 35%, rgb(35 28 20 / 12%) 52%, rgb(35 28 20 / 76%) 100%);
+    pointer-events: none;
+  }
+  .hero-mark {
+    position: absolute;
+    top: 32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 56px;
+    height: 56px;
+    object-fit: contain;
+    z-index: 1;
+  }
+  .hero.hero-original .copy {
+    bottom: 40px;
+    gap: 36px;
+  }
+  .hero.hero-original .copy .stack { gap: 28px; }
+  .hero.hero-original .copy .h1 {
+    font-size: calc(var(--fs-l) * 1.15);
+    -webkit-text-stroke: 0.3px currentColor;
+  }
+  @media (max-width: 860px) {
+    .hero.hero-original .copy .h1 { font-size: var(--fs-l); }
+  }
+  .hero.hero-original .copy .tag {
+    max-width: 62ch;
+  }
+  @media (max-width: 767px) {
+    /* Buttons muessen ohne Scrollen sichtbar sein: Viewport minus Header, kein hoher Mindestwert */
+    .hero.hero-original {
+      height: calc(100svh - 80px);
+      min-height: 520px;
+      max-height: 760px;
+      margin-inline: 0;
+    }
+    .hero-photos { grid-template-columns: 1fr; }
+    .hero-photo-secondary, .hero-photo-primary { display: none; }
+    .hero-video { display: block; }
+    .hero-mark { top: 24px; width: 44px; height: 44px; }
+    .hero.hero-original .copy { bottom: 24px; gap: 22px; }
+    .hero.hero-original .copy .tag { font-size: 15px; line-height: 1.45; }
+  }
+</style>

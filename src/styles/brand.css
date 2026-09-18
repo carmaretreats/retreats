@@ -165,6 +165,54 @@ p {
   color: var(--creme);
 }
 
+/* Buchen-Button: schlanke Pill auf der Papiertextur, die auch die Terra-Baender tragen.
+   Terra auf hellem Grund, helle Variante auf Video und Terra-Flaechen. */
+.book-btn {
+  font-family: var(--label);
+  font-weight: 400;
+  font-size: var(--fs-caps);
+  line-height: 1;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 12px 24px;
+  border: 0;
+  border-radius: 999px;
+  cursor: pointer;
+  white-space: nowrap;
+  text-decoration: none;
+  text-shadow: none;
+  color: var(--creme);
+  background: var(--terra) url("/media/img/terra-paper.jpg") center / cover;
+  transition: background-color 0.3s, filter 0.3s;
+}
+.book-btn:hover {
+  filter: brightness(1.12) saturate(1.1);
+}
+.book-btn.light,
+.on-image .book-btn,
+.on-paper .book-btn {
+  color: var(--ink);
+  background: var(--creme-2) url("/media/img/paper.jpg") center / cover;
+}
+.book-btn.light:hover,
+.on-image .book-btn:hover,
+.on-paper .book-btn:hover {
+  filter: brightness(0.97);
+}
+/* Hauptaktion bleibt auch auf dem Video Terra */
+.book-btn.terra,
+.on-image .book-btn.terra {
+  color: var(--creme);
+  background: var(--terra) url("/media/img/terra-paper.jpg") center / cover;
+}
+.book-btn.terra:hover,
+.on-image .book-btn.terra:hover {
+  filter: brightness(1.12) saturate(1.1);
+}
+
 .num {
   font-family: var(--sans);
   font-weight: 300;
@@ -305,15 +353,8 @@ main > * + * {
 }
 
 .site-header .cta {
-  font-family: var(--label);
   font-size: var(--fs-nav);
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  padding: 9px 17px;
-  border: 1px solid currentColor;
-  border-radius: 999px;
-  white-space: nowrap;
-  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  padding: 10px 20px;
 }
 
 .site-header .cta i {
@@ -324,11 +365,6 @@ main > * + * {
   display: none;
 }
 
-.site-header .cta:hover {
-  background: var(--orange);
-  border-color: var(--orange);
-  color: var(--creme);
-}
 
 .site-header.away {
   transform: translateY(-105%);
@@ -382,7 +418,7 @@ main > * + * {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: kenburns 24s ease-in-out infinite alternate;
+  animation: none;
 }
 
 @keyframes kenburns {
@@ -415,7 +451,8 @@ main > * + * {
   gap: 24px;
 }
 
-.hero .copy .link { align-self: center; }
+.hero .copy .actions { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 12px 28px; }
+.hero .copy .actions .link { background: none; border-top: 0; border-left: 0; border-right: 0; cursor: pointer; color: var(--creme); margin-top: 5px; text-shadow: 0 1px 3px rgba(53, 42, 31, 0.55), 0 2px 22px rgba(53, 42, 31, 0.7); }
 
 .hero .copy .stack {
   gap: 16px;
@@ -423,8 +460,7 @@ main > * + * {
 
 .hero .copy .h1,
 .hero .copy .label,
-.hero .copy .tag,
-.hero .copy .link {
+.hero .copy .tag {
   text-shadow: 0 1px 3px rgba(53, 42, 31, 0.55), 0 2px 22px rgba(53, 42, 31, 0.7);
 }
 
@@ -534,6 +570,7 @@ main > * + * {
 
 .faq .answer {
   padding: 0 0 22px 0;
+  white-space: pre-line;
   max-width: 700px;
   opacity: 0.75;
 }
@@ -621,6 +658,14 @@ main > * + * {
   font-size: var(--fs-nav);
 }
 
+.site-footer .newsletter-block { gap: 20px; }
+.site-footer .newsletter-block .h1 { font-size: var(--fs-m); color: var(--creme); margin-top: -6px; }
+.site-footer .newsletter-block .h1 em { color: var(--creme); }
+.site-footer .newsletter-block p { font-size: var(--fs-s); max-width: 44ch; }
+/* auf dem Terra-Grund die helle Pill */
+.site-footer .book-btn { color: var(--ink); background: var(--creme-2) url("/media/img/paper.jpg") center / cover; }
+.site-footer .book-btn:hover { filter: brightness(0.97); }
+
 .site-footer .top {
   display: grid;
   grid-template-columns: minmax(0, 480px) auto;
@@ -682,13 +727,11 @@ main > * + * {
 
 /* reveal */
 .reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
+  transform: none;
+  transition: none;
 }
 
 .reveal.in {
-  opacity: 1;
   transform: none;
 }
 
@@ -709,11 +752,14 @@ main > * + * {
 
 /* mobile */
 @media (max-width: 860px) {
+  /* Headlines muessen ueber Labels und Buttons liegen; 28px war zu nah an den 15px-Versalien */
+  :root { --fs-l: 36px; }
   .site-header nav {
     font-size: var(--fs-s);
     gap: 10px;
   }
-  .split {
+  .split,
+  #faq.split {
     grid-template-columns: 1fr;
     gap: 28px;
   }
@@ -742,17 +788,10 @@ main > * + * {
     display: inline;
   }
   .site-header .cta {
-    padding: 0 0 3px;
-    border: 0;
-    border-bottom: 1px solid var(--orange);
-    border-radius: 0;
-    font-size: var(--fs-s);
-    letter-spacing: 0.04em;
+    padding: 8px 14px;
+    font-size: 11px;
+    letter-spacing: 0.05em;
     margin-left: 10px;
-  }
-  .site-header .cta:hover {
-    background: none;
-    color: inherit;
   }
   .site-header {
     padding: 16px 20px;
@@ -771,9 +810,6 @@ main > * + * {
   }
   .hero .copy {
     gap: 20px;
-  }
-  .h1 {
-    font-size: var(--fs-m);
   }
   .symbol {
     width: 40px;
@@ -831,7 +867,7 @@ main > * + * {
      die <dialog> vom Browser mitbringt. */
   margin: auto;
   width: min(720px, calc(100vw - 32px));
-  max-height: calc(100vh - 32px);
+  max-height: calc(100dvh - 32px);
   background: var(--paper);
   color: var(--ink);
   overflow: auto;
@@ -884,11 +920,13 @@ main > * + * {
   color: rgba(53, 42, 31, 0.4);
 }
 
-.modal .steps span.on {
+.modal .steps button { background: none; border: 0; padding: 0; font: inherit; letter-spacing: inherit; text-transform: inherit; color: inherit; cursor: pointer; transition: color 0.25s; }
+.modal .steps button:hover { color: var(--ink); }
+.modal .steps button.on {
   color: var(--terra);
 }
 
-.modal .steps span.done {
+.modal .steps button.done {
   color: var(--ink);
 }
 
@@ -988,6 +1026,15 @@ main > * + * {
   color: var(--ink);
 }
 
+.modal .agb-check { display: flex; align-items: flex-start; gap: 10px; font-size: var(--fs-s); line-height: 1.5; }
+.modal .agb-check input { flex: 0 0 auto; margin-top: 3px; accent-color: var(--orange); }
+.modal .agb-check a { text-decoration: underline; }
+.modal .agb-check.missing span { color: var(--terra); }
+.modal [data-pay][aria-disabled="true"] { opacity: 0.45; border-bottom-color: var(--line); }
+
+.modal .status { color: var(--terra); font-size: var(--fs-s); margin: 0; }
+.modal .status:empty { display: none; }
+
 .modal .btn.back {
   border-bottom-color: transparent;
   color: rgba(53, 42, 31, 0.55);
@@ -1001,10 +1048,12 @@ main > * + * {
 .modal .summary div {
   display: flex;
   justify-content: space-between;
+  align-items: baseline;
   gap: 24px;
   padding: 8px 0;
   border-top: 1px solid var(--line);
 }
+.modal .summary div span:last-child { text-align: right; }
 
 .modal .summary div:last-child {
   border-bottom: 1px solid var(--line-strong);
@@ -1156,11 +1205,28 @@ html.intro .hero .copy {
 .ort .dates .row { align-items: center; }
 .ort .dates .row div { display: flex; flex-direction: column; gap: 2px; }
 .roomlist .row { align-items: center; gap: 20px; }
-.roomlist .row img { width: 64px; height: 48px; object-fit: cover; flex: 0 0 64px; }
+.roomlist .row .thumb { padding: 0; border: 0; background: none; cursor: zoom-in; flex: 0 0 64px; line-height: 0; }
+.roomlist .row img { width: 64px; height: 48px; object-fit: cover; transition: transform 0.3s ease; }
+.roomlist .row .thumb:hover img { transform: scale(1.08); }
+/* Zimmerfotos gross: Bild fuellt die Box, Pfeile liegen auf dem Rand */
+/* Zimmerfotos gross: Papierflaeche mit gleichmaessigem Rand, Bild als Rahmen,
+   Beschriftung links unter dem Bild, Pfeile rechts. Kein position: relative auf dem
+   Dialog, sonst verliert er sein fixed im Top-Layer und die Seite springt. */
+.lightbox { width: fit-content; max-width: calc(100vw - 32px); padding: 24px 24px 20px; }
+.lightbox figure { margin: 0; display: flex; flex-direction: column; gap: 14px; }
+.lightbox img { display: block; width: auto; max-width: min(880px, calc(100vw - 80px)); max-height: calc(100vh - 170px); object-fit: contain; }
+.lightbox .lb-foot { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.lightbox figcaption { margin: 0; }
+.lightbox .lb-nav { display: flex; gap: 10px; }
+.lightbox .varrow { width: 40px; height: 40px; border-color: var(--line-strong); color: var(--ink); }
+.lightbox .varrow:hover { background: var(--terra); border-color: var(--terra); color: var(--creme); }
+.lightbox .close { position: absolute; top: 12px; right: 14px; margin: 0; width: 32px; height: 32px; display: grid; place-items: center; border-radius: 50%; background: var(--paper); }
+.lightbox.single .lb-nav { display: none; }
 /* Feste Namensspalte: die Preise stehen nah am Text und trotzdem auf einer Linie. */
-.roomlist .row .txt { display: flex; flex-direction: column; flex: 0 0 clamp(220px, 22vw, 300px); }
+.roomlist .row .txt { display: flex; flex-direction: column; flex: 1 1 auto; }
 .roomlist .row .txt .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
-.roomlist .row .price { color: var(--ink); margin-left: 0; }
+/* rechtsbuendig, gleiche Kante wie die Retreatgebuehr darunter */
+.roomlist .row .price { color: var(--ink); margin-left: auto; text-align: right; white-space: nowrap; }
 .divider { display: flex; align-items: center; gap: clamp(24px, 4vw, 48px); }
 .divider .rule { flex: 1; height: 1px; background: var(--line); }
 .divider img { width: 36px; height: auto; flex: 0 0 36px; }
@@ -1171,8 +1237,9 @@ html.intro .hero .copy {
 .about-grid .media { position: relative; align-self: stretch; min-height: min(46vh, 380px); }
 .about-grid .media img { position: absolute; inset: 0; width: 100%; height: 100%; max-height: none; object-fit: cover; }
 .about .cols2 { columns: 2; column-gap: 40px; font-size: var(--fs-s); line-height: var(--lh-text); }
-.about .cols2 p { margin-bottom: 14px; orphans: 3; widows: 3; }
-.about .cols2 .h1 { break-inside: avoid; margin-bottom: 24px; }
+/* --tune setzt brand.js, um die Spalten auf gleiche Hoehe zu bringen */
+.about .cols2 p { margin-bottom: calc(14px + var(--tune, 0px)); orphans: 2; widows: 2; }
+.about .cols2 .h1 { break-inside: avoid; margin-bottom: calc(24px + var(--tune, 0px) * 2); }
 .contact .steplist .row { align-items: baseline; gap: 20px; }
 .contact .steplist .row .t { flex-basis: 40px; }
 .band-video { display: none; position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
@@ -1186,15 +1253,19 @@ html.intro .hero .copy {
 .day .row { flex-wrap: nowrap; }
 .day .row div span { display: block; }
 .expect, #faq, .contact { position: relative; isolation: isolate; overflow: hidden; }
-.expect::before, #faq::before, .contact::before { content: ""; position: absolute; background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.045; z-index: 0; pointer-events: none; }
+#faq::before, .contact::before { content: ""; position: absolute; background-repeat: no-repeat; background-position: center; background-size: contain; opacity: 0.045; z-index: 0; pointer-events: none; }
 .expect > *, #faq > *, .contact > * { position: relative; z-index: 1; }
-.expect::before { left: -300px; top: 50%; width: 820px; height: 820px; transform: translateY(-50%); background-image: url("/media/mandala/m20.svg"); }
+/* Desktop 1:2, auf dem Handy stapelt .split die Spalten; ein Inline-Style wuerde das ueberschreiben */
+#faq { grid-template-columns: 1fr 2fr; }
 #faq::before { left: -260px; bottom: -220px; width: 700px; height: 700px; background-image: url("/media/mandala/m7.svg"); opacity: 0.06; }
 .contact::before { right: -300px; top: 62%; width: 560px; height: 560px; transform: translateY(-50%); background-image: url("/media/mandala/m7.svg"); opacity: 0.06; }
 .expect .items { display: grid; grid-template-columns: 1fr 1fr; gap: 22px 32px; }
 .expect .item { display: flex; }
 .expect .item div { display: flex; flex-direction: column; }
 .expect .item .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
+/* achte Zelle: der Button landet rechts unter Soulfood, nicht unter der letzten linken Zeile */
+/* Unterkante des Buttons auf der letzten Zeile von "Zeit fuer Dich" */
+.expect .item.cta { align-items: flex-end; align-self: end; }
 .expect .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; align-items: start; }
 .expect .pics img { width: 100%; aspect-ratio: 3 / 4; max-height: min(58vh, 480px); object-fit: cover; }
 .expect .pics img:last-child { margin-top: 72px; }
@@ -1213,6 +1284,8 @@ html.intro .hero .copy {
 .modal.chat .inner { padding: 28px 28px 32px; gap: 20px; }
 .modal.chat .ask-body { display: flex; flex-direction: column; gap: 20px; }
 .modal.chat.sent .ask-body { display: none; }
+.newsletter-modal { width: min(520px, calc(100vw - 32px)); }
+.newsletter-modal .inner { padding: 28px 28px 32px; gap: 20px; }
 /* Der WhatsApp-Weg war ein voller Terracotta-Block und damit das schwerste
    Element im Dialog. Als Link neben dem Senden-Button sind beide Wege
    gleichwertig und der Dialog bleibt ruhig. */
@@ -1222,21 +1295,34 @@ html.intro .hero .copy {
 .contact .media img { aspect-ratio: 3 / 2; object-fit: cover; width: 100%; }
 /* Die Sektion bleibt genau einen Bildschirm hoch. Das laengste Zitat wuerde
    sie sonst auf anderthalb Screens ziehen. */
-.voices { background: var(--terra) url("/media/img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(56px, 7vw, 96px) 0; overflow: hidden; height: 100vh; display: flex; flex-direction: column; }
+.voices { background: var(--terra) url("/media/img/terra-paper.jpg") center / cover; color: var(--creme); --line: rgba(255,248,238,0.35); padding: clamp(56px, 7vw, 96px) 0; overflow: hidden; }
 .voices .head { display: flex; flex-direction: column; gap: 16px; margin-bottom: 48px; }
 .voices .label { color: var(--creme); opacity: 0.75; }
 .voices .h1 em { color: var(--creme); font-style: italic; }
-.vtrack { flex: 1; min-height: 0; align-items: stretch; display: flex; gap: clamp(24px, 3vw, 44px); overflow-x: auto; scroll-snap-type: x proximity; scroll-padding-left: var(--gutter); padding: 4px var(--gutter) 28px; scrollbar-width: none; cursor: grab; }
-.vtrack::-webkit-scrollbar { display: none; }
-.vtrack.dragging { cursor: grabbing; scroll-snap-type: none; user-select: none; }
-.vcard { flex: 0 0 clamp(230px, 21vw, 290px); scroll-snap-align: start; margin: 0; display: flex; flex-direction: column; gap: 18px; padding-top: 24px; opacity: 0.42; cursor: pointer; transition: opacity 0.6s ease, flex-basis 0.6s cubic-bezier(0.3,0,0.1,1), gap 0.6s ease; }
-.vcard.is-active { flex-basis: clamp(320px, 34vw, 460px); opacity: 1; gap: 22px; cursor: default; }
-.vcard:not(.is-active):hover { opacity: 0.62; }
-.vcard img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; pointer-events: none; transition: width 0.6s ease, height 0.6s ease; }
-.vcard.is-active img { width: 72px; height: 72px; }
-.vcard blockquote { margin: 0; flex: 1; min-height: 0; overflow: hidden; font-size: var(--fs-s); line-height: var(--lh-text); -webkit-mask-image: linear-gradient(180deg, #000 82%, transparent 100%); mask-image: linear-gradient(180deg, #000 82%, transparent 100%); transition: font-size 0.6s ease, line-height 0.6s ease; }
-.vcard.is-active blockquote { font-size: var(--fs-s); line-height: var(--lh-text); }
-.vcard figcaption { opacity: 0.8; }
+.voices { position: relative; }
+.voices > .head, .voices > .vstage { position: relative; z-index: 1; }
+/* je Stimme ein anderes Mandala als Praegung auf der rechten Haelfte */
+/* rechts leicht angeschnitten, vertikal exakt mittig zur Sektion */
+.vmandala { position: absolute; right: -6%; top: 50%; width: min(560px, 42vw); aspect-ratio: 1; transform: translateY(-50%); pointer-events: none; }
+/* die SVGs sind orange gefuellt; als Maske nehmen sie jede Farbe an */
+.vmandala span { position: absolute; inset: 0; background: var(--creme); -webkit-mask: var(--mask) center / contain no-repeat; mask: var(--mask) center / contain no-repeat; opacity: 0; transform: rotate(-8deg) scale(0.96); transition: opacity 0.8s ease, transform 0.8s ease; }
+.vmandala span.on { opacity: 0.16; transform: rotate(0deg) scale(1); }
+.vstage { display: flex; flex-direction: column; gap: 28px; }
+/* Alle Stimmen liegen in derselben Grid-Zelle: die Buehne ist so hoch wie die
+   laengste, beim Wechsel springt nichts. */
+.vslides { display: grid; touch-action: pan-y; }
+.vslide { grid-area: 1 / 1; margin: 0; display: flex; flex-direction: column; gap: 18px; max-width: 600px; opacity: 0; transform: translateX(16px); transition: opacity 0.5s ease, transform 0.5s ease; pointer-events: none; }
+.vslide.on { opacity: 1; transform: none; pointer-events: auto; }
+.vslide.out { transform: translateX(-16px); }
+.vslide img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+.vslide blockquote { margin: 0; font-size: var(--fs-s); line-height: var(--lh-text); }
+.vslide figcaption { opacity: 0.8; }
+.vnav { display: flex; align-items: center; gap: 20px; }
+.varrow { width: 44px; height: 44px; border-radius: 50%; border: 1px solid rgba(255, 248, 238, 0.5); background: transparent; color: var(--creme); font-size: 18px; cursor: pointer; display: grid; place-items: center; transition: background-color 0.3s, border-color 0.3s; }
+.varrow:hover { background: rgba(255, 248, 238, 0.12); border-color: var(--creme); }
+.vdots { display: flex; gap: 10px; }
+.vdots button { width: 8px; height: 8px; padding: 0; border-radius: 50%; border: 0; background: rgba(255, 248, 238, 0.4); cursor: pointer; transition: background-color 0.3s, transform 0.3s; }
+.vdots button[aria-selected="true"] { background: var(--creme); transform: scale(1.25); }
 .gallery { padding: 0; }
 .ghead { display: flex; justify-content: space-between; align-items: baseline; gap: 24px; margin-bottom: 16px; }
 .gallery .label.muted { color: rgba(53,42,31,0.5); }
@@ -1250,7 +1336,7 @@ html.intro .hero .copy {
 .vbar { height: 1px; background: rgba(255,248,238,0.28); position: relative; }
 .vbar span { position: absolute; left: 0; top: 0; height: 1px; background: var(--creme); width: 25%; transition: width 0.15s linear, transform 0.15s linear; }
 .hero .copy { flex-direction: column; align-items: center; text-align: center; gap: 26px; bottom: 64px; }
-.hero .copy .link { align-self: center; }
+
 
 .hero .copy .stack { align-items: center; }
 .hero .copy .tag { max-width: 46ch; }
@@ -1287,17 +1373,17 @@ html.intro .hero .copy {
 .day-pics img:first-child { margin-top: clamp(40px, 5vw, 72px); }
 @media (max-width: 860px) {
   .voices .head { margin-bottom: 32px; }
-  .vcard { flex-basis: 62vw; opacity: 0.45; }
   .ggrid { grid-template-columns: 1fr 1fr; grid-template-rows: none; grid-template-areas: "a a" "b c" "d e"; height: auto; }
   .ggrid img { aspect-ratio: 4 / 3; }
   .g-a { aspect-ratio: 3 / 2; }
   .ghead { flex-direction: column; gap: 6px; }
-  .vcard.is-active { flex-basis: 82vw; }
   .about-grid, .about-grid.flip { grid-template-columns: 1fr; gap: 28px; }
   .divider { gap: 20px; }
   .divider img { width: 32px; flex-basis: 32px; }
   .about-grid.flip .media { order: 0; }
-  .about-grid .media img { height: auto; aspect-ratio: 4 / 5; }
+  /* auf dem Handy im Fluss statt absolut: sonst ragt das Foto ueber seinen Rahmen und deckt die Ueberschrift zu */
+  .about-grid .media { position: static; min-height: 0; align-self: auto; }
+  .about-grid .media img { position: static; inset: auto; display: block; height: auto; aspect-ratio: 4 / 5; }
   .about .cols2 { columns: 1; }
   .hero .bg.desktop { display: none; }
   .hero .bg.mobile { display: block; }
@@ -1306,11 +1392,15 @@ html.intro .hero .copy {
   .day .row .t { flex: none; }
   .day .cols .rows:first-child .row:last-child { border-bottom: 0; }
   .modal .two { grid-template-columns: 1fr; }
-  .modal.chat { margin: auto 0 0 0; width: 100%; max-height: 92vh; }
+  /* auf dem Handy mittig wie die anderen Dialoge, nicht als Sheet in der Ecke */
+  .modal.chat { margin: auto; width: calc(100vw - 32px); max-height: calc(100dvh - 32px); }
+  .modal.chat .nav { gap: 16px; }
+  .modal.chat .nav .btn { white-space: nowrap; }
   .hosts .thumbs { display: none; }
   .modal .inner { padding: 32px 24px 40px; gap: 24px; }
   .modal .steps { gap: 14px; font-size: var(--fs-s); letter-spacing: 0.12em; }
-  .modal .steps span { white-space: nowrap; }
+  .modal .steps { gap: 12px 18px; flex-wrap: wrap; font-size: var(--fs-nav); }
+  .modal .steps button { white-space: nowrap; }
   .modal .option { gap: 12px; }
   .modal .option .price { font-size: var(--fs-s); }
   #stell .media img { display: block; }
@@ -1330,7 +1420,8 @@ html.intro .hero .copy {
   .fee { flex-direction: column; gap: 4px; }
   .day-pics img:first-child { margin-top: 32px; }
   .roomlist .row { flex-wrap: wrap; gap: 10px 14px; }
-  .roomlist .row img { width: 48px; height: 36px; flex-basis: 48px; }
+  .roomlist .row .thumb { flex-basis: 48px; }
+  .roomlist .row img { width: 48px; height: 36px; }
   .roomlist .row .txt { flex: 1 1 60%; }
   .roomlist .row .price { flex-basis: 100%; padding-left: 62px; color: var(--terra); }
   .roomlist .row .txt .muted { font-size: var(--fs-s); line-height: var(--lh-text); }
@@ -1339,7 +1430,6 @@ html.intro .hero .copy {
   .band-video { display: block; }
   .quote-band { height: 74vh; }
   .band-copy { gap: 14px; }
-  .expect::before { left: -200px; width: 520px; height: 520px; opacity: 0.035; }
   #faq::before { left: -180px; bottom: -140px; width: 460px; height: 460px; opacity: 0.05; }
   .contact::before { right: -170px; width: 380px; height: 380px; opacity: 0.05; }
   .ort { grid-template-columns: 1fr; min-height: 0; }
@@ -1351,6 +1441,7 @@ html.intro .hero .copy {
   .ort-text { padding: 40px 24px 0; }
   .ort .dates .row { flex-direction: column; align-items: flex-start; gap: 10px; }
   .expect .pics { order: -1; gap: 12px; }
+  .vmandala { display: none; }
   .expect .pics img:last-child { margin-top: 32px; }
 }
 
@@ -1389,7 +1480,7 @@ html.intro .hero .copy {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(28px, 4vw, 64px);
-  align-items: start;
+  align-items: stretch;
 }
 
 .card {
@@ -1430,9 +1521,12 @@ html.intro .hero .copy {
 
 .card-text {
   max-width: none;
+  /* der Text nimmt den Rest, damit die Links aller Karten auf einer Linie enden */
+  flex: 1;
 }
 
-.card button.link {
+.card button.link,
+#stell button.link {
   background: none;
   border: 0;
   border-bottom: 1px solid var(--orange);
@@ -1477,18 +1571,20 @@ html.intro .hero .copy {
    mit drei quadratischen Fotos darunter. Das Raster ist zweispaltig, damit
    die Bilder gross genug bleiben und die Spalte auf Texthoehe kommt. */
 #unterkunft {
-  align-items: stretch;
+  align-items: start;
 }
 
-/* Die rechte Spalte setzt auf Hoehe der Ueberschrift an, nicht auf Hoehe
-   der Eyebrow, und laeuft bis zur Gebuehrenzeile links durch. */
+/* Die rechte Spalte beginnt auf Ueberschrifthoehe und behaelt ihre
+   Abstaende unabhaengig von geoeffneten FAQs in der linken Spalte. */
 #unterkunft .rooms-media {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: clamp(28px, 3.5vw, 44px);
+  /* der Text rechts beginnt auf Hoehe der Headline links: Label-Zeile plus Stack-Abstand */
   padding-top: calc(var(--fs-caps) * var(--lh-text) + 24px);
 }
+#unterkunft .rooms-media > .body:first-child { margin-top: 0.35em; }
 
 #unterkunft .rooms-media .body {
   max-width: none;
@@ -1528,8 +1624,8 @@ html.intro .hero .copy {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  background: var(--orange);
-  color: var(--creme);
+  background: #25d366; /* WhatsApp-Gruen, damit der Kanal sofort erkennbar ist */
+  color: #fff;
   box-shadow: 0 6px 22px rgba(53, 42, 31, 0.28);
   transition: background-color 0.3s, transform 0.3s;
 }
@@ -1541,7 +1637,7 @@ html.intro .hero .copy {
 }
 
 .wa-fab:hover {
-  background: #6d8b73;
+  background: #1ebe5b;
   transform: translateY(-2px);
 }
 
@@ -1581,6 +1677,7 @@ html.intro .hero .copy {
 }
 
 .wa-bubble p { margin: 0; }
+.wa-bubble p + p { margin-top: 10px; }
 .wa-bubble strong { font-weight: 500; }
 
 .wa-close {
@@ -1640,4 +1737,8 @@ html.intro .hero .copy {
 .voices :focus-visible,
 .site-footer :focus-visible {
   outline-color: var(--creme);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
 }
