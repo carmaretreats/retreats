@@ -1,106 +1,18 @@
 ---
-import data from "../content/retreats-page.json";
-
-const faqSection = data.faqSection;
-
+import { generalFaqs as faqs } from '../lib/faq.js';
 ---
-
-<section id={faqSection.id} class="section bg-cream-bg text-dark-brown">
-  <div class="section-inner" x-data="{ openFaq: null }">
-    <!-- 📝 Title -->
-    <div class="text-left mb-10 md:mb-16">
-      <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
-        {faqSection.sectionLabel}
-      </p>
-      <h2
-        style="font-family: 'EditorialOld', sans-serif; font-style: italic;"
-        class="heading-main"
-      >
-        {faqSection.heading}
-      </h2>
-    </div>
-
-    <!-- 📐 Accordion 2-column layout -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-0 md:gap-20 text-left">
-      <!-- ✅ Left Column -->
-      <div class="space-y-4 mb-4">
-        {faqSection.faqsLeft.map((faq, index) => (
-          <div class="border-b border-accent-orange" id={`faq-${faq.id}`}>
-            <h3>
-              <button
-                type="button"
-                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
-                x-on:click={`openFaq === ${index} ? openFaq = null : openFaq = ${index}`}
-                x-bind:aria-expanded={`openFaq === ${index}`}
-                x-bind:aria-controls={`'faq-text-' + ${faq.id}`}
-              >
-                <span><em>{faq.question}</em></span>
-                <span
-                  class="ml-4 text-xl transition-transform duration-200"
-                  x-text={`openFaq === ${index} ? '↑' : '↓'`}
-                ></span>
-              </button>
-            </h3>
-            <div
-              class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-              id={`faq-text-${faq.id}`}
-              role="region"
-              aria-labelledby={`faq-title-${faq.id}`}
-              x-bind:class={`openFaq === ${index} ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'`}
-            >
-              <div class="overflow-hidden space-y-4">
-                <p class="whitespace-pre-line">{faq.answer}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <!-- ✅ Right Column -->
-      <div class="space-y-4">
-        {faqSection.faqsRight.map((faq, index) => (
-          <div class="border-b border-accent-orange" id={`faq-${faq.id}`}>
-            <h3>
-              <button
-                type="button"
-                class="flex items-center justify-between w-full font-garamond italic text-xl md:text-2xl leading-[1.2] py-2 text-left"
-                x-on:click={`openFaq === ${index + 100} ? openFaq = null : openFaq = ${index + 100}`}
-                x-bind:aria-expanded={`openFaq === ${index + 100}`}
-                x-bind:aria-controls={`'faq-text-' + ${faq.id}`}
-              >
-                <span><em>{faq.question}</em></span>
-                <span
-                  class="ml-4 text-xl transition-transform duration-200"
-                  x-text={`openFaq === ${index + 100} ? '↑' : '↓'`}
-                ></span>
-              </button>
-            </h3>
-            <div
-              class="grid font-sans text-[14px] xs:text-[14px] md:text-[18px] leading-[1.4] overflow-hidden transition-all duration-300 ease-in-out"
-              id={`faq-text-${faq.id}`}
-              role="region"
-              aria-labelledby={`faq-title-${faq.id}`}
-              x-bind:class={`openFaq === ${index + 100} ? 'grid-rows-[1fr] opacity-100' : 'grid-rows-[0fr] opacity-0'`}
-            >
-              <div class="overflow-hidden space-y-4">
-                <p class="whitespace-pre-line">{faq.answer}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-
-    <!-- ✉️ CTA opcional -->
-    {faqSection.cta && (
-      <div class="pt-16 text-center">
-        <a
-          href={faqSection.cta.href}
-          class="button-text relative inline-block pb-1 after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:bg-[var(--color-accent-orange)] after:rounded-full hover:text-[#bb421d]"
-        >
-          {faqSection.cta.label}
-        </a>
-      </div>
-    )}
+<section class="section wrap split top text-first reveal mandala" id="faq">
+  <div class="stack">
+    <span class="label">Retreat-Infos</span>
+    <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+    <a class="link" href="#" data-ask>Deine Frage schicken</a>
+  </div>
+  <div class="faq">
+    {faqs.map((f, i) => (
+      <details open={i === 0}>
+        <summary>{f.question}</summary>
+        <p class="answer">{f.answer}</p>
+      </details>
+    ))}
   </div>
 </section>

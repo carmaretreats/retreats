@@ -1,6 +1,7 @@
 ---
 import { SEO } from "astro-seo";
 import '../styles/global.css';
+import '../styles/brand.css';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 const currentUrl = Astro.url;
@@ -9,7 +10,7 @@ const canonicalUrl = new URL(
   Astro.site
 ).href;
 const {
-  title = "Yoga Retreats Sri Lanka 2027 | Carma Retreats",
+  title = "Yoga Retreats Sri Lanka 2027 | CARMA Retreats",
   description = "Ankommen & Aufatmen - Yoga Retreats 2027 an Sri Lankas Südküste. Im Januar & Februar: Yoga, Kultur & Community unter tropischer Sonne.",
   ogDescription = "Ankommen & Aufatmen – Yoga, Kultur & Community unter tropischer Sonne.",
   canonical = canonicalUrl,
@@ -59,6 +60,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <body>
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TFLQ855C"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <script>
+      import '../scripts/smooth-scroll.js';
+    </script>
     <Header />
     <slot />
     <Footer />
@@ -67,10 +71,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </html>
 
 <style>
+  /* height:100% machte den Body zum Scrollcontainer, dadurch blieb window.scrollY bei 0 */
   html,
   body {
     margin: 0;
     width: 100%;
-    height: 100%;
   }
 </style>

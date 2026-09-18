@@ -1,76 +1,17 @@
 ---
-import bgImage from '../assets/images/Terra-Rossa-Papier.png';
-import data from '../content/retreats-page.json';
-
-const gallery = data.gallerySection;
-const images = gallery.images; // Esto será un array con 6 objetos de imagen
 ---
-
-<section id="gallery-section"
-  class="section bg-cover bg-center bg-no-repeat mb-10 md:mb-16"
-  style={`background-image: url(${bgImage.src});`}
->
-  <div class="section-inner">
-    <!-- 🌿 MOBILE VERSION -->
-    <div class="block md:hidden max-w-6xl mx-auto space-y-4">
-      <!-- Fila 1 -->
-      <div class="flex flex-row flex-wrap gap-4">
-        <div class="w-[calc(50%-0.5rem)] aspect-square overflow-hidden">
-          <img src={images[0].src} alt={images[0].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="w-[calc(50%-0.5rem)] aspect-square overflow-hidden">
-          <img src={images[1].src} alt={images[1].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    
-      <!-- Fila 2 (alta) -->
-      <div class="flex flex-row flex-wrap gap-4">
-        <div class="w-[calc(50%-0.5rem)] aspect-[3/4] overflow-hidden">
-          <img src={images[2].src} alt={images[2].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="w-[calc(50%-0.5rem)] aspect-[3/4] overflow-hidden">
-          <img src={images[3].src} alt={images[3].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-      </div>
-    
-      <!-- Fila 3 -->
-      <div class="flex flex-row flex-wrap gap-4">
-        <div class="w-[calc(50%-0.5rem)] aspect-square overflow-hidden">
-          <img src={images[4].src} alt={images[4].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="w-[calc(50%-0.5rem)] aspect-square overflow-hidden">
-          <img src={images[5].src} alt={images[5].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-      </div>
+<section class="gallery reveal">
+  <div class="wrap">
+    <div class="ghead">
+      <span class="label">Community · Hikkaduwa 2026</span>
+      <span class="label muted">Eine Woche in Bildern</span>
     </div>
-  
-    <!-- 🖥️ DESKTOP VERSION -->
-    <div class="hidden md:block space-y-6">
-      <!-- Fila 1 -->
-      <div class="flex gap-6">
-        <div class="md:flex-1 overflow-hidden aspect-[4/3]">
-          <img src={images[0].src} alt={images[0].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="md:flex-[0.7] overflow-hidden aspect-[4/3]">
-          <img src={images[1].src} alt={images[1].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="md:flex-[0.9] overflow-hidden aspect-[4/3]">
-          <img src={images[2].src} alt={images[2].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-      </div>
-  
-      <!-- Fila 2 -->
-      <div class="flex gap-6">
-        <div class="md:flex-[0.8] overflow-hidden aspect-[4/3]">
-          <img src={images[3].src} alt={images[3].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="md:flex-1 overflow-hidden aspect-[4/3]">
-          <img src={images[4].src} alt={images[4].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-        <div class="md:flex-[0.6] overflow-hidden aspect-[4/3]">
-          <img src={images[5].src} alt={images[5].alt} class="w-full h-full object-cover hover:scale-105 transition-transform duration-500" loading="lazy" decoding="async" />
-        </div>
-      </div>
+    <div class="ggrid">
+      <img class="g-a" src="/media/img/8952.jpg" alt="Die Gruppe in Weiss" style="object-position:center 55%" />
+      <img class="g-b" src="/media/img/kunde-19.jpg" alt="" />
+      <img class="g-c" src="/media/img/kunde-20.jpg" alt="" />
+      <img class="g-d" src="/media/img/kunde-21.jpg" alt="" style="object-position:center 88%" />
+      <img class="g-e" src="/media/img/kunde-26.jpg" alt="" style="object-position:center 38%" />
     </div>
   </div>
 </section>

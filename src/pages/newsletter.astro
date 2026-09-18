@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import NewsletterForm from '../components/NewsletterForm.astro';
+const status = Astro.url.searchParams.get('status');
+---
+<Layout title="Newsletter | CARMA Retreats" description="Inspirationen und Neuigkeiten zu unseren Yoga-Retreats – direkt in dein Postfach.">
+  <main class="newsletter-page wrap section">
+    <div class="stack">
+      <span class="label">Post von CARMA</span>
+      <h1 class="h1">Ein Stück Auszeit <em>für dein Postfach.</em></h1>
+      <p class="body">Erfahre von neuen Retreats und erhalte Inspirationen für mehr Ruhe und Bewegung in deinem Alltag.</p>
+      {status === 'success' && <p role="status">Danke! Du bist für unseren Newsletter eingetragen.</p>}
+      {status === 'error' && <p role="alert">Die Anmeldung hat nicht geklappt. Bitte prüfe deine Eingaben und versuche es erneut.</p>}
+      <NewsletterForm id="newsletter-page" />
+    </div>
+  </main>
+</Layout>
+<style>
+  .newsletter-page { padding-block: 80px; min-height: 65vh; }
+  .newsletter-page > .stack { max-width: 680px; margin-inline: auto; gap: 28px; }
+</style>

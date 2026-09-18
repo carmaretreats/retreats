@@ -1,3 +1,4 @@
 ---
-
+// Netlify leitet "/" per netlify.toml um; auf Vercel muss die Seite es selbst tun.
+return Astro.redirect('/retreats', 301);
 ---

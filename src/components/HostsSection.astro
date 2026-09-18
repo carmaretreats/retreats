@@ -1,44 +1,16 @@
 ---
-import CtaLink from './CtaLink.astro';
-import data from '../content/retreats-page.json';
-
-const hostsData = data.hostsSection;
 ---
-
-<section id="deine-hosts" class="section bg-cream-bg">
-  <div class="w-screen h-[60vh] overflow-hidden">
-    <img 
-      src={hostsData.image}
-      alt={hostsData.imageAlt}
-      class="w-full h-full object-cover object-center"
-      loading="lazy"
-      decoding="async"
-    />
-  </div>
-  <div class="section-inner">
-  
-    <div class="w-full">
-      <p class="uppercase section-label text-[var(--color-dark-brown)] mb-8">
-        {hostsData.label}
-      </p>
-  
-      <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main text-dark-brown">
-        {hostsData.heading}
-      </h2>
-  
-      {/* ✅ Renderizamos cada párrafo en su propia etiqueta <p> */}
-      <p class="body-text text-dark-brown text-justify">{hostsData.paragraph1}</p>
-      <p class="body-text text-dark-brown text-justify mb-8 whitespace-pre-line">
-        {hostsData.paragraph2}
-      </p>
-  
-      <div class="text-right">
-        <CtaLink 
-          label={hostsData.cta.label} 
-          color="black" 
-          href={hostsData.cta.href} 
-        />
-      </div>
+<section class="section wrap split hosts on-paper reveal" id="hosts">
+  <div class="media"><img src="/media/img/hosts-beide.jpg" alt="Carmen und Mareen" /></div>
+  <div class="stack">
+    <span class="label">Deine Hosts</span>
+    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
+    <p class="body">...und gemeinsam sind wir CARMA Retreats.</p>
+    <p class="body">Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt. Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.</p>
+    <div class="thumbs">
+      <img src="/media/img/hosts-blick.jpg" alt="Carmen und Mareen blicken in den tropischen Garten" style="object-position: center 40%" />
+      <img src="/media/img/kunde-14.jpg" alt="Eindruck vom Retreat" />
+      <img src="/media/img/hosts-lachen.jpg" alt="Carmen und Mareen lachen sich im Gegenlicht an" style="object-position: center 62%" />
     </div>
   </div>
 </section>

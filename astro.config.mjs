@@ -1,15 +1,22 @@
 import { defineConfig } from 'astro/config';
 import netlify from '@astrojs/netlify';
+import vercel from '@astrojs/vercel';
 import alpinejs from '@astrojs/alpinejs';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 import sitemap from '@astrojs/sitemap';
 
+// Der Netlify-Adapter startet lokal einen Deno-Edge-Server, der auf dieser Maschine nicht hochkommt.
+// Fuer `astro dev` lassen wir ihn weg, Builds und Deploys nutzen ihn unveraendert.
+const isDev = process.argv.includes('dev');
+// Produktion laeuft auf Netlify; die Kundenvorschau liegt auf Vercel, das den Adapter ueber VERCEL=1 waehlt.
+const adapter = process.env.VERCEL ? vercel() : netlify();
+
 export default defineConfig({
   site: 'https://www.carma-retreats.com/',
   output: 'server',
-  adapter: netlify(),
+  ...(isDev ? {} : { adapter }),
   integrations: [
     alpinejs({ entrypoint: '/src/scripts/alpine.ts' }),
     react(),

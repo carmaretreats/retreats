@@ -1,73 +1,26 @@
 ---
-import bgImage from '../assets/images/Terra-Rossa-Papier.png';
-import CtaLink from './CtaLink.astro';
-import data from '../content/retreats-page.json';
-
-const sectionData = data.einTagSection;
 ---
-
-<section
-  id="tagesablauf"
-  class="section bg-cover bg-center bg-no-repeat text-white relative"
-  style={`background-image: url(${bgImage.src});`}
->
-  <div class="section-inner relative">
-
-    <div class="absolute top-8 right-8 hidden md:block opacity-80 pointer-events-none select-none">
-      <img
-        src={sectionData.decorativeImage.src}
-        alt={sectionData.decorativeImage.alt}
-        class="w-16 lg:w-20 xl:w-24 h-auto object-contain"
-        loading="lazy"
-        decoding="async"
-      />
+<section class="day" id="tag">
+  <div class="wrap reveal day-split">
+    <div class="day-pics">
+      <img src="/media/img/kunde-10.jpg" alt="Ein Moment aus dem Retreat-Alltag" />
+      <img src="/media/img/C14.jpg" alt="Praxis auf der Terrasse" />
     </div>
-
-    <div class="w-full text-left mb-10 md:mb-16">
-      <p class="section-label mb-8">{sectionData.header.label}</p>
-      <h2 style="font-family: 'EditorialOld', sans-serif; font-style: italic;" class="heading-main">
-        {sectionData.header.heading}
-      </h2>
-    </div>
-
-    <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 w-full">
-      
-      <div class="space-y-4 font-sans text-base leading-relaxed">
-        {sectionData.scheduleLeft.map(item => (
-          <div>
-            {item.time && <h3 class="heading-sub italic mb-4">{item.time}</h3>}
-            <p class="body-text whitespace-pre-line" set:html={item.description} />
-          </div>
-        ))}
+    <div class="day-copy">
+      <span class="label">Culture, Community, Connection</span>
+      <h2 class="h1">Ein Tag bei <em>CARMA Retreats</em></h2>
+      <div class="rows">
+        <div class="row"><span class="t">7.30</span><div><span>Meditation und Pranayama</span><span class="muted">Starte den Tag in Stille, umgeben von den Geräuschen der Natur.</span></div></div>
+        <div class="row"><span class="t">8.00</span><div><span>Ayurvedischer Morgentee</span><span class="muted">Teezeit in Stille - bleib ganz bei Dir.</span></div></div>
+        <div class="row"><span class="t">8.30</span><div><span>Morning Flow Yoga</span><span class="muted">Bewege dich im Rhythmus der Insel. Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis.</span></div></div>
+        <div class="row"><span class="t">11.00</span><div><span>Community Brunch</span><span class="muted">Brich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten.</span></div></div>
+        <div class="row"><span class="t">15.00</span><div><span>Fruchtplatte und Get-Together</span><span class="muted">Am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen.</span></div></div>
+        <div class="row"><span class="t">16.00</span><div><span>Ausflug (2 Mal die Woche):</span><span class="muted">Komm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel.</span></div></div>
+        <div class="row"><span class="t">17.00</span><div><span>Abendpraxis</span><span class="muted">Bring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis.</span></div></div>
+        <div class="row"><span class="t">19.00</span><div><span>Abendessen</span><span class="muted">Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen.</span></div></div>
+        <div class="row"><span class="t">20.30</span><div><span>Sharing Circle &amp; Ausklang in Stille</span><span class="muted">Wir lassen den Tag gemeinsam im Sharing Circle ausklingen. Danach gehen wir ins Schweigen und kehren zurück zu uns – in Ruhe und Stille.</span></div></div>
       </div>
-
-      <div class="flex justify-center items-center w-full max-w-[360px] mx-auto">
-        <img
-          src={sectionData.centerImage.src}
-          alt={sectionData.centerImage.alt}
-          class="w-full aspect-square object-cover"
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-
-      <div class="space-y-4 font-sans text-base leading-relaxed">
-        {sectionData.scheduleRight.map(item => (
-          <div>
-            {item.time && <h3 class="heading-sub italic mb-4">{item.time}</h3>}
-            <p class="body-text whitespace-pre-line" set:html={item.description} />
-          </div>
-        ))}
-      </div>
+      <div><a class="book-btn" href="#kontakt">Jetzt buchen</a></div>
     </div>
-
-    <div class="pt-16 flex justify-end">
-      <CtaLink 
-        color="white" 
-        href={sectionData.cta.href} 
-        label={sectionData.cta.label} 
-      />
-    </div>
-
   </div>
 </section>

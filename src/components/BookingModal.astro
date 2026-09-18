@@ -1,0 +1,59 @@
+---
+---
+<dialog class="modal" id="booking">
+  <form class="inner" onsubmit="return false">
+    <div class="head">
+      <span class="label">Buchungsanfrage</span>
+      <button type="button" class="close" data-close aria-label="Schließen">&#215;</button>
+    </div>
+    <div class="steps"><button type="button" class="on">01 Retreat</button><button type="button">02 Zimmer</button><button type="button">03 Kontakt</button></div>
+
+    <div class="panel on">
+      <div class="options">
+        <label class="option"><input type="radio" name="retreat" value="23.–29. Januar 2027" checked><img src="/media/img/C13.jpg" alt=""><span class="txt"><span>23.–29. Januar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+        <label class="option"><input type="radio" name="retreat" value="13.–19. Februar 2027"><img src="/media/img/C16.jpg" alt=""><span class="txt"><span>13.–19. Februar 2027</span></span><span class="price">ab 1300 Euro</span></label>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="options">
+        <label class="option"><input type="radio" name="room" value="Stockbett im Dreibettzimmer" checked><img src="/media/img/monara-rest.jpg" alt=""><span class="txt"><span>Stockbett im Dreibettzimmer</span></span><span class="price">1300 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Doppelbett im Dreibettzimmer"><img src="/media/img/monara-bed-1-.jpg" alt=""><span class="txt"><span>Doppelbett im Dreibettzimmer</span></span><span class="price">1450 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Standard (EG)"><img src="/media/img/Hikkaduwa01.webp" alt=""><span class="txt"><span>Einzelzimmer Standard (EG)</span></span><span class="price">1650 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Deluxe (1. OG)"><img src="/media/img/monara-balcony-1-.jpg" alt=""><span class="txt"><span>Einzelzimmer Deluxe (1. OG)</span></span><span class="price">1750 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Einzelzimmer Premium (1. OG)"><img src="/media/img/Hikkaduwa04.webp" alt=""><span class="txt"><span>Einzelzimmer Premium (1. OG)</span></span><span class="price">1850 Euro</span></label>
+        <label class="option"><input type="radio" name="room" value="Noch unsicher"><span class="thumb-gap"></span><span class="txt"><span>Noch unsicher</span></span><span class="price">Wir beraten dich</span></label>
+      </div>
+      <span class="fine">Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.</span>
+    </div>
+
+    <div class="panel">
+      <div class="summary">
+        <div><span class="label">Retreat</span><span data-sum="retreat"></span></div>
+        <div><span class="label">Zimmer</span><span data-sum="room"></span></div>
+      </div>
+      <div class="two">
+        <label class="field"><span class="label">Name*</span><input type="text" name="name" placeholder="Dein Name" required></label>
+        <label class="field"><span class="label">E-Mail*</span><input type="email" name="email" placeholder="Deine E-Mail" required></label>
+      </div>
+      <label class="field"><span class="label">Nachricht</span><textarea name="message" placeholder="Optional"></textarea></label>
+      <p class="body status" data-status role="alert"></p>
+    </div>
+
+    <div class="nav">
+      <button type="button" class="btn back" data-back>Zurück</button>
+      <button type="button" class="btn" data-next>Weiter</button>
+    </div>
+
+    <div class="thanks">
+      <h3 class="h1" style="font-size:var(--fs-m)">Danke für deine Anfrage, <em>wir freuen uns.</em></h3>
+      <p class="body">Wie schön, dass du dir eine Auszeit mit uns gönnen möchtest. Wir melden uns gern und meist noch am selben Tag bei dir.</p>
+      <p class="body note">Dein Platz ist damit noch nicht reserviert. Verbindlich wird er mit der Anzahlung.</p>
+      <label class="agb-check"><input type="checkbox" data-agb><span>Ich habe die <a href="/uploads/carma-agb.pdf" target="_blank" rel="noopener">AGB</a> gelesen und bin damit einverstanden.</span></label>
+      <div class="nav">
+        <button type="button" class="link ghost" data-close>Erst mal abwarten</button>
+        <a class="link" href="https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00" target="_blank" rel="noopener" data-pay aria-disabled="true">Anzahlen und Platz sichern</a>
+      </div>
+    </div>
+  </form>
+</dialog>

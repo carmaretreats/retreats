@@ -1,52 +1,55 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-const result = Astro.getActionResult(actions.send);
-if (result?.data) {
-  return Astro.redirect("/thanks");
-}
+import IntroStage from '../../components/IntroStage.astro';
 import Hero from '../../components/Hero.astro';
-import ContactSection from '../../components/ContactSection.astro';
-import Retreats from '../../components/Retreats.astro';
-import { actions } from "astro:actions";
-import HeroWelcome from '../../components/HeroWelcome.astro';
 import ImagineSection from '../../components/ImagineSection.astro';
-import NextRetreats from '../../components/NextRetreats.astro';
+import Divider from '../../components/Divider.astro';
 import RetreatHighlights from '../../components/RetreatHighlights.astro';
-import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
+import RetreatCards from '../../components/RetreatCards.astro';
+import SloganBand from '../../components/SloganBand.astro';
+import NextRetreats from '../../components/NextRetreats.astro';
 import EinTag from '../../components/EinTag.astro';
+import UnterkunftPreise from '../../components/UnterkunftPreise.astro';
 import HostsSection from '../../components/HostsSection.astro';
-import GallerySection from '../../components/GallerySection.astro';
 import AboutSection from '../../components/AboutSection.astro';
-import TestimonialSlider from '../../components/TestimonialSlider.astro'; 
+import TestimonialSlider from '../../components/TestimonialSlider.astro';
+import GallerySection from '../../components/GallerySection.astro';
+import ContactSection from '../../components/ContactSection.astro';
 import FaqAccordion from '../../components/FaqAccordion.astro';
-import MiniGallery from '../../components/MiniGallery.astro';
+import BookingModal from '../../components/BookingModal.astro';
+import WhatsAppButton from '../../components/WhatsAppButton.astro';
+import AskModal from '../../components/AskModal.astro';
+import NewsletterModal from '../../components/NewsletterModal.astro';
 import data from '../../content/retreats-page.json';
+const people = data.aboutSection.people;
 ---
 <Layout>
-  <main class="min-h-screen flex flex-col items-center justify-center bg-cream-bg">
+  <IntroStage />
+  <main>
     <Hero />
-    <HeroWelcome />
     <ImagineSection />
-    <Retreats />
+    <Divider motif="m20" />
+    <RetreatCards />
+    <Divider motif="m7" />
     <RetreatHighlights />
     <NextRetreats />
-    <UnterkunftPreise />
     <EinTag />
+    <UnterkunftPreise />
     <HostsSection />
+    <AboutSection person={people[0]} id="carmen" />
+    <Divider motif="m4" />
+    <AboutSection person={people[1]} id="mareen" flip={true} />
+    <TestimonialSlider />
     <GallerySection />
-    {data.aboutSection.people.map(person => (
-      <AboutSection 
-        subtitle={person.subtitle}
-        title={person.title}
-        text={person.text}
-        image={person.image}
-        imageAlt={person.imageAlt}
-        reverse={person.reverse}
-      />
-    ))}
-    <TestimonialSlider testimonials={data.testimonialSection.testimonials} />
-    <FaqAccordion />
-    <MiniGallery />
     <ContactSection />
+    <SloganBand />
+    <FaqAccordion />
   </main>
+  <WhatsAppButton />
+  <BookingModal />
+  <AskModal />
+  <NewsletterModal />
 </Layout>
+<script>
+  import '../../scripts/brand.js';
+</script>
