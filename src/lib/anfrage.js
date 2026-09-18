@@ -111,6 +111,6 @@ export async function sendAnfrage(input, apiKey, request = fetch) {
       body: JSON.stringify({ from: FROM, ...mail }),
       signal: AbortSignal.timeout(10000),
     });
-    if (!response.ok) throw new Error(`Resend request failed (${response.status})`);
+    if (!response.ok) throw new Error(`Resend ${mail === lead ? 'lead' : 'confirm'} failed (${response.status}): ${await response.text()}`);
   }
 }
