@@ -285,6 +285,7 @@ if (modal) {
       await sendAnfrage({
         kind: "question",
         email: ask.querySelector('[name="email"]').value,
+        phone: ask.querySelector('[name="phone"]').value,
         message: ask.querySelector('[name="question"]').value,
       });
       ask.classList.add("sent");
