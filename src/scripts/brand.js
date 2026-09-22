@@ -136,6 +136,7 @@ if (modal) {
         kind: "booking",
         name: modal.querySelector('[name="name"]').value,
         email: modal.querySelector('[name="email"]').value,
+        phone: modal.querySelector('[name="phone"]').value,
         retreat: modal.querySelector('[name="retreat"]:checked').value,
         room: modal.querySelector('[name="room"]:checked').value,
         message: modal.querySelector('[name="message"]').value,

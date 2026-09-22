@@ -7,6 +7,7 @@ const input = z.object({
   kind: z.enum(['booking', 'question']),
   name: z.string().trim().max(120).optional().default(''),
   email: z.string().trim().max(254).email(),
+  phone: z.string().trim().max(40).optional().default(''),
   retreat: z.string().trim().max(120).optional().default(''),
   room: z.string().trim().max(120).optional().default(''),
   message: z.string().trim().max(4000).optional().default(''),

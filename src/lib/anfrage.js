@@ -51,10 +51,10 @@ const toText = (html) => html
   .replace(/&amp;/g, '&').replace(/&lt;/g, '<').replace(/&gt;/g, '>').replace(/&quot;/g, '"')
   .replace(/[ \t]+\n/g, '\n').replace(/\n{3,}/g, '\n\n').trim();
 
-export function buildMails({ kind, name, email, retreat, room, message }) {
+export function buildMails({ kind, name, email, phone, retreat, room, message }) {
   const isBooking = kind === 'booking';
   const who = name || email;
-  const details = table([['Name', name], ['E-Mail', email], ['Retreat', retreat], ['Zimmer', room], [isBooking ? 'Nachricht' : 'Frage', message]]);
+  const details = table([['Name', name], ['E-Mail', email], ['Telefon / WhatsApp', phone], ['Retreat', retreat], ['Zimmer', room], [isBooking ? 'Nachricht' : 'Frage', message]]);
 
   const leadHtml = layout({
     label: isBooking ? 'Buchungsanfrage' : 'Frage über die Website',
