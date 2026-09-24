@@ -29,6 +29,12 @@ const table = (pairs) => `<table role="presentation" cellpadding="0" cellspacing
   .join('')}</table>`;
 
 const STRIPE = 'https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00';
+// Retreat, Zimmer und Name als Referenz an der Stripe-Zahlung, damit die Kundin
+// im Stripe-Dashboard sieht, welches Zimmer bezahlt wurde
+const payLink = ({ retreat, room, name, email }) => {
+  const ref = [retreat, room, name].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 200);
+  return `${STRIPE}?client_reference_id=${encodeURIComponent(ref)}&prefilled_email=${encodeURIComponent(email)}`;
+};
 
 const layout = ({ label, headline, body, cta, secondary }) => `<!doctype html><html lang="de"><body style="${T.body}">
 <div style="${T.outer}">
@@ -80,7 +86,7 @@ ${table([['Retreat', retreat], ['Zimmer', room && room !== 'Noch unsicher' ? roo
 <p style="${T.note}">Dein Platz ist damit noch nicht reserviert, verbindlich wird er mit der Anzahlung. Wenn du dir schon sicher bist, kannst du sie gleich hier leisten. Sonst warte einfach entspannt auf unsere Antwort.</p>
 <p style="${T.note}">Mit der Anzahlung akzeptierst du unsere <a href="${SITE}/uploads/carma-agb.pdf" style="color:#9a4736">AGB</a>.</p>
 <p style="margin:24px 0 0">Bis bald,<br>Carmen &amp; Mareen</p>`,
-        cta: { href: STRIPE, text: 'Anzahlen und Platz sichern' },
+        cta: { href: payLink({ retreat, room, name, email }), text: 'Anzahlen und Platz sichern' },
         secondary: { href: `${SITE}/uploads/carma-info-guide-2027.pdf`, text: 'Info-Guide als PDF' },
       })
     : layout({

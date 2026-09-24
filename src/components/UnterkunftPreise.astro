@@ -1,5 +1,7 @@
 ---
 import { bookingFaqs } from '../lib/faq.js';
+import { freeSlots } from '../lib/verfuegbarkeit.js';
+const { availability = null } = Astro.props;
 
 // Foto-Zuordnung von der Kundin (13.09.2026): das Dreibettzimmer-Foto zeigt
 // Doppelbett und Stockbett, daher zwei Ausschnitte; die Badewanne gehoert zu Premium.
@@ -14,6 +16,13 @@ const dates = [
   '23.–29. Januar 2027 in Hikkaduwa',
   '13.–19. Februar 2027 in Hikkaduwa',
 ];
+const month = (d) => d.match(/[A-Za-zäöü]+ \d{4}/)?.[0] ?? d;
+// Hinweis pro Zimmer: "Ausgebucht" wenn in jedem Retreat 0 frei, sonst die vollen Monate
+const soldOut = (room) => {
+  const fullDates = dates.filter((d) => freeSlots(availability, d.split(' in ')[0], room) === 0);
+  if (!fullDates.length) return '';
+  return fullDates.length === dates.length ? 'Ausgebucht' : `${fullDates.map((d) => month(d).split(' ')[0]).join(' und ')} ausgebucht`;
+};
 ---
 <section class="section wrap split top text-first reveal" id="unterkunft">
   <div class="stack">
@@ -25,7 +34,7 @@ const dates = [
           <button class="thumb" type="button" data-photos={JSON.stringify(r.photos)} data-title={r.name} aria-label={`Fotos ansehen: ${r.name}`}>
             <img src={r.img} alt="" style={`object-position: ${r.pos}`} />
           </button>
-          <div class="txt"><span>{r.name}</span></div>
+          <div class="txt"><span>{r.name}</span>{soldOut(r.name) && <span class="soldout">{soldOut(r.name)}</span>}</div>
           <span class="price">{r.price}</span>
         </div>
       ))}

@@ -85,8 +85,26 @@ if (modal) {
   const next = modal.querySelector("[data-next]");
   let step = 0;
 
+  // ausgebuchte Zimmer je Retreat, vom Sheet der Kundin (siehe lib/verfuegbarkeit.js)
+  const full = JSON.parse(modal.dataset.full || "{}");
+  const syncRooms = () => {
+    const list = full[modal.querySelector('[name="retreat"]:checked').value] || [];
+    const rooms = [...modal.querySelectorAll('[name="room"]')];
+    rooms.forEach((inp) => {
+      const isFull = list.includes(inp.value);
+      inp.disabled = isFull;
+      inp.closest(".option").classList.toggle("full", isFull);
+    });
+    if (rooms.find((inp) => inp.checked)?.disabled) {
+      const open = rooms.find((inp) => !inp.disabled);
+      if (open) open.checked = true;
+    }
+  };
+  modal.querySelectorAll('[name="retreat"]').forEach((inp) => inp.addEventListener("change", syncRooms));
+
   const show = (i) => {
     step = i;
+    syncRooms();
     steps.forEach((el, n) => {
       el.classList.toggle("on", n === i);
       el.classList.toggle("done", n < i);
@@ -132,15 +150,24 @@ if (modal) {
     next.textContent = "Wird gesendet …";
     status.textContent = "";
     try {
+      const name = modal.querySelector('[name="name"]').value;
       await sendAnfrage({
         kind: "booking",
-        name: modal.querySelector('[name="name"]').value,
+        name,
         email: modal.querySelector('[name="email"]').value,
         phone: modal.querySelector('[name="phone"]').value,
         retreat: modal.querySelector('[name="retreat"]:checked').value,
         room: modal.querySelector('[name="room"]:checked').value,
         message: modal.querySelector('[name="message"]').value,
       });
+      // Retreat, Zimmer und Name landen als Referenz an der Stripe-Zahlung
+      const pay = modal.querySelector("[data-pay]");
+      const ref = [modal.querySelector('[name="retreat"]:checked').value, modal.querySelector('[name="room"]:checked').value, name]
+        .join(" ").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 200);
+      const url = new URL(pay.href);
+      url.searchParams.set("client_reference_id", ref);
+      url.searchParams.set("prefilled_email", modal.querySelector('[name="email"]').value);
+      pay.href = url.toString();
       modal.classList.add("sent");
     } catch (err) {
       status.textContent = err.message;

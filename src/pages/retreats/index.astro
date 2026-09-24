@@ -21,7 +21,9 @@ import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import AskModal from '../../components/AskModal.astro';
 import NewsletterModal from '../../components/NewsletterModal.astro';
 import data from '../../content/retreats-page.json';
+import { loadAvailability } from '../../lib/verfuegbarkeit.js';
 const people = data.aboutSection.people;
+const availability = await loadAvailability(process.env.AVAILABILITY_SHEET_URL || import.meta.env.AVAILABILITY_SHEET_URL);
 ---
 <Layout>
   <IntroStage />
@@ -34,7 +36,7 @@ const people = data.aboutSection.people;
     <RetreatHighlights />
     <NextRetreats />
     <EinTag />
-    <UnterkunftPreise />
+    <UnterkunftPreise availability={availability} />
     <HostsSection />
     <AboutSection person={people[0]} id="carmen" />
     <Divider motif="m4" />
@@ -46,7 +48,7 @@ const people = data.aboutSection.people;
     <FaqAccordion />
   </main>
   <WhatsAppButton />
-  <BookingModal />
+  <BookingModal availability={availability} />
   <AskModal />
   <NewsletterModal />
 </Layout>

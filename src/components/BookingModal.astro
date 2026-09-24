@@ -1,6 +1,12 @@
 ---
+import { freeSlots } from '../lib/verfuegbarkeit.js';
+const { availability = null } = Astro.props;
+const retreats = ['23.–29. Januar 2027', '13.–19. Februar 2027'];
+const rooms = ['Stockbett im Dreibettzimmer', 'Doppelbett im Dreibettzimmer', 'Einzelzimmer Standard (EG)', 'Einzelzimmer Deluxe (1. OG)', 'Einzelzimmer Premium (1. OG)', 'Noch unsicher'];
+// Ausgebuchte Zimmer je Retreat, das Skript sperrt sie im Zimmer-Schritt
+const full = Object.fromEntries(retreats.map((r) => [r, rooms.filter((z) => freeSlots(availability, r, z) === 0)]));
 ---
-<dialog class="modal" id="booking">
+<dialog class="modal" id="booking" data-full={JSON.stringify(full)}>
   <form class="inner" onsubmit="return false">
     <div class="head">
       <span class="label">Buchungsanfrage</span>
