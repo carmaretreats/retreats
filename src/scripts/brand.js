@@ -74,6 +74,14 @@ const sendAnfrage = async (fields) => {
   const response = await fetch("/api/anfrage", { method: "POST", body, headers: { Accept: "application/json" } });
   const result = await response.json().catch(() => ({}));
   if (!response.ok) throw new Error(result.message || "Das Senden hat gerade nicht geklappt.");
+  // Meta-Lead und Google-Ads-Conversion feuern in GTM nur beim Seitenaufruf /thanks.
+  // Die Formulare bleiben im Dialog (Zahlungslink), daher laedt /thanks unsichtbar mit.
+  const thanks = document.createElement("iframe");
+  thanks.src = "/thanks/";
+  thanks.hidden = true;
+  thanks.tabIndex = -1;
+  thanks.setAttribute("aria-hidden", "true");
+  document.body.append(thanks);
 };
 
 // booking modal: retreat -> room -> contact
