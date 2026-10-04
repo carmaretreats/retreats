@@ -127,15 +127,22 @@ export async function sendAnfrage(input, apiKey, request = fetch) {
 
 const euro = (cents, currency = 'eur') => new Intl.NumberFormat('de-DE', { style: 'currency', currency: currency.toUpperCase() }).format(cents / 100);
 
+const sheetNote = (sheet) => {
+  if (typeof sheet === 'number') return `Das Zimmer ist im Verfügbarkeits-Sheet schon ausgetragen, frei sind jetzt noch ${sheet}.`;
+  if (sheet === 'duplicate') return 'Das Zimmer ist im Verfügbarkeits-Sheet bereits ausgetragen.';
+  if (sheet === null) return 'Die Buchung steht im Sheet im Tab „Buchungen“. Das Zimmer war nicht eindeutig zuzuordnen, bitte im Sheet von Hand austragen.';
+  return 'Das Sheet konnte gerade nicht automatisch aktualisiert werden, bitte das Zimmer von Hand austragen.';
+};
+
 // status: 'paid' nach erfolgreicher Anzahlung, 'failed' wenn eine Lastschrift o. ä. später platzt
-export function buildPaymentMails({ status, retreat, room, name, email, phone, amount, currency, reference, sessionId }) {
+export function buildPaymentMails({ status, retreat, room, name, email, phone, amount, currency, reference, sessionId, sheet = 'error' }) {
   const paid = status === 'paid';
   const who = name || email;
   const team = layout({
     label: paid ? 'Anzahlung eingegangen' : 'Zahlung fehlgeschlagen',
     headline: paid ? `<em>${esc(who)}</em> hat angezahlt` : `Zahlung von <em>${esc(who)}</em> ist fehlgeschlagen`,
     body: `<p style="${T.p}">${paid
-      ? 'Die Anzahlung ist über Stripe eingegangen. Bitte das Zimmer im Verfügbarkeits-Sheet austragen.'
+      ? `Die Anzahlung ist über Stripe eingegangen. ${sheetNote(sheet)}`
       : 'Die Zahlung wurde bei Stripe gestartet, ist aber nicht durchgegangen (z. B. geplatzte Lastschrift). Der Platz ist nicht gesichert.'}</p>
 ${table([['Retreat', retreat || 'Unbekannt, siehe Referenz'], ['Zimmer', room], ['Name', name], ['E-Mail', email], ['Telefon', phone], ['Betrag', euro(amount, currency)], ['Referenz', reference], ['Stripe', sessionId]])}`,
   });

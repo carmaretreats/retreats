@@ -2,6 +2,7 @@ import type { APIRoute } from 'astro';
 import { verifyStripeSignature } from '../../lib/stripe.js';
 import { parseBookingRef } from '../../lib/retreats.js';
 import { sendPaymentMails } from '../../lib/anfrage.js';
+import { recordBooking, sheetIdFromUrl } from '../../lib/sheet.js';
 
 export const prerender = false;
 
@@ -23,19 +24,32 @@ export const POST: APIRoute = async ({ request }) => {
 
   const booking = parseBookingRef(session.client_reference_id);
   const customer = session.customer_details ?? {};
+  const payment = {
+    status,
+    ...booking,
+    // Der Name aus der Referenz hat keine Umlaute mehr, der von Stripe schon
+    name: customer.name || booking.name,
+    email: customer.email || session.customer_email || '',
+    phone: customer.phone || '',
+    amount: session.amount_total ?? 0,
+    currency: session.currency || 'eur',
+    reference: session.client_reference_id || '',
+    sessionId: session.id,
+  };
+
+  // Ein Sheet-Fehler darf die Mails nicht aufhalten, die Kundin trägt dann von Hand aus.
+  // 'duplicate' heißt: Stripe stellt erneut zu (z. B. nach Mail-Fehler), das Sheet ist schon aktuell.
+  let sheet: number | null | 'duplicate' | 'error' = null;
+  if (status === 'paid') {
+    try {
+      sheet = await recordBooking({ sheetId: sheetIdFromUrl(env('AVAILABILITY_SHEET_URL')), email: env('GOOGLE_SA_EMAIL'), key: env('GOOGLE_SA_KEY') }, payment);
+    } catch (err) {
+      console.error('[stripe-webhook] sheet', event.id, err);
+      sheet = 'error';
+    }
+  }
   try {
-    await sendPaymentMails({
-      status,
-      ...booking,
-      // Der Name aus der Referenz hat keine Umlaute mehr, der von Stripe schon
-      name: customer.name || booking.name,
-      email: customer.email || session.customer_email || '',
-      phone: customer.phone || '',
-      amount: session.amount_total ?? 0,
-      currency: session.currency || 'eur',
-      reference: session.client_reference_id || '',
-      sessionId: session.id,
-    }, env('RESEND_API_KEY'));
+    await sendPaymentMails({ ...payment, sheet }, env('RESEND_API_KEY'));
   } catch (err) {
     // 500 lässt Stripe das Event später erneut zustellen
     console.error('[stripe-webhook]', event.id, err);

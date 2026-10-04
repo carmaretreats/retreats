@@ -24,30 +24,38 @@ const splitLine = (line) => {
 };
 
 export function parseAvailability(csv) {
-  const lines = String(csv).replace(/^﻿/, '').split(/\r?\n/).filter((l) => l.trim());
-  if (!lines.length) return [];
-  const header = splitLine(lines[0]).map(norm);
+  return parseRows(String(csv).replace(/^\uFEFF/, '').split(/\r?\n/).map(splitLine));
+}
+
+// Zeilen als Zellen-Arrays (CSV-Export oder Sheets-API); sheetRow ist die Zeilennummer im Sheet
+export function parseRows(cellRows) {
+  if (!cellRows.length) return [];
+  const header = cellRows[0].map(norm);
   const col = (names) => header.findIndex((h) => names.includes(h));
   const iRetreat = col(['retreat', 'termin', 'datum']);
   const iRoom = col(['zimmer', 'room', 'kategorie']);
   const iFree = col(['frei', 'freieplätze', 'plätze', 'verfügbar', 'free']);
   if (iRetreat < 0 || iRoom < 0 || iFree < 0) return [];
-  return lines.slice(1).map(splitLine).flatMap((cells) => {
+  return cellRows.slice(1).flatMap((cells, i) => {
     const free = Number.parseInt(cells[iFree], 10);
     if (!cells[iRoom] || Number.isNaN(free)) return [];
-    return [{ retreat: cells[iRetreat] ?? '', room: cells[iRoom], free: Math.max(0, free) }];
+    return [{ retreat: String(cells[iRetreat] ?? '').trim(), room: String(cells[iRoom]).trim(), free: Math.max(0, free), sheetRow: i + 2, freeCol: iFree }];
   });
+}
+
+export function findRow(rows, retreat, room) {
+  if (!rows) return null;
+  const r = norm(retreat);
+  const z = norm(room);
+  return rows.find((row) => {
+    const rr = norm(row.retreat);
+    return norm(row.room) === z && (!rr || r.includes(rr) || rr.includes(r));
+  }) ?? null;
 }
 
 export function freeSlots(rows, retreat, room) {
   if (!rows) return null;
-  const r = norm(retreat);
-  const z = norm(room);
-  const hit = rows.find((row) => {
-    const rr = norm(row.retreat);
-    return norm(row.room) === z && (!rr || r.includes(rr) || rr.includes(r));
-  });
-  return hit ? hit.free : null;
+  return findRow(rows, retreat, room)?.free ?? null;
 }
 
 export async function loadAvailability(url, request = fetch) {
