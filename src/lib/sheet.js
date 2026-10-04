@@ -1,4 +1,4 @@
-import { createSign } from 'node:crypto';
+import { createPrivateKey, createSign } from 'node:crypto';
 import { parseRows, findRow } from './verfuegbarkeit.js';
 
 const API = 'https://sheets.googleapis.com/v4/spreadsheets';
@@ -11,8 +11,10 @@ async function accessToken(email, key, request) {
   const now = Math.floor(Date.now() / 1000);
   const claims = { iss: email, scope: 'https://www.googleapis.com/auth/spreadsheets', aud: 'https://oauth2.googleapis.com/token', iat: now, exp: now + 600 };
   const unsigned = `${b64url(JSON.stringify({ alg: 'RS256', typ: 'JWT' }))}.${b64url(JSON.stringify(claims))}`;
-  // Netlify speichert den PEM-Schlüssel einzeilig mit \n
-  const signature = createSign('RSA-SHA256').update(unsigned).sign(key.replace(/\\n/g, '\n'), 'base64url');
+  // GOOGLE_SA_KEY enthält nur den Base64-Teil des Schlüssels: ein Wert mit führendem
+  // "-----BEGIN" wird von der Netlify-CLI als Option gelesen
+  const pkcs8 = createPrivateKey({ key: Buffer.from(key, 'base64'), format: 'der', type: 'pkcs8' });
+  const signature = createSign('RSA-SHA256').update(unsigned).sign(pkcs8, 'base64url');
   const response = await request('https://oauth2.googleapis.com/token', {
     method: 'POST',
     body: new URLSearchParams({ grant_type: 'urn:ietf:params:oauth:grant-type:jwt-bearer', assertion: `${unsigned}.${signature}` }),
