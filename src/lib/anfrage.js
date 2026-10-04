@@ -1,3 +1,5 @@
+import { bookingRef } from './retreats.js';
+
 const RESEND = 'https://api.resend.com/emails';
 const FROM = 'CARMA Retreats <retreats@carma-retreats.com>';
 const TEAM = 'kontakt@carma-retreats.com';
@@ -31,10 +33,8 @@ const table = (pairs) => `<table role="presentation" cellpadding="0" cellspacing
 const STRIPE = 'https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00';
 // Retreat, Zimmer und Name als Referenz an der Stripe-Zahlung, damit die Kundin
 // im Stripe-Dashboard sieht, welches Zimmer bezahlt wurde
-const payLink = ({ retreat, room, name, email }) => {
-  const ref = [retreat, room, name].join(' ').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 200);
-  return `${STRIPE}?client_reference_id=${encodeURIComponent(ref)}&prefilled_email=${encodeURIComponent(email)}`;
-};
+const payLink = ({ retreat, room, name, email }) =>
+  `${STRIPE}?client_reference_id=${encodeURIComponent(bookingRef({ retreat, room, name }))}&prefilled_email=${encodeURIComponent(email)}`;
 
 const layout = ({ label, headline, body, cta, secondary }) => `<!doctype html><html lang="de"><body style="${T.body}">
 <div style="${T.outer}">
@@ -107,16 +107,60 @@ ${table([['Deine Frage', message]])}
   return { lead, confirm };
 }
 
-export async function sendAnfrage(input, apiKey, request = fetch) {
+const sendMails = async (mails, apiKey, request) => {
   if (!apiKey) throw new Error('Mail configuration missing');
-  const { lead, confirm } = buildMails(input);
-  for (const mail of [lead, confirm]) {
+  for (const mail of mails) {
     const response = await request(RESEND, {
       method: 'POST',
       headers: { authorization: `Bearer ${apiKey}`, 'content-type': 'application/json' },
       body: JSON.stringify({ from: FROM, ...mail }),
       signal: AbortSignal.timeout(10000),
     });
-    if (!response.ok) throw new Error(`Resend ${mail === lead ? 'lead' : 'confirm'} failed (${response.status}): ${await response.text()}`);
+    if (!response.ok) throw new Error(`Resend an ${mail.to} failed (${response.status}): ${await response.text()}`);
   }
+};
+
+export async function sendAnfrage(input, apiKey, request = fetch) {
+  const { lead, confirm } = buildMails(input);
+  await sendMails([lead, confirm], apiKey, request);
+}
+
+const euro = (cents, currency = 'eur') => new Intl.NumberFormat('de-DE', { style: 'currency', currency: currency.toUpperCase() }).format(cents / 100);
+
+// status: 'paid' nach erfolgreicher Anzahlung, 'failed' wenn eine Lastschrift o. ä. später platzt
+export function buildPaymentMails({ status, retreat, room, name, email, phone, amount, currency, reference, sessionId }) {
+  const paid = status === 'paid';
+  const who = name || email;
+  const team = layout({
+    label: paid ? 'Anzahlung eingegangen' : 'Zahlung fehlgeschlagen',
+    headline: paid ? `<em>${esc(who)}</em> hat angezahlt` : `Zahlung von <em>${esc(who)}</em> ist fehlgeschlagen`,
+    body: `<p style="${T.p}">${paid
+      ? 'Die Anzahlung ist über Stripe eingegangen. Bitte das Zimmer im Verfügbarkeits-Sheet austragen.'
+      : 'Die Zahlung wurde bei Stripe gestartet, ist aber nicht durchgegangen (z. B. geplatzte Lastschrift). Der Platz ist nicht gesichert.'}</p>
+${table([['Retreat', retreat || 'Unbekannt, siehe Referenz'], ['Zimmer', room], ['Name', name], ['E-Mail', email], ['Telefon', phone], ['Betrag', euro(amount, currency)], ['Referenz', reference], ['Stripe', sessionId]])}`,
+  });
+  const mails = [{
+    to: TEAM,
+    ...(email ? { reply_to: email } : {}),
+    subject: paid ? `Anzahlung eingegangen: ${who}, ${retreat || 'ohne Retreat-Angabe'}${room ? `, ${room}` : ''}` : `Zahlung fehlgeschlagen: ${who}`,
+    html: team,
+    text: toText(team),
+  }];
+  if (paid && email) {
+    const guest = layout({
+      label: 'Dein Platz ist gesichert',
+      headline: 'Deine Anzahlung ist da, <em>wir freuen uns auf dich.</em>',
+      body: `<p style="${T.p}">${name ? `Hallo ${esc(name)},` : 'Hallo,'}</p>
+<p style="${T.p}">vielen Dank, deine Anzahlung ist bei uns angekommen und dein Platz ist verbindlich reserviert. In den nächsten Tagen melden wir uns mit allen weiteren Infos zu deiner Reise.</p>
+${table([['Retreat', retreat], ['Zimmer', room && room !== 'Noch unsicher' ? room : 'Stimmen wir noch mit dir ab'], ['Anzahlung', euro(amount, currency)]])}
+<p style="margin:24px 0 0">Bis bald,<br>Carmen &amp; Mareen</p>`,
+      cta: { href: `${SITE}/uploads/carma-info-guide-2027.pdf`, text: 'Info-Guide ansehen' },
+    });
+    mails.push({ to: email, reply_to: TEAM, subject: 'Dein Platz ist gesichert – CARMA Retreats', html: guest, text: toText(guest) });
+  }
+  return mails;
+}
+
+export async function sendPaymentMails(input, apiKey, request = fetch) {
+  await sendMails(buildPaymentMails(input), apiKey, request);
 }
