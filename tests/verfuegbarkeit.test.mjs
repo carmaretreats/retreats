@@ -13,7 +13,7 @@ Januar 2027,Doppelbett im Dreibettzimmer,abc
 test('parses rows and ignores unusable counts', () => {
   const rows = parseAvailability(csv);
   assert.equal(rows.length, 4);
-  assert.deepEqual(rows[0], { retreat: 'Januar 2027', room: 'Stockbett im Dreibettzimmer', free: 2 });
+  assert.deepEqual(rows[0], { retreat: 'Januar 2027', room: 'Stockbett im Dreibettzimmer', free: 2, sheetRow: 2, freeCol: 2 });
 });
 
 test('matches the sheet retreat against the page retreat and room names loosely', () => {
