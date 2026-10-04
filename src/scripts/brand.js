@@ -1,3 +1,5 @@
+import { bookingRef } from "../lib/retreats.js";
+
 const io = new IntersectionObserver(
   (entries) => {
     for (const e of entries) {
@@ -170,8 +172,7 @@ if (modal) {
       });
       // Retreat, Zimmer und Name landen als Referenz an der Stripe-Zahlung
       const pay = modal.querySelector("[data-pay]");
-      const ref = [modal.querySelector('[name="retreat"]:checked').value, modal.querySelector('[name="room"]:checked').value, name]
-        .join(" ").normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^A-Za-z0-9]+/g, "-").replace(/^-|-$/g, "").slice(0, 200);
+      const ref = bookingRef({ retreat: modal.querySelector('[name="retreat"]:checked').value, room: modal.querySelector('[name="room"]:checked').value, name });
       const url = new URL(pay.href);
       url.searchParams.set("client_reference_id", ref);
       url.searchParams.set("prefilled_email", modal.querySelector('[name="email"]').value);
