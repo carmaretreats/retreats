@@ -4,7 +4,7 @@ import { generateKeyPairSync } from 'node:crypto';
 import { recordBooking, sheetIdFromUrl } from '../src/lib/sheet.js';
 
 const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
-const config = { sheetId: 'sheet1', email: 'sa@test.invalid', key: privateKey.export({ type: 'pkcs8', format: 'pem' }).replace(/\n/g, '\\n') };
+const config = { sheetId: 'sheet1', email: 'sa@test.invalid', key: privateKey.export({ type: 'pkcs8', format: 'der' }).toString('base64') };
 const booking = { retreat: '13.–19. Februar 2027', room: 'Einzelzimmer Deluxe (1. OG)', name: 'Anna', email: 'anna@example.invalid', amount: 30000, reference: 'ref', sessionId: 'cs_1' };
 const grid = [['Retreat', 'Zimmer', 'Frei'], ['Januar', 'Einzelzimmer Deluxe (1. OG)', '0'], [], ['Februar', 'Einzelzimmer Deluxe (1. OG)', '2']];
 
