@@ -2,6 +2,7 @@
 const nav = [
   { label: 'Retreats', href: '#retreats' },
   { label: 'Unterkunft', href: '#unterkunft' },
+  { label: 'Erfahrungen', href: '#stimmen' },
 ];
 const cta = '#kontakt';
 const menu = [
@@ -9,7 +10,7 @@ const menu = [
   { label: 'Unterkunft & Preise', href: '#unterkunft' },
   { label: 'Tagesablauf', href: '#tag' },
   { label: 'Über uns', href: '#hosts' },
-  { label: 'Stimmen', href: '#stimmen' },
+  { label: 'Erfahrungen', href: '#stimmen' },
   { label: 'FAQ', href: '#faq' },
   { label: 'Kontakt', href: '#kontakt' },
 ];
@@ -28,6 +29,7 @@ const menu = [
   </a>
   <nav class="right">
     <span><a href="#hosts">Über uns</a></span>
+    <span><a href="#faq">FAQ</a></span>
     <a class="cta book-btn" href={cta}>
       <i class="cta-long">Jetzt buchen</i><i class="cta-short">Buchen</i>
     </a>
@@ -51,14 +53,15 @@ const menu = [
     background: var(--creme);
     color: var(--ink);
   }
-  .site-header nav { justify-content: space-between; max-width: 340px; }
+  .site-header nav { justify-content: space-between; max-width: 400px; }
   .site-header nav.right { justify-self: end; width: 100%; }
+  .site-header nav a { white-space: nowrap; }
   .site-header .wordmark img { height: 36px; }
   .site-header .wordmark .light { display: none; }
   .site-header .wordmark .dark { display: block; }
   .menu-toggle, .mobile-menu, .menu-backdrop { display: none; }
   @media (max-width: 1100px) and (min-width: 861px) {
-    .site-header nav { max-width: 260px; gap: 24px; }
+    .site-header nav { max-width: 310px; gap: 16px; font-size: 12px; }
   }
   @media (max-width: 860px) {
     .site-header, .site-header.scrolled {
