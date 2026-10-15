@@ -1,5 +1,10 @@
-export const RETREATS = ['23.–29. Januar 2027', '13.–19. Februar 2027'];
-export const ROOMS = ['Stockbett im Dreibettzimmer', 'Doppelbett im Dreibettzimmer', 'Einzelzimmer Standard (EG)', 'Einzelzimmer Deluxe (1. OG)', 'Einzelzimmer Premium (1. OG)', 'Noch unsicher'];
+import retreats from '../content/seite/retreats.json' with { type: 'json' };
+import unterkunft from '../content/seite/unterkunft.json' with { type: 'json' };
+
+// Datum und Zimmername kommen aus dem CMS. Sie stecken in der Stripe-Referenz
+// und müssen zum Zimmer-Sheet passen.
+export const RETREATS = retreats.retreats.map((r) => r.datum);
+export const ROOMS = [...unterkunft.zimmer.map((z) => z.name), 'Noch unsicher'];
 
 // Stripe erlaubt in client_reference_id nur Buchstaben, Ziffern, - und _ (max. 200 Zeichen)
 const slug = (s) => String(s).normalize('NFD').replace(/[̀-ͯ]/g, '').replace(/[^A-Za-z0-9]+/g, '-').replace(/^-|-$/g, '');

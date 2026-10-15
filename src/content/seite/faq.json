@@ -1,0 +1,66 @@
+{
+  "label": "Retreat-Infos",
+  "titel": "Antworten auf deine *Fragen.*",
+  "fragen": [
+    {
+      "frage": "Für wen sind die CARMA Retreats gedacht?",
+      "antwort": "Für alle, die sich nach einer echten Auszeit sehnen – nicht nur vom Alltag, sondern hin zu sich selbst. Du musst kein Yoga-Profi sein, um dabei zu sein. Unsere Retreats sind offen für jedes Level – wichtig ist nicht, wie tief du in eine Pose kommst, sondern wie sehr du dich auf die Erfahrung einlässt.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Was ist enthalten?",
+      "antwort": "In der Retreatgebühr sind 2 Yogaklassen pro Tag, eine Meditations- & Pranayama-Session am Morgen sowie zwei gemeinsame Ausflüge enthalten.\nZusätzlich zahlst du direkt an die Unterkunft für deine gewählte Zimmeroption. Im Zimmerpreis sind täglich zwei Mahlzeiten (Brunch & Dinner), eine kleine Zwischenmahlzeit sowie der Flughafentransfer vom Flughafen zur Unterkunft inbegriffen.",
+      "beiPreisen": true
+    },
+    {
+      "frage": "Wo finden die Retreats statt?",
+      "antwort": "Beide Retreats finden in Hikkaduwa an der Südwestküste Sri Lankas statt – umgeben von Palmen, Meer und der warmen Gelassenheit der Insel. Zwischen tropischer Natur, langen Stränden und dem lebendigen Flair des Küstenortes findest du hier den perfekten Mix aus Ruhe, Inspiration und Meer.",
+      "beiPreisen": true
+    },
+    {
+      "frage": "Finden die Retreats auf Deutsch statt?",
+      "antwort": "Ja. Unsere Yogaeinheiten, Meditationen und alle organisatorischen Infos finden auf Deutsch statt. So kannst du dich ganz fallen lassen – ohne Sprachbarrieren, mit Leichtigkeit und Verbindung.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Welche Zimmertypen gibt es?",
+      "antwort": "In beiden Retreats gibt es sowohl Einzelzimmer als auch geteilte Zimmer. Wenn du mit einer Freundin kommst oder deinem Partner, könntest du dir auch das Doppelbett in einem Einzelzimmer teilen und zahlst dadurch einen ermäßigten Preis. Wenn du dir mit einer gemeinsam reisenden Freundin ein Mehrbettzimmer teilen möchtest, sag uns bei Buchung bitte Bescheid, wir informieren dann die Unterkunft.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Welche Art von Verpflegung gibt es?",
+      "antwort": "Wir verzichten im Retreat bewusst auf Fleisch und leben damit Ahimsa, das yogische Prinzip von Gewaltlosigkeit. Manche Gerichte werden Eier und Milchprodukte enthalten, sag uns gerne vorab Bescheid, wenn du Veganerin bist, dann werden wir den Koch informieren.\nDies gilt auch für Nahrungsmittelunverträglichkeiten – wir werden versuchen, diese so gut es geht zu berücksichtigen.\nIn unseren Retreats leben wir zudem Saucha – das yogische Prinzip von Reinheit. Das bedeutet, dass Alkohol, Nikotin und andere Suchtmittel im Rahmen des Retreats nicht erwünscht sind.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Welche Yoga-Stile unterrichtet ihr?",
+      "antwort": "Am Morgen fließend und belebend – am Abend ruhig und erdend. Wir kombinieren Hatha, Vinyasa, Yin und Restorative Yoga, um Körper und Geist in Balance zu bringen. Jede Einheit ist eine Einladung, tiefer zu spüren, achtsam zu praktizieren und Freude an Bewegung zu finden.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Ich reise allein – passt das trotzdem für mich?",
+      "antwort": "Ja, unbedingt. Viele reisen alleine – und genau darin liegt etwas Besonderes. Unsere Gruppen sind klein, vertraut und offen. Schnell entsteht Verbindung – beim Yoga, beim Frühstück oder unter dem Sternenhimmel. Viele gehen mit neuen Freundschaften nach Hause.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Wie komme ich am besten nach Sri Lanka?",
+      "antwort": "Der internationale Flughafen Colombo Bandaranaike International Airport (CMB) ist dein Ziel. Von dort organisieren wir auf Wunsch den Transfer zur Unterkunft – eine wunderschöne Fahrt entlang der Küste, vorbei an Reisfeldern, Palmen und kleinen Dörfern.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Brauche ich ein Visum für Sri Lanka?",
+      "antwort": "Ja, du kannst dein Touristenvisum ganz einfach online beantragen.\nHier: https://www.eta.gov.lk/slvisa/",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Muss ich Yoga-Erfahrung mitbringen?",
+      "antwort": "Nein. Unsere Retreats sind offen für jedes Level – vom neugierigen Anfänger bis zur erfahrenen Yogini. Wichtig ist nicht, was du kannst, sondern dass du kommst, wie du bist.",
+      "beiPreisen": false
+    },
+    {
+      "frage": "Wie groß sind die Gruppen?",
+      "antwort": "Unsere Gruppen sind bewusst klein – meist zwischen 7 und 10 Teilnehmer:innen. So entsteht Raum für persönliche Betreuung, echtes Miteinander und das, was CARMA besonders macht: Connection, Culture, Community.",
+      "beiPreisen": false
+    }
+  ]
+}

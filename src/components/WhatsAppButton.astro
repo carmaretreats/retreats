@@ -1,17 +1,14 @@
 ---
-// wa.me erwartet die Nummer ohne Plus und ohne Leerzeichen.
-const number = '4915229394860';
-const text = encodeURIComponent('Hallo CARMA Retreats, ich habe eine Frage zum Retreat.');
+import { allgemein as a, format, absaetze, waLink } from '../lib/inhalt.js';
 ---
 <div class="wa-dock">
   <div class="wa-bubble" hidden>
     <button class="wa-close" type="button" aria-label="Hinweis schließen">&times;</button>
-    <p><strong>Namaste!</strong> Du hast eine Frage oder möchtest einfach mal reinspüren?</p>
-    <p>Schreib uns auf WhatsApp, wir melden uns von Herzen gern und meist noch am selben Tag.</p>
+    {absaetze(a.whatsappHinweis).map(t => <p set:html={format(t)} />)}
   </div>
   <a
   class="wa-fab"
-  href={`https://wa.me/${number}?text=${text}`}
+  href={waLink(a.whatsappText)}
   target="_blank"
   rel="noopener"
   aria-label="Schreib uns auf WhatsApp"

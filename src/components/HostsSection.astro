@@ -1,16 +1,14 @@
 ---
+import { ueberUns as u, format, pos } from '../lib/inhalt.js';
 ---
 <section class="section wrap split hosts on-paper reveal" id="hosts">
-  <div class="media"><img src="/media/img/hosts-beide.jpg" alt="Carmen und Mareen" /></div>
+  <div class="media"><img src={u.bild.src} alt={u.bild.alt} style={pos(u.bild)} /></div>
   <div class="stack">
-    <span class="label">Deine Hosts</span>
-    <h2 class="h1">Hi, wir sind <em>Carmen und Mareen.</em></h2>
-    <p class="body">...und gemeinsam sind wir CARMA Retreats.</p>
-    <p class="body">Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt. Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt.</p>
+    <span class="label">{u.label}</span>
+    <h2 class="h1" set:html={format(u.titel)} />
+    {u.absaetze.map(t => <p class="body">{t}</p>)}
     <div class="thumbs">
-      <img src="/media/img/hosts-blick.jpg" alt="Carmen und Mareen blicken in den tropischen Garten" style="object-position: center 40%" />
-      <img src="/media/img/kunde-14.jpg" alt="Eindruck vom Retreat" />
-      <img src="/media/img/hosts-lachen.jpg" alt="Carmen und Mareen lachen sich im Gegenlicht an" style="object-position: center 62%" />
+      {u.kleineBilder.map(b => <img src={b.src} alt={b.alt} style={pos(b)} />)}
     </div>
   </div>
 </section>

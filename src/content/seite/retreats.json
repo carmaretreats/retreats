@@ -1,0 +1,34 @@
+{
+  "label": "Nächste Retreats",
+  "retreats": [
+    {
+      "titel": "Januar in Sri Lanka",
+      "datum": "23.–29. Januar 2027",
+      "ort": "Hikkaduwa, Sri Lanka",
+      "lehrer": "Carmen + Mareen",
+      "beschreibung": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
+      "bild": "/uploads/retreat-jan-sunset.jpg",
+      "bildform": "square",
+      "buchungsbild": "/media/img/C13.jpg"
+    },
+    {
+      "titel": "Februar in Sri Lanka",
+      "datum": "13.–19. Februar 2027",
+      "ort": "Hikkaduwa, Sri Lanka",
+      "lehrer": "Carmen + Guest Teacher",
+      "beschreibung": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
+      "bild": "/uploads/caroline-taborda-dupe.jpeg",
+      "bildform": "circle",
+      "buchungsbild": "/media/img/C16.jpg"
+    }
+  ],
+  "weitere": {
+    "anzeigen": true,
+    "titel": "Weitere Retreats",
+    "datum": "Termine folgen",
+    "beschreibung": "Wir planen schon die nächsten Retreats. Trag dich in unseren Newsletter ein und erfahre als Erste:r davon.",
+    "bild": "/uploads/comming-soon.jpg",
+    "bildform": "square",
+    "button": "In Newsletter eintragen"
+  }
+}

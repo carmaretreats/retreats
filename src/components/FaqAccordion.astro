@@ -1,17 +1,18 @@
 ---
-import { generalFaqs as faqs } from '../lib/faq.js';
+import { faq, format } from '../lib/inhalt.js';
+const fragen = faq.fragen.filter(f => !f.beiPreisen);
 ---
 <section class="section wrap split top text-first reveal mandala" id="faq">
   <div class="stack">
-    <span class="label">Retreat-Infos</span>
-    <h2 class="h1">Antworten auf deine <em>Fragen.</em></h2>
+    <span class="label">{faq.label}</span>
+    <h2 class="h1" set:html={format(faq.titel)} />
     <a class="link" href="#" data-ask>Deine Frage schicken</a>
   </div>
   <div class="faq">
-    {faqs.map((f, i) => (
+    {fragen.map((f, i) => (
       <details open={i === 0}>
-        <summary>{f.question}</summary>
-        <p class="answer">{f.answer}</p>
+        <summary>{f.frage}</summary>
+        <p class="answer">{f.antwort}</p>
       </details>
     ))}
   </div>

@@ -1,19 +1,19 @@
 ---
-import data from '../content/retreats-page.json';
+import { highlights as h, format, pos } from '../lib/inhalt.js';
 ---
 <section class="section wrap split top expect">
   <div class="stack">
-    <span class="label">Was dich erwartet</span>
-    <h2 class="h1">Eine Auszeit in der Ferne, die <em>nachhaltig bewegt.</em></h2>
+    <span class="label">{h.label}</span>
+    <h2 class="h1" set:html={format(h.titel)} />
     <div class="items">
-      {data.retreatHighlightsSection.highlights.map(h => (
-        <div class="item"><div><span>{h.title}</span><span class="muted">{h.text}</span></div></div>
+      {h.punkte.map(p => (
+        <div class="item"><div><span>{p.titel}</span><span class="muted">{p.text}</span></div></div>
       ))}
       <div class="item cta"><a class="book-btn" href="#kontakt">Jetzt buchen</a></div>
     </div>
   </div>
   <div class="pics">
-    <img src="/media/img/kunde-24.jpg" alt="Namaste im Abendlicht unter Palmen" />
-    <img src="/media/img/kunde-27.jpg" alt="Yoga auf der Terrasse zwischen Palmen" />
+    <img src={h.bild1.src} alt={h.bild1.alt} style={pos(h.bild1)} />
+    <img src={h.bild2.src} alt={h.bild2.alt} style={pos(h.bild2)} />
   </div>
 </section>

@@ -1,0 +1,22 @@
+{
+  "label": "Retreat-Infos",
+  "titel": "*Buchungsanfrage*",
+  "text": "In drei Schritten zu deinem Platz. Wir melden uns meist noch am selben Tag.",
+  "schritte": [
+    "Retreat auswählen",
+    "Zimmer auswählen",
+    "Deine Kontaktdaten"
+  ],
+  "link": "Buchungsanfrage starten",
+  "bild": {
+    "src": "/media/img/kunde-23.jpg",
+    "alt": "Eindruck vom Retreat",
+    "ausschnitt": ""
+  },
+  "preisHinweis": "Gesamtpreis pro Person, inklusive Retreatgebühr und Mahlzeiten.",
+  "dankeTitel": "Danke für deine Anfrage, *wir freuen uns.*",
+  "dankeText": "Wie schön, dass du dir eine Auszeit mit uns gönnen möchtest. Wir melden uns gern und meist noch am selben Tag bei dir.",
+  "dankeHinweis": "Dein Platz ist damit noch nicht reserviert. Verbindlich wird er mit der Anzahlung.",
+  "anzahlungLink": "https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00",
+  "agb": "/uploads/carma-agb.pdf"
+}

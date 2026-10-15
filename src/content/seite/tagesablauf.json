@@ -1,0 +1,61 @@
+{
+  "label": "Culture, Community, Connection",
+  "titel": "Ein Tag bei *CARMA Retreats*",
+  "ablauf": [
+    {
+      "zeit": "7.30",
+      "titel": "Meditation und Pranayama",
+      "text": "Starte den Tag in Stille, umgeben von den Geräuschen der Natur."
+    },
+    {
+      "zeit": "8.00",
+      "titel": "Ayurvedischer Morgentee",
+      "text": "Teezeit in Stille - bleib ganz bei Dir."
+    },
+    {
+      "zeit": "8.30",
+      "titel": "Morning Flow Yoga",
+      "text": "Bewege dich im Rhythmus der Insel. Dein Körper erwacht und wird gestärkt bei einer fließenden Yoga Praxis."
+    },
+    {
+      "zeit": "11.00",
+      "titel": "Community Brunch",
+      "text": "Brich das Schweigen und nähre dich mit guten Gesprächen und frischen, lokal inspirierten Gerichten."
+    },
+    {
+      "zeit": "15.00",
+      "titel": "Fruchtplatte und Get-Together",
+      "text": "Am Nachmittag für alle, die nicht unterwegs sind und die Community genießen wollen."
+    },
+    {
+      "zeit": "16.00",
+      "titel": "Ausflug (2 Mal die Woche):",
+      "text": "Komm in Kontakt mit der einheimischen Kultur beim Töpfern, Kochen, auf einer Bootstour oder bei einem Besuch im Tempel."
+    },
+    {
+      "zeit": "17.00",
+      "titel": "Abendpraxis",
+      "text": "Bring Körper und Geist zur Ruhe und beende den Tag mit einer erdenden Yin oder Restorativen Praxis."
+    },
+    {
+      "zeit": "19.00",
+      "titel": "Abendessen",
+      "text": "Wir runden den Tag ab mit einem leckeren, gemeinsamen Essen."
+    },
+    {
+      "zeit": "20.30",
+      "titel": "Sharing Circle & Ausklang in Stille",
+      "text": "Wir lassen den Tag gemeinsam im Sharing Circle ausklingen. Danach gehen wir ins Schweigen und kehren zurück zu uns – in Ruhe und Stille."
+    }
+  ],
+  "bild1": {
+    "src": "/media/img/kunde-10.jpg",
+    "alt": "Ein Moment aus dem Retreat-Alltag",
+    "ausschnitt": ""
+  },
+  "bild2": {
+    "src": "/media/img/C14.jpg",
+    "alt": "Praxis auf der Terrasse",
+    "ausschnitt": ""
+  }
+}
