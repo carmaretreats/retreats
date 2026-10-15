@@ -1,17 +1,16 @@
 ---
+import { galerie as g, pos } from '../lib/inhalt.js';
+// Das Raster setzt genau fünf Bilder in feste Felder, das CMS erzwingt die Anzahl
+const slots = ['g-a', 'g-b', 'g-c', 'g-d', 'g-e'];
 ---
 <section class="gallery reveal">
   <div class="wrap">
     <div class="ghead">
-      <span class="label">Community · Hikkaduwa 2026</span>
-      <span class="label muted">Eine Woche in Bildern</span>
+      <span class="label">{g.label}</span>
+      <span class="label muted">{g.untertitel}</span>
     </div>
     <div class="ggrid">
-      <img class="g-a" src="/media/img/8952.jpg" alt="Die Gruppe in Weiss" style="object-position:center 55%" />
-      <img class="g-b" src="/media/img/kunde-19.jpg" alt="" />
-      <img class="g-c" src="/media/img/kunde-20.jpg" alt="" />
-      <img class="g-d" src="/media/img/kunde-21.jpg" alt="" style="object-position:center 88%" />
-      <img class="g-e" src="/media/img/kunde-26.jpg" alt="" style="object-position:center 38%" />
+      {g.bilder.slice(0, slots.length).map((b, i) => <img class={slots[i]} src={b.src} alt={b.alt} style={pos(b)} />)}
     </div>
   </div>
 </section>

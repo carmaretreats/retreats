@@ -1,16 +1,15 @@
 ---
+import { buchung as b, format, pos } from '../lib/inhalt.js';
 ---
 <section class="section wrap split top text-first contact reveal" id="kontakt">
   <div class="stack">
-    <span class="label">Retreat-Infos</span>
-    <h2 class="h1"><em>Buchungsanfrage</em></h2>
-    <p class="body">In drei Schritten zu deinem Platz. Wir melden uns meist noch am selben Tag.</p>
+    <span class="label">{b.label}</span>
+    <h2 class="h1" set:html={format(b.titel)} />
+    <p class="body">{b.text}</p>
     <div class="rows steplist">
-      <div class="row"><span class="t label">01</span><span>Retreat auswählen</span></div>
-      <div class="row"><span class="t label">02</span><span>Zimmer auswählen</span></div>
-      <div class="row"><span class="t label">03</span><span>Deine Kontaktdaten</span></div>
+      {b.schritte.map((s, i) => <div class="row"><span class="t label">{String(i + 1).padStart(2, '0')}</span><span>{s}</span></div>)}
     </div>
-    <div><a class="link" href="#kontakt">Buchungsanfrage starten</a></div>
+    <div><a class="link" href="#kontakt">{b.link}</a></div>
   </div>
-  <div class="media"><img src="/media/img/kunde-23.jpg" alt="Eindruck vom Retreat" /></div>
+  <div class="media"><img src={b.bild.src} alt={b.bild.alt} style={pos(b.bild)} /></div>
 </section>

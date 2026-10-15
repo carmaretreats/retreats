@@ -1,0 +1,69 @@
+{
+  "label": "Die Infos",
+  "titel": "Unterkunft & *Preise*",
+  "zimmer": [
+    {
+      "name": "Stockbett im Dreibettzimmer",
+      "preis": 200,
+      "ausschnitt": "center 55%",
+      "bilder": [
+        "/media/img/zimmer-stockbett.jpg",
+        "/uploads/monara-3bett.jpeg"
+      ]
+    },
+    {
+      "name": "Doppelbett im Dreibettzimmer",
+      "preis": 350,
+      "ausschnitt": "18% center",
+      "bilder": [
+        "/uploads/monara-3bett.jpeg"
+      ]
+    },
+    {
+      "name": "Einzelzimmer Standard (EG)",
+      "preis": 550,
+      "ausschnitt": "center 45%",
+      "bilder": [
+        "/media/img/zimmer-standard.jpg",
+        "/media/img/zimmer-doppelbett.jpg"
+      ]
+    },
+    {
+      "name": "Einzelzimmer Deluxe (1. OG)",
+      "preis": 650,
+      "ausschnitt": "center",
+      "bilder": [
+        "/media/img/zimmer-deluxe.jpg"
+      ]
+    },
+    {
+      "name": "Einzelzimmer Premium (1. OG)",
+      "preis": 750,
+      "ausschnitt": "center 55%",
+      "bilder": [
+        "/media/img/zimmer-premium.jpg",
+        "/media/img/zimmer-premium-bad.jpg"
+      ]
+    }
+  ],
+  "retreatgebuehr": 1100,
+  "text": "Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.",
+  "bilder": [
+    {
+      "src": "/media/img/Hikkaduwa02.webp",
+      "alt": "Die Shala",
+      "ausschnitt": ""
+    },
+    {
+      "src": "/media/img/kunde-brunch.jpg",
+      "alt": "Gemeinsamer Brunch auf Bananenblättern",
+      "ausschnitt": "center 30%"
+    },
+    {
+      "src": "/media/img/unterkunft-garten.jpg",
+      "alt": "Blick in den Garten mit Pool",
+      "ausschnitt": "center 62%"
+    }
+  ],
+  "infoGuide": "/uploads/carma-info-guide-2027.pdf"
+}

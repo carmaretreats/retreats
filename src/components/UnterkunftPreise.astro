@@ -1,73 +1,63 @@
 ---
 import { bookingFaqs } from '../lib/faq.js';
 import { freeSlots } from '../lib/verfuegbarkeit.js';
+import { unterkunft as u, retreats, format, euro, ortKurz, pos } from '../lib/inhalt.js';
 const { availability = null } = Astro.props;
 
-// Foto-Zuordnung von der Kundin (13.09.2026): das Dreibettzimmer-Foto zeigt
-// Doppelbett und Stockbett, daher zwei Ausschnitte; die Badewanne gehoert zu Premium.
-const rooms = [
-  { name: 'Stockbett im Dreibettzimmer', price: '200 Euro', img: '/media/img/zimmer-stockbett.jpg', pos: 'center 55%', photos: ['/media/img/zimmer-stockbett.jpg', '/uploads/monara-3bett.jpeg'] },
-  { name: 'Doppelbett im Dreibettzimmer', price: '350 Euro', img: '/uploads/monara-3bett.jpeg', pos: '18% center', photos: ['/uploads/monara-3bett.jpeg'] },
-  { name: 'Einzelzimmer Standard (EG)', price: '550 Euro', img: '/media/img/zimmer-standard.jpg', pos: 'center 45%', photos: ['/media/img/zimmer-standard.jpg', '/media/img/zimmer-doppelbett.jpg'] },
-  { name: 'Einzelzimmer Deluxe (1. OG)', price: '650 Euro', img: '/media/img/zimmer-deluxe.jpg', pos: 'center', photos: ['/media/img/zimmer-deluxe.jpg'] },
-  { name: 'Einzelzimmer Premium (1. OG)', price: '750 Euro', img: '/media/img/zimmer-premium.jpg', pos: 'center 55%', photos: ['/media/img/zimmer-premium.jpg', '/media/img/zimmer-premium-bad.jpg'] },
-];
-const dates = [
-  '23.–29. Januar 2027 in Hikkaduwa',
-  '13.–19. Februar 2027 in Hikkaduwa',
-];
+const dates = retreats.retreats.map((r) => ({
+  datum: r.datum,
+  zeile: `${r.datum} in ${ortKurz(r)}${r.lehrer ? ` mit ${r.lehrer}` : ''}`,
+}));
 const month = (d) => d.match(/[A-Za-zäöü]+ \d{4}/)?.[0] ?? d;
 // Hinweis pro Zimmer: "Ausgebucht" wenn in jedem Retreat 0 frei, sonst die vollen Monate
 const soldOut = (room) => {
-  const fullDates = dates.filter((d) => freeSlots(availability, d.split(' in ')[0], room) === 0);
+  const fullDates = dates.filter((d) => freeSlots(availability, d.datum, room) === 0);
   if (!fullDates.length) return '';
-  return fullDates.length === dates.length ? 'Ausgebucht' : `${fullDates.map((d) => month(d).split(' ')[0]).join(' und ')} ausgebucht`;
+  return fullDates.length === dates.length ? 'Ausgebucht' : `${fullDates.map((d) => month(d.datum).split(' ')[0]).join(' und ')} ausgebucht`;
 };
 ---
 <section class="section wrap split top text-first reveal" id="unterkunft">
   <div class="stack">
-    <span class="label">Die Infos</span>
-    <h2 class="h1">Unterkunft & <em>Preise</em></h2>
+    <span class="label">{u.label}</span>
+    <h2 class="h1" set:html={format(u.titel)} />
     <div class="rows roomlist">
-      {rooms.map(r => (
+      {u.zimmer.map(r => (
         <div class="row">
-          <button class="thumb" type="button" data-photos={JSON.stringify(r.photos)} data-title={r.name} aria-label={`Fotos ansehen: ${r.name}`}>
-            <img src={r.img} alt="" style={`object-position: ${r.pos}`} />
+          <button class="thumb" type="button" data-photos={JSON.stringify(r.bilder)} data-title={r.name} aria-label={`Fotos ansehen: ${r.name}`}>
+            <img src={r.bilder[0]} alt="" style={pos(r)} />
           </button>
           <div class="txt"><span>{r.name}</span>{soldOut(r.name) && <span class="soldout">{soldOut(r.name)}</span>}</div>
-          <span class="price">{r.price}</span>
+          <span class="price">{euro(r.preis)}</span>
         </div>
       ))}
     </div>
     <div class="fee">
       <span>Dazu kommt die Retreatgebühr</span>
-      <span class="fee-price">1100 Euro pro Person</span>
+      <span class="fee-price">{euro(u.retreatgebuehr)} pro Person</span>
     </div>
     <div class="faq">
       {bookingFaqs.map(f => (
         <details>
-          <summary>{f.question}</summary>
-          <p class="answer">{f.answer}</p>
+          <summary>{f.frage}</summary>
+          <p class="answer">{f.antwort}</p>
         </details>
       ))}
     </div>
   </div>
   <div class="rooms-media">
-    <p class="body">Die Retreatgebühr für Yogaklassen und Rahmenprogramm beträgt pro Person 1100 Euro. Zusätzlich buchst du Zimmer + Mahlzeiten (Brunch & Dinner) direkt bei der Unterkunft, dem wunderschönen neugebauten Retreat-Center Bunky Monkey in Hikkaduwa.</p>
+    <p class="body">{u.text}</p>
     <div class="squares">
-      <img src="/media/img/Hikkaduwa02.webp" alt="Die Shala" />
-      <img src="/media/img/kunde-brunch.jpg" alt="Gemeinsamer Brunch auf Bananenblättern" style="object-position:center 30%" />
-      <img src="/media/img/unterkunft-garten.jpg" alt="Blick in den Garten mit Pool" style="object-position:center 62%" />
+      {u.bilder.map(b => <img src={b.src} alt={b.alt} style={pos(b)} />)}
     </div>
     <div class="rows dates">
       {dates.map(d => (
         <div class="row between">
-          <span>{d}</span>
-          <a class="book-btn" href="#kontakt" data-retreat={d.split(' in ')[0]}>Jetzt buchen</a>
+          <span>{d.zeile}</span>
+          <a class="book-btn" href="#kontakt" data-retreat={d.datum}>Jetzt buchen</a>
         </div>
       ))}
     </div>
-    <a class="link guide" href="/uploads/carma-info-guide-2027.pdf" target="_blank" rel="noopener">Info-Guide als PDF</a>
+    <a class="link guide" href={u.infoGuide} target="_blank" rel="noopener">Info-Guide als PDF</a>
   </div>
 </section>
 

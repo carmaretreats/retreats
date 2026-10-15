@@ -20,9 +20,8 @@ import BookingModal from '../../components/BookingModal.astro';
 import WhatsAppButton from '../../components/WhatsAppButton.astro';
 import AskModal from '../../components/AskModal.astro';
 import NewsletterModal from '../../components/NewsletterModal.astro';
-import data from '../../content/retreats-page.json';
+import { ueberUns } from '../../lib/inhalt.js';
 import { loadAvailability } from '../../lib/verfuegbarkeit.js';
-const people = data.aboutSection.people;
 const availability = await loadAvailability(process.env.AVAILABILITY_SHEET_URL || import.meta.env.AVAILABILITY_SHEET_URL);
 ---
 <Layout>
@@ -38,9 +37,12 @@ const availability = await loadAvailability(process.env.AVAILABILITY_SHEET_URL |
     <EinTag />
     <UnterkunftPreise availability={availability} />
     <HostsSection />
-    <AboutSection person={people[0]} id="carmen" />
-    <Divider motif="m4" />
-    <AboutSection person={people[1]} id="mareen" flip={true} />
+    {ueberUns.personen.map((p, i) => (
+      <>
+        {i > 0 && <Divider motif="m4" />}
+        <AboutSection person={p} id={p.name.toLowerCase()} flip={i % 2 === 1} />
+      </>
+    ))}
     <TestimonialSlider />
     <GallerySection />
     <ContactSection />

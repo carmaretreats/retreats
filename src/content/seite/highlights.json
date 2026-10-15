@@ -1,0 +1,44 @@
+{
+  "label": "Was dich erwartet",
+  "titel": "Eine Auszeit in der Ferne, die *nachhaltig bewegt.*",
+  "punkte": [
+    {
+      "titel": "Tägliche Yogaklassen",
+      "text": "Bewege dich im Rhythmus der Insel und finde deine Balance zwischen Energie und Ruhe. Morgens ganz Yang, abends Yin."
+    },
+    {
+      "titel": "Lokale Kultur erleben",
+      "text": "Mehr als Sightseeing. Echte Begegnungen, lokale Kultur und Natur, die berührt. Kochkurs, Bootsfahrt und Besuch im Tempel."
+    },
+    {
+      "titel": "Wohlfühlort",
+      "text": "Boutique-Hotel in Strandnähe – modern und umgeben von Natur. Mit Pool, Garten und offenen Räumen zum Durchatmen und Sein."
+    },
+    {
+      "titel": "Meditation & Pranayama",
+      "text": "Slow down. Mit jedem Atemzug ein Stück näher bei dir."
+    },
+    {
+      "titel": "Community Vibes",
+      "text": "Real Connections. Komm allein, geh mit Freunden fürs Leben."
+    },
+    {
+      "titel": "Soulfood",
+      "text": "Täglich Brunch und Dinner in der Gruppe. Nährt auf allen Ebenen."
+    },
+    {
+      "titel": "Zeit für Dich",
+      "text": "Genieß deine Me-Time mit einer ayurvedischen Massage, häng am Strand ab oder lern Surfen."
+    }
+  ],
+  "bild1": {
+    "src": "/media/img/kunde-24.jpg",
+    "alt": "Namaste im Abendlicht unter Palmen",
+    "ausschnitt": ""
+  },
+  "bild2": {
+    "src": "/media/img/kunde-27.jpg",
+    "alt": "Yoga auf der Terrasse zwischen Palmen",
+    "ausschnitt": ""
+  }
+}

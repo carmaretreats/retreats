@@ -1,0 +1,50 @@
+{
+  "label": "Deine Hosts",
+  "titel": "Hi, wir sind *Carmen und Mareen.*",
+  "absaetze": [
+    "...und gemeinsam sind wir CARMA Retreats.",
+    "Wir glauben, dass Veränderung bei uns selbst beginnt. Und laden dich ein an einen Ort, an dem die Zeit langsamer wird. An einen Ort, an dem du ankommen darfst. Bei dir selbst, in Verbindung mit anderen, im Hier und Jetzt. Wir laden dich ein zu einer Auszeit in der Ferne, die nachhaltig bewegt."
+  ],
+  "bild": {
+    "src": "/media/img/hosts-beide.jpg",
+    "alt": "Carmen und Mareen",
+    "ausschnitt": ""
+  },
+  "kleineBilder": [
+    {
+      "src": "/media/img/hosts-blick.jpg",
+      "alt": "Carmen und Mareen blicken in den tropischen Garten",
+      "ausschnitt": "center 40%"
+    },
+    {
+      "src": "/media/img/kunde-14.jpg",
+      "alt": "Eindruck vom Retreat",
+      "ausschnitt": ""
+    },
+    {
+      "src": "/media/img/hosts-lachen.jpg",
+      "alt": "Carmen und Mareen lachen sich im Gegenlicht an",
+      "ausschnitt": "center 62%"
+    }
+  ],
+  "personen": [
+    {
+      "name": "Carmen",
+      "text": "Carmen stammt aus Zürich und hat ihre Yogalehrerausbildung bei Stephen Thomas absolviert. Seither unterrichtet sie dort mit Hingabe und Achtsamkeit.\nSeit über zehn Jahren prägen Hatha Yoga, Meditation und Pranayama ihren Weg – Praktiken, die für sie weit über die Bewegung hinausgehen und zu einer tiefen Lebenshaltung geworden sind.\nEin großes Herzensinteresse gilt der buddhistischen Psychologie, die ihre Arbeit als Yogalehrerin bereichert und sie zu einer empathischen Begleiterin macht. Als feinfühlige Spaceholderin hört sie zu, spürt hin und schafft Räume, in denen Menschen sich sicher und gesehen fühlen.\nNeben dem Yoga ist das Reisen ihre zweite große Leidenschaft. Nach vier Jahren in Südamerika führte sie ihr Weg nach Asien – auf der Suche nach Orten, an denen Spiritualität, Natur und Kultur miteinander verschmelzen. In Sri Lanka fand sie all das: die Leichtigkeit des Seins, die Stille, die Farben und die Menschen, die sie seither nicht mehr loslassen.\nHeute nennt Carmen die Insel ihr zweites Zuhause. Sie reist regelmäßig dorthin, kennt ihre Tempel, Strände und verborgenen Schätze – und teilt dieses Wissen in den CARMA Retreats mit viel Herz und Achtsamkeit.\nIn ihren Stunden verbindet sie Bewegung, Berührung, Düfte und Klänge zu einem ganzheitlichen Erlebnis, das Körper, Geist und Seele gleichermaßen anspricht.\nCarmen spürt, was Menschen brauchen – und schafft Momente, in denen man einfach sein darf.",
+      "bild": {
+        "src": "/uploads/hosts-carmen.jpg",
+        "alt": "Carmen Portrait",
+        "ausschnitt": "center 25%"
+      }
+    },
+    {
+      "name": "Mareen",
+      "text": "Mareen lebt und unterrichtet in Berlin – doch ihr Herz schlägt überall dort, wo Yoga, Sonne und das Meer aufeinandertreffen.\nSeit ihrer ersten Ausbildung 2018 teilt sie ihre Praxis auf der ganzen Welt – von Berlin bis Bali, von Griechenland bis Sri Lanka. Von Natur aus nicht die Beweglichste, weiß sie: Yoga ist kein Wettbewerb, sondern eine Begegnung mit sich selbst.\nIn ihren Klassen geht es nicht um die perfekte Pose, sondern um bewusste Bewegung – darum, den Körper sicher auszurichten, ins Spüren zu kommen und Leichtigkeit in der Praxis zu finden. Mareen lädt dazu ein, achtsam zu praktizieren, aus dem Denken ins Fühlen zu kommen und Freude an der Bewegung zu finden. Ihre Stunden sind kraftvoll und fließend, zugleich erdend und zentrierend – ein Raum, in dem du dich ganz bei dir fühlst.\nÜber 1000 Ausbildungsstunden in Hatha, Vinyasa, Jivamukti und Yin prägen ihren Stil – doch das, was sie wirklich ausmacht, ist die Haltung dahinter: Gelebte Praxis, Tiefe und Freude an Begegnung - on and off the mat. Wie Carmen ist auch Mareen eine leidenschaftliche Reisende. Nach Jahren in Südostasien hat Sri Lanka ihr Herz erobert – mit seiner einzigartigen Natur, den endlosen Stränden, dem Duft von Curryblättern und der Herzlichkeit der Menschen. Mit CARMA Retreats hat sie zusammen mit Carmen einen Ort gegründet, an dem sich ihre beiden größten Leidenschaften verbinden: Yoga und das Reisen. Ein Ort, an dem Menschen ankommen dürfen – in der Ferne und in sich selbst.",
+      "bild": {
+        "src": "/uploads/hosts-mareen.jpg",
+        "alt": "Mareen Portrait",
+        "ausschnitt": "center 68%"
+      }
+    }
+  ]
+}

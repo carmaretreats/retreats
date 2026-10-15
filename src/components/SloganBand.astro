@@ -1,11 +1,10 @@
 ---
-import data from '../content/retreats-page.json';
-const welcome = data.heroWelcomeSection;
+import { slogan as s, format } from '../lib/inhalt.js';
 ---
 <section class="section on-paper slogan-band reveal">
   <div class="wrap inner">
-    <h2 class="h1">Fern von allem, nah bei dir.</h2>
-    <p class="body">{welcome.text}</p>
-    <button class="link" type="button" data-ask>Schreib uns</button>
+    <h2 class="h1" set:html={format(s.titel)} />
+    <p class="body">{s.text}</p>
+    <button class="link" type="button" data-ask>{s.button}</button>
   </div>
 </section>

@@ -1,7 +1,6 @@
 ---
-import data from '../content/retreats-page.json';
-// Monas Stimme ist doppelt so lang wie die anderen und wuerde die Buehne fuer alle strecken.
-const items = data.testimonialSection.testimonials.filter(t => t.name !== 'Mona');
+import { stimmen, format } from '../lib/inhalt.js';
+const items = stimmen.stimmen.filter(t => t.anzeigen !== false);
 ---
 <section class="voices reveal" id="stimmen">
   <div class="vmandala" aria-hidden="true">
@@ -10,15 +9,15 @@ const items = data.testimonialSection.testimonials.filter(t => t.name !== 'Mona'
     ))}
   </div>
   <div class="wrap head">
-    <span class="label">Stimmen unserer Gäste</span>
-    <h2 class="h1">Sieben Tage, die <em>nachwirken.</em></h2>
+    <span class="label">{stimmen.label}</span>
+    <h2 class="h1" set:html={format(stimmen.titel)} />
   </div>
   <div class="wrap vstage" data-voices aria-roledescription="Karussell" aria-label="Stimmen unserer Gäste">
     <div class="vslides">
       {items.map((t, i) => (
         <figure class={i === 0 ? 'vslide on' : 'vslide'} aria-hidden={i !== 0}>
-          <img src={t.src} alt="" width="56" height="56" loading="lazy" />
-          <blockquote>{t.description}</blockquote>
+          <img src={t.bild} alt="" width="56" height="56" loading="lazy" />
+          <blockquote>{t.text}</blockquote>
           <figcaption class="label">{t.name}</figcaption>
         </figure>
       ))}

@@ -1,5 +1,6 @@
 ---
 import NewsletterForm from './NewsletterForm.astro';
+import { allgemein as a, buchung, format, waLink } from '../lib/inhalt.js';
 const seite = [
   { label: 'Retreats', href: '#retreats' },
   { label: 'Unterkunft', href: '#unterkunft' },
@@ -9,7 +10,7 @@ const seite = [
 ];
 const rechtliches = [
   { label: 'Impressum', href: '/impressum' },
-  { label: 'AGB', href: '/uploads/carma-agb.pdf' },
+  { label: 'AGB', href: buchung.agb },
   { label: 'Datenschutzerklärung', href: '/datenschutz' },
   { label: 'Cookie-Einstellungen', href: '#' },
 ];
@@ -18,18 +19,18 @@ const rechtliches = [
   <div class="top">
     <div class="stack newsletter-block">
       <span class="label">Newsletter</span>
-      <h3 class="h1">Post <em>von CARMA.</em></h3>
-      <p>Erfahre als Erste:r von neuen Retreats und bekomme ab und zu ein Stück Auszeit ins Postfach.</p>
+      <h3 class="h1" set:html={format(a.newsletterTitel)} />
+      <p>{a.newsletterText}</p>
       <NewsletterForm />
     </div>
     <div class="cols">
       <div><span class="label">Seite</span>{seite.map(i => <a href={i.href}>{i.label}</a>)}</div>
-      <div><span class="label">Kontakt</span><a href="https://www.instagram.com/carmaretreats/" target="_blank" rel="noopener">Instagram</a><a href="https://wa.me/4915229394860" target="_blank" rel="noopener">WhatsApp</a><a href="mailto:kontakt@carma-retreats.com">E-Mail</a></div>
+      <div><span class="label">Kontakt</span><a href={a.instagram} target="_blank" rel="noopener">Instagram</a><a href={waLink()} target="_blank" rel="noopener">WhatsApp</a><a href={`mailto:${a.email}`}>E-Mail</a></div>
       <div><span class="label">Rechtliches</span>{rechtliches.map(i => <a href={i.href}>{i.label}</a>)}</div>
     </div>
   </div>
   <div class="bottom">
     <div class="wordmark"><img src="/media/logo/Carna-Retreats---Links---Weiss.svg" alt="CARMA Retreats" /></div>
-    <span class="label">© 2026 CARMA Retreats · Alle Rechte vorbehalten</span>
+    <span class="label">{a.copyright}</span>
   </div>
 </footer>

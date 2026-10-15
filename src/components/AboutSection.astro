@@ -1,15 +1,13 @@
 ---
+import { absaetze, pos } from '../lib/inhalt.js';
 const { person, flip = false, id } = Astro.props;
-// das CMS trennt Absaetze mit einfachen Zeilenumbruechen
-const paragraphs = (person.text || '').split(/\n+/).map(t => t.trim()).filter(Boolean);
-const name = (person.title || '').replace(/^Über\s+/, '');
 ---
 <section class="section wrap about reveal" id={id}>
   <div class={flip ? 'about-grid flip' : 'about-grid'}>
-    <div class="media"><img src={person.image} alt={person.imageAlt} style={flip ? 'object-position:center 68%' : 'object-position:center 25%'} /></div>
+    <div class="media"><img src={person.bild.src} alt={person.bild.alt} style={pos(person.bild)} /></div>
     <div class="cols2">
-      <h2 class="h1">Über <em>{name}</em></h2>
-      {paragraphs.map(t => <p>{t}</p>)}
+      <h2 class="h1">Über <em>{person.name}</em></h2>
+      {absaetze(person.text).map(t => <p>{t}</p>)}
     </div>
   </div>
 </section>

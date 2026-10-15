@@ -1,14 +1,10 @@
 ---
-const {
-  headline = 'Ankommen und',
-  highlight = 'Aufatmen.',
-  tag = 'Yoga-Retreats, die nachhaltig bewegen: eine Woche am Meer, in kleiner Gruppe und auf Deutsch. Hikkaduwa, Sri Lanka, im Januar und Februar 2027.',
-} = Astro.props;
+import { kopfbereich as k, format, pos } from '../lib/inhalt.js';
 ---
 <section id="hero" class="hero hero-original on-image">
   <div class="hero-photos">
-    <img class="hero-photo hero-photo-primary" src="/media/img/C10.jpg" width="1142" height="1600" alt="Gemeinsame Yogapraxis im offenen Yogapavillon" loading="eager" fetchpriority="high" decoding="async" />
-    <img class="hero-photo hero-photo-secondary" src="/media/img/hero-crew.jpg" width="1066" height="1600" alt="Carmen und Mareen in Namaste-Haltung in der Yogashala" decoding="async" />
+    <img class="hero-photo hero-photo-primary" src={k.bild1.src} width="1142" height="1600" alt={k.bild1.alt} style={pos(k.bild1)} loading="eager" fetchpriority="high" decoding="async" />
+    <img class="hero-photo hero-photo-secondary" src={k.bild2.src} width="1066" height="1600" alt={k.bild2.alt} style={pos(k.bild2)} decoding="async" />
     <video class="hero-video" poster="/media/img/hero-portrait-poster.jpg" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
       <source src="/media/video/hero-portrait.mp4" type="video/mp4" media="(max-width: 767px)" />
     </video>
@@ -16,8 +12,8 @@ const {
   <img class="hero-mark" src="/uploads/Markenzeichen-Weis.png" alt="" aria-hidden="true" width="56" height="56" />
   <div class="copy">
     <div class="stack">
-      <h1 class="h1">{headline} <em>{highlight}</em></h1>
-      <p class="tag">{tag}</p>
+      <h1 class="h1" set:html={format(k.titel)} />
+      <p class="tag">{k.text}</p>
     </div>
     <div class="actions">
       <a class="book-btn terra" href="#kontakt">Jetzt buchen</a>

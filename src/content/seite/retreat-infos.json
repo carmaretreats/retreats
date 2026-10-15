@@ -1,0 +1,24 @@
+{
+  "label": "Retreat-Infos · Hikkaduwa",
+  "titel": "Willkommen an einem Ort, an dem die Zeit *langsamer wird.*",
+  "text": "Wir laden dich ein, mit uns das exotische Sri Lanka zu entdecken - eine Woche im tollen Strandort Hikkaduwa an der Westküste, genau zur besten Reisezeit: im Januar und Februar.\n\nIn Laufweite vom Strand entfernt findest du bei uns Raum zum Durchatmen, Loslassen und Ankommen – in der Ferne und in dir selbst.\n\nDich erwarten tägliche Yoga-Sessions, inspirierende Begegnungen mit der Kultur Sri Lankas und echte Connection. Gemeinsam mit anderen Yogis erlebst du Tage voller Bewegung, Ruhe und Leichtigkeit – mit Zeit zum Ankommen, Durchatmen und einfach Sein.\n\nAuch abseits der Yogamatte möchten wir dir das Sri Lanka zeigen, das wir lieben: Bei einem Kochkurs, einer Bootsfahrt durch die tropische Landschaft und einem Tempelbesuch tauchst du in das Leben und die Kultur der Insel ein und lernst das Land mit allen Sinnen kennen.\n\nEine Auszeit in der Ferne, die nachhaltig bewegt.",
+  "bild": {
+    "src": "/media/img/kunde-09.jpg",
+    "alt": "Eindruck vom Retreat in Hikkaduwa",
+    "ausschnitt": "45% center"
+  },
+  "fakten": [
+    {
+      "zahl": "10–15",
+      "text": "Minuten zu Fuß zum Strand"
+    },
+    {
+      "zahl": "2",
+      "text": "Yogaklassen am Tag"
+    },
+    {
+      "zahl": "10–12",
+      "text": "Teilnehmer:innen"
+    }
+  ]
+}
