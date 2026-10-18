@@ -132,7 +132,7 @@ if (modal) {
     modal.classList.remove("sent");
     if (retreat) {
       const r = modal.querySelector(`[name="retreat"][value="${retreat}"]`);
-      if (r) r.checked = true;
+      if (r && !r.disabled) r.checked = true;
     }
     show(0);
     modal.showModal();

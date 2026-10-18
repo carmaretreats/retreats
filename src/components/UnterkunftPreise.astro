@@ -6,14 +6,17 @@ const { availability = null } = Astro.props;
 
 const dates = retreats.retreats.map((r) => ({
   datum: r.datum,
+  ausgebucht: Boolean(r.ausgebucht),
   zeile: `${r.datum} in ${ortKurz(r)}${r.lehrer ? ` mit ${r.lehrer}` : ''}`,
 }));
+// Im CMS ausgebuchte Retreats zählen für den Zimmer-Hinweis nicht mit
+const open = dates.filter((d) => !d.ausgebucht);
 const month = (d) => d.match(/[A-Za-zäöü]+ \d{4}/)?.[0] ?? d;
-// Hinweis pro Zimmer: "Ausgebucht" wenn in jedem Retreat 0 frei, sonst die vollen Monate
+// Hinweis pro Zimmer: "Ausgebucht" wenn in jedem offenen Retreat 0 frei, sonst die vollen Monate
 const soldOut = (room) => {
-  const fullDates = dates.filter((d) => freeSlots(availability, d.datum, room) === 0);
+  const fullDates = open.filter((d) => freeSlots(availability, d.datum, room) === 0);
   if (!fullDates.length) return '';
-  return fullDates.length === dates.length ? 'Ausgebucht' : `${fullDates.map((d) => month(d.datum).split(' ')[0]).join(' und ')} ausgebucht`;
+  return fullDates.length === open.length ? 'Ausgebucht' : `${fullDates.map((d) => month(d.datum).split(' ')[0]).join(' und ')} ausgebucht`;
 };
 ---
 <section class="section wrap split top text-first reveal" id="unterkunft">
@@ -53,7 +56,7 @@ const soldOut = (room) => {
       {dates.map(d => (
         <div class="row between">
           <span>{d.zeile}</span>
-          <a class="book-btn" href="#kontakt" data-retreat={d.datum}>Jetzt buchen</a>
+          {d.ausgebucht ? <span class="soldout">Ausgebucht</span> : <a class="book-btn" href="#kontakt" data-retreat={d.datum}>Jetzt buchen</a>}
         </div>
       ))}
     </div>
@@ -109,6 +112,7 @@ const soldOut = (room) => {
   /* hebt den Spalten-Abstand auf, der Link rueckt an die Terminzeilen */
   .guide { margin-top: calc(-1 * clamp(28px, 3.5vw, 44px)); }
   .roomlist .row + .row { border-top: 0; }
+  .dates .soldout { font-size: var(--fs-nav); letter-spacing: 0.04em; text-transform: uppercase; color: var(--terra); }
   .faq details:first-of-type { border-top: 0; }
   .faq details:last-of-type { border-bottom: 0; }
   @media (max-width: 860px) {
