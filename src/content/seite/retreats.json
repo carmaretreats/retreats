@@ -9,17 +9,19 @@
       "beschreibung": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
       "bild": "/uploads/retreat-jan-sunset.jpg",
       "bildform": "square",
-      "buchungsbild": "/media/img/C13.jpg"
+      "buchungsbild": "/media/img/C13.jpg",
+      "ausgebucht": true
     },
     {
       "titel": "Februar in Sri Lanka",
       "datum": "13.–19. Februar 2027",
       "ort": "Hikkaduwa, Sri Lanka",
-      "lehrer": "Carmen + Guest Teacher",
+      "lehrer": "Carmen + Mareen",
       "beschreibung": "Eine Woche voller Tiefe & Wärme – erlebe Yoga, Community-Feeling und singhalesische Kultur in Strandnähe.",
       "bild": "/uploads/caroline-taborda-dupe.jpeg",
       "bildform": "circle",
-      "buchungsbild": "/media/img/C16.jpg"
+      "buchungsbild": "/media/img/C16.jpg",
+      "ausgebucht": false
     }
   ],
   "weitere": {

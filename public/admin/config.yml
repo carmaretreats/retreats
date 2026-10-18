@@ -59,6 +59,7 @@ collections:
               - { label: "Datum", name: "datum", widget: "string", hint: "Z. B. \"23.–29. Januar 2027\". Monat und Jahr müssen zum Zimmer-Sheet passen, sonst stimmt die Verfügbarkeit nicht." }
               - { label: "Ort", name: "ort", widget: "string", hint: "Z. B. \"Hikkaduwa, Sri Lanka\"." }
               - { label: "Mit (Lehrer:innen)", name: "lehrer", widget: "string", required: false, hint: "Z. B. \"Carmen + Mareen\". Leer lassen, um es auszublenden." }
+              - { label: "Ausgebucht", name: "ausgebucht", widget: "boolean", default: false, required: false, hint: "An: Das Retreat bleibt sichtbar, wird aber als \"Ausgebucht\" gezeigt und lässt sich nicht mehr buchen." }
               - { label: "Beschreibung", name: "beschreibung", widget: "text" }
               - { label: "Bild der Karte", name: "bild", widget: "image" }
               - { label: "Bildform", name: "bildform", widget: "select", options: [{ label: "Eckig", value: "square" }, { label: "Rund", value: "circle" }], default: "square" }

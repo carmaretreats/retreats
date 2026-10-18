@@ -6,6 +6,8 @@ const { availability = null } = Astro.props;
 // Ausgebuchte Zimmer je Retreat, das Skript sperrt sie im Zimmer-Schritt
 const full = Object.fromEntries(RETREATS.map((r) => [r, ROOMS.filter((z) => freeSlots(availability, r, z) === 0)]));
 const abPreis = Math.min(...unterkunft.zimmer.map(gesamtpreis));
+// Vorausgewählt ist das erste Retreat, das im CMS nicht als ausgebucht markiert ist
+const first = Math.max(0, retreats.retreats.findIndex((r) => !r.ausgebucht));
 ---
 <dialog class="modal" id="booking" data-full={JSON.stringify(full)}>
   <form class="inner" onsubmit="return false">
@@ -18,7 +20,7 @@ const abPreis = Math.min(...unterkunft.zimmer.map(gesamtpreis));
     <div class="panel on">
       <div class="options">
         {retreats.retreats.map((r, i) => (
-          <label class="option"><input type="radio" name="retreat" value={r.datum} checked={i === 0}><img src={r.buchungsbild || r.bild} alt=""><span class="txt"><span>{r.datum}</span></span><span class="price">ab {euro(abPreis)}</span></label>
+          <label class:list={['option', { full: r.ausgebucht }]}><input type="radio" name="retreat" value={r.datum} checked={i === first} disabled={r.ausgebucht}><img src={r.buchungsbild || r.bild} alt=""><span class="txt"><span>{r.datum}</span></span><span class="price">ab {euro(abPreis)}</span></label>
         ))}
       </div>
     </div>
