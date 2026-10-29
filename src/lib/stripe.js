@@ -1,5 +1,11 @@
 import { createHmac, timingSafeEqual } from 'node:crypto';
 
+// Legacy CARMA payment links have no integration tag. Setu uses the same account
+// with integration=setu-yoga and must never trigger CARMA mail or sheet updates.
+export function isCarmaCheckout(session) {
+  return !session?.metadata?.integration || session.metadata.integration === 'carma-retreats';
+}
+
 // Prüft den Stripe-Signature-Header wie das offizielle SDK (v1-Schema, 5 Minuten Toleranz),
 // ohne dafür das ganze SDK samt Secret Key einzubinden
 export function verifyStripeSignature(payload, header, secret, now = Date.now() / 1000, tolerance = 300) {
