@@ -1,12 +1,19 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { createHmac } from 'node:crypto';
-import { verifyStripeSignature } from '../src/lib/stripe.js';
+import { isCarmaCheckout, verifyStripeSignature } from '../src/lib/stripe.js';
 import { bookingRef, parseBookingRef } from '../src/lib/retreats.js';
 import { buildPaymentMails } from '../src/lib/anfrage.js';
 
 const secret = 'whsec_test_only';
 const sign = (payload, t) => `t=${t},v1=${createHmac('sha256', secret).update(`${t}.${payload}`).digest('hex')}`;
+
+test('Setu and other tagged integrations never trigger CARMA mail or sheet updates', () => {
+  assert.equal(isCarmaCheckout({ metadata: { integration: 'setu-yoga' } }), false);
+  assert.equal(isCarmaCheckout({ metadata: { integration: 'another-site' } }), false);
+  assert.equal(isCarmaCheckout({ metadata: { integration: 'carma-retreats' } }), true);
+  assert.equal(isCarmaCheckout({}), true);
+});
 
 test('accepts a correctly signed payload and rejects tampering, wrong secret and old timestamps', () => {
   const now = 1_800_000_000;

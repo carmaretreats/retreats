@@ -1,5 +1,5 @@
 import type { APIRoute } from 'astro';
-import { verifyStripeSignature } from '../../lib/stripe.js';
+import { isCarmaCheckout, verifyStripeSignature } from '../../lib/stripe.js';
 import { parseBookingRef } from '../../lib/retreats.js';
 import { sendPaymentMails } from '../../lib/anfrage.js';
 import { recordBooking, sheetIdFromUrl } from '../../lib/sheet.js';
@@ -15,6 +15,7 @@ export const POST: APIRoute = async ({ request }) => {
   }
   const event = JSON.parse(payload);
   const session = event.data?.object ?? {};
+  if (!isCarmaCheckout(session)) return new Response('Ignored', { status: 200 });
   // Bei Lastschrift o. ä. kommt "completed" noch unbezahlt, das Geld erst mit async_payment_succeeded
   const status =
     (event.type === 'checkout.session.completed' && session.payment_status === 'paid') || event.type === 'checkout.session.async_payment_succeeded' ? 'paid'
