@@ -8,6 +8,9 @@ const { person, flip = false, id } = Astro.props;
     <div class="cols2">
       <h2 class="h1">Über <em>{person.name}</em></h2>
       {absaetze(person.text).map(t => <p>{t}</p>)}
+      {person.link?.url && (
+        <p><a href={person.link.url} style="text-decoration:underline;text-underline-offset:3px">{person.link.text || person.link.url}</a></p>
+      )}
     </div>
   </div>
 </section>
