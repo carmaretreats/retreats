@@ -169,6 +169,13 @@ collections:
             fields:
               - { label: "Name", name: "name", widget: "string" }
               - { label: "Text", name: "text", widget: "text", hint: "Jede neue Zeile wird ein eigener Absatz." }
+              - label: "Link (optional)"
+                name: "link"
+                widget: "object"
+                required: false
+                fields:
+                  - { label: "Linktext", name: "text", widget: "string", required: false }
+                  - { label: "Adresse", name: "url", widget: "string", required: false, hint: "z. B. https://setu-yoga.de" }
               - { label: "Foto", name: "bild", widget: "object", fields: *bild }
 
       - name: "stimmen"
