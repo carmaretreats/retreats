@@ -30,7 +30,7 @@ const table = (pairs) => `<table role="presentation" cellpadding="0" cellspacing
   .map(([k, v]) => `<tr><td style="${T.th}">${k}</td><td style="${T.td}">${esc(v)}</td></tr>`)
   .join('')}</table>`;
 
-const STRIPE = 'https://buy.stripe.com/bJe28saY90bDa8Y3Lv3sI00';
+const STRIPE = 'https://buy.stripe.com/dRm5kE4mRddubizcW63cc03';
 // Retreat, Zimmer und Name als Referenz an der Stripe-Zahlung, damit die Kundin
 // im Stripe-Dashboard sieht, welches Zimmer bezahlt wurde
 const payLink = ({ retreat, room, name, email }) =>
